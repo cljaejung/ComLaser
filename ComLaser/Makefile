@@ -187,8 +187,8 @@ minimal$(EXEEXT): $(MINIMAL_OBJECTS) $(__minimal___win32rc)
 minimal_sample_rc.o: $(srcdir)/../../samples/sample.rc
 	$(WINDRES) -i$< -o$@    --define __WX$(TOOLKIT)__ $(__WXUNIV_DEFINE_p_2)   $(__EXCEPTIONS_DEFINE_p_2) $(__RTTI_DEFINE_p_2) $(__THREAD_DEFINE_p_2)   --include-dir $(srcdir) $(__DLLFLAG_p_2) --include-dir $(srcdir)/../../samples $(__RCDEFDIR_p_1) --include-dir $(top_srcdir)/include
 
-minimal_minimal.o: $(srcdir)/minimal.cpp
-	$(CXXC) -c -o $@ $(MINIMAL_CXXFLAGS) $(srcdir)/minimal.cpp
+minimal_minimal.o: $(srcdir)/ComLaser.cpp
+	$(CXXC) -c -o $@ $(MINIMAL_CXXFLAGS) $(srcdir)/ComLaser.cpp
 
 
 # Include dependency info, if present:
