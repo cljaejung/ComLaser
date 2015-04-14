@@ -18,7 +18,7 @@ SETFILE =
 NM = nm
 BK_DEPS = /home/odroid/work/wxX11-2.8.12/bk-deps
 srcdir = .
-top_srcdir = ../..
+top_srcdir = ../../wxX11-2.8.12
 LIBS = -lz -ldl -lm
 LDFLAGS_GUI = 
 CXX = g++
@@ -49,7 +49,7 @@ MINIMAL_CXXFLAGS = -D__WX$(TOOLKIT)__ $(__WXUNIV_DEFINE_p) \
 MINIMAL_OBJECTS =  \
 	$(__minimal___win32rc) \
 	$(__minimal_os2_lib_res) \
-	minimal_minimal.o
+	minimal_ComLaser.o
 
 ### Conditionally set variables: ###
 
@@ -85,8 +85,8 @@ __WXUNIV_DEFINE_p_2 = --define __WXUNIVERSAL__
 __DLLFLAG_p = -DWXUSINGDLL
 __DLLFLAG_p_1 = -d WXUSINGDLL
 __DLLFLAG_p_2 = --define WXUSINGDLL
-COND_PLATFORM_OS2_1___minimal___os2_emxbindcmd = $(NM) minimal$(EXEEXT) | if \
-	grep -q pmwin.763 ; then emxbind -ep minimal$(EXEEXT) ; fi
+COND_PLATFORM_OS2_1___minimal___os2_emxbindcmd = $(NM) comlaser$(EXEEXT) | if \
+	grep -q pmwin.763 ; then emxbind -ep comlaser$(EXEEXT) ; fi
 #__minimal___os2_emxbindcmd = $(COND_PLATFORM_OS2_1___minimal___os2_emxbindcmd)
 #__RCDEFDIR_p = -i \
 #	$(LIBDIRNAME)/wx/include/$(TOOLCHAIN_FULLNAME)
@@ -133,12 +133,12 @@ COND_TOOLKIT_MAC___MACOSX_RESOURCES_p_1 = $(REZ) -d __DARWIN__ -t APPL -d \
 	__WX$(TOOLKIT)__ $(__WXUNIV_DEFINE_p_1) $(__EXCEPTIONS_DEFINE_p_1) \
 	$(__RTTI_DEFINE_p_1) $(__THREAD_DEFINE_p_1) -i $(srcdir) $(__DLLFLAG_p_1) -i \
 	$(srcdir)/../../samples $(__RCDEFDIR_p) -i $(top_srcdir)/include -o \
-	minimal$(EXEEXT) Carbon.r sample.r
+	comlaser$(EXEEXT) Carbon.r sample.r
 #__MACOSX_RESOURCES_p_1 = $(COND_TOOLKIT_MAC___MACOSX_RESOURCES_p_1)
 
 ### Targets: ###
 
-all: minimal$(EXEEXT) $(__minimal_bundle___depname)
+all: comlaser$(EXEEXT) $(__minimal_bundle___depname)
 
 install: 
 
@@ -149,13 +149,13 @@ install-strip: install
 clean: 
 	rm -rf ./.deps ./.pch
 	rm -f ./*.o
-	rm -f minimal$(EXEEXT)
+	rm -f comlaser$(EXEEXT)
 	rm -rf minimal.app
 
 distclean: clean
 	rm -f config.cache config.log config.status bk-deps bk-make-pch shared-ld-sh Makefile
 
-minimal$(EXEEXT): $(MINIMAL_OBJECTS) $(__minimal___win32rc)
+comlaser$(EXEEXT): $(MINIMAL_OBJECTS) $(__minimal___win32rc)
 	$(CXX) -o $@ $(MINIMAL_OBJECTS)    -L$(LIBDIRNAME) $(LDFLAGS_GUI) $(SAMPLES_RPATH_FLAG) $(LDFLAGS)  $(__WXLIB_CORE_p)  $(__WXLIB_BASE_p)  $(__WXLIB_MONO_p) $(__LIB_TIFF_p) $(__LIB_JPEG_p) $(__LIB_PNG_p) $(EXTRALIBS_FOR_GUI) $(__LIB_ZLIB_p) $(__LIB_ODBC_p) $(__LIB_REGEX_p) $(__LIB_EXPAT_p) $(EXTRALIBS_FOR_BASE) $(LIBS)
 	$(__minimal___mac_rezcmd)
 	$(__minimal___mac_setfilecmd)
@@ -187,7 +187,7 @@ minimal$(EXEEXT): $(MINIMAL_OBJECTS) $(__minimal___win32rc)
 minimal_sample_rc.o: $(srcdir)/../../samples/sample.rc
 	$(WINDRES) -i$< -o$@    --define __WX$(TOOLKIT)__ $(__WXUNIV_DEFINE_p_2)   $(__EXCEPTIONS_DEFINE_p_2) $(__RTTI_DEFINE_p_2) $(__THREAD_DEFINE_p_2)   --include-dir $(srcdir) $(__DLLFLAG_p_2) --include-dir $(srcdir)/../../samples $(__RCDEFDIR_p_1) --include-dir $(top_srcdir)/include
 
-minimal_minimal.o: $(srcdir)/ComLaser.cpp
+minimal_ComLaser.o: $(srcdir)/ComLaser.cpp
 	$(CXXC) -c -o $@ $(MINIMAL_CXXFLAGS) $(srcdir)/ComLaser.cpp
 
 
