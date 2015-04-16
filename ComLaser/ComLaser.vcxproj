@@ -87,6 +87,7 @@
     <ClInclude Include="targetver.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="CLApp.cpp" />
     <ClCompile Include="CLFrame.cpp" />
     <ClCompile Include="ComLaser.cpp" />
     <ClCompile Include="OperatorPanel.cpp" />
