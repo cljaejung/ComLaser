@@ -1,8 +1,8 @@
 
 #include "stdafx.h"
 #include "CLFrame.h"
-//#include "MainPanel.h"
-//#include "OperatorPanel.h"
+#include "MainPanel.h"
+#include "OperatorPanel.h"
 
 
 // ----------------------------------------------------------------------------
@@ -28,8 +28,8 @@ enum
 // event tables and other macros for wxWidgets
 // ----------------------------------------------------------------------------
 BEGIN_EVENT_TABLE(cCLFrame, wxFrame)
-EVT_MENU(Minimal_Quit, cCLFrame::OnQuit)
-EVT_MENU(Minimal_About, cCLFrame::OnAbout)
+	EVT_MENU(Minimal_Quit, cCLFrame::OnQuit)
+	EVT_MENU(Minimal_About, cCLFrame::OnAbout)
 END_EVENT_TABLE()
 
 
@@ -69,12 +69,12 @@ cCLFrame::cCLFrame(const wxString& title)
 	wxBoxSizer* itemBoxSizer2 = new wxBoxSizer(wxVERTICAL);
 	itemPanel1->SetSizer(itemBoxSizer2);
 
-//	m_mainPanel = new cMainPanel(this);
-//	m_loginPanel = new cOperatorPanel(this);
-//	itemBoxSizer2->Add(m_mainPanel, 1, wxEXPAND);
-//	itemBoxSizer2->Add(m_loginPanel, 1, wxEXPAND);
+	m_mainPanel = new cMainPanel(this);
+	m_loginPanel = new cOperatorPanel(this);
+	itemBoxSizer2->Add(m_mainPanel, 1, wxEXPAND);
+	itemBoxSizer2->Add(m_loginPanel, 1, wxEXPAND);
 
-//	m_loginPanel->Hide();
+	m_loginPanel->Hide();
 	Layout();
 }
 

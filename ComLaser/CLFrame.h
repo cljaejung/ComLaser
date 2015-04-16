@@ -25,8 +25,8 @@ public:
 
 
 public:
-//	cMainPanel *m_mainPanel;
-//	cOperatorPanel *m_loginPanel;
+	cMainPanel *m_mainPanel;
+	cOperatorPanel *m_loginPanel;
 
 
 private:
