@@ -37,11 +37,11 @@ cOperatorPanel::~cOperatorPanel()
 
 void cOperatorPanel::OnButtonExit(wxCommandEvent &)
 {
-	cCLFrame* frame = dynamic_cast<cCLFrame*>(wxGetTopLevelParent(this));
-	if (!frame)
-		return;
+	//cCLFrame* frame = dynamic_cast<cCLFrame*>(wxGetTopLevelParent(this));
+	//if (!frame)
+	//	return;
 
-	frame->m_loginPanel->Hide();
-	frame->m_mainPanel->Show();
-	frame->Layout();
+	//frame->m_loginPanel->Hide();
+	//frame->m_mainPanel->Show();
+	//frame->Layout();
 }
