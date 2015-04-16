@@ -49,7 +49,8 @@ MINIMAL_CXXFLAGS = -D__WX$(TOOLKIT)__ $(__WXUNIV_DEFINE_p) \
 MINIMAL_OBJECTS =  \
 	$(__minimal___win32rc) \
 	$(__minimal_os2_lib_res) \
-	minimal_ComLaser.o
+	minimal_ComLaser.o \
+	MainPanel.o
 
 ### Conditionally set variables: ###
 
@@ -190,6 +191,8 @@ minimal_sample_rc.o: $(srcdir)/../../samples/sample.rc
 minimal_ComLaser.o: $(srcdir)/ComLaser.cpp
 	$(CXXC) -c -o $@ $(MINIMAL_CXXFLAGS) $(srcdir)/ComLaser.cpp
 
+MainPanel.o: $(srcdir)/MainPanel.cpp
+	$(CXXC) -c -o $@ $(MINIMAL_CXXFLAGS) $(srcdir)/MainPanel.cpp
 
 # Include dependency info, if present:
 -include ./.deps/*.d
