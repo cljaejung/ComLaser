@@ -12,7 +12,7 @@
 #endif
 
 #include "MainPanel.h"
-#include "OperatorPanel.h"
+//#include "OperatorPanel.h"
 #include "CLFrame.h"
 
 

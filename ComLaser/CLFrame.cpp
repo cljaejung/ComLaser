@@ -75,7 +75,7 @@ cCLFrame::cCLFrame(const wxString& title)
 //	itemBoxSizer2->Add(m_loginPanel, 1, wxEXPAND);
 
 //	m_loginPanel->Hide();
-//	Layout();
+	Layout();
 }
 
 

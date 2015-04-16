@@ -50,11 +50,12 @@ MINIMAL_OBJECTS =  \
 	$(__minimal___win32rc) \
 	$(__minimal_os2_lib_res) \
 	ComLaser.o \
-	stdafx.o\
-#	MainPanel.o\
-#	OperatorPanel.o\
-	CLApp.o\
-	CLFrame.o
+	stdafx.o \
+	CLApp.o \
+	CLFrame.o \
+	MainPanel.o
+
+
 
 SRCS = $(MINIMAL_OBJECTS:.o=.cpp)
 
@@ -194,26 +195,33 @@ comlaser$(EXEEXT): $(MINIMAL_OBJECTS) $(__minimal___win32rc)
 minimal_sample_rc.o: $(srcdir)/../../samples/sample.rc
 	$(WINDRES) -i$< -o$@    --define __WX$(TOOLKIT)__ $(__WXUNIV_DEFINE_p_2)   $(__EXCEPTIONS_DEFINE_p_2) $(__RTTI_DEFINE_p_2) $(__THREAD_DEFINE_p_2)   --include-dir $(srcdir) $(__DLLFLAG_p_2) --include-dir $(srcdir)/../../samples $(__RCDEFDIR_p_1) --include-dir $(top_srcdir)/include
 
-ComLaser.o: $(srcdir)/ComLaser.cpp
-	$(CXXC) -c -o $@ $(MINIMAL_CXXFLAGS) $(srcdir)/ComLaser.cpp
+#ComLaser.o: $(srcdir)/ComLaser.cpp
+#	$(CXXC) -c -o $@ $(MINIMAL_CXXFLAGS) $(srcdir)/ComLaser.cpp
+#stdafx.o: $(srcdir)/stdafx.cpp
+#	$(CXXC) -c -o $@ $(MINIMAL_CXXFLAGS) $(srcdir)/stdafx.cpp
 
-stdafx.o: $(srcdir)/stdafx.cpp
-	$(CXXC) -c -o $@ $(MINIMAL_CXXFLAGS) $(srcdir)/stdafx.cpp
+#CLApp.o: $(srcdir)/CLApp.h
+#	$(CXXC) -c -o $@ $(MINIMAL_CXXFLAGS) $(srcdir)/CLApp.cpp
 
-CLApp.o: $(srcdir)/CLApp.h
-	$(CXXC) -c -o $@ $(MINIMAL_CXXFLAGS) $(srcdir)/CLApp.cpp
-
-CLFrame.o: $(srcdir)/CLFrame.cpp
-	$(CXXC) -c -o $@ $(MINIMAL_CXXFLAGS) $(srcdir)/CLFrame.cpp
-
-
-
-#MainPanel.o: $(srcdir)/MainPanel.cpp $(srcdir)/MainPanel.h $(srcdir)/CLApp.h $(srcdir)/stdafx.h
+#MainPanel.o: $(srcdir)/MainPanel.cpp $(srcdir)/MainPanel.h
 #	$(CXXC) -c -o $@ $(MINIMAL_CXXFLAGS) $(srcdir)/MainPanel.cpp
+
+#CLFrame.o: $(srcdir)/CLFrame.cpp
+#	$(CXXC) -c -o $@ $(MINIMAL_CXXFLAGS) $(srcdir)/CLFrame.cpp
+
 
 #OperatorPanel.o: $(srcdir)/OperatorPanel.cpp $(srcdir)/OperatorPanel.h $(srcdir)/CLApp.h $(srcdir)/stdafx.h
 #	$(CXXC) -c -o $@ $(MINIMAL_CXXFLAGS) $(srcdir)/OperatorPanel.cpp
 
+.cpp.o:
+	$(CXXC) $(MINIMAL_CXXFLAGS) -g -c $<
+
+
+ComLaser.o: $(srcdir)/ComLaser.cpp $(srcdir)/CLApp.h $(srcdir)/CLFrame.h $(srcdir)/stdafx.h
+stdafx.o: $(srcdir)/stdafx.cpp $(srcdir)/stdafx.h
+CLApp.o: $(srcdir)/CLApp.cpp $(srcdir)/stdafx.h
+CLFrame.o: $(srcdir)/CLFrame.cpp $(srcdir)/stdafx.h
+MainPanel.o: $(srcdir)/MainPanel.cpp $(srcdir)/CLFrame.h  $(srcdir)/stdafx.h
 
 
 
