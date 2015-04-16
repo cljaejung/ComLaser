@@ -41,6 +41,9 @@
     #include "../sample.xpm"
 #endif
 
+
+#include "MainPanel.h"
+
 // ----------------------------------------------------------------------------
 // private classes
 // ----------------------------------------------------------------------------
@@ -70,6 +73,8 @@ public:
     void OnAbout(wxCommandEvent& event);
 
 private:
+	cMainPanel m_mainPanel;
+
     // any class wishing to process wxWidgets events must use this macro
     DECLARE_EVENT_TABLE()
 };
@@ -145,6 +150,7 @@ bool MyApp::OnInit()
 // frame constructor
 MyFrame::MyFrame(const wxString& title)
        : wxFrame(NULL, wxID_ANY, title)
+	   , m_mainPanel(this)
 {
     // set the frame icon
     SetIcon(wxICON(sample));
