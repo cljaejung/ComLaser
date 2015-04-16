@@ -8,9 +8,9 @@
 // ----------------------------------------------------------------------------
 // resources
 // ----------------------------------------------------------------------------
-#if !defined(__WXMSW__) && !defined(__WXPM__)
-    #include "../sample.xpm"
-#endif
+//#if !defined(__WXMSW__) && !defined(__WXPM__)
+//    #include "../sample.xpm"
+//#endif
 
 
 #include "CLApp.h"

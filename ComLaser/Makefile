@@ -49,8 +49,14 @@ MINIMAL_CXXFLAGS = -D__WX$(TOOLKIT)__ $(__WXUNIV_DEFINE_p) \
 MINIMAL_OBJECTS =  \
 	$(__minimal___win32rc) \
 	$(__minimal_os2_lib_res) \
-	minimal_ComLaser.o \
-	MainPanel.o
+	ComLaser.o \
+	stdafx.o\
+#	MainPanel.o\
+#	OperatorPanel.o\
+	CLApp.o\
+	CLFrame.o
+
+SRCS = $(MINIMAL_OBJECTS:.o=.cpp)
 
 ### Conditionally set variables: ###
 
@@ -188,13 +194,35 @@ comlaser$(EXEEXT): $(MINIMAL_OBJECTS) $(__minimal___win32rc)
 minimal_sample_rc.o: $(srcdir)/../../samples/sample.rc
 	$(WINDRES) -i$< -o$@    --define __WX$(TOOLKIT)__ $(__WXUNIV_DEFINE_p_2)   $(__EXCEPTIONS_DEFINE_p_2) $(__RTTI_DEFINE_p_2) $(__THREAD_DEFINE_p_2)   --include-dir $(srcdir) $(__DLLFLAG_p_2) --include-dir $(srcdir)/../../samples $(__RCDEFDIR_p_1) --include-dir $(top_srcdir)/include
 
-minimal_ComLaser.o: $(srcdir)/ComLaser.cpp
+ComLaser.o: $(srcdir)/ComLaser.cpp
 	$(CXXC) -c -o $@ $(MINIMAL_CXXFLAGS) $(srcdir)/ComLaser.cpp
 
-MainPanel.o: $(srcdir)/MainPanel.cpp
-	$(CXXC) -c -o $@ $(MINIMAL_CXXFLAGS) $(srcdir)/MainPanel.cpp
+stdafx.o: $(srcdir)/stdafx.cpp
+	$(CXXC) -c -o $@ $(MINIMAL_CXXFLAGS) $(srcdir)/stdafx.cpp
+
+CLApp.o: $(srcdir)/CLApp.h
+	$(CXXC) -c -o $@ $(MINIMAL_CXXFLAGS) $(srcdir)/CLApp.cpp
+
+CLFrame.o: $(srcdir)/CLFrame.cpp
+	$(CXXC) -c -o $@ $(MINIMAL_CXXFLAGS) $(srcdir)/CLFrame.cpp
+
+
+
+#MainPanel.o: $(srcdir)/MainPanel.cpp $(srcdir)/MainPanel.h $(srcdir)/CLApp.h $(srcdir)/stdafx.h
+#	$(CXXC) -c -o $@ $(MINIMAL_CXXFLAGS) $(srcdir)/MainPanel.cpp
+
+#OperatorPanel.o: $(srcdir)/OperatorPanel.cpp $(srcdir)/OperatorPanel.h $(srcdir)/CLApp.h $(srcdir)/stdafx.h
+#	$(CXXC) -c -o $@ $(MINIMAL_CXXFLAGS) $(srcdir)/OperatorPanel.cpp
+
+
+
 
 # Include dependency info, if present:
 -include ./.deps/*.d
 
 .PHONY: all install uninstall clean distclean minimal_bundle
+
+
+dep:
+	gccmakedep $(SRCS)
+# DO NOT DELETE

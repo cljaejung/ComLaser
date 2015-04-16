@@ -1,8 +1,8 @@
 
 #include "stdafx.h"
 #include "CLFrame.h"
-#include "MainPanel.h"
-#include "OperatorPanel.h"
+//#include "MainPanel.h"
+//#include "OperatorPanel.h"
 
 
 
@@ -61,13 +61,13 @@ cCLFrame::cCLFrame(const wxString& title)
 	wxBoxSizer* itemBoxSizer2 = new wxBoxSizer(wxVERTICAL);
 	itemPanel1->SetSizer(itemBoxSizer2);
 
-	m_mainPanel = new cMainPanel(this);
-	m_loginPanel = new cOperatorPanel(this);
-	itemBoxSizer2->Add(m_mainPanel, 1, wxEXPAND);
-	itemBoxSizer2->Add(m_loginPanel, 1, wxEXPAND);
+//	m_mainPanel = new cMainPanel(this);
+//	m_loginPanel = new cOperatorPanel(this);
+//	itemBoxSizer2->Add(m_mainPanel, 1, wxEXPAND);
+//	itemBoxSizer2->Add(m_loginPanel, 1, wxEXPAND);
 
-	m_loginPanel->Hide();
-	Layout();
+//	m_loginPanel->Hide();
+//	Layout();
 }
 
 
