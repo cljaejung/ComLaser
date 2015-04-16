@@ -31,7 +31,10 @@ TOOLKIT_LOWERCASE = x11
 TOOLKIT_VERSION = 
 TOOLCHAIN_FULLNAME = x11univ-ansi-release-2.8
 EXTRALIBS = -pthread  -Wl,--version-script,$(wx_top_builddir)/version-script -lz -ldl -lm 
+EXTRALIBS_XML =  -lexpat
+EXTRALIBS_HTML = 
 EXTRALIBS_GUI = -lX11 -lXext -lpng -lz -ljpeg -ltiff
+EXTRALIBS_SDL = 
 HOST_SUFFIX = 
 SAMPLES_RPATH_FLAG = -Wl,-rpath,$(wx_top_builddir)/lib
 SAMPLES_RPATH_POSTLINK = 
@@ -53,7 +56,8 @@ MINIMAL_OBJECTS =  \
 	stdafx.o \
 	CLApp.o \
 	CLFrame.o \
-	MainPanel.o
+	MainPanel.o \
+	OperatorPanel.o
 
 
 
@@ -63,6 +67,7 @@ SRCS = $(MINIMAL_OBJECTS:.o=.cpp)
 
 #CXXC = $(CXX)
 CXXC = $(BK_DEPS) $(CXX)
+PLUGIN_ADV_EXTRALIBS = $(EXTRALIBS_SDL)
 #PORTNAME = base
 PORTNAME = $(TOOLKIT_LOWERCASE)$(TOOLKIT_VERSION)
 #WXBASEPORT = _carbon
@@ -113,6 +118,15 @@ COND_PLATFORM_OS2_1___minimal___os2_emxbindcmd = $(NM) comlaser$(EXEEXT) | if \
 COND_MONOLITHIC_0___WXLIB_CORE_p = \
 	-lwx_$(PORTNAME)$(WXUNIVNAME)$(WXUNICODEFLAG)$(WXDEBUGFLAG)$(WX_LIB_FLAVOUR)_core-$(WX_RELEASE)$(HOST_SUFFIX)
 __WXLIB_CORE_p = $(COND_MONOLITHIC_0___WXLIB_CORE_p)
+COND_MONOLITHIC_0___WXLIB_HTML_p = \
+	-lwx_$(PORTNAME)$(WXUNIVNAME)$(WXUNICODEFLAG)$(WXDEBUGFLAG)$(WX_LIB_FLAVOUR)_html-$(WX_RELEASE)$(HOST_SUFFIX)
+__WXLIB_HTML_p = $(COND_MONOLITHIC_0___WXLIB_HTML_p)
+COND_MONOLITHIC_0___WXLIB_ADV_p = \
+	-lwx_$(PORTNAME)$(WXUNIVNAME)$(WXUNICODEFLAG)$(WXDEBUGFLAG)$(WX_LIB_FLAVOUR)_adv-$(WX_RELEASE)$(HOST_SUFFIX)
+__WXLIB_ADV_p = $(COND_MONOLITHIC_0___WXLIB_ADV_p)
+COND_MONOLITHIC_0___WXLIB_XML_p = \
+	-lwx_base$(WXBASEPORT)$(WXUNICODEFLAG)$(WXDEBUGFLAG)$(WX_LIB_FLAVOUR)_xml-$(WX_RELEASE)$(HOST_SUFFIX)
+__WXLIB_XML_p = $(COND_MONOLITHIC_0___WXLIB_XML_p)
 COND_MONOLITHIC_0___WXLIB_BASE_p = \
 	-lwx_base$(WXBASEPORT)$(WXUNICODEFLAG)$(WXDEBUGFLAG)$(WX_LIB_FLAVOUR)-$(WX_RELEASE)$(HOST_SUFFIX)
 __WXLIB_BASE_p = $(COND_MONOLITHIC_0___WXLIB_BASE_p)
@@ -164,7 +178,7 @@ distclean: clean
 	rm -f config.cache config.log config.status bk-deps bk-make-pch shared-ld-sh Makefile
 
 comlaser$(EXEEXT): $(MINIMAL_OBJECTS) $(__minimal___win32rc)
-	$(CXX) -o $@ $(MINIMAL_OBJECTS)    -L$(LIBDIRNAME) $(LDFLAGS_GUI) $(SAMPLES_RPATH_FLAG) $(LDFLAGS)  $(__WXLIB_CORE_p)  $(__WXLIB_BASE_p)  $(__WXLIB_MONO_p) $(__LIB_TIFF_p) $(__LIB_JPEG_p) $(__LIB_PNG_p) $(EXTRALIBS_FOR_GUI) $(__LIB_ZLIB_p) $(__LIB_ODBC_p) $(__LIB_REGEX_p) $(__LIB_EXPAT_p) $(EXTRALIBS_FOR_BASE) $(LIBS)
+	$(CXX) -o $@ $(MINIMAL_OBJECTS)    -L$(LIBDIRNAME) $(LDFLAGS_GUI) $(SAMPLES_RPATH_FLAG) $(LDFLAGS)  $(__WXLIB_CORE_p)  $(__WXLIB_HTML_p) $(EXTRALIBS_HTML) $(__WXLIB_ADV_p) $(PLUGIN_ADV_EXTRALIBS)  $(__WXLIB_XML_p) $(EXTRALIBS_XML) $(__WXLIB_BASE_p)  $(__WXLIB_MONO_p) $(__LIB_TIFF_p) $(__LIB_JPEG_p) $(__LIB_PNG_p) $(EXTRALIBS_FOR_GUI) $(__LIB_ZLIB_p) $(__LIB_ODBC_p) $(__LIB_REGEX_p) $(__LIB_EXPAT_p) $(EXTRALIBS_FOR_BASE) $(LIBS)
 	$(__minimal___mac_rezcmd)
 	$(__minimal___mac_setfilecmd)
 	$(__minimal___os2_emxbindcmd)
@@ -222,6 +236,7 @@ stdafx.o: $(srcdir)/stdafx.cpp $(srcdir)/stdafx.h
 CLApp.o: $(srcdir)/CLApp.cpp $(srcdir)/stdafx.h
 CLFrame.o: $(srcdir)/CLFrame.cpp $(srcdir)/stdafx.h
 MainPanel.o: $(srcdir)/MainPanel.cpp $(srcdir)/CLFrame.h  $(srcdir)/stdafx.h
+OperatorPanel.o: $(srcdir)/OperatorPanel.cpp $(srcdir)/CLFrame.h $(srcdir)/stdafx.h
 
 
 
