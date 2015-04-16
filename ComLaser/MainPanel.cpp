@@ -1,6 +1,9 @@
 
 #include "stdafx.h"
 #include "MainPanel.h"
+#include "OperatorPanel.h"
+#include "CLFrame.h"
+
 
 enum {
 	ID_PANEL,
@@ -9,8 +12,14 @@ enum {
 	ID_BUTTON2,
 	ID_BUTTON3,
 	ID_BUTTON4,
-	ID_BUTTON5
+	ID_BUTTON5,
+	ID_BUTTON_OPERATOR,
 };
+
+
+wxBEGIN_EVENT_TABLE(cMainPanel, wxPanel)
+	EVT_BUTTON(ID_BUTTON_OPERATOR, cMainPanel::OnButtonOperator)
+wxEND_EVENT_TABLE()
 
 cMainPanel::cMainPanel(wxFrame*frame) :
 	wxPanel(frame)
@@ -30,19 +39,19 @@ cMainPanel::cMainPanel(wxFrame*frame) :
 	wxBoxSizer* itemBoxSizer5 = new wxBoxSizer(wxHORIZONTAL);
 	itemBoxSizer2->Add(itemBoxSizer5, 1, wxALIGN_CENTER_HORIZONTAL | wxALL, 5);
 
-	wxButton* itemButton6 = new wxButton(itemPanel1, ID_BUTTON, _("Button"), wxDefaultPosition, wxDefaultSize, 0);
+	wxButton* itemButton6 = new wxButton(itemPanel1, ID_BUTTON, _("Enforcement\nSetting"), wxDefaultPosition, wxDefaultSize, 0);
 	itemBoxSizer5->Add(itemButton6, 0, wxALIGN_CENTER_VERTICAL | wxALL, 5);
 
-	wxButton* itemButton7 = new wxButton(itemPanel1, ID_BUTTON1, _("Button"), wxDefaultPosition, wxDefaultSize, 0);
+	wxButton* itemButton7 = new wxButton(itemPanel1, ID_BUTTON1, _("Camera\nSetting"), wxDefaultPosition, wxDefaultSize, 0);
 	itemBoxSizer5->Add(itemButton7, 0, wxALIGN_CENTER_VERTICAL | wxALL, 5);
 
-	wxButton* itemButton8 = new wxButton(itemPanel1, ID_BUTTON2, _("Button"), wxDefaultPosition, wxDefaultSize, 0);
+	wxButton* itemButton8 = new wxButton(itemPanel1, ID_BUTTON_OPERATOR, _("Operator\nSetting"), wxDefaultPosition, wxDefaultSize, 0);
 	itemBoxSizer5->Add(itemButton8, 0, wxALIGN_CENTER_VERTICAL | wxALL, 5);
 
-	wxButton* itemButton9 = new wxButton(itemPanel1, ID_BUTTON3, _("Button"), wxDefaultPosition, wxDefaultSize, 0);
+	wxButton* itemButton9 = new wxButton(itemPanel1, ID_BUTTON3, _("File \nManagement"), wxDefaultPosition, wxDefaultSize, 0);
 	itemBoxSizer5->Add(itemButton9, 0, wxALIGN_CENTER_VERTICAL | wxALL, 5);
 
-	wxButton* itemButton10 = new wxButton(itemPanel1, ID_BUTTON4, _("Button"), wxDefaultPosition, wxDefaultSize, 0);
+	wxButton* itemButton10 = new wxButton(itemPanel1, ID_BUTTON4, _("Enforcement"), wxDefaultPosition, wxDefaultSize, 0);
 	itemBoxSizer5->Add(itemButton10, 0, wxALIGN_CENTER_VERTICAL | wxALL, 5);
 
 	wxBoxSizer* itemBoxSizer11 = new wxBoxSizer(wxHORIZONTAL);
@@ -51,7 +60,7 @@ cMainPanel::cMainPanel(wxFrame*frame) :
 	wxStaticText* itemStaticText12 = new wxStaticText(itemPanel1, wxID_STATIC, _("Static text"), wxDefaultPosition, wxDefaultSize, 0);
 	itemBoxSizer11->Add(itemStaticText12, 0, wxALIGN_CENTER_VERTICAL | wxALL, 5);
 
-	wxButton* itemButton13 = new wxButton(itemPanel1, ID_BUTTON5, _("Button"), wxDefaultPosition, wxDefaultSize, 0);
+	wxButton* itemButton13 = new wxButton(itemPanel1, ID_BUTTON5, _("Exit"), wxDefaultPosition, wxDefaultSize, 0);
 	itemBoxSizer11->Add(itemButton13, 0, wxALIGN_CENTER_VERTICAL | wxALL, 5);
 
 
@@ -60,4 +69,16 @@ cMainPanel::cMainPanel(wxFrame*frame) :
 cMainPanel::~cMainPanel()
 {
 
+}
+
+
+void cMainPanel::OnButtonOperator(wxCommandEvent &evt)
+{
+	cCLFrame* frame = dynamic_cast<cCLFrame*>(wxGetTopLevelParent(this));
+	if (!frame)
+		return;
+
+	frame->m_mainPanel->Hide();
+	frame->m_loginPanel->Show();
+	frame->Layout();
 }

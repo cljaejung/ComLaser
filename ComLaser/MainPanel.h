@@ -1,8 +1,5 @@
 #pragma once
 
-#include "wx/wxprec.h"
-
-
 
 class cMainPanel : public wxPanel
 {
@@ -15,6 +12,10 @@ protected:
 
 
 public:
+	
 
-
+	// message handling
+protected:
+	DECLARE_EVENT_TABLE()
+	void OnButtonOperator(wxCommandEvent &);
 };
