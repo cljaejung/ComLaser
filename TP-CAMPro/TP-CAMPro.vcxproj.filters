@@ -24,7 +24,13 @@
     <ClInclude Include="targetver.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="MainPanel.h">
+    <ClInclude Include="Bitmap3Button.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="CameraFullPanel.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="CameraSetPanel.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="CLApp.h">
@@ -33,37 +39,31 @@
     <ClInclude Include="CLFrame.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="CameraSetPanel.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="EnforcementSetPanel.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="OperatorSetPanel.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="DateSetPanel.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="CameraFullPanel.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="LoginPanel.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="FileMngPanel.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="FileMngFullPanel.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="EnforcementPanel.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="EnforcementFullPanel.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Bitmap3Button.h">
+    <ClInclude Include="EnforcementPanel.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="EnforcementSetPanel.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="FileMngFullPanel.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="FileMngPanel.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="LoginPanel.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="MainPanel.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="OperatorSetPanel.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
@@ -71,49 +71,49 @@
     <ClCompile Include="stdafx.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="ComLaser.cpp">
+    <ClCompile Include="TP-CAMPro.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="MainPanel.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="CLFrame.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="CLApp.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="CameraSetPanel.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="EnforcementSetPanel.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="OperatorSetPanel.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="DateSetPanel.cpp">
+    <ClCompile Include="Bitmap3Button.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="CameraFullPanel.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="LoginPanel.cpp">
+    <ClCompile Include="CameraSetPanel.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="FileMngPanel.cpp">
+    <ClCompile Include="CLApp.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="FileMngFullPanel.cpp">
+    <ClCompile Include="CLFrame.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="EnforcementPanel.cpp">
+    <ClCompile Include="DateSetPanel.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="EnforcementFullPanel.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Bitmap3Button.cpp">
+    <ClCompile Include="EnforcementPanel.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="EnforcementSetPanel.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="FileMngFullPanel.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="FileMngPanel.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="LoginPanel.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="MainPanel.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="OperatorSetPanel.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

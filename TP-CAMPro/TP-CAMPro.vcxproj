@@ -11,9 +11,9 @@
     </ProjectConfiguration>
   </ItemGroup>
   <PropertyGroup Label="Globals">
-    <ProjectGuid>{143A69D6-6299-45AF-B1A8-250D6FB220D2}</ProjectGuid>
+    <ProjectGuid>{A7A3508D-1463-4E24-951B-F4D2328350E4}</ProjectGuid>
     <Keyword>Win32Proj</Keyword>
-    <RootNamespace>ComLaser</RootNamespace>
+    <RootNamespace>TPCAMPro</RootNamespace>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
@@ -91,8 +91,8 @@
     <ClInclude Include="FileMngFullPanel.h" />
     <ClInclude Include="FileMngPanel.h" />
     <ClInclude Include="LoginPanel.h" />
-    <ClInclude Include="OperatorSetPanel.h" />
     <ClInclude Include="MainPanel.h" />
+    <ClInclude Include="OperatorSetPanel.h" />
     <ClInclude Include="stdafx.h" />
     <ClInclude Include="targetver.h" />
   </ItemGroup>
@@ -102,7 +102,6 @@
     <ClCompile Include="CameraSetPanel.cpp" />
     <ClCompile Include="CLApp.cpp" />
     <ClCompile Include="CLFrame.cpp" />
-    <ClCompile Include="ComLaser.cpp" />
     <ClCompile Include="DateSetPanel.cpp" />
     <ClCompile Include="EnforcementFullPanel.cpp" />
     <ClCompile Include="EnforcementPanel.cpp" />
@@ -110,12 +109,13 @@
     <ClCompile Include="FileMngFullPanel.cpp" />
     <ClCompile Include="FileMngPanel.cpp" />
     <ClCompile Include="LoginPanel.cpp" />
-    <ClCompile Include="OperatorSetPanel.cpp" />
     <ClCompile Include="MainPanel.cpp" />
+    <ClCompile Include="OperatorSetPanel.cpp" />
     <ClCompile Include="stdafx.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Create</PrecompiledHeader>
     </ClCompile>
+    <ClCompile Include="TP-CAMPro.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
