@@ -1,15 +1,5 @@
 #pragma once
 
-#include "wx/wxprec.h"
-
-#ifdef __BORLANDC__
-#pragma hdrstop
-#endif
-
-#ifndef WX_PRECOMP
-#include "wx/wx.h"
-#endif
-
 
 class cMainPanel : public wxPanel
 {
@@ -21,11 +11,11 @@ public:
 protected:
 
 
-public:
-	
-
 	// message handling
 protected:
 	DECLARE_EVENT_TABLE()
-	void OnButtonOperator(wxCommandEvent &);
+	void OnButtonOperatorSet(wxCommandEvent &);
+	void OnButtonDateSet(wxCommandEvent &);
+	void OnButtonEnforcementSet(wxCommandEvent &);
+	void OnButtonCameraSet(wxCommandEvent &);
 };

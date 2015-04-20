@@ -2,7 +2,11 @@
 #include "stdafx.h"
 #include "CLFrame.h"
 #include "MainPanel.h"
-#include "OperatorPanel.h"
+#include "OperatorSetPanel.h"
+#include "DateSetPanel.h"
+#include "EnforcementSetPanel.h"
+#include "CameraSetPanel.h"
+#include "CameraFullPanel.h"
 
 
 // ----------------------------------------------------------------------------
@@ -40,29 +44,29 @@ END_EVENT_TABLE()
 
 // frame constructor
 cCLFrame::cCLFrame(const wxString& title)
-	: wxFrame(NULL, wxID_ANY, title)
+	: wxFrame(NULL, wxID_ANY, title, wxDefaultPosition, wxSize(720,480))
 {
 	// set the frame icon
 	SetIcon(wxICON(sample));
 
 
-#if wxUSE_MENUS
-	// create a menu bar
-	wxMenu *fileMenu = new wxMenu;
-	// the "About" item should be in the help menu
-	wxMenu *helpMenu = new wxMenu;
-	helpMenu->Append(Minimal_About, _T("&About...\tF1"), _T("Show about dialog"));
-	fileMenu->Append(Minimal_Quit, _T("E&xit\tAlt-X"), _T("Quit this program"));
-	// now append the freshly created menu to the menu bar...
-	wxMenuBar *menuBar = new wxMenuBar();
-	menuBar->Append(fileMenu, _T("&File"));
-	menuBar->Append(helpMenu, _T("&Help"));
-	// ... and attach this menu bar to the frame
-	SetMenuBar(menuBar);
-#endif // wxUSE_MENUS
+//#if wxUSE_MENUS
+//	// create a menu bar
+//	wxMenu *fileMenu = new wxMenu;
+//	// the "About" item should be in the help menu
+//	wxMenu *helpMenu = new wxMenu;
+//	helpMenu->Append(Minimal_About, _T("&About...\tF1"), _T("Show about dialog"));
+//	fileMenu->Append(Minimal_Quit, _T("E&xit\tAlt-X"), _T("Quit this program"));
+//	// now append the freshly created menu to the menu bar...
+//	wxMenuBar *menuBar = new wxMenuBar();
+//	menuBar->Append(fileMenu, _T("&File"));
+//	menuBar->Append(helpMenu, _T("&Help"));
+//	// ... and attach this menu bar to the frame
+//	SetMenuBar(menuBar);
+//#endif // wxUSE_MENUS
 
-	CreateStatusBar(2);
-	SetStatusText(_T("Welcome to ComLaser!"));
+//	CreateStatusBar(2);
+//	SetStatusText(_T("Welcome to ComLaser!"));
 
 
 	cCLFrame* itemPanel1 = this;
@@ -70,11 +74,21 @@ cCLFrame::cCLFrame(const wxString& title)
 	itemPanel1->SetSizer(itemBoxSizer2);
 
 	m_mainPanel = new cMainPanel(this);
-	m_loginPanel = new cOperatorPanel(this);
-	itemBoxSizer2->Add(m_mainPanel, 1, wxEXPAND);
-	itemBoxSizer2->Add(m_loginPanel, 1, wxEXPAND);
+	m_operatorPanel = new cOperatorSetPanel(this);
+	m_datePanel = new cDateSetPanel(this);
+	m_enforcementPanel = new cEnforcementSetPanel(this);
+	m_cameraPanel = new cCameraSetPanel(this);
+	m_cameraFullPanel = new cCameraFullPanel(this);
 
-	m_loginPanel->Hide();
+	itemBoxSizer2->Add(m_mainPanel, 1, wxEXPAND);
+	itemBoxSizer2->Add(m_operatorPanel, 1, wxEXPAND);
+	itemBoxSizer2->Add(m_datePanel, 1, wxEXPAND);
+	itemBoxSizer2->Add(m_enforcementPanel, 1, wxEXPAND);
+	itemBoxSizer2->Add(m_cameraPanel, 1, wxEXPAND);
+	itemBoxSizer2->Add(m_cameraFullPanel, 1, wxEXPAND);
+
+	ChangePanel(PANEL_MAIN);
+
 	Layout();
 }
 
@@ -97,4 +111,29 @@ void cCLFrame::OnAbout(wxCommandEvent& WXUNUSED(event))
 		_T("About ComLaser"),
 		wxOK | wxICON_INFORMATION,
 		this);
+}
+
+
+void cCLFrame::ChangePanel(const PANEL_TYPE panel)
+{
+	m_mainPanel->Hide();
+	m_operatorPanel->Hide();
+	m_datePanel->Hide();
+	m_enforcementPanel->Hide();
+	m_cameraPanel->Hide();
+	m_cameraFullPanel->Hide();
+
+	switch (panel)
+	{
+	case PANEL_MAIN: m_mainPanel->Show(); break;
+	case PANEL_OPERATORSET: m_operatorPanel->Show(); break;
+	case PANEL_DATESET: m_datePanel->Show(); break;
+	case PANEL_ENFORCEMENTSET:  m_enforcementPanel->Show(); break;
+	case PANEL_CAMERASET: m_cameraPanel->Show(); break;
+	case PANEL_CAMERAFULL: m_cameraFullPanel->Show(); break;
+	default:
+		break;
+	}
+
+	Layout();
 }

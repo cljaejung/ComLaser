@@ -33,7 +33,19 @@
     <ClInclude Include="CLFrame.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="OperatorPanel.h">
+    <ClInclude Include="CameraSetPanel.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="EnforcementSetPanel.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="OperatorSetPanel.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="DateSetPanel.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="CameraFullPanel.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
@@ -50,10 +62,22 @@
     <ClCompile Include="CLFrame.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="OperatorPanel.cpp">
+    <ClCompile Include="CLApp.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="CLApp.cpp">
+    <ClCompile Include="CameraSetPanel.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="EnforcementSetPanel.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="OperatorSetPanel.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="DateSetPanel.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="CameraFullPanel.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
