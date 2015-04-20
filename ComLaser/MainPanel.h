@@ -18,4 +18,6 @@ protected:
 	void OnButtonDateSet(wxCommandEvent &);
 	void OnButtonEnforcementSet(wxCommandEvent &);
 	void OnButtonCameraSet(wxCommandEvent &);
+	void OnButtonFileMng(wxCommandEvent &);
+	void OnButtonEnforcement(wxCommandEvent &);
 };

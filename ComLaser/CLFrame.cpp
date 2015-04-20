@@ -2,11 +2,16 @@
 #include "stdafx.h"
 #include "CLFrame.h"
 #include "MainPanel.h"
+#include "LoginPanel.h"
 #include "OperatorSetPanel.h"
 #include "DateSetPanel.h"
 #include "EnforcementSetPanel.h"
 #include "CameraSetPanel.h"
 #include "CameraFullPanel.h"
+#include "FileMngPanel.h"
+#include "FileMngFullPanel.h"
+#include "EnforcementPanel.h"
+#include "EnforcementFullPanel.h"
 
 
 // ----------------------------------------------------------------------------
@@ -74,18 +79,28 @@ cCLFrame::cCLFrame(const wxString& title)
 	itemPanel1->SetSizer(itemBoxSizer2);
 
 	m_mainPanel = new cMainPanel(this);
+	m_loginPanel = new cLoginPanel(this);
 	m_operatorPanel = new cOperatorSetPanel(this);
 	m_datePanel = new cDateSetPanel(this);
-	m_enforcementPanel = new cEnforcementSetPanel(this);
+	m_enforcementSetPanel = new cEnforcementSetPanel(this);
 	m_cameraPanel = new cCameraSetPanel(this);
 	m_cameraFullPanel = new cCameraFullPanel(this);
+	m_fileMngPanel = new cFileMngPanel(this);
+	m_fileMngFullPanel = new cFileMngFullPanel(this);
+	m_enforcementPanel = new cEnforcementPanel(this);
+	m_enforcementFullPanel = new cEnforcementFullPanel(this);
 
 	itemBoxSizer2->Add(m_mainPanel, 1, wxEXPAND);
+	itemBoxSizer2->Add(m_loginPanel, 1, wxEXPAND);
 	itemBoxSizer2->Add(m_operatorPanel, 1, wxEXPAND);
 	itemBoxSizer2->Add(m_datePanel, 1, wxEXPAND);
-	itemBoxSizer2->Add(m_enforcementPanel, 1, wxEXPAND);
+	itemBoxSizer2->Add(m_enforcementSetPanel, 1, wxEXPAND);
 	itemBoxSizer2->Add(m_cameraPanel, 1, wxEXPAND);
 	itemBoxSizer2->Add(m_cameraFullPanel, 1, wxEXPAND);
+	itemBoxSizer2->Add(m_fileMngPanel, 1, wxEXPAND);
+	itemBoxSizer2->Add(m_fileMngFullPanel, 1, wxEXPAND);
+	itemBoxSizer2->Add(m_enforcementPanel, 1, wxEXPAND);
+	itemBoxSizer2->Add(m_enforcementFullPanel, 1, wxEXPAND);
 
 	ChangePanel(PANEL_MAIN);
 
@@ -117,20 +132,30 @@ void cCLFrame::OnAbout(wxCommandEvent& WXUNUSED(event))
 void cCLFrame::ChangePanel(const PANEL_TYPE panel)
 {
 	m_mainPanel->Hide();
+	m_loginPanel->Hide();
 	m_operatorPanel->Hide();
 	m_datePanel->Hide();
-	m_enforcementPanel->Hide();
+	m_enforcementSetPanel->Hide();
 	m_cameraPanel->Hide();
 	m_cameraFullPanel->Hide();
+	m_fileMngPanel->Hide();
+	m_fileMngFullPanel->Hide();
+	m_enforcementPanel->Hide();
+	m_enforcementFullPanel->Hide();
 
 	switch (panel)
 	{
 	case PANEL_MAIN: m_mainPanel->Show(); break;
+	case PANEL_LOGIN: m_loginPanel->Show(); break;
 	case PANEL_OPERATORSET: m_operatorPanel->Show(); break;
 	case PANEL_DATESET: m_datePanel->Show(); break;
-	case PANEL_ENFORCEMENTSET:  m_enforcementPanel->Show(); break;
+	case PANEL_ENFORCEMENTSET:  m_enforcementSetPanel->Show(); break;
 	case PANEL_CAMERASET: m_cameraPanel->Show(); break;
 	case PANEL_CAMERAFULL: m_cameraFullPanel->Show(); break;
+	case PANEL_FILEMNG: m_fileMngPanel->Show(); break;
+	case PANEL_FILEMNGFULL: m_fileMngFullPanel->Show(); break;
+	case PANEL_ENFORCEMENT: m_enforcementPanel->Show(); break;
+	case PANEL_ENFORCEMENTFULL: m_enforcementFullPanel->Show(); break;
 	default:
 		break;
 	}

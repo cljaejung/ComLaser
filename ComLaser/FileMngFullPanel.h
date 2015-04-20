@@ -1,11 +1,11 @@
 #pragma once
 
 
-class cOperatorSetPanel : public wxPanel
+class cFileMngFullPanel : public wxPanel
 {
 public:
-	cOperatorSetPanel(wxFrame*frame);
-	virtual ~cOperatorSetPanel();
+	cFileMngFullPanel(wxFrame*frame);
+	virtual ~cFileMngFullPanel();
 
 
 protected:

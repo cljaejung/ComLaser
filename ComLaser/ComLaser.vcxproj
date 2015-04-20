@@ -84,7 +84,12 @@
     <ClInclude Include="CLApp.h" />
     <ClInclude Include="CLFrame.h" />
     <ClInclude Include="DateSetPanel.h" />
+    <ClInclude Include="EnforcementFullPanel.h" />
+    <ClInclude Include="EnforcementPanel.h" />
     <ClInclude Include="EnforcementSetPanel.h" />
+    <ClInclude Include="FileMngFullPanel.h" />
+    <ClInclude Include="FileMngPanel.h" />
+    <ClInclude Include="LoginPanel.h" />
     <ClInclude Include="OperatorSetPanel.h" />
     <ClInclude Include="MainPanel.h" />
     <ClInclude Include="stdafx.h" />
@@ -97,7 +102,12 @@
     <ClCompile Include="CLFrame.cpp" />
     <ClCompile Include="ComLaser.cpp" />
     <ClCompile Include="DateSetPanel.cpp" />
+    <ClCompile Include="EnforcementFullPanel.cpp" />
+    <ClCompile Include="EnforcementPanel.cpp" />
     <ClCompile Include="EnforcementSetPanel.cpp" />
+    <ClCompile Include="FileMngFullPanel.cpp" />
+    <ClCompile Include="FileMngPanel.cpp" />
+    <ClCompile Include="LoginPanel.cpp" />
     <ClCompile Include="OperatorSetPanel.cpp" />
     <ClCompile Include="MainPanel.cpp" />
     <ClCompile Include="stdafx.cpp">

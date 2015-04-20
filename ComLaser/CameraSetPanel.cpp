@@ -47,7 +47,7 @@ wxPanel(frame)
 	itemBoxSizer3->Add(itemStaticBitmap6, 0, wxALIGN_CENTER_VERTICAL | wxALL, 5);
 
 	wxBoxSizer* itemBoxSizer7 = new wxBoxSizer(wxHORIZONTAL);
-	itemBoxSizer2->Add(itemBoxSizer7, 0, wxALIGN_CENTER_HORIZONTAL | wxALL, 5);
+	itemBoxSizer2->Add(itemBoxSizer7, 1, wxALIGN_CENTER_HORIZONTAL | wxALL, 5);
 
 	wxBoxSizer* itemBoxSizer8 = new wxBoxSizer(wxVERTICAL);
 	itemBoxSizer7->Add(itemBoxSizer8, 0, wxALIGN_CENTER_VERTICAL | wxALL, 5);
@@ -128,7 +128,6 @@ wxPanel(frame)
 	wxPanel* itemPanel32 = new wxPanel(itemPanel1, ID_PANEL, wxDefaultPosition, wxDefaultSize, wxSUNKEN_BORDER | wxTAB_TRAVERSAL);
 	itemPanel32->SetExtraStyle(wxWS_EX_VALIDATE_RECURSIVELY);
 	itemBoxSizer31->Add(itemPanel32, 0, wxALIGN_CENTER_VERTICAL | wxALL, 5);
-
 
 
 }

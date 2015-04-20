@@ -8,9 +8,8 @@ enum {
 	ID_PANEL,
 	ID_BUTTON_ENFORCEMENTSET,
 	ID_BUTTON_CAMERASET,
-	ID_BUTTON2,
-	ID_BUTTON3,
-	ID_BUTTON4,
+	ID_BUTTON_FILEMNG,
+	ID_BUTTON_ENFORCEMENT,
 	ID_BUTTON5,
 	ID_BUTTON_OPERATORSET,
 	ID_BUTTON_DATESET,
@@ -22,6 +21,8 @@ BEGIN_EVENT_TABLE(cMainPanel, wxPanel)
 	EVT_BUTTON(ID_BUTTON_DATESET, cMainPanel::OnButtonDateSet)
 	EVT_BUTTON(ID_BUTTON_ENFORCEMENTSET, cMainPanel::OnButtonEnforcementSet)
 	EVT_BUTTON(ID_BUTTON_CAMERASET, cMainPanel::OnButtonCameraSet)
+	EVT_BUTTON(ID_BUTTON_FILEMNG, cMainPanel::OnButtonFileMng)
+	EVT_BUTTON(ID_BUTTON_ENFORCEMENT, cMainPanel::OnButtonEnforcement)
 END_EVENT_TABLE()
 
 cMainPanel::cMainPanel(wxFrame*frame) :
@@ -54,10 +55,10 @@ cMainPanel::cMainPanel(wxFrame*frame) :
 	wxButton* itemButton9 = new wxButton(itemPanel1, ID_BUTTON_OPERATORSET, _("Operator\nSetting"), wxDefaultPosition, wxDefaultSize, 0);
 	itemBoxSizer6->Add(itemButton9, 0, wxALIGN_CENTER_VERTICAL | wxALL, 5);
 
-	wxButton* itemButton10 = new wxButton(itemPanel1, ID_BUTTON3, _("File \nManagement"), wxDefaultPosition, wxDefaultSize, 0);
+	wxButton* itemButton10 = new wxButton(itemPanel1, ID_BUTTON_FILEMNG, _("File \nManagement"), wxDefaultPosition, wxDefaultSize, 0);
 	itemBoxSizer6->Add(itemButton10, 0, wxALIGN_CENTER_VERTICAL | wxALL, 5);
 
-	wxButton* itemButton11 = new wxButton(itemPanel1, ID_BUTTON4, _("Enforcement"), wxDefaultPosition, wxDefaultSize, 0);
+	wxButton* itemButton11 = new wxButton(itemPanel1, ID_BUTTON_ENFORCEMENT, _("Enforcement"), wxDefaultPosition, wxDefaultSize, 0);
 	itemBoxSizer6->Add(itemButton11, 0, wxALIGN_CENTER_VERTICAL | wxALL, 5);
 
 	wxBoxSizer* itemBoxSizer12 = new wxBoxSizer(wxHORIZONTAL);
@@ -110,4 +111,22 @@ void cMainPanel::OnButtonCameraSet(wxCommandEvent &evt)
 	if (!frame)
 		return;
 	frame->ChangePanel(PANEL_CAMERASET);
+}
+
+
+void cMainPanel::OnButtonFileMng(wxCommandEvent &evt)
+{
+	cCLFrame* frame = dynamic_cast<cCLFrame*>(wxGetTopLevelParent(this));
+	if (!frame)
+		return;
+	frame->ChangePanel(PANEL_FILEMNG);
+}
+
+
+void cMainPanel::OnButtonEnforcement(wxCommandEvent &evt)
+{
+	cCLFrame* frame = dynamic_cast<cCLFrame*>(wxGetTopLevelParent(this));
+	if (!frame)
+		return;
+	frame->ChangePanel(PANEL_ENFORCEMENT);
 }
