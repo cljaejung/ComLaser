@@ -120,7 +120,7 @@ wxPanel(frame)
 	itemBoxSizer27->Add(itemButton29, 0, wxALIGN_CENTER_VERTICAL | wxALL, 5);
 
 
-
+	SetBackgroundColour(wxColour("Black"));
 }
 
 cEnforcementSetPanel::~cEnforcementSetPanel()

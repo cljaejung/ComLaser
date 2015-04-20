@@ -2,6 +2,7 @@
 #include "stdafx.h"
 #include "MainPanel.h"
 #include "CLFrame.h"
+#include "Bitmap3Button.h"
 
 
 enum {
@@ -40,35 +41,42 @@ cMainPanel::cMainPanel(wxFrame*frame) :
 	wxStaticText* itemStaticText4 = new wxStaticText(itemPanel1, wxID_STATIC, _("Static text"), wxDefaultPosition, wxDefaultSize, 0);
 	itemBoxSizer3->Add(itemStaticText4, 0, wxALIGN_CENTER_VERTICAL | wxALL, 5);
 
-	wxButton* itemButton5 = new wxButton(itemPanel1, ID_BUTTON_DATESET, _("Date Setting"), wxDefaultPosition, wxDefaultSize, 0);
-	itemBoxSizer3->Add(itemButton5, 0, wxALIGN_CENTER_VERTICAL | wxALL, 5);
+	//wxButton* itemButton5 = new cBitmap3Button(itemPanel1, ID_BUTTON_DATESET, _("ref_img/Cam_Set.bmp"), wxDefaultPosition, wxDefaultSize, 0);
+	//itemBoxSizer3->Add(itemButton5, 0, wxALIGN_CENTER_VERTICAL | wxALL, 5);
 
-	wxBoxSizer* itemBoxSizer6 = new wxBoxSizer(wxHORIZONTAL);
-	itemBoxSizer2->Add(itemBoxSizer6, 1, wxALIGN_CENTER_HORIZONTAL | wxALL, 5);
+	wxBitmap bmp("ref_img/BATT_ext2.bmp", wxBITMAP_TYPE_BMP);
+	wxStaticBitmap* itemStaticBitmap6 = new wxStaticBitmap(itemPanel1, wxID_STATIC, bmp, wxDefaultPosition, wxDefaultSize, 0);
+	itemBoxSizer3->Add(itemStaticBitmap6, 0, wxALIGN_CENTER_VERTICAL | wxALL, 5);
 
-	wxButton* itemButton7 = new wxButton(itemPanel1, ID_BUTTON_ENFORCEMENTSET, _("Enforcement\nSetting"), wxDefaultPosition, wxDefaultSize, 0);
-	itemBoxSizer6->Add(itemButton7, 0, wxALIGN_CENTER_VERTICAL | wxALL, 5);
+	wxBoxSizer* itemBoxSizer7 = new wxBoxSizer(wxHORIZONTAL);
+	itemBoxSizer2->Add(itemBoxSizer7, 1, wxALIGN_CENTER_HORIZONTAL | wxALL, 5);
 
-	wxButton* itemButton8 = new wxButton(itemPanel1, ID_BUTTON_CAMERASET, _("Camera\nSetting"), wxDefaultPosition, wxDefaultSize, 0);
-	itemBoxSizer6->Add(itemButton8, 0, wxALIGN_CENTER_VERTICAL | wxALL, 5);
+	wxButton* itemButton8 = new cBitmap3Button(itemPanel1, ID_BUTTON_ENFORCEMENT, _("ref_img/Enfm_Set.bmp"), wxDefaultPosition, wxDefaultSize, 0);
+	itemBoxSizer7->Add(itemButton8, 0, wxALIGN_CENTER_VERTICAL | wxALL, 5);
 
-	wxButton* itemButton9 = new wxButton(itemPanel1, ID_BUTTON_OPERATORSET, _("Operator\nSetting"), wxDefaultPosition, wxDefaultSize, 0);
-	itemBoxSizer6->Add(itemButton9, 0, wxALIGN_CENTER_VERTICAL | wxALL, 5);
+	wxButton* itemButton9 = new cBitmap3Button(itemPanel1, ID_BUTTON_CAMERASET, _("ref_img/Cam_Set.bmp"), wxDefaultPosition, wxDefaultSize, 0);
+	itemBoxSizer7->Add(itemButton9, 0, wxALIGN_CENTER_VERTICAL | wxALL, 5);
 
-	wxButton* itemButton10 = new wxButton(itemPanel1, ID_BUTTON_FILEMNG, _("File \nManagement"), wxDefaultPosition, wxDefaultSize, 0);
-	itemBoxSizer6->Add(itemButton10, 0, wxALIGN_CENTER_VERTICAL | wxALL, 5);
+	wxButton* itemButton10 = new cBitmap3Button(itemPanel1, ID_BUTTON_OPERATORSET, _("ref_img/User_Set.bmp"), wxDefaultPosition, wxDefaultSize, 0);
+	itemBoxSizer7->Add(itemButton10, 0, wxALIGN_CENTER_VERTICAL | wxALL, 5);
 
-	wxButton* itemButton11 = new wxButton(itemPanel1, ID_BUTTON_ENFORCEMENT, _("Enforcement"), wxDefaultPosition, wxDefaultSize, 0);
-	itemBoxSizer6->Add(itemButton11, 0, wxALIGN_CENTER_VERTICAL | wxALL, 5);
+	wxButton* itemButton11 = new cBitmap3Button(itemPanel1, ID_BUTTON_FILEMNG, _("ref_img/File_Mgmt.bmp"), wxDefaultPosition, wxDefaultSize, 0);
+	itemBoxSizer7->Add(itemButton11, 0, wxALIGN_CENTER_VERTICAL | wxALL, 5);
 
-	wxBoxSizer* itemBoxSizer12 = new wxBoxSizer(wxHORIZONTAL);
-	itemBoxSizer2->Add(itemBoxSizer12, 1, wxALIGN_CENTER_HORIZONTAL | wxALL, 5);
+	wxButton* itemButton12 = new cBitmap3Button(itemPanel1, ID_BUTTON_ENFORCEMENT, _("ref_img/Enfm.bmp"), wxDefaultPosition, wxDefaultSize, 0);
+	itemBoxSizer7->Add(itemButton12, 0, wxALIGN_CENTER_VERTICAL | wxALL, 5);
 
-	wxStaticText* itemStaticText13 = new wxStaticText(itemPanel1, wxID_STATIC, _("Static text"), wxDefaultPosition, wxDefaultSize, 0);
-	itemBoxSizer12->Add(itemStaticText13, 0, wxALIGN_CENTER_VERTICAL | wxALL, 5);
+	wxBoxSizer* itemBoxSizer13 = new wxBoxSizer(wxHORIZONTAL);
+	itemBoxSizer2->Add(itemBoxSizer13, 1, wxALIGN_CENTER_HORIZONTAL | wxALL, 5);
 
-	wxButton* itemButton14 = new wxButton(itemPanel1, ID_BUTTON5, _("Exit"), wxDefaultPosition, wxDefaultSize, 0);
-	itemBoxSizer12->Add(itemButton14, 0, wxALIGN_CENTER_VERTICAL | wxALL, 5);
+	wxStaticBitmap* itemStaticBitmap14 = new wxStaticBitmap(itemPanel1, wxID_STATIC, wxBitmap(_("ref_img/ComLASER_Logo.bmp"), wxBITMAP_TYPE_BMP), wxDefaultPosition, wxDefaultSize, 0);
+	itemBoxSizer13->Add(itemStaticBitmap14, 0, wxALIGN_CENTER_VERTICAL | wxALL, 5);
+
+	wxButton* itemButton15 = new cBitmap3Button(itemPanel1, ID_BUTTON5, _("ref_img/EXIT.bmp"), wxDefaultPosition, wxDefaultSize, 0);
+	itemBoxSizer13->Add(itemButton15, 0, wxALIGN_CENTER_VERTICAL | wxALL, 5);
+
+
+	SetBackgroundColour(wxColour("Black"));
 
 }
 

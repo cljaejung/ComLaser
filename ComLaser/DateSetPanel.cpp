@@ -54,6 +54,8 @@ wxPanel(frame)
 	wxButton* itemButton10 = new wxButton(itemPanel1, ID_BUTTON_CANCEL, _("Cancel"), wxDefaultPosition, wxDefaultSize, 0);
 	itemBoxSizer8->Add(itemButton10, 0, wxALIGN_CENTER_VERTICAL | wxALL, 5);
 
+
+	SetBackgroundColour(wxColour("Black"));
 }
 
 cDateSetPanel::~cDateSetPanel()

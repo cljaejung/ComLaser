@@ -120,6 +120,8 @@ cOperatorSetPanel::cOperatorSetPanel(wxFrame*frame) :
 	wxButton* itemButton30 = new wxButton(itemPanel1, ID_BUTTON_CANCEL, _("Cancel"), wxDefaultPosition, wxDefaultSize, 0);
 	itemBoxSizer28->Add(itemButton30, 0, wxALIGN_CENTER_HORIZONTAL | wxALL, 5);
 
+
+	SetBackgroundColour(wxColour("Black"));
 }
 
 cOperatorSetPanel::~cOperatorSetPanel()

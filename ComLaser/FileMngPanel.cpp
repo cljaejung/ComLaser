@@ -83,6 +83,8 @@ wxPanel(frame)
 	itemBoxSizer15->Add(itemButton18, 0, wxALIGN_CENTER_HORIZONTAL | wxALL, 5);
 
 
+
+	SetBackgroundColour(wxColour("Black"));
 }
 
 cFileMngPanel::~cFileMngPanel()

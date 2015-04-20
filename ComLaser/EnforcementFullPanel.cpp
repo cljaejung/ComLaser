@@ -47,6 +47,8 @@ wxPanel(frame)
 	itemBoxSizer6->Add(itemStaticBitmap8, 0, wxALIGN_CENTER_HORIZONTAL | wxALL, 5);
 
 
+
+	SetBackgroundColour(wxColour("Black"));
 }
 
 cEnforcementFullPanel::~cEnforcementFullPanel()

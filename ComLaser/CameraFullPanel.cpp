@@ -41,6 +41,7 @@ wxPanel(frame)
 	itemBoxSizer3->Add(itemButton7, 0, wxALIGN_CENTER_VERTICAL | wxALL, 5);
 
 
+	SetBackgroundColour(wxColour("Black"));
 }
 
 cCameraFullPanel::~cCameraFullPanel()

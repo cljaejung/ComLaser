@@ -89,6 +89,8 @@ wxPanel(frame)
 	wxButton* itemButton22 = new wxButton(itemPanel1, ID_BUTTON_EXIT, _("Exit"), wxDefaultPosition, wxDefaultSize, 0);
 	itemBoxSizer20->Add(itemButton22, 0, wxALIGN_CENTER_HORIZONTAL | wxALL, 5);
 
+
+	SetBackgroundColour(wxColour("Black"));
 }
 
 cLoginPanel::~cLoginPanel()

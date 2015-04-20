@@ -54,6 +54,8 @@ cCLFrame::cCLFrame(const wxString& title)
 	// set the frame icon
 	SetIcon(wxICON(sample));
 
+	SetBackgroundColour(wxColour("Black"));
+
 
 //#if wxUSE_MENUS
 //	// create a menu bar

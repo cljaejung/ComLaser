@@ -37,6 +37,8 @@ wxPanel(frame)
 	wxButton* itemButton5 = new wxButton(itemPanel1, ID_BUTTON_CANCEL, _("Cancel"), wxDefaultPosition, wxDefaultSize, 0);
 	itemBoxSizer3->Add(itemButton5, 0, wxALIGN_CENTER_VERTICAL | wxALL, 5);
 
+
+	SetBackgroundColour(wxColour("Black"));
 }
 
 cFileMngFullPanel::~cFileMngFullPanel()

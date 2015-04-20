@@ -98,7 +98,7 @@ cEnforcementPanel::cEnforcementPanel(wxFrame*frame) :
 	wxButton* itemButton24 = new wxButton(itemPanel1, ID_BUTTON_FULL, _("Full"), wxDefaultPosition, wxDefaultSize, 0);
 	itemBoxSizer22->Add(itemButton24, 0, wxALIGN_CENTER_HORIZONTAL | wxALL, 5);
 
-
+	SetBackgroundColour(wxColour("Black"));
 }
 
 cEnforcementPanel::~cEnforcementPanel()

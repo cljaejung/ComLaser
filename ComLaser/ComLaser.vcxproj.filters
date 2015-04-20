@@ -63,6 +63,9 @@
     <ClInclude Include="EnforcementFullPanel.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="Bitmap3Button.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
@@ -108,6 +111,9 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="EnforcementFullPanel.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Bitmap3Button.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
