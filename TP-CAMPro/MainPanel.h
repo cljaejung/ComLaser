@@ -14,6 +14,7 @@ protected:
 	// message handling
 protected:
 	DECLARE_EVENT_TABLE()
+	void OnEraseBackground(wxEraseEvent&);
 	void OnButtonOperatorSet(wxCommandEvent &);
 	void OnButtonDateSet(wxCommandEvent &);
 	void OnButtonEnforcementSet(wxCommandEvent &);

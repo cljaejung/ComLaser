@@ -84,6 +84,7 @@
     <ClInclude Include="CameraSetPanel.h" />
     <ClInclude Include="CLApp.h" />
     <ClInclude Include="CLFrame.h" />
+    <ClInclude Include="DateDisplay.h" />
     <ClInclude Include="DateSetPanel.h" />
     <ClInclude Include="EnforcementFullPanel.h" />
     <ClInclude Include="EnforcementPanel.h" />
@@ -102,6 +103,7 @@
     <ClCompile Include="CameraSetPanel.cpp" />
     <ClCompile Include="CLApp.cpp" />
     <ClCompile Include="CLFrame.cpp" />
+    <ClCompile Include="DateDisplay.cpp" />
     <ClCompile Include="DateSetPanel.cpp" />
     <ClCompile Include="EnforcementFullPanel.cpp" />
     <ClCompile Include="EnforcementPanel.cpp" />

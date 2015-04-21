@@ -52,12 +52,22 @@ MINIMAL_CXXFLAGS = -D__WX$(TOOLKIT)__ $(__WXUNIV_DEFINE_p) \
 MINIMAL_OBJECTS =  \
 	$(__minimal___win32rc) \
 	$(__minimal_os2_lib_res) \
-	ComLaser.o \
+	TP-CAMPro.o \
 	stdafx.o \
 	CLApp.o \
 	CLFrame.o \
 	MainPanel.o \
-	OperatorPanel.o
+	OperatorSetPanel.o \
+	Bitmap3Button.o \
+	CameraFullPanel.o \
+	CameraSetPanel.o \
+	DateSetPanel.o \
+	EnforcementFullPanel.o \
+	EnforcementPanel.o \
+	EnforcementSetPanel.o \
+	FileMngFullPanel.o \
+	FileMngPanel.o \
+	LoginPanel.o	
 
 
 
@@ -98,8 +108,8 @@ __WXUNIV_DEFINE_p_2 = --define __WXUNIVERSAL__
 __DLLFLAG_p = -DWXUSINGDLL
 __DLLFLAG_p_1 = -d WXUSINGDLL
 __DLLFLAG_p_2 = --define WXUSINGDLL
-COND_PLATFORM_OS2_1___minimal___os2_emxbindcmd = $(NM) comlaser$(EXEEXT) | if \
-	grep -q pmwin.763 ; then emxbind -ep comlaser$(EXEEXT) ; fi
+COND_PLATFORM_OS2_1___minimal___os2_emxbindcmd = $(NM) TP-CAMPro$(EXEEXT) | if \
+	grep -q pmwin.763 ; then emxbind -ep TP-CAMPro$(EXEEXT) ; fi
 #__minimal___os2_emxbindcmd = $(COND_PLATFORM_OS2_1___minimal___os2_emxbindcmd)
 #__RCDEFDIR_p = -i \
 #	$(LIBDIRNAME)/wx/include/$(TOOLCHAIN_FULLNAME)
@@ -155,12 +165,12 @@ COND_TOOLKIT_MAC___MACOSX_RESOURCES_p_1 = $(REZ) -d __DARWIN__ -t APPL -d \
 	__WX$(TOOLKIT)__ $(__WXUNIV_DEFINE_p_1) $(__EXCEPTIONS_DEFINE_p_1) \
 	$(__RTTI_DEFINE_p_1) $(__THREAD_DEFINE_p_1) -i $(srcdir) $(__DLLFLAG_p_1) -i \
 	$(srcdir)/../../samples $(__RCDEFDIR_p) -i $(top_srcdir)/include -o \
-	comlaser$(EXEEXT) Carbon.r sample.r
+	TP-CAMPro$(EXEEXT) Carbon.r sample.r
 #__MACOSX_RESOURCES_p_1 = $(COND_TOOLKIT_MAC___MACOSX_RESOURCES_p_1)
 
 ### Targets: ###
 
-all: comlaser$(EXEEXT) $(__minimal_bundle___depname)
+all: TP-CAMPro$(EXEEXT) $(__minimal_bundle___depname)
 
 install: 
 
@@ -171,13 +181,13 @@ install-strip: install
 clean: 
 	rm -rf ./.deps ./.pch
 	rm -f ./*.o
-	rm -f comlaser$(EXEEXT)
+	rm -f TP-CAMPro$(EXEEXT)
 	rm -rf minimal.app
 
 distclean: clean
 	rm -f config.cache config.log config.status bk-deps bk-make-pch shared-ld-sh Makefile
 
-comlaser$(EXEEXT): $(MINIMAL_OBJECTS) $(__minimal___win32rc)
+TP-CAMPro$(EXEEXT): $(MINIMAL_OBJECTS) $(__minimal___win32rc)
 	$(CXX) -o $@ $(MINIMAL_OBJECTS)    -L$(LIBDIRNAME) $(LDFLAGS_GUI) $(SAMPLES_RPATH_FLAG) $(LDFLAGS)  $(__WXLIB_CORE_p)  $(__WXLIB_HTML_p) $(EXTRALIBS_HTML) $(__WXLIB_ADV_p) $(PLUGIN_ADV_EXTRALIBS)  $(__WXLIB_XML_p) $(EXTRALIBS_XML) $(__WXLIB_BASE_p)  $(__WXLIB_MONO_p) $(__LIB_TIFF_p) $(__LIB_JPEG_p) $(__LIB_PNG_p) $(EXTRALIBS_FOR_GUI) $(__LIB_ZLIB_p) $(__LIB_ODBC_p) $(__LIB_REGEX_p) $(__LIB_EXPAT_p) $(EXTRALIBS_FOR_BASE) $(LIBS)
 	$(__minimal___mac_rezcmd)
 	$(__minimal___mac_setfilecmd)
@@ -209,8 +219,8 @@ comlaser$(EXEEXT): $(MINIMAL_OBJECTS) $(__minimal___win32rc)
 minimal_sample_rc.o: $(srcdir)/../../samples/sample.rc
 	$(WINDRES) -i$< -o$@    --define __WX$(TOOLKIT)__ $(__WXUNIV_DEFINE_p_2)   $(__EXCEPTIONS_DEFINE_p_2) $(__RTTI_DEFINE_p_2) $(__THREAD_DEFINE_p_2)   --include-dir $(srcdir) $(__DLLFLAG_p_2) --include-dir $(srcdir)/../../samples $(__RCDEFDIR_p_1) --include-dir $(top_srcdir)/include
 
-#ComLaser.o: $(srcdir)/ComLaser.cpp
-#	$(CXXC) -c -o $@ $(MINIMAL_CXXFLAGS) $(srcdir)/ComLaser.cpp
+#TP-CAMPro.o: $(srcdir)/TP-CAMPro.cpp
+#	$(CXXC) -c -o $@ $(MINIMAL_CXXFLAGS) $(srcdir)/TP-CAMPro.cpp
 #stdafx.o: $(srcdir)/stdafx.cpp
 #	$(CXXC) -c -o $@ $(MINIMAL_CXXFLAGS) $(srcdir)/stdafx.cpp
 
@@ -231,12 +241,22 @@ minimal_sample_rc.o: $(srcdir)/../../samples/sample.rc
 	$(CXXC) $(MINIMAL_CXXFLAGS) -g -c $<
 
 
-ComLaser.o: $(srcdir)/ComLaser.cpp $(srcdir)/CLApp.h $(srcdir)/CLFrame.h $(srcdir)/stdafx.h
+TP-CAMPro.o: $(srcdir)/TP-CAMPro.cpp $(srcdir)/CLApp.h $(srcdir)/CLFrame.h $(srcdir)/stdafx.h
 stdafx.o: $(srcdir)/stdafx.cpp $(srcdir)/stdafx.h
 CLApp.o: $(srcdir)/CLApp.cpp $(srcdir)/stdafx.h
 CLFrame.o: $(srcdir)/CLFrame.cpp $(srcdir)/stdafx.h
-MainPanel.o: $(srcdir)/MainPanel.cpp $(srcdir)/CLFrame.h  $(srcdir)/stdafx.h
-OperatorPanel.o: $(srcdir)/OperatorPanel.cpp $(srcdir)/CLFrame.h $(srcdir)/stdafx.h
+MainPanel.o: $(srcdir)/MainPanel.cpp $(srcdir)/CLFrame.h $(srcdir)/Bitmap3Button.h $(srcdir)/stdafx.h
+OperatorSetPanel.o: $(srcdir)/OperatorSetPanel.cpp $(srcdir)/CLFrame.h $(srcdir)/stdafx.h
+Bitmap3Button.o: $(srcdir)/Bitmap3Button.cpp $(srcdir)/Bitmap3Button.h $(srcdir)/CLFrame.h $(srcdir)/stdafx.h
+CameraFullPanel.o: $(srcdir)/CameraFullPanel.cpp $(srcdir)/CameraFullPanel.h $(srcdir)/CLFrame.h $(srcdir)/stdafx.h
+CameraSetPanel.o: $(srcdir)/CameraSetPanel.cpp $(srcdir)/CameraSetPanel.h $(srcdir)/CLFrame.h $(srcdir)/stdafx.h
+DateSetPanel.o: $(srcdir)/DateSetPanel.cpp $(srcdir)/DateSetPanel.h $(srcdir)/CLFrame.h $(srcdir)/stdafx.h
+EnforcementFullPanel.o: $(srcdir)/EnforcementFullPanel.cpp $(srcdir)/EnforcementFullPanel.h $(srcdir)/CLFrame.h $(srcdir)/stdafx.h
+EnforcementPanel.o: $(srcdir)/EnforcementPanel.cpp $(srcdir)/EnforcementPanel.h $(srcdir)/CLFrame.h $(srcdir)/stdafx.h
+EnforcementSetPanel.o: $(srcdir)/EnforcementSetPanel.cpp $(srcdir)/EnforcementSetPanel.h $(srcdir)/CLFrame.h $(srcdir)/stdafx.h
+FileMngFullPanel.o: $(srcdir)/FileMngFullPanel.cpp $(srcdir)/FileMngFullPanel.h $(srcdir)/CLFrame.h $(srcdir)/stdafx.h
+FileMngPanel.o: $(srcdir)/FileMngPanel.cpp $(srcdir)/FileMngPanel.h $(srcdir)/CLFrame.h $(srcdir)/stdafx.h
+LoginPanel.o: $(srcdir)/LoginPanel.cpp $(srcdir)/LoginPanel.h $(srcdir)/CLFrame.h $(srcdir)/stdafx.h
 
 
 
