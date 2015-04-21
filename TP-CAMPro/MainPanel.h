@@ -21,4 +21,5 @@ protected:
 	void OnButtonCameraSet(wxCommandEvent &);
 	void OnButtonFileMng(wxCommandEvent &);
 	void OnButtonEnforcement(wxCommandEvent &);
+	void OnButtonExit(wxCommandEvent &);
 };

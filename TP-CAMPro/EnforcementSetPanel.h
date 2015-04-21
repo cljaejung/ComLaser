@@ -9,7 +9,7 @@ public:
 
 
 protected:
-
+	wxChoice *m_UnitChoice;
 
 public:
 

@@ -145,21 +145,30 @@ void cCLFrame::ChangePanel(const PANEL_TYPE panel)
 	m_enforcementPanel->Hide();
 	m_enforcementFullPanel->Hide();
 
+	wxPanel *showPanel = NULL;
+
 	switch (panel)
 	{
-	case PANEL_MAIN: m_mainPanel->Show(); break;
-	case PANEL_LOGIN: m_loginPanel->Show(); break;
-	case PANEL_OPERATORSET: m_operatorPanel->Show(); break;
-	case PANEL_DATESET: m_datePanel->Show(); break;
-	case PANEL_ENFORCEMENTSET:  m_enforcementSetPanel->Show(); break;
-	case PANEL_CAMERASET: m_cameraPanel->Show(); break;
-	case PANEL_CAMERAFULL: m_cameraFullPanel->Show(); break;
-	case PANEL_FILEMNG: m_fileMngPanel->Show(); break;
-	case PANEL_FILEMNGFULL: m_fileMngFullPanel->Show(); break;
-	case PANEL_ENFORCEMENT: m_enforcementPanel->Show(); break;
-	case PANEL_ENFORCEMENTFULL: m_enforcementFullPanel->Show(); break;
+	case PANEL_MAIN: m_mainPanel->Show(); showPanel = m_mainPanel;  break;
+	case PANEL_LOGIN: m_loginPanel->Show(); showPanel = m_loginPanel;  break;
+	case PANEL_OPERATORSET: m_operatorPanel->Show(); showPanel = m_operatorPanel;  break;
+	case PANEL_DATESET: m_datePanel->Show(); showPanel = m_datePanel;  break;
+	case PANEL_ENFORCEMENTSET:  m_enforcementSetPanel->Show(); showPanel = m_enforcementSetPanel;  break;
+	case PANEL_CAMERASET: m_cameraPanel->Show(); showPanel = m_cameraPanel;  break;
+	case PANEL_CAMERAFULL: m_cameraFullPanel->Show(); showPanel = m_cameraFullPanel;  break;
+	case PANEL_FILEMNG: m_fileMngPanel->Show(); showPanel = m_fileMngPanel;  break;
+	case PANEL_FILEMNGFULL: m_fileMngFullPanel->Show(); showPanel = m_fileMngFullPanel;  break;
+	case PANEL_ENFORCEMENT: m_enforcementPanel->Show(); showPanel = m_enforcementPanel;  break;
+	case PANEL_ENFORCEMENTFULL: m_enforcementFullPanel->Show(); showPanel = m_enforcementFullPanel;  break;
 	default:
 		break;
+	}
+
+	if (showPanel)
+	{ 
+		showPanel->Refresh();
+		showPanel->Layout();
+		showPanel->Fit();
 	}
 
 	Layout();
