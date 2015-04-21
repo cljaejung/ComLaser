@@ -67,7 +67,9 @@ MINIMAL_OBJECTS =  \
 	EnforcementSetPanel.o \
 	FileMngFullPanel.o \
 	FileMngPanel.o \
-	LoginPanel.o	
+	LoginPanel.o \
+	BatteryDisplay.o \
+	DateDisplay.o	
 
 
 
@@ -245,7 +247,7 @@ TP-CAMPro.o: $(srcdir)/TP-CAMPro.cpp $(srcdir)/CLApp.h $(srcdir)/CLFrame.h $(src
 stdafx.o: $(srcdir)/stdafx.cpp $(srcdir)/stdafx.h
 CLApp.o: $(srcdir)/CLApp.cpp $(srcdir)/stdafx.h
 CLFrame.o: $(srcdir)/CLFrame.cpp $(srcdir)/stdafx.h
-MainPanel.o: $(srcdir)/MainPanel.cpp $(srcdir)/CLFrame.h $(srcdir)/Bitmap3Button.h $(srcdir)/stdafx.h
+MainPanel.o: $(srcdir)/MainPanel.cpp $(srcdir)/CLFrame.h $(srcdir)/Bitmap3Button.h $(srcdir)/BatteryDisplay.h $(srcdir)/DateDisplay.h $(srcdir)/stdafx.h
 OperatorSetPanel.o: $(srcdir)/OperatorSetPanel.cpp $(srcdir)/CLFrame.h $(srcdir)/stdafx.h
 Bitmap3Button.o: $(srcdir)/Bitmap3Button.cpp $(srcdir)/Bitmap3Button.h $(srcdir)/CLFrame.h $(srcdir)/stdafx.h
 CameraFullPanel.o: $(srcdir)/CameraFullPanel.cpp $(srcdir)/CameraFullPanel.h $(srcdir)/CLFrame.h $(srcdir)/stdafx.h
@@ -257,6 +259,8 @@ EnforcementSetPanel.o: $(srcdir)/EnforcementSetPanel.cpp $(srcdir)/EnforcementSe
 FileMngFullPanel.o: $(srcdir)/FileMngFullPanel.cpp $(srcdir)/FileMngFullPanel.h $(srcdir)/CLFrame.h $(srcdir)/stdafx.h
 FileMngPanel.o: $(srcdir)/FileMngPanel.cpp $(srcdir)/FileMngPanel.h $(srcdir)/CLFrame.h $(srcdir)/stdafx.h
 LoginPanel.o: $(srcdir)/LoginPanel.cpp $(srcdir)/LoginPanel.h $(srcdir)/CLFrame.h $(srcdir)/stdafx.h
+BatteryDisplay.o: $(srcdir)/BatteryDisplay.cpp $(srcdir)/BatteryDisplay.h $(srcdir)/CLFrame.h $(srcdir)/stdafx.h
+DateDisplay.o: $(srcdir)/DateDisplay.cpp $(srcdir)/DateDisplay.h $(srcdir)/CLFrame.h $(srcdir)/stdafx.h
 
 
 

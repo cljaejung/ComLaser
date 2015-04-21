@@ -1,7 +1,6 @@
 
 #include "stdafx.h"
 #include "DateDisplay.h"
-#include "wx/time.h"
 #include "wx/datetime.h"
 
 
@@ -53,6 +52,7 @@ cDateDisplay::cDateDisplay(wxWindow *parent) :
 	m_timer.SetOwner(this);
 	m_timer.Start(500);
 
+	SetBackgroundColour(wxColour("Black"));
 	//Connect(wxEVT_IDLE, wxIdleEventHandler(cDateDisplay::OnIdle), NULL, this);
 	Connect(wxEVT_TIMER, wxTimerEventHandler(cDateDisplay::OnTimer), NULL, this);
 }
