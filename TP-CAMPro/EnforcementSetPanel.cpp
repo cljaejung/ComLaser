@@ -49,7 +49,7 @@ wxPanel(frame)
 	wxBoxSizer* itemBoxSizer4 = new wxBoxSizer(wxVERTICAL);
 	itemBoxSizer3->Add(itemBoxSizer4, 0, wxALIGN_CENTER_VERTICAL | wxALL, 5);
 
-	wxImage img(_("ref_img/Enfm_Set_icon.bmp"), wxBITMAP_TYPE_BMP);
+	wxImage img(_("ref_img/ENFM_SET_ICON.bmp"), wxBITMAP_TYPE_BMP);
 	wxBitmap bmp = img.Scale(70, 70);
 	wxStaticBitmap* itemStaticBitmap5 = new wxStaticBitmap(itemPanel1, wxID_STATIC, 
 		bmp, wxDefaultPosition, wxDefaultSize, 0);

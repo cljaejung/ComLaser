@@ -33,54 +33,54 @@ cCameraSetPanel::cCameraSetPanel(wxFrame*frame) :
 wxPanel(frame)
 {
 
-	cCameraSetPanel* itemPanel1 = this;
+    cCameraSetPanel* itemPanel1 = this;
 
-	this->SetBackgroundColour(wxColour(0, 0, 0));
-	wxBoxSizer* itemBoxSizer2 = new wxBoxSizer(wxVERTICAL);
-	itemPanel1->SetSizer(itemBoxSizer2);
+    this->SetBackgroundColour(wxColour(0, 0, 0));
+    wxBoxSizer* itemBoxSizer2 = new wxBoxSizer(wxVERTICAL);
+    itemPanel1->SetSizer(itemBoxSizer2);
 
-	wxBoxSizer* itemBoxSizer3 = new wxBoxSizer(wxHORIZONTAL);
-	itemBoxSizer2->Add(itemBoxSizer3, 0, wxGROW | wxALL, 5);
+    wxBoxSizer* itemBoxSizer3 = new wxBoxSizer(wxHORIZONTAL);
+    itemBoxSizer2->Add(itemBoxSizer3, 0, wxGROW|wxLEFT|wxRIGHT|wxTOP, 5);
 
-	wxImage img(_("ref_img/CAM_Set_icon.bmp"), wxBITMAP_TYPE_BMP);
+	wxImage img(_("ref_img/CAM_SET_ICON.bmp"), wxBITMAP_TYPE_BMP);
 	wxBitmap bmp = img.Scale(70, 70);
 	wxStaticBitmap* itemStaticBitmap4 = new wxStaticBitmap(itemPanel1, wxID_STATIC, bmp, wxDefaultPosition, wxDefaultSize, 0);
-	itemBoxSizer3->Add(itemStaticBitmap4, 0, wxALIGN_CENTER_VERTICAL | wxALL, 5);
+    itemBoxSizer3->Add(itemStaticBitmap4, 0, wxALIGN_CENTER_VERTICAL|wxLEFT|wxRIGHT|wxTOP, 5);
 
-	wxStaticText* itemStaticText5 = new wxStaticText(itemPanel1, wxID_STATIC, _("Camera Setting"), wxDefaultPosition, wxDefaultSize, 0);
-	itemStaticText5->SetForegroundColour(wxColour(255, 255, 255));
-	itemStaticText5->SetFont(wxFont(24, wxFONTFAMILY_SWISS, wxFONTSTYLE_NORMAL, wxFONTWEIGHT_NORMAL, false, wxT("Arial")));
-	itemBoxSizer3->Add(itemStaticText5, 0, wxALIGN_CENTER_VERTICAL | wxALL, 5);
+    wxStaticText* itemStaticText5 = new wxStaticText( itemPanel1, wxID_STATIC, _("Camera Setting"), wxDefaultPosition, wxDefaultSize, 0 );
+    itemStaticText5->SetForegroundColour(wxColour(255, 255, 255));
+    itemStaticText5->SetFont(wxFont(22, wxFONTFAMILY_SWISS, wxFONTSTYLE_NORMAL, wxFONTWEIGHT_NORMAL, false, wxT("Arial")));
+	itemBoxSizer3->Add(itemStaticText5, 0, wxALIGN_BOTTOM | wxLEFT | wxRIGHT | wxTOP, 5);
 
-	wxBoxSizer* itemBoxSizer6 = new wxBoxSizer(wxVERTICAL);
-	itemBoxSizer3->Add(itemBoxSizer6, 1, wxGROW | wxALL, 5);
+    wxBoxSizer* itemBoxSizer6 = new wxBoxSizer(wxVERTICAL);
+    itemBoxSizer3->Add(itemBoxSizer6, 1, wxGROW|wxLEFT|wxRIGHT|wxTOP, 5);
 
 	cDateDisplay* itemStaticText7 = new cDateDisplay(itemPanel1, true);
 	itemBoxSizer6->Add(itemStaticText7, 0, wxALIGN_RIGHT | wxALL, 5);
 
-	wxBoxSizer* itemBoxSizer8 = new wxBoxSizer(wxVERTICAL);
-	itemBoxSizer3->Add(itemBoxSizer8, 0, wxGROW | wxALL, 5);
+    wxBoxSizer* itemBoxSizer8 = new wxBoxSizer(wxVERTICAL);
+    itemBoxSizer3->Add(itemBoxSizer8, 0, wxGROW|wxLEFT|wxRIGHT|wxTOP, 5);
 
-	wxStaticBitmap* itemStaticBitmap9 = new cBatteryDisplay(itemPanel1, wxID_STATIC, 
+	wxStaticBitmap* itemStaticBitmap9 = new cBatteryDisplay(itemPanel1, wxID_STATIC,
 		_("ref_img/BATT_ext2.bmp"), wxDefaultPosition, wxDefaultSize, 0);
-	itemBoxSizer8->Add(itemStaticBitmap9, 0, wxALIGN_RIGHT | wxALL, 5);
+    itemBoxSizer8->Add(itemStaticBitmap9, 0, wxALIGN_RIGHT|wxALL, 5);
 
-	wxBoxSizer* itemBoxSizer10 = new wxBoxSizer(wxHORIZONTAL);
-	itemBoxSizer2->Add(itemBoxSizer10, 1, wxALIGN_CENTER_HORIZONTAL | wxLEFT | wxRIGHT | wxBOTTOM, 5);
+    wxBoxSizer* itemBoxSizer10 = new wxBoxSizer(wxHORIZONTAL);
+    itemBoxSizer2->Add(itemBoxSizer10, 1, wxGROW|wxLEFT|wxRIGHT|wxBOTTOM, 5);
 
-	wxBoxSizer* itemBoxSizer11 = new wxBoxSizer(wxVERTICAL);
-	itemBoxSizer10->Add(itemBoxSizer11, 0, wxALIGN_CENTER_VERTICAL | wxALL, 5);
+    wxBoxSizer* itemBoxSizer11 = new wxBoxSizer(wxVERTICAL);
+    itemBoxSizer10->Add(itemBoxSizer11, 0, wxALIGN_CENTER_VERTICAL|wxLEFT|wxRIGHT|wxBOTTOM, 5);
 
-	wxPanel* itemPanel12 = new wxPanel(itemPanel1, ID_PANEL1, wxDefaultPosition, wxDefaultSize, wxTAB_TRAVERSAL);
-	itemPanel12->SetExtraStyle(wxWS_EX_VALIDATE_RECURSIVELY);
-	itemPanel12->SetBackgroundColour(wxColour(192, 192, 192));
-	itemBoxSizer11->Add(itemPanel12, 0, wxALIGN_CENTER_HORIZONTAL | wxALL, 5);
+    wxPanel* itemPanel12 = new wxPanel( itemPanel1, ID_PANEL1, wxDefaultPosition, wxDefaultSize, wxTAB_TRAVERSAL );
+    itemPanel12->SetExtraStyle(wxWS_EX_VALIDATE_RECURSIVELY);
+    itemPanel12->SetBackgroundColour(wxColour(192, 192, 192));
+    itemBoxSizer11->Add(itemPanel12, 0, wxALIGN_CENTER_HORIZONTAL|wxALL, 5);
 
-	wxBoxSizer* itemBoxSizer13 = new wxBoxSizer(wxVERTICAL);
-	itemPanel12->SetSizer(itemBoxSizer13);
+    wxBoxSizer* itemBoxSizer13 = new wxBoxSizer(wxVERTICAL);
+    itemPanel12->SetSizer(itemBoxSizer13);
 
-	wxBoxSizer* itemBoxSizer14 = new wxBoxSizer(wxHORIZONTAL);
-	itemBoxSizer13->Add(itemBoxSizer14, 0, wxGROW | wxALL, 5);
+    wxBoxSizer* itemBoxSizer14 = new wxBoxSizer(wxHORIZONTAL);
+    itemBoxSizer13->Add(itemBoxSizer14, 0, wxGROW|wxALL, 5);
 
 	wxStaticText* itemStaticText15 = new wxStaticText(itemPanel12, wxID_STATIC, _("Weather"), wxDefaultPosition, wxDefaultSize, 0);
 	itemStaticText15->SetFont(wxFont(16, wxFONTFAMILY_SWISS, wxFONTSTYLE_NORMAL, wxFONTWEIGHT_BOLD, false, wxT("Arial")));
@@ -157,16 +157,18 @@ wxPanel(frame)
 	itemBoxSizer26->Add(itemChoice28, 0, wxALIGN_CENTER_VERTICAL | wxALL, 5);
 
 	wxBoxSizer* itemBoxSizer29 = new wxBoxSizer(wxHORIZONTAL);
-	itemBoxSizer13->Add(itemBoxSizer29, 0, wxALIGN_CENTER_HORIZONTAL | wxALL, 5);
+	itemBoxSizer13->Add(itemBoxSizer29, 0, wxALIGN_CENTER_HORIZONTAL | wxALL, 0);
 
-	cBitmap3Button* itemButton30 = new cBitmap3Button(itemPanel12, ID_BUTTON_OK, _("ref_img/BTN_OK.bmp"), wxDefaultPosition, wxDefaultSize, 0);
+	cBitmap3Button* itemButton30 = new cBitmap3Button(itemPanel12, ID_BUTTON_OK, 
+		_("ref_img/BTN_OK.bmp"), wxDefaultPosition, wxDefaultSize, 0);
 	itemBoxSizer29->Add(itemButton30, 0, wxALIGN_CENTER_VERTICAL | wxALL, 5);
 
-	cBitmap3Button* itemButton31 = new cBitmap3Button(itemPanel12, ID_BUTTON_CANCEL, _("ref_img/BTN_CANCEL.bmp"), wxDefaultPosition, wxDefaultSize, 0);
+	cBitmap3Button* itemButton31 = new cBitmap3Button(itemPanel12, ID_BUTTON_CANCEL, 
+		_("ref_img/BTN_CANCEL.bmp"), wxDefaultPosition, wxDefaultSize, 0);
 	itemBoxSizer29->Add(itemButton31, 0, wxALIGN_CENTER_VERTICAL | wxALL, 5);
 
 	wxBoxSizer* itemBoxSizer32 = new wxBoxSizer(wxVERTICAL);
-	itemBoxSizer10->Add(itemBoxSizer32, 0, wxALIGN_CENTER_VERTICAL | wxALL, 5);
+	itemBoxSizer10->Add(itemBoxSizer32, 1, wxGROW | wxLEFT | wxRIGHT | wxBOTTOM, 5);
 
 	wxBoxSizer* itemBoxSizer33 = new wxBoxSizer(wxHORIZONTAL);
 	itemBoxSizer32->Add(itemBoxSizer33, 0, wxALIGN_CENTER_HORIZONTAL | wxALL, 5);
@@ -181,14 +183,14 @@ wxPanel(frame)
 	itemBoxSizer33->Add(itemButton35, 0, wxALIGN_CENTER_VERTICAL | wxALL, 5);
 
 	wxBoxSizer* itemBoxSizer36 = new wxBoxSizer(wxHORIZONTAL);
-	itemBoxSizer32->Add(itemBoxSizer36, 0, wxALIGN_CENTER_HORIZONTAL | wxALL, 0);
+	itemBoxSizer32->Add(itemBoxSizer36, 1, wxGROW | wxALL, 0);
 
-	wxPanel* itemPanel37 = new wxPanel(itemPanel1, ID_PANEL, wxDefaultPosition, wxSize(390, 288), wxSUNKEN_BORDER | wxTAB_TRAVERSAL);
+	wxPanel* itemPanel37 = new wxPanel(itemPanel1, ID_PANEL, wxDefaultPosition, wxSize(350, 288), wxSUNKEN_BORDER | wxTAB_TRAVERSAL);
 	itemPanel37->SetExtraStyle(wxWS_EX_VALIDATE_RECURSIVELY);
-	itemBoxSizer36->Add(itemPanel37, 0, wxALIGN_CENTER_VERTICAL | wxALL, 0);
+	itemBoxSizer36->Add(itemPanel37, 1, wxGROW | wxALL, 0);
 
 
-	//SetBackgroundColour(wxColour("Black"));
+
 }
 
 cCameraSetPanel::~cCameraSetPanel()

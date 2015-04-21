@@ -7,6 +7,8 @@ class cDateDisplay : public wxPanel
 public:
 	cDateDisplay(wxWindow *parent, const bool IsSmallSize=false);
 
+	void UpdateDate();
+
 
 protected:
 	wxFont m_font;

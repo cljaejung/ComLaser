@@ -87,7 +87,8 @@ cMainPanel::cMainPanel(wxFrame*frame) :
 	wxBoxSizer* itemBoxSizer17 = new wxBoxSizer(wxVERTICAL);
 	itemBoxSizer16->Add(itemBoxSizer17, 1, wxALIGN_CENTER_VERTICAL | wxALL, 5);
 
-	wxStaticBitmap* itemStaticBitmap18 = new wxStaticBitmap(itemPanel1, wxID_STATIC, wxBitmap(_("ref_img/ComLASER_Logo.bmp"), wxBITMAP_TYPE_BMP), wxDefaultPosition, wxDefaultSize, 0);
+	wxStaticBitmap* itemStaticBitmap18 = new wxStaticBitmap(itemPanel1, wxID_STATIC, 
+		wxBitmap(_("ref_img/ComLASER_Logo.bmp"), wxBITMAP_TYPE_BMP), wxDefaultPosition, wxDefaultSize, 0);
 	itemBoxSizer17->Add(itemStaticBitmap18, 0, wxALIGN_CENTER_HORIZONTAL | wxALL, 5);
 
 	wxBoxSizer* itemBoxSizer19 = new wxBoxSizer(wxVERTICAL);

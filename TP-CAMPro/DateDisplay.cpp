@@ -61,13 +61,15 @@ cDateDisplay::cDateDisplay(wxWindow *parent, const bool IsSmallSize) :
 	m_timer.SetOwner(this);
 	m_timer.Start(500);
 
-	SetBackgroundColour(wxColour("Black"));
+	//SetBackgroundColour(wxColour("Black"));
 	//Connect(wxEVT_IDLE, wxIdleEventHandler(cDateDisplay::OnIdle), NULL, this);
 	Connect(wxEVT_TIMER, wxTimerEventHandler(cDateDisplay::OnTimer), NULL, this);
+
+	UpdateDate();
 }
 
 
-void cDateDisplay::OnTimer(wxTimerEvent& event)
+void cDateDisplay::UpdateDate()
 {
 	wxDateTime dt = wxDateTime::Now();
 	if (dt.IsValid())
@@ -104,6 +106,10 @@ void cDateDisplay::OnTimer(wxTimerEvent& event)
 		Layout();
 		Fit();
 	}
+}
 
+void cDateDisplay::OnTimer(wxTimerEvent& event)
+{
+	UpdateDate();
 	event.Skip();
 }

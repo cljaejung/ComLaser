@@ -56,26 +56,6 @@ cCLFrame::cCLFrame(const wxString& title)
 
 	SetBackgroundColour(wxColour("Black"));
 
-
-//#if wxUSE_MENUS
-//	// create a menu bar
-//	wxMenu *fileMenu = new wxMenu;
-//	// the "About" item should be in the help menu
-//	wxMenu *helpMenu = new wxMenu;
-//	helpMenu->Append(Minimal_About, _T("&About...\tF1"), _T("Show about dialog"));
-//	fileMenu->Append(Minimal_Quit, _T("E&xit\tAlt-X"), _T("Quit this program"));
-//	// now append the freshly created menu to the menu bar...
-//	wxMenuBar *menuBar = new wxMenuBar();
-//	menuBar->Append(fileMenu, _T("&File"));
-//	menuBar->Append(helpMenu, _T("&Help"));
-//	// ... and attach this menu bar to the frame
-//	SetMenuBar(menuBar);
-//#endif // wxUSE_MENUS
-
-//	CreateStatusBar(2);
-//	SetStatusText(_T("Welcome to ComLaser!"));
-
-
 	cCLFrame* itemPanel1 = this;
 	wxBoxSizer* itemBoxSizer2 = new wxBoxSizer(wxVERTICAL);
 	itemPanel1->SetSizer(itemBoxSizer2);
@@ -106,7 +86,8 @@ cCLFrame::cCLFrame(const wxString& title)
 
 	ChangePanel(PANEL_MAIN);
 
-	Layout();
+	Center(); // 윈도우를 가운데로 옮긴다.
+	Layout(); // UI 위치 재조정.
 }
 
 

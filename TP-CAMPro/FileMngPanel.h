@@ -1,6 +1,7 @@
 #pragma once
 
 
+class wxListCtrl;
 class cFileMngPanel : public wxPanel
 {
 public:
@@ -9,7 +10,7 @@ public:
 
 
 protected:
-
+	wxListCtrl *m_FileListCtrl;
 
 public:
 
