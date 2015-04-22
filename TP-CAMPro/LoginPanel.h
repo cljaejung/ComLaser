@@ -1,6 +1,7 @@
 #pragma once
 
 
+class wxButton;
 class cLoginPanel : public wxPanel
 {
 public:
@@ -12,7 +13,7 @@ protected:
 
 
 public:
-
+	wxButton *m_Button1;
 
 	// message handling
 protected:
