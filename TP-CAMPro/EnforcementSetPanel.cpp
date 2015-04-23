@@ -7,6 +7,7 @@
 #include "BatteryDisplay.h"
 #include "DateDisplay.h"
 #include "Bitmap3Button.h"
+#include "KeyboardDialog.h"
 
 
 enum {
@@ -29,6 +30,7 @@ enum {
 
 BEGIN_EVENT_TABLE(cEnforcementSetPanel, wxPanel)
 	EVT_BUTTON(ID_BUTTON_CANCEL, cEnforcementSetPanel::OnButtonCancel)
+	EVT_BUTTON(ID_BUTTON_LOCKEY, cEnforcementSetPanel::OnButtonLocation)
 END_EVENT_TABLE()
 
 
@@ -202,3 +204,13 @@ void cEnforcementSetPanel::OnButtonCancel(wxCommandEvent &)
 	frame->ChangePanel(PANEL_MAIN);
 }
 
+
+void cEnforcementSetPanel::OnButtonLocation(wxCommandEvent &)
+{
+	cCLFrame* frame = dynamic_cast<cCLFrame*>(wxGetTopLevelParent(this));
+	if (!frame)
+		return;
+	//frame->ChangePanel(PANEL_MAIN);
+	cKeyboardDialog dlg(this);
+	dlg.ShowModal();
+}

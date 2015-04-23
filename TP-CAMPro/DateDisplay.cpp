@@ -4,12 +4,13 @@
 #include "wx/datetime.h"
 
 
-cDateDisplay::cDateDisplay(wxWindow *parent, const bool IsSmallSize) :
+cDateDisplay::cDateDisplay(wxWindow *parent, const bool IsSmallSize, const wxColour &bgColor ) :
 	wxPanel(parent)
 	, m_isSmallSize(IsSmallSize)
 {
 	cDateDisplay* itemPanel1 = this;
 
+	SetBackgroundColour(bgColor);
 	wxBoxSizer* itemBoxSizer2 = new wxBoxSizer(wxVERTICAL);
 	itemPanel1->SetSizer(itemBoxSizer2);
 

@@ -92,6 +92,8 @@
     <ClInclude Include="EnforcementSetPanel.h" />
     <ClInclude Include="FileMngFullPanel.h" />
     <ClInclude Include="FileMngPanel.h" />
+    <ClInclude Include="KeyboardDialog.h" />
+    <ClInclude Include="KeyboardEngPanel.h" />
     <ClInclude Include="LoginPanel.h" />
     <ClInclude Include="MainPanel.h" />
     <ClInclude Include="OperatorSetPanel.h" />
@@ -112,6 +114,8 @@
     <ClCompile Include="EnforcementSetPanel.cpp" />
     <ClCompile Include="FileMngFullPanel.cpp" />
     <ClCompile Include="FileMngPanel.cpp" />
+    <ClCompile Include="KeyboardDialog.cpp" />
+    <ClCompile Include="KeyboardEngPanel.cpp" />
     <ClCompile Include="LoginPanel.cpp" />
     <ClCompile Include="MainPanel.cpp" />
     <ClCompile Include="OperatorSetPanel.cpp" />

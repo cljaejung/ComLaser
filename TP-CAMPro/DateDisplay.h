@@ -5,7 +5,7 @@
 class cDateDisplay : public wxPanel
 {
 public:
-	cDateDisplay(wxWindow *parent, const bool IsSmallSize=false);
+	cDateDisplay(wxWindow *parent, const bool IsSmallSize=false, const wxColour &bgColor=wxColour(0,0,0));
 
 	void UpdateDate();
 
