@@ -56,7 +56,7 @@ wxString g_keyTable[ID_BUTTON32+1] = {
 
 
 BEGIN_EVENT_TABLE(cKeyboardEngPanel, wxPanel)
-	EVT_COMMAND_RANGE(ID_BUTTON0, ID_BUTTON32, wxEVT_BUTTON, cKeyboardEngPanel::OnButtonKeyboard)
+	EVT_COMMAND_RANGE(ID_BUTTON0, ID_BUTTON32, wxEVT_COMMAND_BUTTON_CLICKED, cKeyboardEngPanel::OnButtonKeyboard)
 END_EVENT_TABLE()
 
 
@@ -224,9 +224,16 @@ void cKeyboardEngPanel::OnButtonKeyboard(wxCommandEvent &evt)
 	}
 
 	// 현재 커서에서 문자를 입력한다.
-	long insertionPoint = m_textCtrl->GetInsertionPoint();
-	m_textCtrl->Replace(insertionPoint, insertionPoint + 1,
-		str + m_textCtrl->GetRange(insertionPoint, insertionPoint + 1));
-	m_textCtrl->SetInsertionPoint(insertionPoint + 1);
+	const long insertionPoint = m_textCtrl->GetInsertionPoint();
+	if (m_textCtrl->GetLineLength(0) == insertionPoint)
+	{
+		m_textCtrl->AppendText(str);
+	}
+	else
+	{
+		m_textCtrl->Replace(insertionPoint, insertionPoint + 1,
+			str + m_textCtrl->GetRange(insertionPoint, insertionPoint + 1));
+		m_textCtrl->SetInsertionPoint(insertionPoint + 1);
+	}
 	m_textCtrl->SetFocus();
 }

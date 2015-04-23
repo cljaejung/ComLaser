@@ -49,6 +49,7 @@ IMPLEMENT_DYNAMIC_CLASS( MainPanel, wxPanel )
 BEGIN_EVENT_TABLE( MainPanel, wxPanel )
 
 ////@begin MainPanel event table entries
+    EVT_MAXIMIZE( MainPanel::OnMaximize )
 ////@end MainPanel event table entries
 
 END_EVENT_TABLE()
@@ -218,3 +219,17 @@ wxIcon MainPanel::GetIconResource( const wxString& name )
     return wxNullIcon;
 ////@end MainPanel icon retrieval
 }
+
+
+/*!
+ * wxEVT_MAXIMIZE event handler for ID_MAINPANEL
+ */
+
+void MainPanel::OnMaximize( wxMaximizeEvent& event )
+{
+////@begin wxEVT_MAXIMIZE event handler for ID_MAINPANEL in MainPanel.
+    // Before editing this code, remove the block markers.
+    event.Skip();
+////@end wxEVT_MAXIMIZE event handler for ID_MAINPANEL in MainPanel. 
+}
+

@@ -69,7 +69,9 @@ MINIMAL_OBJECTS =  \
 	FileMngPanel.o \
 	LoginPanel.o \
 	BatteryDisplay.o \
-	DateDisplay.o	
+	DateDisplay.o \
+	KeyboardDialog.o \
+	KeyboardEngPanel.o
 
 
 
@@ -261,6 +263,8 @@ FileMngPanel.o: $(srcdir)/FileMngPanel.cpp $(srcdir)/FileMngPanel.h $(srcdir)/CL
 LoginPanel.o: $(srcdir)/LoginPanel.cpp $(srcdir)/LoginPanel.h $(srcdir)/CLFrame.h $(srcdir)/stdafx.h
 BatteryDisplay.o: $(srcdir)/BatteryDisplay.cpp $(srcdir)/BatteryDisplay.h $(srcdir)/CLFrame.h $(srcdir)/stdafx.h
 DateDisplay.o: $(srcdir)/DateDisplay.cpp $(srcdir)/DateDisplay.h $(srcdir)/CLFrame.h $(srcdir)/stdafx.h
+KeyboardDialog.o: $(srcdir)/KeyboardDialog.cpp $(srcdir)/KeyboardDialog.h $(srcdir)/CLFrame.h $(srcdir)/stdafx.h
+KeyboardEngPanel.o: $(srcdir)/KeyboardEngPanel.cpp $(srcdir)/KeyboardEngPanel.h $(srcdir)/CLFrame.h $(srcdir)/stdafx.h
 
 
 

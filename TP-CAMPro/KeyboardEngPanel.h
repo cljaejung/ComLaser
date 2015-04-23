@@ -15,5 +15,5 @@ protected:
 	// message handling
 protected:
 	DECLARE_EVENT_TABLE()
-	void OnButtonKeyboard(wxCommandEvent &);
+	void OnButtonKeyboard(wxCommandEvent&);
 };

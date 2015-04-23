@@ -81,6 +81,9 @@ public:
 
 ////@begin MainPanel event handler declarations
 
+    /// wxEVT_MAXIMIZE event handler for ID_MAINPANEL
+    void OnMaximize( wxMaximizeEvent& event );
+
 ////@end MainPanel event handler declarations
 
 ////@begin MainPanel member function declarations

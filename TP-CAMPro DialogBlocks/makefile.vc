@@ -57,7 +57,7 @@ RCFILESRC=Elements.rc
 EXTRADEPENDENCIES=
 !endif
 
-OBJECTS=$(OBJECTPATH)\advancedcontrols.obj $(OBJECTPATH)\basiccontrols.obj $(OBJECTPATH)\ccamerafullpanel.obj $(OBJECTPATH)\ccamerasetpanel.obj $(OBJECTPATH)\cdatedisplay.obj $(OBJECTPATH)\cdatesetpanel.obj $(OBJECTPATH)\cenforcementfullpanel.obj $(OBJECTPATH)\cenforcementpanel.obj $(OBJECTPATH)\cenforcementsetpanel.obj $(OBJECTPATH)\cfilemngfullpanel.obj $(OBJECTPATH)\cfilemngpanel.obj $(OBJECTPATH)\cloginpanel.obj $(OBJECTPATH)\complexdialog.obj $(OBJECTPATH)\coperatorsetpanel.obj $(OBJECTPATH)\elements.obj $(OBJECTPATH)\independentpanel.obj $(OBJECTPATH)\mainpanel.obj $(OBJECTPATH)\myframe.obj $(OBJECTPATH)\scrollingdialog.obj $(OBJECTPATH)\settingsdialog.obj $(OBJECTPATH)\splitterdialog.obj $(OBJECTPATH)\testpanel.obj $(OBJECTPATH)\topdialog.obj $(OBJECTPATH)\wizarddialog.obj $(OBJECTPATH)\$(RCFILEOBJ)
+OBJECTS=$(OBJECTPATH)\advancedcontrols.obj $(OBJECTPATH)\basiccontrols.obj $(OBJECTPATH)\ccamerafullpanel.obj $(OBJECTPATH)\ccamerasetpanel.obj $(OBJECTPATH)\cdatedisplay.obj $(OBJECTPATH)\cdatesetpanel.obj $(OBJECTPATH)\cenforcementfullpanel.obj $(OBJECTPATH)\cenforcementpanel.obj $(OBJECTPATH)\cenforcementsetpanel.obj $(OBJECTPATH)\cfilemngfullpanel.obj $(OBJECTPATH)\cfilemngpanel.obj $(OBJECTPATH)\ckeyboarddialog.obj $(OBJECTPATH)\ckeyboardengpanel.obj $(OBJECTPATH)\cloginpanel.obj $(OBJECTPATH)\complexdialog.obj $(OBJECTPATH)\coperatorsetpanel.obj $(OBJECTPATH)\elements.obj $(OBJECTPATH)\independentpanel.obj $(OBJECTPATH)\mainpanel.obj $(OBJECTPATH)\myframe.obj $(OBJECTPATH)\scrollingdialog.obj $(OBJECTPATH)\settingsdialog.obj $(OBJECTPATH)\splitterdialog.obj $(OBJECTPATH)\testpanel.obj $(OBJECTPATH)\topdialog.obj $(OBJECTPATH)\wizarddialog.obj $(OBJECTPATH)\$(RCFILEOBJ)
 
 all:	$(BUILDPATHS) $(OUTPUTPATH)\$(PROGRAM)
 
@@ -115,6 +115,12 @@ $(OBJECTPATH)\cfilemngfullpanel.obj:	cfilemngfullpanel.cpp cfilemngfullpanel.h
 
 $(OBJECTPATH)\cfilemngpanel.obj:	cfilemngpanel.cpp cfilemngpanel.h
 	$(CXX) /c /nologo /TP /Fo$@ $(CPPFLAGS) $(DEBUGFLAGS) $(OPTFLAGS) $(WARNINGFLAGS) $(CPPINC) cfilemngpanel.cpp
+
+$(OBJECTPATH)\ckeyboarddialog.obj:	ckeyboarddialog.cpp ckeyboarddialog.h
+	$(CXX) /c /nologo /TP /Fo$@ $(CPPFLAGS) $(DEBUGFLAGS) $(OPTFLAGS) $(WARNINGFLAGS) $(CPPINC) ckeyboarddialog.cpp
+
+$(OBJECTPATH)\ckeyboardengpanel.obj:	ckeyboardengpanel.cpp ckeyboardengpanel.h
+	$(CXX) /c /nologo /TP /Fo$@ $(CPPFLAGS) $(DEBUGFLAGS) $(OPTFLAGS) $(WARNINGFLAGS) $(CPPINC) ckeyboardengpanel.cpp
 
 $(OBJECTPATH)\cloginpanel.obj:	cloginpanel.cpp cloginpanel.h
 	$(CXX) /c /nologo /TP /Fo$@ $(CPPFLAGS) $(DEBUGFLAGS) $(OPTFLAGS) $(WARNINGFLAGS) $(CPPINC) cloginpanel.cpp
