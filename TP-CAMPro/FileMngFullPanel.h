@@ -12,6 +12,7 @@ protected:
 
 
 public:
+	wxStaticBitmap *m_Image;
 
 
 	// message handling

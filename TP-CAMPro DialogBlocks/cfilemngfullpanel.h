@@ -92,6 +92,7 @@ public:
     static bool ShowToolTips();
 
 ////@begin cFileMngFullPanel member variables
+    wxStaticBitmap* m_Image;
 ////@end cFileMngFullPanel member variables
 };
 

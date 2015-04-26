@@ -48,7 +48,6 @@ class wxListCtrl;
 #define ID_BUTTON_MEMCOPY 10005
 #define ID_BUTTON_FILETRANSFER 10006
 #define ID_BUTTON_MEMCLEAR 10007
-#define ID_BUTTON_FULL 10008
 #define ID_BUTTON 10009
 #define ID_BUTTON1 10010
 #define ID_BUTTON2 10011
@@ -91,6 +90,9 @@ public:
     void CreateControls();
 
 ////@begin cFileMngPanel event handler declarations
+
+    /// wxEVT_LEFT_DCLICK event handler for ID_PANEL1
+    void OnLeftDClick( wxMouseEvent& event );
 
 ////@end cFileMngPanel event handler declarations
 

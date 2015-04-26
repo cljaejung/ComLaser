@@ -26,6 +26,16 @@
 #endif
 
 
+#include <list>
+#include <vector>
+#include <map>
+#include <string>
+using std::vector;
+using std::list;
+using std::map;
+using std::string;
+
+
 enum PANEL_TYPE
 {
 	PANEL_MAIN,

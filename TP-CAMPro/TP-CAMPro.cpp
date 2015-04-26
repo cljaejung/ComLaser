@@ -17,6 +17,8 @@ bool cCLApp::OnInit()
 	if (!wxApp::OnInit())
 		return false;
 
+	wxInitAllImageHandlers();
+
 	cCLFrame *frame = new cCLFrame(_T("TP-CAM Pro"));
 	frame->Show(true);
 	return true;

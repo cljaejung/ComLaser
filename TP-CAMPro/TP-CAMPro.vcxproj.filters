@@ -78,6 +78,9 @@
     <ClInclude Include="KeyboardEngPanel.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="CaptureImage.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">

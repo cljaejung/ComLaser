@@ -8,6 +8,8 @@
 #include "BatteryDisplay.h"
 #include "DateDisplay.h"
 #include "Bitmap3Button.h"
+#include "FileMngFullPanel.h"
+
 
 enum {
 	ID_PANEL1,
@@ -21,12 +23,13 @@ enum {
 	ID_BUTTON_MEMCOPY,
 	ID_BUTTON_FILETRANSFER,
 	ID_BUTTON_MEMCLEAR,
+	ID_STATIC_BITMAP,
 };
 
 
 BEGIN_EVENT_TABLE(cFileMngPanel, wxPanel)
 	EVT_BUTTON(ID_BUTTON_OK, cFileMngPanel::OnButtonOK)
-	EVT_BUTTON(ID_BUTTON_FULL, cFileMngPanel::OnButtonFull)
+	EVT_LIST_ITEM_SELECTED(ID_LISTCTRL, cFileMngPanel::OnListctrlSelected)
 END_EVENT_TABLE()
 
 
@@ -79,7 +82,7 @@ wxPanel(frame)
 	wxBoxSizer* itemBoxSizer13 = new wxBoxSizer(wxVERTICAL);
 	itemBoxSizer12->Add(itemBoxSizer13, 1, wxGROW | wxLEFT | wxRIGHT, 5);
 
-	wxPanel* itemPanel14 = new wxPanel(itemPanel1, ID_PANEL1, wxDefaultPosition, wxDefaultSize, wxTAB_TRAVERSAL);
+	wxPanel* itemPanel14 = new wxPanel(itemPanel1, ID_PANEL1, wxDefaultPosition, wxSize(300,200), wxTAB_TRAVERSAL);
 	itemPanel14->SetExtraStyle(wxWS_EX_VALIDATE_RECURSIVELY);
 	itemBoxSizer13->Add(itemPanel14, 1, wxGROW | wxALL, 0);
 
@@ -109,11 +112,23 @@ wxPanel(frame)
 	itemPanel22->SetExtraStyle(wxWS_EX_VALIDATE_RECURSIVELY);
 	itemBoxSizer21->Add(itemPanel22, 1, wxGROW | wxALL, 0);
 
+
+	wxBoxSizer* itemBoxSizer123 = new wxBoxSizer(wxVERTICAL);
+	itemPanel22->SetSizer(itemBoxSizer123);
+
+	wxBoxSizer* itemBoxSizer124 = new wxBoxSizer(wxHORIZONTAL);
+	itemBoxSizer123->Add(itemBoxSizer124, 1, wxGROW | wxALL, 0);
+
+	m_StaticBitmap = new wxStaticBitmap(itemPanel22, ID_STATIC_BITMAP, wxNullBitmap, wxDefaultPosition, wxDefaultSize, 0);
+	itemBoxSizer124->Add(m_StaticBitmap, 0, wxALIGN_CENTER_VERTICAL | wxALL, 0);
+
+
 	wxBoxSizer* itemBoxSizer23 = new wxBoxSizer(wxHORIZONTAL);
 	itemBoxSizer20->Add(itemBoxSizer23, 0, wxGROW | wxALL, 5);
 
 	wxBoxSizer* itemBoxSizer24 = new wxBoxSizer(wxVERTICAL);
 	itemBoxSizer23->Add(itemBoxSizer24, 0, wxALIGN_CENTER_VERTICAL | wxALL, 0);
+
 
 	wxButton* itemButton25 = new wxButton(itemPanel1, ID_BUTTON_PREV, _("<<"), wxDefaultPosition, wxSize(30, -1), 0);
 	itemBoxSizer24->Add(itemButton25, 0, wxALIGN_CENTER_HORIZONTAL | wxALL, 0);
@@ -151,13 +166,6 @@ wxPanel(frame)
 	wxButton* itemButton36 = new wxButton(itemPanel1, ID_BUTTON_MEMCLEAR, _("Memory\nClear"), wxDefaultPosition, wxDefaultSize, 0);
 	itemBoxSizer35->Add(itemButton36, 0, wxALIGN_CENTER_VERTICAL | wxALL, 5);
 
-	wxBoxSizer* itemBoxSizer37 = new wxBoxSizer(wxHORIZONTAL);
-	itemBoxSizer30->Add(itemBoxSizer37, 0, wxALIGN_CENTER_HORIZONTAL | wxALL, 5);
-
-	wxButton* itemButton38 = new wxButton(itemPanel1, ID_BUTTON_FULL, _("Full"), wxDefaultPosition, wxDefaultSize, 0);
-	itemBoxSizer37->Add(itemButton38, 0, wxALIGN_CENTER_VERTICAL | wxALL, 5);
-
-
 
 	//////////////////////////////////////////////////////////////////////////
 	m_FileListCtrl->InsertColumn(0, "Num");
@@ -166,18 +174,45 @@ wxPanel(frame)
 	m_FileListCtrl->SetColumnWidth(0, 65);
 	m_FileListCtrl->SetColumnWidth(1, 95);
 	m_FileListCtrl->SetColumnWidth(2, 90);
-	for (int i = 0; i < 18; ++i)
+
+
+	ReadCaptureFiles();
+
+	int id = 0;
+	vector<sCaptureImage>::iterator it = m_captureImages.begin();
+	while (it != m_captureImages.end())
 	{
-		m_FileListCtrl->InsertItem(i, wxString::Format("%d", i + 9991));
-		m_FileListCtrl->SetItem(i, 1, "17:05:25");
-		m_FileListCtrl->SetItem(i, 2, "124km/h");
+		const int idx = id;
+		m_FileListCtrl->InsertItem(idx, wxString::Format("%d", id+1));
+		m_FileListCtrl->SetItem(idx, 1, it->time);
+		m_FileListCtrl->SetItem(idx, 2, wxString::Format("%1.0fKm/h", it->speed));
+		m_FileListCtrl->SetItemData(idx, idx);
+
+		++it;
+		++id;
 	}
 
+
+	// 이미지 더블클릭시 풀화면 전환 이벤트
+	m_StaticBitmap->Connect(ID_STATIC_BITMAP, wxEVT_LEFT_DCLICK,
+		wxMouseEventHandler(cFileMngPanel::OnLeftDClick), NULL, this);
 }
 
 cFileMngPanel::~cFileMngPanel()
 {
 
+}
+
+
+// 캡쳐된 파일을 읽는다.
+bool cFileMngPanel::ReadCaptureFiles()
+{
+	m_captureImages.reserve(128);
+	m_captureImages.push_back(sCaptureImage(0, "capture/Koala.jpg", 124, "2015-04-30"));
+	m_captureImages.push_back(sCaptureImage(1, "capture/Lighthouse.jpg", 224, "2015-04-31"));
+	m_captureImages.push_back(sCaptureImage(2, "capture/Penguins.jpg", 324, "2015-04-31"));
+
+	return true;
 }
 
 
@@ -190,10 +225,50 @@ void cFileMngPanel::OnButtonOK(wxCommandEvent &)
 }
 
 
-void cFileMngPanel::OnButtonFull(wxCommandEvent &)
+void cFileMngPanel::OnListctrlSelected(wxListEvent& event)
 {
+	const int idx = event.GetData();
+	if (idx < 0)
+		return;
+
+	m_selectItem = idx;
+
+	// 이미지 로딩.
+	wxImage image;
+	image.LoadFile(m_captureImages[idx].fileName);
+	wxRect rect = m_StaticBitmap->GetParent()->GetClientRect();
+	wxImage scaleImage = image.Scale(rect.width, rect.height); // 이미지 크기 변환
+
+	m_StaticBitmap->SetBitmap(wxBitmap(scaleImage));
+	m_StaticBitmap->Refresh();
+	Layout();
+
+	event.Skip();
+}
+
+
+// 이미지 패널 더블클릭시 호출된다.
+void cFileMngPanel::OnLeftDClick(wxMouseEvent& event)
+{
+	event.Skip();
+
 	cCLFrame* frame = dynamic_cast<cCLFrame*>(wxGetTopLevelParent(this));
 	if (!frame)
 		return;
-	frame->ChangePanel(PANEL_FILEMNGFULL);
+	frame->ChangePanel(PANEL_FILEMNGFULL); // 씬 전환
+
+	if ((m_selectItem >= 0) && ((int)m_captureImages.size() > m_selectItem))
+	{
+		// 파일 매니져 전체화면에서의 비트맵 객체를 가져온다.
+		wxStaticBitmap *fullBmp = frame->m_fileMngFullPanel->m_Image;
+
+		// 이미지를 로딩해서, 전체 화면 크기에 맞게 크기를 조절한다.
+		wxImage image;
+		image.LoadFile(m_captureImages[m_selectItem].fileName);
+		wxRect rect = fullBmp->GetParent()->GetClientRect();
+		wxImage scaleImage = image.Scale(rect.width, rect.height); // 이미지 크기 변환
+		fullBmp->SetBitmap(wxBitmap(scaleImage));
+		fullBmp->Refresh();
+	}
 }
+

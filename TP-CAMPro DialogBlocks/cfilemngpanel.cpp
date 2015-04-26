@@ -192,78 +192,83 @@ void cFileMngPanel::CreateControls()
     itemPanel22->SetExtraStyle(wxWS_EX_VALIDATE_RECURSIVELY);
     itemBoxSizer21->Add(itemPanel22, 1, wxGROW|wxALL, 0);
 
-    wxBoxSizer* itemBoxSizer23 = new wxBoxSizer(wxHORIZONTAL);
-    itemBoxSizer20->Add(itemBoxSizer23, 0, wxGROW|wxALL, 5);
+    wxBoxSizer* itemBoxSizer23 = new wxBoxSizer(wxVERTICAL);
+    itemPanel22->SetSizer(itemBoxSizer23);
 
-    wxBoxSizer* itemBoxSizer24 = new wxBoxSizer(wxVERTICAL);
-    itemBoxSizer23->Add(itemBoxSizer24, 0, wxALIGN_CENTER_VERTICAL|wxALL, 0);
+    wxBoxSizer* itemBoxSizer24 = new wxBoxSizer(wxHORIZONTAL);
+    itemBoxSizer23->Add(itemBoxSizer24, 1, wxGROW|wxALL, 5);
 
-    wxButton* itemButton25 = new wxButton( itemPanel1, ID_BUTTON_PREV, _("<<"), wxDefaultPosition, wxSize(30, -1), 0 );
-    itemBoxSizer24->Add(itemButton25, 0, wxALIGN_CENTER_HORIZONTAL|wxALL, 0);
+    wxStaticBitmap* itemStaticBitmap25 = new wxStaticBitmap( itemPanel22, wxID_STATIC, wxNullBitmap, wxDefaultPosition, wxDefaultSize, 0 );
+    itemBoxSizer24->Add(itemStaticBitmap25, 0, wxALIGN_CENTER_VERTICAL|wxALL, 5);
 
-    wxBoxSizer* itemBoxSizer26 = new wxBoxSizer(wxVERTICAL);
-    itemBoxSizer23->Add(itemBoxSizer26, 1, wxGROW|wxALL, 0);
+    wxBoxSizer* itemBoxSizer26 = new wxBoxSizer(wxHORIZONTAL);
+    itemBoxSizer20->Add(itemBoxSizer26, 0, wxGROW|wxALL, 5);
 
-    wxSlider* itemSlider27 = new wxSlider( itemPanel1, ID_SLIDER_AVI, 0, 0, 100, wxDefaultPosition, wxDefaultSize, wxSL_HORIZONTAL );
-    itemBoxSizer26->Add(itemSlider27, 1, wxGROW|wxALL, 0);
+    wxBoxSizer* itemBoxSizer27 = new wxBoxSizer(wxVERTICAL);
+    itemBoxSizer26->Add(itemBoxSizer27, 0, wxALIGN_CENTER_VERTICAL|wxALL, 0);
 
-    wxBoxSizer* itemBoxSizer28 = new wxBoxSizer(wxVERTICAL);
-    itemBoxSizer23->Add(itemBoxSizer28, 0, wxALIGN_CENTER_VERTICAL|wxALL, 0);
+    wxButton* itemButton28 = new wxButton( itemPanel1, ID_BUTTON_PREV, _("<<"), wxDefaultPosition, wxSize(30, -1), 0 );
+    itemBoxSizer27->Add(itemButton28, 0, wxALIGN_CENTER_HORIZONTAL|wxALL, 0);
 
-    wxButton* itemButton29 = new wxButton( itemPanel1, ID_BUTTON_NEXT, _(">>"), wxDefaultPosition, wxSize(30, -1), 0 );
-    itemBoxSizer28->Add(itemButton29, 0, wxALIGN_CENTER_HORIZONTAL|wxALL, 0);
+    wxBoxSizer* itemBoxSizer29 = new wxBoxSizer(wxVERTICAL);
+    itemBoxSizer26->Add(itemBoxSizer29, 1, wxGROW|wxALL, 0);
 
-    wxBoxSizer* itemBoxSizer30 = new wxBoxSizer(wxVERTICAL);
-    itemBoxSizer12->Add(itemBoxSizer30, 0, wxGROW|wxALL, 5);
+    wxSlider* itemSlider30 = new wxSlider( itemPanel1, ID_SLIDER_AVI, 0, 0, 100, wxDefaultPosition, wxDefaultSize, wxSL_HORIZONTAL );
+    itemBoxSizer29->Add(itemSlider30, 1, wxGROW|wxALL, 0);
 
-    wxBoxSizer* itemBoxSizer31 = new wxBoxSizer(wxHORIZONTAL);
-    itemBoxSizer30->Add(itemBoxSizer31, 1, wxGROW|wxALL, 5);
+    wxBoxSizer* itemBoxSizer31 = new wxBoxSizer(wxVERTICAL);
+    itemBoxSizer26->Add(itemBoxSizer31, 0, wxALIGN_CENTER_VERTICAL|wxALL, 0);
 
-    wxButton* itemButton32 = new wxButton( itemPanel1, ID_BUTTON_MEMCOPY, _("Memory\nCopy"), wxDefaultPosition, wxDefaultSize, 0 );
-    itemBoxSizer31->Add(itemButton32, 0, wxALIGN_CENTER_VERTICAL|wxALL, 5);
+    wxButton* itemButton32 = new wxButton( itemPanel1, ID_BUTTON_NEXT, _(">>"), wxDefaultPosition, wxSize(30, -1), 0 );
+    itemBoxSizer31->Add(itemButton32, 0, wxALIGN_CENTER_HORIZONTAL|wxALL, 0);
 
-    wxBoxSizer* itemBoxSizer33 = new wxBoxSizer(wxHORIZONTAL);
-    itemBoxSizer30->Add(itemBoxSizer33, 1, wxGROW|wxALL, 5);
+    wxBoxSizer* itemBoxSizer33 = new wxBoxSizer(wxVERTICAL);
+    itemBoxSizer12->Add(itemBoxSizer33, 0, wxGROW|wxALL, 5);
 
-    wxButton* itemButton34 = new wxButton( itemPanel1, ID_BUTTON_FILETRANSFER, _("File\nTransfer"), wxDefaultPosition, wxDefaultSize, 0 );
-    itemBoxSizer33->Add(itemButton34, 0, wxALIGN_CENTER_VERTICAL|wxALL, 5);
+    wxBoxSizer* itemBoxSizer34 = new wxBoxSizer(wxHORIZONTAL);
+    itemBoxSizer33->Add(itemBoxSizer34, 1, wxGROW|wxALL, 5);
 
-    wxBoxSizer* itemBoxSizer35 = new wxBoxSizer(wxHORIZONTAL);
-    itemBoxSizer30->Add(itemBoxSizer35, 1, wxGROW|wxALL, 5);
+    wxButton* itemButton35 = new wxButton( itemPanel1, ID_BUTTON_MEMCOPY, _("Memory\nCopy"), wxDefaultPosition, wxDefaultSize, 0 );
+    itemBoxSizer34->Add(itemButton35, 0, wxALIGN_CENTER_VERTICAL|wxALL, 5);
 
-    wxButton* itemButton36 = new wxButton( itemPanel1, ID_BUTTON_MEMCLEAR, _("Memory\nClear"), wxDefaultPosition, wxDefaultSize, 0 );
-    itemBoxSizer35->Add(itemButton36, 0, wxALIGN_CENTER_VERTICAL|wxALL, 5);
+    wxBoxSizer* itemBoxSizer36 = new wxBoxSizer(wxHORIZONTAL);
+    itemBoxSizer33->Add(itemBoxSizer36, 1, wxGROW|wxALL, 5);
 
-    wxBoxSizer* itemBoxSizer37 = new wxBoxSizer(wxHORIZONTAL);
-    itemBoxSizer30->Add(itemBoxSizer37, 0, wxALIGN_CENTER_HORIZONTAL|wxALL, 5);
+    wxButton* itemButton37 = new wxButton( itemPanel1, ID_BUTTON_FILETRANSFER, _("File\nTransfer"), wxDefaultPosition, wxDefaultSize, 0 );
+    itemBoxSizer36->Add(itemButton37, 0, wxALIGN_CENTER_VERTICAL|wxALL, 5);
 
-    wxButton* itemButton38 = new wxButton( itemPanel1, ID_BUTTON_FULL, _("Full"), wxDefaultPosition, wxDefaultSize, 0 );
-    itemBoxSizer37->Add(itemButton38, 0, wxALIGN_CENTER_VERTICAL|wxALL, 5);
+    wxBoxSizer* itemBoxSizer38 = new wxBoxSizer(wxHORIZONTAL);
+    itemBoxSizer33->Add(itemBoxSizer38, 1, wxGROW|wxALL, 5);
 
-    wxBoxSizer* itemBoxSizer39 = new wxBoxSizer(wxHORIZONTAL);
-    itemBoxSizer2->Add(itemBoxSizer39, 0, wxALIGN_CENTER_HORIZONTAL|wxALL, 5);
+    wxButton* itemButton39 = new wxButton( itemPanel1, ID_BUTTON_MEMCLEAR, _("Memory\nClear"), wxDefaultPosition, wxDefaultSize, 0 );
+    itemBoxSizer38->Add(itemButton39, 0, wxALIGN_CENTER_VERTICAL|wxALL, 5);
 
-    wxButton* itemButton40 = new wxButton( itemPanel1, ID_BUTTON, _("Button"), wxDefaultPosition, wxDefaultSize, 0 );
-    itemBoxSizer39->Add(itemButton40, 0, wxALIGN_CENTER_VERTICAL|wxALL, 5);
+    wxBoxSizer* itemBoxSizer40 = new wxBoxSizer(wxHORIZONTAL);
+    itemBoxSizer2->Add(itemBoxSizer40, 0, wxALIGN_CENTER_HORIZONTAL|wxALL, 5);
 
-    wxButton* itemButton41 = new wxButton( itemPanel1, ID_BUTTON1, _("Button"), wxDefaultPosition, wxDefaultSize, 0 );
-    itemBoxSizer39->Add(itemButton41, 0, wxALIGN_CENTER_VERTICAL|wxALL, 5);
+    wxButton* itemButton41 = new wxButton( itemPanel1, ID_BUTTON, _("Button"), wxDefaultPosition, wxDefaultSize, 0 );
+    itemBoxSizer40->Add(itemButton41, 0, wxALIGN_CENTER_VERTICAL|wxALL, 5);
 
-    wxButton* itemButton42 = new wxButton( itemPanel1, ID_BUTTON2, _("Button"), wxDefaultPosition, wxDefaultSize, 0 );
-    itemBoxSizer39->Add(itemButton42, 0, wxALIGN_CENTER_VERTICAL|wxALL, 5);
+    wxButton* itemButton42 = new wxButton( itemPanel1, ID_BUTTON1, _("Button"), wxDefaultPosition, wxDefaultSize, 0 );
+    itemBoxSizer40->Add(itemButton42, 0, wxALIGN_CENTER_VERTICAL|wxALL, 5);
 
-    wxButton* itemButton43 = new wxButton( itemPanel1, ID_BUTTON3, _("Button"), wxDefaultPosition, wxDefaultSize, 0 );
-    itemBoxSizer39->Add(itemButton43, 0, wxALIGN_CENTER_VERTICAL|wxALL, 5);
+    wxButton* itemButton43 = new wxButton( itemPanel1, ID_BUTTON2, _("Button"), wxDefaultPosition, wxDefaultSize, 0 );
+    itemBoxSizer40->Add(itemButton43, 0, wxALIGN_CENTER_VERTICAL|wxALL, 5);
 
-    wxButton* itemButton44 = new wxButton( itemPanel1, ID_BUTTON4, _("Button"), wxDefaultPosition, wxDefaultSize, 0 );
-    itemBoxSizer39->Add(itemButton44, 0, wxALIGN_CENTER_VERTICAL|wxALL, 5);
+    wxButton* itemButton44 = new wxButton( itemPanel1, ID_BUTTON3, _("Button"), wxDefaultPosition, wxDefaultSize, 0 );
+    itemBoxSizer40->Add(itemButton44, 0, wxALIGN_CENTER_VERTICAL|wxALL, 5);
 
-    wxButton* itemButton45 = new wxButton( itemPanel1, ID_BUTTON5, _("Button"), wxDefaultPosition, wxDefaultSize, 0 );
-    itemBoxSizer39->Add(itemButton45, 0, wxALIGN_CENTER_VERTICAL|wxALL, 5);
+    wxButton* itemButton45 = new wxButton( itemPanel1, ID_BUTTON4, _("Button"), wxDefaultPosition, wxDefaultSize, 0 );
+    itemBoxSizer40->Add(itemButton45, 0, wxALIGN_CENTER_VERTICAL|wxALL, 5);
 
-    wxButton* itemButton46 = new wxButton( itemPanel1, ID_BUTTON6, _("Button"), wxDefaultPosition, wxDefaultSize, 0 );
-    itemBoxSizer39->Add(itemButton46, 0, wxALIGN_CENTER_VERTICAL|wxALL, 5);
+    wxButton* itemButton46 = new wxButton( itemPanel1, ID_BUTTON5, _("Button"), wxDefaultPosition, wxDefaultSize, 0 );
+    itemBoxSizer40->Add(itemButton46, 0, wxALIGN_CENTER_VERTICAL|wxALL, 5);
 
+    wxButton* itemButton47 = new wxButton( itemPanel1, ID_BUTTON6, _("Button"), wxDefaultPosition, wxDefaultSize, 0 );
+    itemBoxSizer40->Add(itemButton47, 0, wxALIGN_CENTER_VERTICAL|wxALL, 5);
+
+    // Connect events and objects
+    itemPanel14->Connect(ID_PANEL1, wxEVT_LEFT_DCLICK, wxMouseEventHandler(cFileMngPanel::OnLeftDClick), NULL, this);
 ////@end cFileMngPanel content construction
 }
 
@@ -302,3 +307,19 @@ wxIcon cFileMngPanel::GetIconResource( const wxString& name )
     return wxNullIcon;
 ////@end cFileMngPanel icon retrieval
 }
+
+
+
+
+/*!
+ * wxEVT_LEFT_DCLICK event handler for ID_PANEL1
+ */
+
+void cFileMngPanel::OnLeftDClick( wxMouseEvent& event )
+{
+////@begin wxEVT_LEFT_DCLICK event handler for ID_PANEL1 in cFileMngPanel.
+    // Before editing this code, remove the block markers.
+    event.Skip();
+////@end wxEVT_LEFT_DCLICK event handler for ID_PANEL1 in cFileMngPanel. 
+}
+

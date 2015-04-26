@@ -107,6 +107,7 @@ cFileMngFullPanel::~cFileMngFullPanel()
 void cFileMngFullPanel::Init()
 {
 ////@begin cFileMngFullPanel member initialisation
+    m_Image = NULL;
 ////@end cFileMngFullPanel member initialisation
 }
 
@@ -137,32 +138,41 @@ void cFileMngFullPanel::CreateControls()
     itemPanel6->SetExtraStyle(wxWS_EX_VALIDATE_RECURSIVELY);
     itemBoxSizer5->Add(itemPanel6, 1, wxGROW|wxALL, 0);
 
-    wxBoxSizer* itemBoxSizer7 = new wxBoxSizer(wxHORIZONTAL);
-    itemBoxSizer4->Add(itemBoxSizer7, 0, wxGROW|wxALL, 5);
+    wxBoxSizer* itemBoxSizer7 = new wxBoxSizer(wxVERTICAL);
+    itemPanel6->SetSizer(itemBoxSizer7);
 
-    wxBoxSizer* itemBoxSizer8 = new wxBoxSizer(wxVERTICAL);
-    itemBoxSizer7->Add(itemBoxSizer8, 0, wxALIGN_CENTER_VERTICAL|wxALL, 0);
+    wxBoxSizer* itemBoxSizer8 = new wxBoxSizer(wxHORIZONTAL);
+    itemBoxSizer7->Add(itemBoxSizer8, 1, wxGROW|wxALL, 0);
 
-    wxButton* itemButton9 = new wxButton( itemPanel1, ID_BUTTON_PREV, _("<<"), wxDefaultPosition, wxSize(30, -1), 0 );
-    itemBoxSizer8->Add(itemButton9, 0, wxALIGN_CENTER_HORIZONTAL|wxALL, 0);
+    m_Image = new wxStaticBitmap( itemPanel6, wxID_STATIC, wxNullBitmap, wxDefaultPosition, wxDefaultSize, 0 );
+    itemBoxSizer8->Add(m_Image, 1, wxGROW|wxALL, 0);
 
-    wxBoxSizer* itemBoxSizer10 = new wxBoxSizer(wxVERTICAL);
-    itemBoxSizer7->Add(itemBoxSizer10, 1, wxGROW|wxALL, 0);
+    wxBoxSizer* itemBoxSizer10 = new wxBoxSizer(wxHORIZONTAL);
+    itemBoxSizer4->Add(itemBoxSizer10, 0, wxGROW|wxALL, 5);
 
-    wxSlider* itemSlider11 = new wxSlider( itemPanel1, ID_SLIDER_AVI, 0, 0, 100, wxDefaultPosition, wxDefaultSize, wxSL_HORIZONTAL );
-    itemBoxSizer10->Add(itemSlider11, 1, wxGROW|wxALL, 0);
+    wxBoxSizer* itemBoxSizer11 = new wxBoxSizer(wxVERTICAL);
+    itemBoxSizer10->Add(itemBoxSizer11, 0, wxALIGN_CENTER_VERTICAL|wxALL, 0);
 
-    wxBoxSizer* itemBoxSizer12 = new wxBoxSizer(wxVERTICAL);
-    itemBoxSizer7->Add(itemBoxSizer12, 0, wxALIGN_CENTER_VERTICAL|wxALL, 0);
+    wxButton* itemButton12 = new wxButton( itemPanel1, ID_BUTTON_PREV, _("<<"), wxDefaultPosition, wxSize(30, -1), 0 );
+    itemBoxSizer11->Add(itemButton12, 0, wxALIGN_CENTER_HORIZONTAL|wxALL, 0);
 
-    wxButton* itemButton13 = new wxButton( itemPanel1, ID_BUTTON_NEXT, _(">>"), wxDefaultPosition, wxSize(30, -1), 0 );
-    itemBoxSizer12->Add(itemButton13, 0, wxALIGN_CENTER_HORIZONTAL|wxALL, 0);
+    wxBoxSizer* itemBoxSizer13 = new wxBoxSizer(wxVERTICAL);
+    itemBoxSizer10->Add(itemBoxSizer13, 1, wxGROW|wxALL, 0);
 
-    wxBoxSizer* itemBoxSizer14 = new wxBoxSizer(wxVERTICAL);
-    itemBoxSizer3->Add(itemBoxSizer14, 0, wxGROW|wxALL, 5);
+    wxSlider* itemSlider14 = new wxSlider( itemPanel1, ID_SLIDER_AVI, 0, 0, 100, wxDefaultPosition, wxDefaultSize, wxSL_HORIZONTAL );
+    itemBoxSizer13->Add(itemSlider14, 1, wxGROW|wxALL, 0);
 
-    wxButton* itemButton15 = new wxButton( itemPanel1, ID_BUTTON_CANCEL, _("Cancel"), wxDefaultPosition, wxDefaultSize, 0 );
-    itemBoxSizer14->Add(itemButton15, 0, wxALIGN_CENTER_HORIZONTAL|wxALL, 5);
+    wxBoxSizer* itemBoxSizer15 = new wxBoxSizer(wxVERTICAL);
+    itemBoxSizer10->Add(itemBoxSizer15, 0, wxALIGN_CENTER_VERTICAL|wxALL, 0);
+
+    wxButton* itemButton16 = new wxButton( itemPanel1, ID_BUTTON_NEXT, _(">>"), wxDefaultPosition, wxSize(30, -1), 0 );
+    itemBoxSizer15->Add(itemButton16, 0, wxALIGN_CENTER_HORIZONTAL|wxALL, 0);
+
+    wxBoxSizer* itemBoxSizer17 = new wxBoxSizer(wxVERTICAL);
+    itemBoxSizer3->Add(itemBoxSizer17, 0, wxGROW|wxALL, 5);
+
+    wxButton* itemButton18 = new wxButton( itemPanel1, ID_BUTTON_CANCEL, _("Cancel"), wxDefaultPosition, wxDefaultSize, 0 );
+    itemBoxSizer17->Add(itemButton18, 0, wxALIGN_CENTER_HORIZONTAL|wxALL, 5);
 
 ////@end cFileMngFullPanel content construction
 }

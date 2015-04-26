@@ -83,6 +83,7 @@
     <ClInclude Include="Bitmap3Button.h" />
     <ClInclude Include="CameraFullPanel.h" />
     <ClInclude Include="CameraSetPanel.h" />
+    <ClInclude Include="CaptureImage.h" />
     <ClInclude Include="CLApp.h" />
     <ClInclude Include="CLFrame.h" />
     <ClInclude Include="DateDisplay.h" />
