@@ -140,13 +140,13 @@ void cCameraSetPanel::CreateControls()
 
     wxStaticText* itemStaticText7 = new wxStaticText( itemPanel1, wxID_STATIC, _("Date"), wxDefaultPosition, wxDefaultSize, 0 );
     itemStaticText7->SetForegroundColour(wxColour(255, 255, 255));
-    itemBoxSizer6->Add(itemStaticText7, 0, wxALIGN_RIGHT|wxALL, 5);
+    itemBoxSizer6->Add(itemStaticText7, 0, wxALIGN_RIGHT|wxLEFT|wxTOP|wxBOTTOM, 5);
 
     wxBoxSizer* itemBoxSizer8 = new wxBoxSizer(wxVERTICAL);
     itemBoxSizer3->Add(itemBoxSizer8, 0, wxGROW|wxLEFT|wxRIGHT|wxTOP, 5);
 
     wxStaticBitmap* itemStaticBitmap9 = new wxStaticBitmap( itemPanel1, wxID_STATIC, wxNullBitmap, wxDefaultPosition, wxDefaultSize, 0 );
-    itemBoxSizer8->Add(itemStaticBitmap9, 0, wxALIGN_RIGHT|wxALL, 5);
+    itemBoxSizer8->Add(itemStaticBitmap9, 0, wxALIGN_RIGHT|wxRIGHT|wxTOP|wxBOTTOM, 5);
 
     wxBoxSizer* itemBoxSizer10 = new wxBoxSizer(wxHORIZONTAL);
     itemBoxSizer2->Add(itemBoxSizer10, 1, wxGROW|wxLEFT|wxRIGHT|wxBOTTOM, 5);

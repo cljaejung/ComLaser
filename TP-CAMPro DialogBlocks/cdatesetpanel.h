@@ -37,7 +37,25 @@
 ////@begin control identifiers
 #define ID_CDATESETPANEL 10000
 #define ID_PANEL 10001
+#define ID_BUTTON_MONTH_UP 10005
+#define ID_BUTTON_DAY_UP 10006
+#define ID_BUTTON_YEAR_UP 10007
+#define ID_BUTTON_MONTH 10008
+#define ID_BUTTON_DAY 10009
+#define ID_BUTTON_YEAR 10010
+#define ID_BUTTON_MONTH_DOWN 10011
+#define ID_BUTTON_DAY_DOWN 10012
+#define ID_BUTTON_YEAR_DOWN 10013
 #define ID_PANEL1 10002
+#define ID_BUTTON_HOUR_UP 10014
+#define ID_BUTTON_MINUTES_UP 10015
+#define ID_BUTTON_TIME_UP 10016
+#define ID_BUTTON_HOUR 10017
+#define ID_BUTTON_MINUTES 10018
+#define ID_BUTTON_TIME 10019
+#define ID_BUTTON_HOUR_DOWN 10020
+#define ID_BUTTON_MINUTES_DOWN 10021
+#define ID_BUTTON_TIME_DOWN 10022
 #define ID_BUTTON_OK 10003
 #define ID_BUTTON_CANCEL 10004
 #define SYMBOL_CDATESETPANEL_STYLE wxTAB_TRAVERSAL
@@ -91,6 +109,12 @@ public:
     static bool ShowToolTips();
 
 ////@begin cDateSetPanel member variables
+    wxButton* m_btnMonth;
+    wxButton* m_btnDay;
+    wxButton* m_btnYear;
+    wxButton* m_btnHour;
+    wxButton* m_btnMinutes;
+    wxButton* m_btnTime;
 ////@end cDateSetPanel member variables
 };
 

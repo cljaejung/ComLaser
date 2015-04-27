@@ -144,14 +144,14 @@ void cFileMngPanel::CreateControls()
     itemBoxSizer6->Add(itemStaticText7, 0, wxALIGN_CENTER_HORIZONTAL|wxALL, 5);
 
     wxBoxSizer* itemBoxSizer8 = new wxBoxSizer(wxVERTICAL);
-    itemBoxSizer3->Add(itemBoxSizer8, 1, wxGROW|wxALL, 5);
+    itemBoxSizer3->Add(itemBoxSizer8, 1, wxGROW|wxLEFT|wxTOP|wxBOTTOM, 5);
 
     wxStaticText* itemStaticText9 = new wxStaticText( itemPanel1, wxID_STATIC, _("Date"), wxDefaultPosition, wxDefaultSize, 0 );
     itemStaticText9->SetForegroundColour(wxColour(255, 255, 255));
     itemBoxSizer8->Add(itemStaticText9, 0, wxALIGN_RIGHT|wxALL, 5);
 
     wxBoxSizer* itemBoxSizer10 = new wxBoxSizer(wxVERTICAL);
-    itemBoxSizer3->Add(itemBoxSizer10, 0, wxGROW|wxALL, 5);
+    itemBoxSizer3->Add(itemBoxSizer10, 0, wxGROW|wxRIGHT|wxTOP|wxBOTTOM, 5);
 
     wxStaticBitmap* itemStaticBitmap11 = new wxStaticBitmap( itemPanel1, wxID_STATIC, wxNullBitmap, wxDefaultPosition, wxDefaultSize, 0 );
     itemBoxSizer10->Add(itemStaticBitmap11, 0, wxALIGN_RIGHT|wxALL, 5);

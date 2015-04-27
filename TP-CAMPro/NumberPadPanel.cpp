@@ -5,7 +5,7 @@
 
 enum
 {
-	ID_CNUMBERPADPANEL,
+	ID_CNUMBERPADPANEL = 0,
 	ID_BUTTON_DELETE,
 	ID_TEXTCTRL,
 	ID_BUTTON1,
@@ -22,9 +22,10 @@ enum
 };
 
 
+
 BEGIN_EVENT_TABLE(cNumberPadPanel, wxPanel)
-EVT_COMMAND_RANGE(ID_BUTTON1, ID_BUTTON0, wxEVT_COMMAND_BUTTON_CLICKED, cNumberPadPanel::OnButtonNumber)
 	EVT_BUTTON(ID_BUTTON_DELETE, cNumberPadPanel::OnButtonDelete)
+	EVT_COMMAND_RANGE(ID_BUTTON1, ID_BUTTON0, wxEVT_COMMAND_BUTTON_CLICKED, cNumberPadPanel::OnButtonNumber)
 END_EVENT_TABLE()
 
 
@@ -153,7 +154,8 @@ void cNumberPadPanel::OnButtonNumber(wxCommandEvent&evt)
 		return; // 타입 범위를 넘어선 값이면 취소한다.
 
 	m_number = newNumber;
-	m_textCtrl->SetLabel(wxString::Format("%d", m_number));
+	m_textCtrl->Replace(0, m_textCtrl->GetLineText(0).size(), wxString::Format("%d", m_number));
+	//m_textCtrl->SetLabel(wxString::Format("%d", m_number));
 	
 }
 
@@ -162,5 +164,6 @@ void cNumberPadPanel::OnButtonNumber(wxCommandEvent&evt)
 void cNumberPadPanel::OnButtonDelete(wxCommandEvent&)
 {
 	m_number = 0;
-	m_textCtrl->SetLabel("0");
+	//m_textCtrl->SetLabel("0");
+	m_textCtrl->Replace(0, m_textCtrl->GetLineText(0).size(), _("0"));
 }

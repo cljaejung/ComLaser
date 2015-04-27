@@ -7,11 +7,16 @@ public:
 	cDateSetPanel(wxFrame*frame);
 	virtual ~cDateSetPanel();
 
+	void UpdateCurrentTime();
+
 
 protected:
-
-
-public:
+	wxButton *m_btnMonth;
+	wxButton *m_btnDay;
+	wxButton *m_btnYear;
+	wxButton *m_btnHour;
+	wxButton *m_btnMinutes;
+	wxButton *m_btnTime;
 
 
 	// message handling

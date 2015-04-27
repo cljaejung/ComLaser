@@ -27,5 +27,7 @@ protected:
 	bool m_isAM;
 	bool m_isSmallSize; // true 일때 작은 크기로 시간을 출력한다.
 
+	DECLARE_EVENT_TABLE()
 	void OnTimer(wxTimerEvent& event);
+	void OnLeftDown(wxMouseEvent& event);
 };

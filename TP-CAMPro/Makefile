@@ -75,7 +75,7 @@ MINIMAL_OBJECTS =  \
 	MoviePanel.o \
 	Global.o \
 	NumberPadDialog.o \
-	BumberPadPanel.o
+	NumberPadPanel.o
 
 
 SRCS = $(MINIMAL_OBJECTS:.o=.cpp)

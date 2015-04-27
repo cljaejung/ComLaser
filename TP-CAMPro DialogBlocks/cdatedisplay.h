@@ -72,6 +72,12 @@ public:
 
 ////@begin cDateDisplay event handler declarations
 
+    /// wxEVT_LEFT_DOWN event handler for ID_CDATEDISPLAY
+    void OnLeftDown( wxMouseEvent& event );
+
+    /// wxEVT_LEFT_DCLICK event handler for ID_CDATEDISPLAY
+    void OnLeftDClick( wxMouseEvent& event );
+
     /// wxEVT_IDLE event handler for wxID_STATIC
     void OnIdle( wxIdleEvent& event );
 

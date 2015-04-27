@@ -47,6 +47,8 @@ IMPLEMENT_DYNAMIC_CLASS( cDateDisplay, wxPanel )
 BEGIN_EVENT_TABLE( cDateDisplay, wxPanel )
 
 ////@begin cDateDisplay event table entries
+    EVT_LEFT_DOWN( cDateDisplay::OnLeftDown )
+    EVT_LEFT_DCLICK( cDateDisplay::OnLeftDClick )
 ////@end cDateDisplay event table entries
 
 END_EVENT_TABLE()
@@ -190,5 +192,31 @@ void cDateDisplay::OnIdle( wxIdleEvent& event )
     // Before editing this code, remove the block markers.
     event.Skip();
 ////@end wxEVT_IDLE event handler for wxID_STATIC in cDateDisplay. 
+}
+
+
+/*!
+ * wxEVT_LEFT_DOWN event handler for ID_CDATEDISPLAY
+ */
+
+void cDateDisplay::OnLeftDown( wxMouseEvent& event )
+{
+////@begin wxEVT_LEFT_DOWN event handler for ID_CDATEDISPLAY in cDateDisplay.
+    // Before editing this code, remove the block markers.
+    event.Skip();
+////@end wxEVT_LEFT_DOWN event handler for ID_CDATEDISPLAY in cDateDisplay. 
+}
+
+
+/*!
+ * wxEVT_LEFT_DCLICK event handler for ID_CDATEDISPLAY
+ */
+
+void cDateDisplay::OnLeftDClick( wxMouseEvent& event )
+{
+////@begin wxEVT_LEFT_DCLICK event handler for ID_CDATEDISPLAY in cDateDisplay.
+    // Before editing this code, remove the block markers.
+    event.Skip();
+////@end wxEVT_LEFT_DCLICK event handler for ID_CDATEDISPLAY in cDateDisplay. 
 }
 

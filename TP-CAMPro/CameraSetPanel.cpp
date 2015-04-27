@@ -53,13 +53,13 @@ wxPanel(frame)
 	itemBoxSizer3->Add(itemStaticText5, 0, wxALIGN_BOTTOM | wxLEFT | wxRIGHT | wxTOP, 5);
 
     wxBoxSizer* itemBoxSizer6 = new wxBoxSizer(wxVERTICAL);
-    itemBoxSizer3->Add(itemBoxSizer6, 1, wxGROW|wxLEFT|wxRIGHT|wxTOP, 5);
+    itemBoxSizer3->Add(itemBoxSizer6, 1, wxGROW|wxLEFT|wxTOP, 5);
 
 	cDateDisplay* itemStaticText7 = new cDateDisplay(itemPanel1, true);
 	itemBoxSizer6->Add(itemStaticText7, 0, wxALIGN_RIGHT | wxALL, 5);
 
     wxBoxSizer* itemBoxSizer8 = new wxBoxSizer(wxVERTICAL);
-    itemBoxSizer3->Add(itemBoxSizer8, 0, wxGROW|wxLEFT|wxRIGHT|wxTOP, 5);
+    itemBoxSizer3->Add(itemBoxSizer8, 0, wxGROW|wxRIGHT|wxTOP, 5);
 
 	wxStaticBitmap* itemStaticBitmap9 = new cBatteryDisplay(itemPanel1, wxID_STATIC,
 		_("ref_img/BATT_ext2.bmp"), wxDefaultPosition, wxDefaultSize, 0);
