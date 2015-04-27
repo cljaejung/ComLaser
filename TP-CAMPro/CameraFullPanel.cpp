@@ -2,6 +2,7 @@
 #include "stdafx.h"
 #include "CameraFullPanel.h"
 #include "CLFrame.h"
+#include "MoviePanel.h"
 
 
 enum {
@@ -43,8 +44,9 @@ wxPanel(frame)
 	wxBoxSizer* itemBoxSizer7 = new wxBoxSizer(wxHORIZONTAL);
 	itemBoxSizer4->Add(itemBoxSizer7, 1, wxGROW | wxALL, 0);
 
-	wxPanel* itemPanel8 = new wxPanel(itemPanel1, ID_PANEL, wxDefaultPosition, wxSize(580, 385), wxRAISED_BORDER | wxTAB_TRAVERSAL);
+	cMoviePanel* itemPanel8 = new cMoviePanel(itemPanel1, ID_PANEL, wxDefaultPosition, wxSize(580, 385), wxRAISED_BORDER | wxTAB_TRAVERSAL);
 	itemPanel8->SetExtraStyle(wxWS_EX_VALIDATE_RECURSIVELY);
+	itemPanel8->m_GotoNextPanel = PANEL_CAMERAFULL;
 	itemBoxSizer7->Add(itemPanel8, 1, wxGROW | wxTOP | wxBOTTOM, 4);
 
 	wxButton* itemButton9 = new wxButton(itemPanel1, ID_BUTTON_CANCEL, _("Cancel"), wxDefaultPosition, wxDefaultSize, 0);

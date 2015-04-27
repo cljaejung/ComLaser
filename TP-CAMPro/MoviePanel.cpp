@@ -2,6 +2,7 @@
 #include "stdafx.h"
 #include "MoviePanel.h"
 #include "Global.h"
+#include "CLFrame.h"
 
 
 
@@ -9,13 +10,15 @@ BEGIN_EVENT_TABLE(cMoviePanel, wxPanel)
 	EVT_IDLE(cMoviePanel::OnIdle)
 	EVT_PAINT(cMoviePanel::OnPaint)
 	EVT_ERASE_BACKGROUND(cMoviePanel::OnEraseBackground)
+	EVT_LEFT_DCLICK(cMoviePanel::OnLeftDClick)
 END_EVENT_TABLE()
 
 
 
-cMoviePanel::cMoviePanel(wxWindow *parent)
-: wxPanel(parent, wxID_ANY, wxDefaultPosition, wxDefaultSize, wxNO_FULL_REPAINT_ON_RESIZE | wxCLIP_CHILDREN)
-, m_backupBitmap(720, 480)
+cMoviePanel::cMoviePanel(wxWindow *parent,
+	wxWindowID winid, const wxPoint& pos, const wxSize& size, long style, const wxString& name)
+	: wxPanel(parent, wxID_ANY, wxDefaultPosition, wxDefaultSize, wxNO_FULL_REPAINT_ON_RESIZE | wxCLIP_CHILDREN)
+	, m_backupBitmap(size)
 {
 
 	cMoviePanel* itemPanel1 = this;
@@ -30,6 +33,7 @@ cMoviePanel::cMoviePanel(wxWindow *parent)
 	////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 	m_curImgIndex = 1;
 	m_oldTick = 0;
+	m_GotoNextPanel = PANEL_CAMERAFULL;
 
 }
 
@@ -37,6 +41,9 @@ cMoviePanel::cMoviePanel(wxWindow *parent)
 
 void cMoviePanel::OnIdle(wxIdleEvent& event)
 {
+	if (!this->IsShownOnScreen())
+		return;
+
 	// 1초에 24프레임으로 이미지를 바꾼다.
 	const int deltaMilliSeconds = global::GetTickCount() - m_oldTick;
 	
@@ -49,6 +56,7 @@ void cMoviePanel::OnIdle(wxIdleEvent& event)
 
 		// 이미지 로딩.
 		m_currentBitmap.LoadFile(wxString::Format("movie/bmp%d.bmp", m_curImgIndex), wxBITMAP_TYPE_BMP);
+		m_currentBitmap.Rescale(m_backupBitmap.GetWidth(), m_backupBitmap.GetHeight());
 
 		m_oldTick = global::GetTickCount();
 		
@@ -78,5 +86,15 @@ void cMoviePanel::OnPaint(wxPaintEvent& event)
 	memDC.DrawBitmap(m_currentBitmap, wxPoint(0, 0));
 
 	dc.Blit(wxPoint(0, 0), wxSize(720, 480), &memDC, wxPoint(0, 0));
+}
+
+
+// 마우스 더블클릭시 호출
+void cMoviePanel::OnLeftDClick(wxMouseEvent& event)
+{
+	cCLFrame* frame = dynamic_cast<cCLFrame*>(wxGetTopLevelParent(this));
+	if (!frame)
+		return;
+	frame->ChangePanel(m_GotoNextPanel);
 }
 

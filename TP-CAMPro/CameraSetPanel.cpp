@@ -7,6 +7,8 @@
 #include "Bitmap3Button.h"
 #include "BatteryDisplay.h"
 #include "DateDisplay.h"
+#include "MoviePanel.h"
+
 
 
 enum {
@@ -16,7 +18,7 @@ enum {
 	ID_CHOICE_SHUTTERSPEED,
 	ID_CHOICE_ZOOM,
 	ID_CHOICE_CAPTURETEST,
-	ID_BUTTON_FULL,
+	//ID_BUTTON_FULL,
 	ID_PANEL,
 	ID_BUTTON_OK,
 	ID_BUTTON_CANCEL,
@@ -25,7 +27,7 @@ enum {
 
 BEGIN_EVENT_TABLE(cCameraSetPanel, wxPanel)
 	EVT_BUTTON(ID_BUTTON_CANCEL, cCameraSetPanel::OnButtonCancel)
-	EVT_BUTTON(ID_BUTTON_FULL, cCameraSetPanel::OnButtonFull)
+	//EVT_BUTTON(ID_BUTTON_FULL, cCameraSetPanel::OnButtonFull)
 END_EVENT_TABLE()
 
 
@@ -179,17 +181,16 @@ wxPanel(frame)
 	itemStaticText34->SetFont(wxFont(16, wxFONTFAMILY_SWISS, wxFONTSTYLE_NORMAL, wxFONTWEIGHT_BOLD, false, wxT("")));
 	itemBoxSizer33->Add(itemStaticText34, 0, wxALIGN_CENTER_VERTICAL | wxALL, 5);
 
-	wxButton* itemButton35 = new wxButton(itemPanel1, ID_BUTTON_FULL, _("Full"), wxDefaultPosition, wxDefaultSize, 0);
-	itemBoxSizer33->Add(itemButton35, 0, wxALIGN_CENTER_VERTICAL | wxALL, 5);
+	//wxButton* itemButton35 = new wxButton(itemPanel1, ID_BUTTON_FULL, _("Full"), wxDefaultPosition, wxDefaultSize, 0);
+	//itemBoxSizer33->Add(itemButton35, 0, wxALIGN_CENTER_VERTICAL | wxALL, 5);
 
 	wxBoxSizer* itemBoxSizer36 = new wxBoxSizer(wxHORIZONTAL);
 	itemBoxSizer32->Add(itemBoxSizer36, 1, wxGROW | wxALL, 0);
 
-	wxPanel* itemPanel37 = new wxPanel(itemPanel1, ID_PANEL, wxDefaultPosition, wxSize(350, 288), wxSUNKEN_BORDER | wxTAB_TRAVERSAL);
+	cMoviePanel* itemPanel37 = new cMoviePanel(itemPanel1, ID_PANEL, wxDefaultPosition, wxSize(350, 288));
 	itemPanel37->SetExtraStyle(wxWS_EX_VALIDATE_RECURSIVELY);
+	itemPanel37->m_GotoNextPanel = PANEL_CAMERAFULL;
 	itemBoxSizer36->Add(itemPanel37, 1, wxGROW | wxALL, 0);
-
-
 
 }
 

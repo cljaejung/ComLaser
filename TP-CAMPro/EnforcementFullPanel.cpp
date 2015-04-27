@@ -5,6 +5,7 @@
 #include "wx/combo.h"
 #include "wx/combobox.h"
 #include "wx/listctrl.h"
+#include "MoviePanel.h"
 
 
 enum {
@@ -34,8 +35,9 @@ wxPanel(frame)
 	wxBoxSizer* itemBoxSizer4 = new wxBoxSizer(wxVERTICAL);
 	itemBoxSizer3->Add(itemBoxSizer4, 1, wxGROW | wxALL, 5);
 
-	wxPanel* itemPanel5 = new wxPanel(itemPanel1, ID_PANEL, wxDefaultPosition, wxDefaultSize, wxSUNKEN_BORDER | wxTAB_TRAVERSAL);
+	cMoviePanel* itemPanel5 = new cMoviePanel(itemPanel1, ID_PANEL, wxDefaultPosition, wxSize(580,430), wxSUNKEN_BORDER | wxTAB_TRAVERSAL);
 	itemPanel5->SetExtraStyle(wxWS_EX_VALIDATE_RECURSIVELY);
+	itemPanel5->m_GotoNextPanel = PANEL_ENFORCEMENTFULL;
 	itemBoxSizer4->Add(itemPanel5, 1, wxGROW | wxALL, 0);
 
 	wxBoxSizer* itemBoxSizer6 = new wxBoxSizer(wxVERTICAL);

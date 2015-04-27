@@ -8,6 +8,8 @@
 #include "BatteryDisplay.h"
 #include "DateDisplay.h"
 #include "Bitmap3Button.h"
+#include "MoviePanel.h"
+
 
 enum {
 	ID_PANEL,
@@ -26,7 +28,7 @@ enum {
 
 BEGIN_EVENT_TABLE(cEnforcementPanel, wxPanel)
 	EVT_BUTTON(ID_BUTTON_DONE, cEnforcementPanel::OnButtonDone)
-	EVT_BUTTON(ID_BUTTON_FULL, cEnforcementPanel::OnButtonFull)
+	//EVT_BUTTON(ID_BUTTON_FULL, cEnforcementPanel::OnButtonFull)
 END_EVENT_TABLE()
 
 
@@ -245,12 +247,13 @@ cEnforcementPanel::cEnforcementPanel(wxFrame*frame) :
 	wxBoxSizer* itemBoxSizer58 = new wxBoxSizer(wxHORIZONTAL);
 	itemBoxSizer57->Add(itemBoxSizer58, 1, wxGROW | wxALL, 0);
 
-	wxPanel* itemPanel59 = new wxPanel(itemPanel1, ID_PANEL1, wxDefaultPosition, wxDefaultSize, wxSUNKEN_BORDER | wxTAB_TRAVERSAL);
+	cMoviePanel* itemPanel59 = new cMoviePanel(itemPanel1, ID_PANEL1, wxDefaultPosition, wxSize(300, 300), wxSUNKEN_BORDER | wxTAB_TRAVERSAL);
 	itemPanel59->SetExtraStyle(wxWS_EX_VALIDATE_RECURSIVELY);
+	itemPanel59->m_GotoNextPanel = PANEL_ENFORCEMENTFULL;
 	itemBoxSizer58->Add(itemPanel59, 1, wxGROW | wxALL, 5);
 
-	wxButton* itemButton60 = new wxButton(itemPanel1, ID_BUTTON_FULL, _("Full"), wxDefaultPosition, wxDefaultSize, 0);
-	itemBoxSizer57->Add(itemButton60, 0, wxALIGN_CENTER_HORIZONTAL | wxALL, 5);
+	//wxButton* itemButton60 = new wxButton(itemPanel1, ID_BUTTON_FULL, _("Full"), wxDefaultPosition, wxDefaultSize, 0);
+	//itemBoxSizer57->Add(itemButton60, 0, wxALIGN_CENTER_HORIZONTAL | wxALL, 5);
 
 }
 
