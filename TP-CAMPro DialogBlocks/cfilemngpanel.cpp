@@ -188,7 +188,7 @@ void cFileMngPanel::CreateControls()
     wxBoxSizer* itemBoxSizer21 = new wxBoxSizer(wxHORIZONTAL);
     itemBoxSizer20->Add(itemBoxSizer21, 1, wxGROW, 5);
 
-    wxPanel* itemPanel22 = new wxPanel( itemPanel1, ID_PANEL, wxDefaultPosition, wxSize(250, 300), wxDOUBLE_BORDER|wxTAB_TRAVERSAL );
+    wxPanel* itemPanel22 = new wxPanel( itemPanel1, ID_PANEL, wxDefaultPosition, wxSize(250, 300), wxSIMPLE_BORDER|wxTAB_TRAVERSAL );
     itemPanel22->SetExtraStyle(wxWS_EX_VALIDATE_RECURSIVELY);
     itemBoxSizer21->Add(itemPanel22, 1, wxGROW|wxALL, 0);
 
@@ -196,10 +196,10 @@ void cFileMngPanel::CreateControls()
     itemPanel22->SetSizer(itemBoxSizer23);
 
     wxBoxSizer* itemBoxSizer24 = new wxBoxSizer(wxHORIZONTAL);
-    itemBoxSizer23->Add(itemBoxSizer24, 1, wxGROW|wxALL, 5);
+    itemBoxSizer23->Add(itemBoxSizer24, 1, wxGROW|wxALL, 0);
 
     wxStaticBitmap* itemStaticBitmap25 = new wxStaticBitmap( itemPanel22, wxID_STATIC, wxNullBitmap, wxDefaultPosition, wxDefaultSize, 0 );
-    itemBoxSizer24->Add(itemStaticBitmap25, 0, wxALIGN_CENTER_VERTICAL|wxALL, 5);
+    itemBoxSizer24->Add(itemStaticBitmap25, 1, wxGROW|wxALL, 1);
 
     wxBoxSizer* itemBoxSizer26 = new wxBoxSizer(wxHORIZONTAL);
     itemBoxSizer20->Add(itemBoxSizer26, 0, wxGROW|wxALL, 5);

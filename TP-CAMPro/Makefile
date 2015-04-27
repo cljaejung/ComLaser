@@ -71,8 +71,11 @@ MINIMAL_OBJECTS =  \
 	BatteryDisplay.o \
 	DateDisplay.o \
 	KeyboardDialog.o \
-	KeyboardEngPanel.o
-
+	KeyboardEngPanel.o \
+	MoviePanel.o \
+	Global.o \
+	NumberPadDialog.o \
+	BumberPadPanel.o
 
 
 SRCS = $(MINIMAL_OBJECTS:.o=.cpp)
@@ -265,6 +268,12 @@ BatteryDisplay.o: $(srcdir)/BatteryDisplay.cpp $(srcdir)/BatteryDisplay.h $(srcd
 DateDisplay.o: $(srcdir)/DateDisplay.cpp $(srcdir)/DateDisplay.h $(srcdir)/CLFrame.h $(srcdir)/stdafx.h
 KeyboardDialog.o: $(srcdir)/KeyboardDialog.cpp $(srcdir)/KeyboardDialog.h $(srcdir)/CLFrame.h $(srcdir)/stdafx.h
 KeyboardEngPanel.o: $(srcdir)/KeyboardEngPanel.cpp $(srcdir)/KeyboardEngPanel.h $(srcdir)/CLFrame.h $(srcdir)/stdafx.h
+MoviePanel.o: $(srcdir)/MoviePanel.cpp $(srcdir)/MoviePanel.h $(srcdir)/CLFrame.h $(srcdir)/stdafx.h
+Global.o: $(srcdir)/Global.cpp $(srcdir)/Global.h $(srcdir)/stdafx.h
+NumberPadDialog.o: $(srcdir)/NumberPadDialog.cpp $(srcdir)/NumberPadDialog.h $(srcdir)/CLFrame.h $(srcdir)/stdafx.h
+NumberPadPanel.o: $(srcdir)/NumberPadPanel.cpp $(srcdir)/NumberPadPanel.h $(srcdir)/CLFrame.h $(srcdir)/stdafx.h
+
+
 
 
 # Include dependency info, if present:

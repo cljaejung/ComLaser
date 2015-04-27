@@ -33,12 +33,11 @@ public:
 
 
 protected:
+	// any class wishing to process wxWidgets events must use this macro
+	DECLARE_EVENT_TABLE()
 	// event handlers (these functions should _not_ be virtual)
 	void OnQuit(wxCommandEvent& event);
 	void OnAbout(wxCommandEvent& event);
-
-private:
-	// any class wishing to process wxWidgets events must use this macro
-	DECLARE_EVENT_TABLE()
+	void OnEraseBackground(wxEraseEvent& event);
 };
 

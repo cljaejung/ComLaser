@@ -86,6 +86,10 @@
     <ClInclude Include="CaptureImage.h" />
     <ClInclude Include="CLApp.h" />
     <ClInclude Include="CLFrame.h" />
+    <ClInclude Include="NumberPadDialog.h" />
+    <ClInclude Include="NumberPadPanel.h" />
+    <ClInclude Include="Global.h" />
+    <ClInclude Include="MoviePanel.h" />
     <ClInclude Include="DateDisplay.h" />
     <ClInclude Include="DateSetPanel.h" />
     <ClInclude Include="EnforcementFullPanel.h" />
@@ -108,6 +112,10 @@
     <ClCompile Include="CameraSetPanel.cpp" />
     <ClCompile Include="CLApp.cpp" />
     <ClCompile Include="CLFrame.cpp" />
+    <ClCompile Include="NumberPadDialog.cpp" />
+    <ClCompile Include="NumberPadPanel.cpp" />
+    <ClCompile Include="Global.cpp" />
+    <ClCompile Include="MoviePanel.cpp" />
     <ClCompile Include="DateDisplay.cpp" />
     <ClCompile Include="DateSetPanel.cpp" />
     <ClCompile Include="EnforcementFullPanel.cpp" />

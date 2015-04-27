@@ -20,9 +20,7 @@ protected:
 	wxPanel *m_ImagePanel;
 	wxStaticBitmap *m_StaticBitmap;
 	vector<sCaptureImage> m_captureImages;
-	int m_selectItem = -1;
-
-public:
+	int m_selectItem;
 
 
 	// message handling

@@ -12,6 +12,7 @@
 #include "FileMngFullPanel.h"
 #include "EnforcementPanel.h"
 #include "EnforcementFullPanel.h"
+#include "MoviePanel.h"
 
 
 // ----------------------------------------------------------------------------
@@ -39,6 +40,7 @@ enum
 BEGIN_EVENT_TABLE(cCLFrame, wxFrame)
 	EVT_MENU(Minimal_Quit, cCLFrame::OnQuit)
 	EVT_MENU(Minimal_About, cCLFrame::OnAbout)
+	EVT_ERASE_BACKGROUND(cCLFrame::OnEraseBackground)
 END_EVENT_TABLE()
 
 
@@ -71,6 +73,7 @@ cCLFrame::cCLFrame(const wxString& title)
 	m_fileMngFullPanel = new cFileMngFullPanel(this);
 	m_enforcementPanel = new cEnforcementPanel(this);
 	m_enforcementFullPanel = new cEnforcementFullPanel(this);
+	//cMoviePanel *moviePanel = new cMoviePanel(this);
 
 	itemBoxSizer2->Add(m_mainPanel, 1, wxEXPAND);
 	itemBoxSizer2->Add(m_loginPanel, 1, wxEXPAND);
@@ -83,9 +86,13 @@ cCLFrame::cCLFrame(const wxString& title)
 	itemBoxSizer2->Add(m_fileMngFullPanel, 1, wxEXPAND);
 	itemBoxSizer2->Add(m_enforcementPanel, 1, wxEXPAND);
 	itemBoxSizer2->Add(m_enforcementFullPanel, 1, wxEXPAND);
+	//itemBoxSizer2->Add(moviePanel, 1, wxEXPAND); // test panel
 
 	ChangePanel(PANEL_MAIN);
 
+	//m_mainPanel->Hide(); // test panel
+
+	
 	Center(); // 윈도우를 가운데로 옮긴다.
 	Layout(); // UI 위치 재조정.
 }
@@ -109,6 +116,11 @@ void cCLFrame::OnAbout(wxCommandEvent& WXUNUSED(event))
 		_T("About ComLaser"),
 		wxOK | wxICON_INFORMATION,
 		this);
+}
+
+
+void cCLFrame::OnEraseBackground(wxEraseEvent& event)
+{
 }
 
 

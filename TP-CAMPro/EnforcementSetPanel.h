@@ -19,5 +19,6 @@ protected:
 	DECLARE_EVENT_TABLE()
 	void OnButtonCancel(wxCommandEvent &);
 	void OnButtonLocation(wxCommandEvent &);
+	void OnButtonLimitSpeed(wxCommandEvent &);
 };
 

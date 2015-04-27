@@ -1,0 +1,15 @@
+#pragma once
+
+
+class cNumberPadPanel;
+class cNumberPadDialog : public wxDialog
+{
+public:
+	cNumberPadDialog(wxWindow *parent);
+
+	cNumberPadPanel *m_NumberPadPanel;
+
+	int GetNumber();
+	//virtual int ShowModal() override;
+};
+

@@ -134,7 +134,7 @@ void cFileMngFullPanel::CreateControls()
     wxBoxSizer* itemBoxSizer5 = new wxBoxSizer(wxHORIZONTAL);
     itemBoxSizer4->Add(itemBoxSizer5, 1, wxGROW, 0);
 
-    wxPanel* itemPanel6 = new wxPanel( itemPanel1, ID_PANEL, wxDefaultPosition, wxDefaultSize, wxSUNKEN_BORDER|wxTAB_TRAVERSAL );
+    wxPanel* itemPanel6 = new wxPanel( itemPanel1, ID_PANEL, wxDefaultPosition, wxDefaultSize, wxSIMPLE_BORDER|wxTAB_TRAVERSAL );
     itemPanel6->SetExtraStyle(wxWS_EX_VALIDATE_RECURSIVELY);
     itemBoxSizer5->Add(itemPanel6, 1, wxGROW|wxALL, 0);
 

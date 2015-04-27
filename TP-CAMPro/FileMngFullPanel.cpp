@@ -8,6 +8,7 @@
 
 
 enum {
+	ID_STATIC_BITMAP,
 	ID_BUTTON_PREV,
 	ID_BUTTON_NEXT,
 	ID_SLIDER_AVI,
@@ -40,7 +41,7 @@ wxPanel(frame)
 	wxBoxSizer* itemBoxSizer5 = new wxBoxSizer(wxHORIZONTAL);
 	itemBoxSizer4->Add(itemBoxSizer5, 1, wxGROW, 0);
 
-	wxPanel* itemPanel6 = new wxPanel(itemPanel1, ID_PANEL, wxDefaultPosition, wxDefaultSize, wxSUNKEN_BORDER | wxTAB_TRAVERSAL);
+	wxPanel* itemPanel6 = new wxPanel(itemPanel1, ID_PANEL, wxDefaultPosition, wxDefaultSize, wxSIMPLE_BORDER | wxTAB_TRAVERSAL);
 	itemPanel6->SetExtraStyle(wxWS_EX_VALIDATE_RECURSIVELY);
 	itemBoxSizer5->Add(itemPanel6, 1, wxGROW | wxALL, 0);
 
@@ -50,7 +51,7 @@ wxPanel(frame)
 	wxBoxSizer* itemBoxSizer8 = new wxBoxSizer(wxHORIZONTAL);
 	itemBoxSizer7->Add(itemBoxSizer8, 1, wxGROW | wxALL, 0);
 
-	m_Image = new wxStaticBitmap(itemPanel6, wxID_STATIC, wxNullBitmap, wxDefaultPosition, wxDefaultSize, 0);
+	m_Image = new wxStaticBitmap(itemPanel6, ID_STATIC_BITMAP, wxNullBitmap, wxDefaultPosition, wxDefaultSize, 0);
 	itemBoxSizer8->Add(m_Image, 1, wxGROW | wxALL, 0);
 
 	wxBoxSizer* itemBoxSizer10 = new wxBoxSizer(wxHORIZONTAL);
@@ -80,6 +81,7 @@ wxPanel(frame)
 	wxButton* itemButton18 = new wxButton(itemPanel1, ID_BUTTON_CANCEL, _("Cancel"), wxDefaultPosition, wxDefaultSize, 0);
 	itemBoxSizer17->Add(itemButton18, 0, wxALIGN_CENTER_HORIZONTAL | wxALL, 5);
 
+
 }
 
 cFileMngFullPanel::~cFileMngFullPanel()
@@ -95,3 +97,4 @@ void cFileMngFullPanel::OnButtonCancel(wxCommandEvent &)
 		return;
 	frame->ChangePanel(PANEL_FILEMNG);
 }
+
