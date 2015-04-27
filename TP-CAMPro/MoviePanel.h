@@ -12,6 +12,7 @@ public:
 		const wxString& name = wxPanelNameStr);
 
 
+	bool m_isPlay;
 	PANEL_TYPE m_GotoNextPanel; // 더블클릭시 넘어갈 패널
 
 

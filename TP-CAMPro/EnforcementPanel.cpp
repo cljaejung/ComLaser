@@ -88,9 +88,11 @@ cEnforcementPanel::cEnforcementPanel(wxFrame*frame) :
 	wxBoxSizer* itemBoxSizer15 = new wxBoxSizer(wxVERTICAL);
 	itemBoxSizer14->Add(itemBoxSizer15, 1, wxGROW | wxALL, 0);
 
-	wxPanel* itemPanel16 = new wxPanel(itemPanel1, ID_PANEL, wxDefaultPosition, wxSize(300, 230), wxSUNKEN_BORDER | wxTAB_TRAVERSAL);
+	cMoviePanel* itemPanel16 = new cMoviePanel(itemPanel1, ID_PANEL, wxDefaultPosition, wxSize(300, 230), wxSUNKEN_BORDER | wxTAB_TRAVERSAL);
 	itemPanel16->SetExtraStyle(wxWS_EX_VALIDATE_RECURSIVELY);
 	itemPanel16->SetBackgroundColour(wxColour(192, 192, 192));
+	itemPanel16->m_GotoNextPanel = PANEL_NONE;
+	itemPanel16->m_isPlay = false;
 	itemBoxSizer15->Add(itemPanel16, 1, wxALIGN_CENTER_HORIZONTAL | wxALL, 5);
 
 	wxBoxSizer* itemBoxSizer17 = new wxBoxSizer(wxHORIZONTAL);
@@ -247,9 +249,10 @@ cEnforcementPanel::cEnforcementPanel(wxFrame*frame) :
 	wxBoxSizer* itemBoxSizer58 = new wxBoxSizer(wxHORIZONTAL);
 	itemBoxSizer57->Add(itemBoxSizer58, 1, wxGROW | wxALL, 0);
 
-	cMoviePanel* itemPanel59 = new cMoviePanel(itemPanel1, ID_PANEL1, wxDefaultPosition, wxSize(300, 300), wxSUNKEN_BORDER | wxTAB_TRAVERSAL);
+	cMoviePanel* itemPanel59 = new cMoviePanel(itemPanel1, ID_PANEL1, wxDefaultPosition, wxSize(348, 350), wxSUNKEN_BORDER | wxTAB_TRAVERSAL);
 	itemPanel59->SetExtraStyle(wxWS_EX_VALIDATE_RECURSIVELY);
 	itemPanel59->m_GotoNextPanel = PANEL_ENFORCEMENTFULL;
+	itemPanel59->m_isPlay = false;
 	itemBoxSizer58->Add(itemPanel59, 1, wxGROW | wxALL, 5);
 
 	//wxButton* itemButton60 = new wxButton(itemPanel1, ID_BUTTON_FULL, _("Full"), wxDefaultPosition, wxDefaultSize, 0);

@@ -132,8 +132,24 @@ wxPanel(frame)
 	itemBoxSizer23->Add(itemStaticText24, 0, wxALIGN_CENTER_VERTICAL | wxALL, 5);
 
 	wxTextCtrl* itemTextCtrl25 = new wxTextCtrl(itemPanel13, ID_TEXTCTRL, wxEmptyString, wxDefaultPosition, wxDefaultSize, 0);
-	itemTextCtrl25->SetFont(wxFont(16, wxFONTFAMILY_SWISS, wxFONTSTYLE_NORMAL, wxFONTWEIGHT_NORMAL, false, wxT("")));
+	itemTextCtrl25->SetFont(wxFont(16, wxFONTFAMILY_SWISS, wxFONTSTYLE_NORMAL, wxFONTWEIGHT_BOLD, false, wxT("")));
 	itemBoxSizer23->Add(itemTextCtrl25, 0, wxALIGN_CENTER_VERTICAL | wxALL, 5);
+
+	
+
+	// Keyboard Button
+	//wxBoxSizer* itemBoxSizer333 = new wxBoxSizer(wxVERTICAL);
+	//itemTextCtrl25->SetSizer(itemBoxSizer333);
+
+	//wxBoxSizer* itemBoxSizer444 = new wxBoxSizer(wxHORIZONTAL);
+	//itemBoxSizer333->Add(itemBoxSizer444, 0, wxALIGN_RIGHT | wxALL, 0);
+
+	//wxButton* itemButton2666 = new wxButton(itemTextCtrl25, ID_BUTTON_LIMITSPEED, _(" "), wxDefaultPosition, wxSize(30,30), 0);
+	//itemButton2666->SetFont(wxFont(12, wxFONTFAMILY_SWISS, wxFONTSTYLE_NORMAL, wxFONTWEIGHT_NORMAL, false, wxT("")));
+	//itemBoxSizer444->Add(itemButton2666, 0, wxALIGN_CENTER_VERTICAL | wxALL, 0);
+
+
+
 
 	wxButton* itemButton26 = new wxButton(itemPanel13, ID_BUTTON_LIMITSPEED, _("Button"), wxDefaultPosition, wxDefaultSize, 0);
 	itemBoxSizer23->Add(itemButton26, 0, wxALIGN_CENTER_VERTICAL | wxALL, 5);

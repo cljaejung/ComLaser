@@ -127,6 +127,30 @@ void TestPanel::CreateControls()
     itemPanel3->SetExtraStyle(wxWS_EX_VALIDATE_RECURSIVELY);
     itemBoxSizer2->Add(itemPanel3, 0, wxALIGN_CENTER_HORIZONTAL|wxALL, 5);
 
+    wxBoxSizer* itemBoxSizer4 = new wxBoxSizer(wxVERTICAL);
+    itemPanel3->SetSizer(itemBoxSizer4);
+
+    wxBoxSizer* itemBoxSizer5 = new wxBoxSizer(wxHORIZONTAL);
+    itemBoxSizer4->Add(itemBoxSizer5, 0, wxALIGN_CENTER_HORIZONTAL|wxALL, 5);
+
+    wxButton* itemButton6 = new wxButton( itemPanel3, ID_BUTTON, _("Button"), wxDefaultPosition, wxDefaultSize, 0 );
+    itemBoxSizer5->Add(itemButton6, 0, wxALIGN_CENTER_VERTICAL|wxALL, 5);
+
+    wxButton* itemButton7 = new wxButton( itemPanel3, ID_BUTTON1, _("Button"), wxDefaultPosition, wxDefaultSize, 0 );
+    itemBoxSizer5->Add(itemButton7, 0, wxALIGN_CENTER_VERTICAL|wxALL, 5);
+
+    wxButton* itemButton8 = new wxButton( itemPanel3, ID_BUTTON2, _("Button"), wxDefaultPosition, wxDefaultSize, 0 );
+    itemBoxSizer5->Add(itemButton8, 0, wxALIGN_CENTER_VERTICAL|wxALL, 5);
+
+    wxButton* itemButton9 = new wxButton( itemPanel3, ID_BUTTON3, _("Button"), wxDefaultPosition, wxDefaultSize, 0 );
+    itemBoxSizer5->Add(itemButton9, 0, wxALIGN_CENTER_VERTICAL|wxALL, 5);
+
+    wxBoxSizer* itemBoxSizer10 = new wxBoxSizer(wxHORIZONTAL);
+    itemBoxSizer4->Add(itemBoxSizer10, 0, wxALIGN_RIGHT|wxALL, 5);
+
+    wxBitmapButton* itemBitmapButton11 = new wxBitmapButton( itemPanel3, ID_BITMAPBUTTON, wxNullBitmap, wxDefaultPosition, wxDefaultSize, wxBU_AUTODRAW );
+    itemBoxSizer10->Add(itemBitmapButton11, 0, wxALIGN_CENTER_VERTICAL|wxALL, 5);
+
     // Connect events and objects
     itemPanel3->Connect(ID_PANEL, wxEVT_ERASE_BACKGROUND, wxEraseEventHandler(TestPanel::OnEraseBackground), NULL, this);
     itemPanel3->Connect(ID_PANEL, wxEVT_LEFT_DOWN, wxMouseEventHandler(TestPanel::OnLeftDown), NULL, this);

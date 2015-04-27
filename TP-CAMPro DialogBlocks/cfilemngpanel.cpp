@@ -226,22 +226,22 @@ void cFileMngPanel::CreateControls()
     itemBoxSizer12->Add(itemBoxSizer33, 0, wxGROW|wxALL, 5);
 
     wxBoxSizer* itemBoxSizer34 = new wxBoxSizer(wxHORIZONTAL);
-    itemBoxSizer33->Add(itemBoxSizer34, 1, wxGROW|wxALL, 5);
+    itemBoxSizer33->Add(itemBoxSizer34, 1, wxGROW|wxALL, 0);
 
-    wxButton* itemButton35 = new wxButton( itemPanel1, ID_BUTTON_MEMCOPY, _("Memory\nCopy"), wxDefaultPosition, wxDefaultSize, 0 );
-    itemBoxSizer34->Add(itemButton35, 0, wxALIGN_CENTER_VERTICAL|wxALL, 5);
+    wxButton* itemButton35 = new wxButton( itemPanel1, ID_BUTTON_MEMCOPY, _("Memory\nCopy"), wxDefaultPosition, wxSize(70, 40), 0 );
+    itemBoxSizer34->Add(itemButton35, 0, wxALIGN_CENTER_VERTICAL|wxALL, 0);
 
     wxBoxSizer* itemBoxSizer36 = new wxBoxSizer(wxHORIZONTAL);
-    itemBoxSizer33->Add(itemBoxSizer36, 1, wxGROW|wxALL, 5);
+    itemBoxSizer33->Add(itemBoxSizer36, 1, wxGROW|wxALL, 0);
 
-    wxButton* itemButton37 = new wxButton( itemPanel1, ID_BUTTON_FILETRANSFER, _("File\nTransfer"), wxDefaultPosition, wxDefaultSize, 0 );
-    itemBoxSizer36->Add(itemButton37, 0, wxALIGN_CENTER_VERTICAL|wxALL, 5);
+    wxButton* itemButton37 = new wxButton( itemPanel1, ID_BUTTON_FILETRANSFER, _("File\nTransfer"), wxDefaultPosition, wxSize(70, 40), 0 );
+    itemBoxSizer36->Add(itemButton37, 0, wxALIGN_CENTER_VERTICAL|wxALL, 0);
 
     wxBoxSizer* itemBoxSizer38 = new wxBoxSizer(wxHORIZONTAL);
-    itemBoxSizer33->Add(itemBoxSizer38, 1, wxGROW|wxALL, 5);
+    itemBoxSizer33->Add(itemBoxSizer38, 1, wxGROW|wxALL, 0);
 
-    wxButton* itemButton39 = new wxButton( itemPanel1, ID_BUTTON_MEMCLEAR, _("Memory\nClear"), wxDefaultPosition, wxDefaultSize, 0 );
-    itemBoxSizer38->Add(itemButton39, 0, wxALIGN_CENTER_VERTICAL|wxALL, 5);
+    wxButton* itemButton39 = new wxButton( itemPanel1, ID_BUTTON_MEMCLEAR, _("Memory\nClear"), wxDefaultPosition, wxSize(70, 40), 0 );
+    itemBoxSizer38->Add(itemButton39, 0, wxALIGN_CENTER_VERTICAL|wxALL, 0);
 
     wxBoxSizer* itemBoxSizer40 = new wxBoxSizer(wxHORIZONTAL);
     itemBoxSizer2->Add(itemBoxSizer40, 0, wxALIGN_CENTER_HORIZONTAL|wxALL, 5);

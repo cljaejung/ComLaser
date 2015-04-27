@@ -17,8 +17,8 @@ END_EVENT_TABLE()
 
 cMoviePanel::cMoviePanel(wxWindow *parent,
 	wxWindowID winid, const wxPoint& pos, const wxSize& size, long style, const wxString& name)
-	: wxPanel(parent, wxID_ANY, wxDefaultPosition, wxDefaultSize, wxNO_FULL_REPAINT_ON_RESIZE | wxCLIP_CHILDREN)
-	, m_backupBitmap(size)
+	: wxPanel(parent, winid, pos, size, style | wxNO_FULL_REPAINT_ON_RESIZE | wxCLIP_CHILDREN, name)
+	, m_backupBitmap(size.GetWidth(), size.GetHeight())
 {
 
 	cMoviePanel* itemPanel1 = this;
@@ -31,6 +31,7 @@ cMoviePanel::cMoviePanel(wxWindow *parent,
 
 
 	////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+	m_isPlay = true;
 	m_curImgIndex = 1;
 	m_oldTick = 0;
 	m_GotoNextPanel = PANEL_CAMERAFULL;
@@ -50,13 +51,17 @@ void cMoviePanel::OnIdle(wxIdleEvent& event)
 	if (deltaMilliSeconds > 33)
 	{
 		// next image
-		m_curImgIndex++;
-		if (m_curImgIndex > 40)
-			m_curImgIndex = 1;
+		if (m_isPlay)
+		{
+			m_curImgIndex++;
+			if (m_curImgIndex > 40)
+				m_curImgIndex = 1;
+		}
 
 		// 이미지 로딩.
 		m_currentBitmap.LoadFile(wxString::Format("movie/bmp%d.bmp", m_curImgIndex), wxBITMAP_TYPE_BMP);
-		m_currentBitmap.Rescale(m_backupBitmap.GetWidth(), m_backupBitmap.GetHeight());
+		if (m_currentBitmap.IsOk())
+			m_currentBitmap.Rescale(m_backupBitmap.GetWidth(), m_backupBitmap.GetHeight());
 
 		m_oldTick = global::GetTickCount();
 		

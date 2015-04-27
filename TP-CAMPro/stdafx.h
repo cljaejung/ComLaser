@@ -38,6 +38,7 @@ using std::string;
 
 enum PANEL_TYPE
 {
+	PANEL_NONE,
 	PANEL_MAIN,
 	PANEL_LOGIN,
 	PANEL_OPERATORSET,

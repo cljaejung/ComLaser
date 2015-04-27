@@ -35,7 +35,7 @@ wxPanel(frame)
 	wxBoxSizer* itemBoxSizer5 = new wxBoxSizer(wxHORIZONTAL);
 	itemBoxSizer4->Add(itemBoxSizer5, 0, wxGROW | wxALL, 0);
 
-	wxStaticText* itemStaticText6 = new wxStaticText(itemPanel1, wxID_STATIC, _("Capture Distance"), wxDefaultPosition, wxDefaultSize, 0);
+	wxStaticText* itemStaticText6 = new wxStaticText(itemPanel1, wxID_STATIC, _(" Capture Distance"), wxDefaultPosition, wxDefaultSize, 0);
 	itemStaticText6->SetForegroundColour(wxColour(255, 255, 255));
 	itemStaticText6->SetBackgroundColour(wxColour(0, 128, 0));
 	itemStaticText6->SetFont(wxFont(16, wxFONTFAMILY_SWISS, wxFONTSTYLE_NORMAL, wxFONTWEIGHT_BOLD, false, wxT("")));

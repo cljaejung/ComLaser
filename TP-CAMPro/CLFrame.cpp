@@ -126,6 +126,9 @@ void cCLFrame::OnEraseBackground(wxEraseEvent& event)
 
 void cCLFrame::ChangePanel(const PANEL_TYPE panel)
 {
+	if (PANEL_NONE == panel)
+		return;
+
 	m_mainPanel->Hide();
 	m_loginPanel->Hide();
 	m_operatorPanel->Hide();

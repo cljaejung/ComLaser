@@ -173,13 +173,13 @@ wxPanel(frame)
 	itemBoxSizer10->Add(itemBoxSizer32, 1, wxGROW | wxLEFT | wxRIGHT | wxBOTTOM, 5);
 
 	wxBoxSizer* itemBoxSizer33 = new wxBoxSizer(wxHORIZONTAL);
-	itemBoxSizer32->Add(itemBoxSizer33, 0, wxALIGN_CENTER_HORIZONTAL | wxALL, 5);
+	itemBoxSizer32->Add(itemBoxSizer33, 0, wxGROW | wxALL, 5);
 
-	wxStaticText* itemStaticText34 = new wxStaticText(itemPanel1, wxID_STATIC, _("Capture Distance"), wxDefaultPosition, wxDefaultSize, 0);
+	wxStaticText* itemStaticText34 = new wxStaticText(itemPanel1, wxID_STATIC, _(" Capture Distance"), wxDefaultPosition, wxDefaultSize, 0);
 	itemStaticText34->SetForegroundColour(wxColour(255, 255, 255));
 	itemStaticText34->SetBackgroundColour(wxColour(0, 128, 128));
 	itemStaticText34->SetFont(wxFont(16, wxFONTFAMILY_SWISS, wxFONTSTYLE_NORMAL, wxFONTWEIGHT_BOLD, false, wxT("")));
-	itemBoxSizer33->Add(itemStaticText34, 0, wxALIGN_CENTER_VERTICAL | wxALL, 5);
+	itemBoxSizer33->Add(itemStaticText34, 1, wxALIGN_CENTER_VERTICAL | wxALL, 0);
 
 	//wxButton* itemButton35 = new wxButton(itemPanel1, ID_BUTTON_FULL, _("Full"), wxDefaultPosition, wxDefaultSize, 0);
 	//itemBoxSizer33->Add(itemButton35, 0, wxALIGN_CENTER_VERTICAL | wxALL, 5);
@@ -187,7 +187,7 @@ wxPanel(frame)
 	wxBoxSizer* itemBoxSizer36 = new wxBoxSizer(wxHORIZONTAL);
 	itemBoxSizer32->Add(itemBoxSizer36, 1, wxGROW | wxALL, 0);
 
-	cMoviePanel* itemPanel37 = new cMoviePanel(itemPanel1, ID_PANEL, wxDefaultPosition, wxSize(350, 288));
+	cMoviePanel* itemPanel37 = new cMoviePanel(itemPanel1, ID_PANEL, wxDefaultPosition, wxSize(360, 288));
 	itemPanel37->SetExtraStyle(wxWS_EX_VALIDATE_RECURSIVELY);
 	itemPanel37->m_GotoNextPanel = PANEL_CAMERAFULL;
 	itemBoxSizer36->Add(itemPanel37, 1, wxGROW | wxALL, 0);

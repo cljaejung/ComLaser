@@ -152,7 +152,7 @@ void cCameraSetPanel::CreateControls()
     itemBoxSizer2->Add(itemBoxSizer10, 1, wxGROW|wxLEFT|wxRIGHT|wxBOTTOM, 5);
 
     wxBoxSizer* itemBoxSizer11 = new wxBoxSizer(wxVERTICAL);
-    itemBoxSizer10->Add(itemBoxSizer11, 0, wxALIGN_CENTER_VERTICAL|wxLEFT|wxRIGHT|wxBOTTOM, 5);
+    itemBoxSizer10->Add(itemBoxSizer11, 0, wxALIGN_CENTER_VERTICAL|wxLEFT|wxRIGHT, 5);
 
     wxPanel* itemPanel12 = new wxPanel( itemPanel1, ID_PANEL1, wxDefaultPosition, wxDefaultSize, wxTAB_TRAVERSAL );
     itemPanel12->SetExtraStyle(wxWS_EX_VALIDATE_RECURSIVELY);
@@ -249,26 +249,23 @@ void cCameraSetPanel::CreateControls()
     itemBoxSizer29->Add(itemButton31, 0, wxALIGN_CENTER_VERTICAL|wxALL, 5);
 
     wxBoxSizer* itemBoxSizer32 = new wxBoxSizer(wxVERTICAL);
-    itemBoxSizer10->Add(itemBoxSizer32, 1, wxGROW|wxLEFT|wxRIGHT|wxBOTTOM, 5);
+    itemBoxSizer10->Add(itemBoxSizer32, 1, wxGROW|wxLEFT|wxRIGHT, 5);
 
     wxBoxSizer* itemBoxSizer33 = new wxBoxSizer(wxHORIZONTAL);
-    itemBoxSizer32->Add(itemBoxSizer33, 0, wxALIGN_CENTER_HORIZONTAL|wxALL, 5);
+    itemBoxSizer32->Add(itemBoxSizer33, 0, wxGROW|wxALL, 5);
 
     wxStaticText* itemStaticText34 = new wxStaticText( itemPanel1, wxID_STATIC, _("Capture Distance"), wxDefaultPosition, wxDefaultSize, 0 );
     itemStaticText34->SetForegroundColour(wxColour(255, 255, 255));
     itemStaticText34->SetBackgroundColour(wxColour(0, 128, 128));
     itemStaticText34->SetFont(wxFont(16, wxFONTFAMILY_SWISS, wxFONTSTYLE_NORMAL, wxFONTWEIGHT_BOLD, false, wxT("")));
-    itemBoxSizer33->Add(itemStaticText34, 0, wxALIGN_CENTER_VERTICAL|wxALL, 5);
+    itemBoxSizer33->Add(itemStaticText34, 1, wxALIGN_CENTER_VERTICAL|wxALL, 5);
 
-    wxButton* itemButton35 = new wxButton( itemPanel1, ID_BUTTON_FULL, _("Full"), wxDefaultPosition, wxDefaultSize, 0 );
-    itemBoxSizer33->Add(itemButton35, 0, wxALIGN_CENTER_VERTICAL|wxALL, 5);
+    wxBoxSizer* itemBoxSizer35 = new wxBoxSizer(wxHORIZONTAL);
+    itemBoxSizer32->Add(itemBoxSizer35, 1, wxGROW|wxALL, 0);
 
-    wxBoxSizer* itemBoxSizer36 = new wxBoxSizer(wxHORIZONTAL);
-    itemBoxSizer32->Add(itemBoxSizer36, 1, wxGROW|wxALL, 0);
-
-    wxPanel* itemPanel37 = new wxPanel( itemPanel1, ID_PANEL, wxDefaultPosition, wxSize(350, 288), wxSUNKEN_BORDER|wxTAB_TRAVERSAL );
-    itemPanel37->SetExtraStyle(wxWS_EX_VALIDATE_RECURSIVELY);
-    itemBoxSizer36->Add(itemPanel37, 1, wxGROW|wxALL, 0);
+    wxPanel* itemPanel36 = new wxPanel( itemPanel1, ID_PANEL, wxDefaultPosition, wxSize(350, 288), wxSUNKEN_BORDER|wxTAB_TRAVERSAL );
+    itemPanel36->SetExtraStyle(wxWS_EX_VALIDATE_RECURSIVELY);
+    itemBoxSizer35->Add(itemPanel36, 1, wxGROW|wxALL, 0);
 
 ////@end cCameraSetPanel content construction
 }

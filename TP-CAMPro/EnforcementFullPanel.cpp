@@ -38,6 +38,7 @@ wxPanel(frame)
 	cMoviePanel* itemPanel5 = new cMoviePanel(itemPanel1, ID_PANEL, wxDefaultPosition, wxSize(580,430), wxSUNKEN_BORDER | wxTAB_TRAVERSAL);
 	itemPanel5->SetExtraStyle(wxWS_EX_VALIDATE_RECURSIVELY);
 	itemPanel5->m_GotoNextPanel = PANEL_ENFORCEMENTFULL;
+	itemPanel5->m_isPlay = false;
 	itemBoxSizer4->Add(itemPanel5, 1, wxGROW | wxALL, 0);
 
 	wxBoxSizer* itemBoxSizer6 = new wxBoxSizer(wxVERTICAL);

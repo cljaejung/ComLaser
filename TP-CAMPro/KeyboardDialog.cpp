@@ -10,7 +10,7 @@ enum
 
 
 cKeyboardDialog::cKeyboardDialog(wxWindow *parent) :
-	wxDialog(parent, wxID_ANY, "KeyBoard", wxDefaultPosition, wxSize(720,300), 
+	wxDialog(parent, wxID_ANY, "KeyBoard", wxDefaultPosition, wxSize(710,200), 
 		wxDEFAULT_DIALOG_STYLE | wxRESIZE_BORDER)
 {
 	cKeyboardDialog* itemDialog1 = this;
