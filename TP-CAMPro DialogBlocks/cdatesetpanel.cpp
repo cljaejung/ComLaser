@@ -155,7 +155,7 @@ void cDateSetPanel::CreateControls()
     wxPanel* itemPanel10 = new wxPanel( itemPanel1, ID_PANEL, wxDefaultPosition, wxDefaultSize, wxSIMPLE_BORDER|wxTAB_TRAVERSAL );
     itemPanel10->SetExtraStyle(wxWS_EX_VALIDATE_RECURSIVELY);
     itemPanel10->SetBackgroundColour(wxColour(54, 54, 54));
-    itemBoxSizer9->Add(itemPanel10, 1, wxALIGN_CENTER_HORIZONTAL|wxALL, 5);
+    itemBoxSizer9->Add(itemPanel10, 1, wxGROW|wxALL, 5);
 
     wxBoxSizer* itemBoxSizer11 = new wxBoxSizer(wxVERTICAL);
     itemPanel10->SetSizer(itemBoxSizer11);
@@ -174,37 +174,46 @@ void cDateSetPanel::CreateControls()
     wxBoxSizer* itemBoxSizer15 = new wxBoxSizer(wxHORIZONTAL);
     itemBoxSizer11->Add(itemBoxSizer15, 0, wxALIGN_CENTER_HORIZONTAL|wxALL, 5);
 
-    wxButton* itemButton16 = new wxButton( itemPanel10, ID_BUTTON_MONTH_UP, _("+"), wxDefaultPosition, wxDefaultSize, 0 );
+    wxButton* itemButton16 = new wxButton( itemPanel10, ID_BUTTON_MONTH_UP, _("+"), wxDefaultPosition, wxSize(80, 40), 0 );
+    itemButton16->SetFont(wxFont(16, wxFONTFAMILY_SWISS, wxFONTSTYLE_NORMAL, wxFONTWEIGHT_BOLD, false, wxT("")));
     itemBoxSizer15->Add(itemButton16, 0, wxALIGN_CENTER_VERTICAL|wxALL, 5);
 
-    wxButton* itemButton17 = new wxButton( itemPanel10, ID_BUTTON_DAY_UP, _("+"), wxDefaultPosition, wxDefaultSize, 0 );
+    wxButton* itemButton17 = new wxButton( itemPanel10, ID_BUTTON_DAY_UP, _("+"), wxDefaultPosition, wxSize(80, 40), 0 );
+    itemButton17->SetFont(wxFont(16, wxFONTFAMILY_SWISS, wxFONTSTYLE_NORMAL, wxFONTWEIGHT_BOLD, false, wxT("")));
     itemBoxSizer15->Add(itemButton17, 0, wxALIGN_CENTER_VERTICAL|wxALL, 5);
 
-    wxButton* itemButton18 = new wxButton( itemPanel10, ID_BUTTON_YEAR_UP, _("+"), wxDefaultPosition, wxDefaultSize, 0 );
+    wxButton* itemButton18 = new wxButton( itemPanel10, ID_BUTTON_YEAR_UP, _("+"), wxDefaultPosition, wxSize(80, 40), 0 );
+    itemButton18->SetFont(wxFont(16, wxFONTFAMILY_SWISS, wxFONTSTYLE_NORMAL, wxFONTWEIGHT_BOLD, false, wxT("")));
     itemBoxSizer15->Add(itemButton18, 0, wxALIGN_CENTER_VERTICAL|wxALL, 5);
 
     wxBoxSizer* itemBoxSizer19 = new wxBoxSizer(wxHORIZONTAL);
     itemBoxSizer11->Add(itemBoxSizer19, 0, wxALIGN_CENTER_HORIZONTAL|wxALL, 5);
 
-    m_btnMonth = new wxButton( itemPanel10, ID_BUTTON_MONTH, _("Button"), wxDefaultPosition, wxDefaultSize, 0 );
+    m_btnMonth = new wxButton( itemPanel10, ID_BUTTON_MONTH, _("Button"), wxDefaultPosition, wxSize(80, 40), 0 );
+    m_btnMonth->SetFont(wxFont(16, wxFONTFAMILY_SWISS, wxFONTSTYLE_NORMAL, wxFONTWEIGHT_BOLD, false, wxT("")));
     itemBoxSizer19->Add(m_btnMonth, 0, wxALIGN_CENTER_VERTICAL|wxALL, 5);
 
-    m_btnDay = new wxButton( itemPanel10, ID_BUTTON_DAY, _("Button"), wxDefaultPosition, wxDefaultSize, 0 );
+    m_btnDay = new wxButton( itemPanel10, ID_BUTTON_DAY, _("Button"), wxDefaultPosition, wxSize(80, 40), 0 );
+    m_btnDay->SetFont(wxFont(16, wxFONTFAMILY_SWISS, wxFONTSTYLE_NORMAL, wxFONTWEIGHT_BOLD, false, wxT("")));
     itemBoxSizer19->Add(m_btnDay, 0, wxALIGN_CENTER_VERTICAL|wxALL, 5);
 
-    m_btnYear = new wxButton( itemPanel10, ID_BUTTON_YEAR, _("Button"), wxDefaultPosition, wxDefaultSize, 0 );
+    m_btnYear = new wxButton( itemPanel10, ID_BUTTON_YEAR, _("Button"), wxDefaultPosition, wxSize(80, 40), 0 );
+    m_btnYear->SetFont(wxFont(16, wxFONTFAMILY_SWISS, wxFONTSTYLE_NORMAL, wxFONTWEIGHT_BOLD, false, wxT("")));
     itemBoxSizer19->Add(m_btnYear, 0, wxALIGN_CENTER_VERTICAL|wxALL, 5);
 
     wxBoxSizer* itemBoxSizer23 = new wxBoxSizer(wxHORIZONTAL);
     itemBoxSizer11->Add(itemBoxSizer23, 0, wxALIGN_CENTER_HORIZONTAL|wxALL, 5);
 
-    wxButton* itemButton24 = new wxButton( itemPanel10, ID_BUTTON_MONTH_DOWN, _("-"), wxDefaultPosition, wxDefaultSize, 0 );
+    wxButton* itemButton24 = new wxButton( itemPanel10, ID_BUTTON_MONTH_DOWN, _("-"), wxDefaultPosition, wxSize(80, 40), 0 );
+    itemButton24->SetFont(wxFont(16, wxFONTFAMILY_SWISS, wxFONTSTYLE_NORMAL, wxFONTWEIGHT_BOLD, false, wxT("")));
     itemBoxSizer23->Add(itemButton24, 0, wxALIGN_CENTER_VERTICAL|wxALL, 5);
 
-    wxButton* itemButton25 = new wxButton( itemPanel10, ID_BUTTON_DAY_DOWN, _("-"), wxDefaultPosition, wxDefaultSize, 0 );
+    wxButton* itemButton25 = new wxButton( itemPanel10, ID_BUTTON_DAY_DOWN, _("-"), wxDefaultPosition, wxSize(80, 40), 0 );
+    itemButton25->SetFont(wxFont(16, wxFONTFAMILY_SWISS, wxFONTSTYLE_NORMAL, wxFONTWEIGHT_BOLD, false, wxT("")));
     itemBoxSizer23->Add(itemButton25, 0, wxALIGN_CENTER_VERTICAL|wxALL, 5);
 
-    wxButton* itemButton26 = new wxButton( itemPanel10, ID_BUTTON_YEAR_DOWN, _("-"), wxDefaultPosition, wxDefaultSize, 0 );
+    wxButton* itemButton26 = new wxButton( itemPanel10, ID_BUTTON_YEAR_DOWN, _("-"), wxDefaultPosition, wxSize(80, 40), 0 );
+    itemButton26->SetFont(wxFont(16, wxFONTFAMILY_SWISS, wxFONTSTYLE_NORMAL, wxFONTWEIGHT_BOLD, false, wxT("")));
     itemBoxSizer23->Add(itemButton26, 0, wxALIGN_CENTER_VERTICAL|wxALL, 5);
 
     wxBoxSizer* itemBoxSizer27 = new wxBoxSizer(wxVERTICAL);
@@ -232,37 +241,46 @@ void cDateSetPanel::CreateControls()
     wxBoxSizer* itemBoxSizer33 = new wxBoxSizer(wxHORIZONTAL);
     itemBoxSizer29->Add(itemBoxSizer33, 0, wxALIGN_CENTER_HORIZONTAL|wxALL, 5);
 
-    wxButton* itemButton34 = new wxButton( itemPanel28, ID_BUTTON_HOUR_UP, _("+"), wxDefaultPosition, wxDefaultSize, 0 );
+    wxButton* itemButton34 = new wxButton( itemPanel28, ID_BUTTON_HOUR_UP, _("+"), wxDefaultPosition, wxSize(80, 40), 0 );
+    itemButton34->SetFont(wxFont(16, wxFONTFAMILY_SWISS, wxFONTSTYLE_NORMAL, wxFONTWEIGHT_BOLD, false, wxT("")));
     itemBoxSizer33->Add(itemButton34, 0, wxALIGN_CENTER_VERTICAL|wxALL, 5);
 
-    wxButton* itemButton35 = new wxButton( itemPanel28, ID_BUTTON_MINUTES_UP, _("+"), wxDefaultPosition, wxDefaultSize, 0 );
+    wxButton* itemButton35 = new wxButton( itemPanel28, ID_BUTTON_MINUTES_UP, _("+"), wxDefaultPosition, wxSize(80, 40), 0 );
+    itemButton35->SetFont(wxFont(16, wxFONTFAMILY_SWISS, wxFONTSTYLE_NORMAL, wxFONTWEIGHT_BOLD, false, wxT("")));
     itemBoxSizer33->Add(itemButton35, 0, wxALIGN_CENTER_VERTICAL|wxALL, 5);
 
-    wxButton* itemButton36 = new wxButton( itemPanel28, ID_BUTTON_TIME_UP, _("+"), wxDefaultPosition, wxDefaultSize, 0 );
+    wxButton* itemButton36 = new wxButton( itemPanel28, ID_BUTTON_TIME_UP, _("+"), wxDefaultPosition, wxSize(80, 40), 0 );
+    itemButton36->SetFont(wxFont(16, wxFONTFAMILY_SWISS, wxFONTSTYLE_NORMAL, wxFONTWEIGHT_BOLD, false, wxT("")));
     itemBoxSizer33->Add(itemButton36, 0, wxALIGN_CENTER_VERTICAL|wxALL, 5);
 
     wxBoxSizer* itemBoxSizer37 = new wxBoxSizer(wxHORIZONTAL);
     itemBoxSizer29->Add(itemBoxSizer37, 0, wxALIGN_CENTER_HORIZONTAL|wxALL, 5);
 
-    m_btnHour = new wxButton( itemPanel28, ID_BUTTON_HOUR, _("Button"), wxDefaultPosition, wxDefaultSize, 0 );
+    m_btnHour = new wxButton( itemPanel28, ID_BUTTON_HOUR, _("Button"), wxDefaultPosition, wxSize(80, 40), 0 );
+    m_btnHour->SetFont(wxFont(16, wxFONTFAMILY_SWISS, wxFONTSTYLE_NORMAL, wxFONTWEIGHT_BOLD, false, wxT("")));
     itemBoxSizer37->Add(m_btnHour, 0, wxALIGN_CENTER_VERTICAL|wxALL, 5);
 
-    m_btnMinutes = new wxButton( itemPanel28, ID_BUTTON_MINUTES, _("Button"), wxDefaultPosition, wxDefaultSize, 0 );
+    m_btnMinutes = new wxButton( itemPanel28, ID_BUTTON_MINUTES, _("Button"), wxDefaultPosition, wxSize(80, 40), 0 );
+    m_btnMinutes->SetFont(wxFont(16, wxFONTFAMILY_SWISS, wxFONTSTYLE_NORMAL, wxFONTWEIGHT_BOLD, false, wxT("")));
     itemBoxSizer37->Add(m_btnMinutes, 0, wxALIGN_CENTER_VERTICAL|wxALL, 5);
 
-    m_btnTime = new wxButton( itemPanel28, ID_BUTTON_TIME, _("Button"), wxDefaultPosition, wxDefaultSize, 0 );
+    m_btnTime = new wxButton( itemPanel28, ID_BUTTON_TIME, _("Button"), wxDefaultPosition, wxSize(80, 40), 0 );
+    m_btnTime->SetFont(wxFont(16, wxFONTFAMILY_SWISS, wxFONTSTYLE_NORMAL, wxFONTWEIGHT_BOLD, false, wxT("")));
     itemBoxSizer37->Add(m_btnTime, 0, wxALIGN_CENTER_VERTICAL|wxALL, 5);
 
     wxBoxSizer* itemBoxSizer41 = new wxBoxSizer(wxHORIZONTAL);
     itemBoxSizer29->Add(itemBoxSizer41, 0, wxALIGN_CENTER_HORIZONTAL|wxALL, 5);
 
-    wxButton* itemButton42 = new wxButton( itemPanel28, ID_BUTTON_HOUR_DOWN, _("-"), wxDefaultPosition, wxDefaultSize, 0 );
+    wxButton* itemButton42 = new wxButton( itemPanel28, ID_BUTTON_HOUR_DOWN, _("-"), wxDefaultPosition, wxSize(80, 40), 0 );
+    itemButton42->SetFont(wxFont(16, wxFONTFAMILY_SWISS, wxFONTSTYLE_NORMAL, wxFONTWEIGHT_BOLD, false, wxT("")));
     itemBoxSizer41->Add(itemButton42, 0, wxALIGN_CENTER_VERTICAL|wxALL, 5);
 
-    wxButton* itemButton43 = new wxButton( itemPanel28, ID_BUTTON_MINUTES_DOWN, _("-"), wxDefaultPosition, wxDefaultSize, 0 );
+    wxButton* itemButton43 = new wxButton( itemPanel28, ID_BUTTON_MINUTES_DOWN, _("-"), wxDefaultPosition, wxSize(80, 40), 0 );
+    itemButton43->SetFont(wxFont(16, wxFONTFAMILY_SWISS, wxFONTSTYLE_NORMAL, wxFONTWEIGHT_BOLD, false, wxT("")));
     itemBoxSizer41->Add(itemButton43, 0, wxALIGN_CENTER_VERTICAL|wxALL, 5);
 
-    wxButton* itemButton44 = new wxButton( itemPanel28, ID_BUTTON_TIME_DOWN, _("-"), wxDefaultPosition, wxDefaultSize, 0 );
+    wxButton* itemButton44 = new wxButton( itemPanel28, ID_BUTTON_TIME_DOWN, _("-"), wxDefaultPosition, wxSize(80, 40), 0 );
+    itemButton44->SetFont(wxFont(16, wxFONTFAMILY_SWISS, wxFONTSTYLE_NORMAL, wxFONTWEIGHT_BOLD, false, wxT("")));
     itemBoxSizer41->Add(itemButton44, 0, wxALIGN_CENTER_VERTICAL|wxALL, 5);
 
     wxBoxSizer* itemBoxSizer45 = new wxBoxSizer(wxHORIZONTAL);
