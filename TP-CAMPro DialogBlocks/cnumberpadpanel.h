@@ -84,6 +84,9 @@ public:
 
 ////@begin cNumberPadPanel event handler declarations
 
+    /// wxEVT_COMMAND_TEXT_UPDATED event handler for ID_TEXTCTRL
+    void OnTextctrlTextUpdated( wxCommandEvent& event );
+
 ////@end cNumberPadPanel event handler declarations
 
 ////@begin cNumberPadPanel member function declarations

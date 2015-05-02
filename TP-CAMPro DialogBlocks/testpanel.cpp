@@ -47,6 +47,7 @@ IMPLEMENT_DYNAMIC_CLASS( TestPanel, wxPanel )
 BEGIN_EVENT_TABLE( TestPanel, wxPanel )
 
 ////@begin TestPanel event table entries
+    EVT_PAINT( TestPanel::OnPaint )
 ////@end TestPanel event table entries
 
 END_EVENT_TABLE()
@@ -259,5 +260,18 @@ void TestPanel::OnEraseBackground( wxEraseEvent& event )
     // Before editing this code, remove the block markers.
     event.Skip();
 ////@end wxEVT_ERASE_BACKGROUND event handler for ID_PANEL in TestPanel. 
+}
+
+
+/*!
+ * wxEVT_PAINT event handler for ID_TESTPANEL
+ */
+
+void TestPanel::OnPaint( wxPaintEvent& event )
+{
+////@begin wxEVT_PAINT event handler for ID_TESTPANEL in TestPanel.
+    // Before editing this code, remove the block markers.
+    wxPaintDC dc(this);
+////@end wxEVT_PAINT event handler for ID_TESTPANEL in TestPanel. 
 }
 

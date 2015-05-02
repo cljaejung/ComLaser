@@ -78,6 +78,9 @@ public:
 
 ////@begin TestPanel event handler declarations
 
+    /// wxEVT_PAINT event handler for ID_TESTPANEL
+    void OnPaint( wxPaintEvent& event );
+
     /// wxEVT_ERASE_BACKGROUND event handler for ID_PANEL
     void OnEraseBackground( wxEraseEvent& event );
 

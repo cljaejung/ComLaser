@@ -47,6 +47,7 @@ IMPLEMENT_DYNAMIC_CLASS( cEnforcementSetPanel, wxPanel )
 BEGIN_EVENT_TABLE( cEnforcementSetPanel, wxPanel )
 
 ////@begin cEnforcementSetPanel event table entries
+    EVT_CHOICE( ID_CHOICE_UNIT, cEnforcementSetPanel::OnChoiceUnitSelected )
 ////@end cEnforcementSetPanel event table entries
 
 END_EVENT_TABLE()
@@ -107,7 +108,11 @@ cEnforcementSetPanel::~cEnforcementSetPanel()
 void cEnforcementSetPanel::Init()
 {
 ////@begin cEnforcementSetPanel member initialisation
+    m_comboLocation = NULL;
+    m_editLimitSpeed = NULL;
     m_UnitChoice = NULL;
+    m_editCaptureSpeed = NULL;
+    m_editCaptureDistance = NULL;
 ////@end cEnforcementSetPanel member initialisation
 }
 
@@ -175,42 +180,42 @@ void cEnforcementSetPanel::CreateControls()
     wxBoxSizer* itemBoxSizer17 = new wxBoxSizer(wxVERTICAL);
     itemBoxSizer16->Add(itemBoxSizer17, 0, wxALIGN_CENTER_VERTICAL|wxLEFT|wxRIGHT, 0);
 
-    wxStaticText* itemStaticText18 = new wxStaticText( itemPanel13, wxID_STATIC, _("Location"), wxDefaultPosition, wxDefaultSize, 0 );
-    itemStaticText18->SetFont(wxFont(16, wxFONTFAMILY_SWISS, wxFONTSTYLE_NORMAL, wxFONTWEIGHT_BOLD, false, wxT("Arial")));
+    wxStaticText* itemStaticText18 = new wxStaticText( itemPanel13, wxID_STATIC, _("Location"), wxDefaultPosition, wxSize(220, -1), 0 );
+    itemStaticText18->SetFont(wxFont(18, wxFONTFAMILY_SWISS, wxFONTSTYLE_NORMAL, wxFONTWEIGHT_BOLD, false, wxT("Arial")));
     itemBoxSizer17->Add(itemStaticText18, 0, wxALIGN_LEFT|wxALL, 5);
 
     wxBoxSizer* itemBoxSizer19 = new wxBoxSizer(wxVERTICAL);
-    itemBoxSizer16->Add(itemBoxSizer19, 0, wxALIGN_CENTER_VERTICAL|wxLEFT|wxRIGHT, 5);
+    itemBoxSizer16->Add(itemBoxSizer19, 0, wxALIGN_CENTER_VERTICAL|wxLEFT|wxRIGHT, 0);
 
-    wxArrayString itemComboBox20Strings;
-    itemComboBox20Strings.Add(_("19. Ojeongeop-gil, Uiwang-si"));
-    wxComboBox* itemComboBox20 = new wxComboBox( itemPanel13, ID_COMBOBOX_LOCATION, _("19. Ojeongeop-gil, Uiwang-si"), wxDefaultPosition, wxDefaultSize, itemComboBox20Strings, wxCB_DROPDOWN );
-    itemComboBox20->SetStringSelection(_("19. Ojeongeop-gil, Uiwang-si"));
-    itemComboBox20->SetFont(wxFont(16, wxFONTFAMILY_SWISS, wxFONTSTYLE_NORMAL, wxFONTWEIGHT_BOLD, false, wxT("")));
-    itemBoxSizer19->Add(itemComboBox20, 0, wxALIGN_CENTER_HORIZONTAL|wxALL, 5);
+    wxArrayString m_comboLocationStrings;
+    m_comboLocationStrings.Add(_("19. Ojeongeop-gil, Uiwang-si"));
+    m_comboLocation = new wxComboBox( itemPanel13, ID_COMBOBOX_LOCATION, _("19. Ojeongeop-gil, Uiwang-si"), wxDefaultPosition, wxSize(400, -1), m_comboLocationStrings, wxCB_DROPDOWN );
+    m_comboLocation->SetStringSelection(_("19. Ojeongeop-gil, Uiwang-si"));
+    m_comboLocation->SetFont(wxFont(18, wxFONTFAMILY_SWISS, wxFONTSTYLE_NORMAL, wxFONTWEIGHT_NORMAL, false, wxT("Arial")));
+    itemBoxSizer19->Add(m_comboLocation, 0, wxALIGN_CENTER_HORIZONTAL|wxLEFT|wxTOP|wxBOTTOM, 5);
 
     wxBoxSizer* itemBoxSizer21 = new wxBoxSizer(wxVERTICAL);
-    itemBoxSizer16->Add(itemBoxSizer21, 0, wxALIGN_CENTER_VERTICAL|wxLEFT|wxRIGHT, 5);
+    itemBoxSizer16->Add(itemBoxSizer21, 0, wxALIGN_CENTER_VERTICAL|wxLEFT|wxRIGHT, 0);
 
-    wxButton* itemButton22 = new wxButton( itemPanel13, ID_BUTTON_LOCKEY, _("Button"), wxDefaultPosition, wxDefaultSize, 0 );
-    itemBoxSizer21->Add(itemButton22, 0, wxALIGN_CENTER_HORIZONTAL|wxALL, 5);
+    wxButton* itemButton22 = new wxButton( itemPanel13, ID_BUTTON_LOCKEY, _("Keyboard"), wxDefaultPosition, wxSize(32, 32), 0 );
+    itemBoxSizer21->Add(itemButton22, 0, wxALIGN_CENTER_HORIZONTAL|wxALL, 0);
 
     wxBoxSizer* itemBoxSizer23 = new wxBoxSizer(wxHORIZONTAL);
     itemBoxSizer15->Add(itemBoxSizer23, 0, wxGROW|wxALL, 8);
 
-    wxStaticText* itemStaticText24 = new wxStaticText( itemPanel13, wxID_STATIC, _("Limit Speed"), wxDefaultPosition, wxDefaultSize, 0 );
-    itemStaticText24->SetFont(wxFont(16, wxFONTFAMILY_SWISS, wxFONTSTYLE_NORMAL, wxFONTWEIGHT_BOLD, false, wxT("Arial")));
+    wxStaticText* itemStaticText24 = new wxStaticText( itemPanel13, wxID_STATIC, _("Limit Speed"), wxDefaultPosition, wxSize(220, -1), 0 );
+    itemStaticText24->SetFont(wxFont(18, wxFONTFAMILY_SWISS, wxFONTSTYLE_NORMAL, wxFONTWEIGHT_BOLD, false, wxT("Arial")));
     itemBoxSizer23->Add(itemStaticText24, 0, wxALIGN_CENTER_VERTICAL|wxALL, 5);
 
-    wxTextCtrl* itemTextCtrl25 = new wxTextCtrl( itemPanel13, ID_TEXTCTRL, wxEmptyString, wxDefaultPosition, wxDefaultSize, 0 );
-    itemTextCtrl25->SetFont(wxFont(16, wxFONTFAMILY_SWISS, wxFONTSTYLE_NORMAL, wxFONTWEIGHT_NORMAL, false, wxT("")));
-    itemBoxSizer23->Add(itemTextCtrl25, 0, wxALIGN_CENTER_VERTICAL|wxALL, 5);
+    m_editLimitSpeed = new wxTextCtrl( itemPanel13, ID_TEXTCTRL, wxEmptyString, wxDefaultPosition, wxDefaultSize, 0 );
+    m_editLimitSpeed->SetFont(wxFont(18, wxFONTFAMILY_SWISS, wxFONTSTYLE_NORMAL, wxFONTWEIGHT_NORMAL, false, wxT("Arial")));
+    itemBoxSizer23->Add(m_editLimitSpeed, 0, wxALIGN_CENTER_VERTICAL|wxLEFT|wxTOP|wxBOTTOM, 5);
 
-    wxButton* itemButton26 = new wxButton( itemPanel13, ID_BUTTON_LIMITSPEED, _("Button"), wxDefaultPosition, wxDefaultSize, 0 );
-    itemBoxSizer23->Add(itemButton26, 0, wxALIGN_CENTER_VERTICAL|wxALL, 5);
+    wxButton* itemButton26 = new wxButton( itemPanel13, ID_BUTTON_LIMITSPEED, _("Keyboard"), wxDefaultPosition, wxSize(32, 32), 0 );
+    itemBoxSizer23->Add(itemButton26, 0, wxALIGN_CENTER_VERTICAL|wxALL, 0);
 
     wxStaticText* itemStaticText27 = new wxStaticText( itemPanel13, wxID_STATIC, _("Unit"), wxDefaultPosition, wxDefaultSize, 0 );
-    itemStaticText27->SetFont(wxFont(16, wxFONTFAMILY_SWISS, wxFONTSTYLE_NORMAL, wxFONTWEIGHT_BOLD, false, wxT("")));
+    itemStaticText27->SetFont(wxFont(18, wxFONTFAMILY_SWISS, wxFONTSTYLE_NORMAL, wxFONTWEIGHT_BOLD, false, wxT("Arial")));
     itemBoxSizer23->Add(itemStaticText27, 0, wxALIGN_CENTER_VERTICAL|wxALL, 5);
 
     wxArrayString m_UnitChoiceStrings;
@@ -218,69 +223,45 @@ void cEnforcementSetPanel::CreateControls()
     m_UnitChoiceStrings.Add(_("MPH (mph)"));
     m_UnitChoice = new wxChoice( itemPanel13, ID_CHOICE_UNIT, wxDefaultPosition, wxDefaultSize, m_UnitChoiceStrings, 0 );
     m_UnitChoice->SetStringSelection(_("KMH (km/h)"));
-    m_UnitChoice->SetFont(wxFont(16, wxFONTFAMILY_SWISS, wxFONTSTYLE_NORMAL, wxFONTWEIGHT_BOLD, false, wxT("Arial")));
+    m_UnitChoice->SetFont(wxFont(18, wxFONTFAMILY_SWISS, wxFONTSTYLE_NORMAL, wxFONTWEIGHT_BOLD, false, wxT("Arial")));
     itemBoxSizer23->Add(m_UnitChoice, 0, wxALIGN_CENTER_VERTICAL|wxALL, 5);
 
     wxBoxSizer* itemBoxSizer29 = new wxBoxSizer(wxHORIZONTAL);
     itemBoxSizer15->Add(itemBoxSizer29, 0, wxGROW|wxALL, 8);
 
-    wxStaticText* itemStaticText30 = new wxStaticText( itemPanel13, wxID_STATIC, _("Capture Speed"), wxDefaultPosition, wxDefaultSize, 0 );
-    itemStaticText30->SetFont(wxFont(16, wxFONTFAMILY_SWISS, wxFONTSTYLE_NORMAL, wxFONTWEIGHT_BOLD, false, wxT("Arial")));
+    wxStaticText* itemStaticText30 = new wxStaticText( itemPanel13, wxID_STATIC, _("Capture Speed"), wxDefaultPosition, wxSize(220, -1), 0 );
+    itemStaticText30->SetFont(wxFont(18, wxFONTFAMILY_SWISS, wxFONTSTYLE_NORMAL, wxFONTWEIGHT_BOLD, false, wxT("Arial")));
     itemBoxSizer29->Add(itemStaticText30, 0, wxALIGN_CENTER_VERTICAL|wxALL, 5);
 
-    wxTextCtrl* itemTextCtrl31 = new wxTextCtrl( itemPanel13, ID_TEXTCTRL1, wxEmptyString, wxDefaultPosition, wxDefaultSize, 0 );
-    itemTextCtrl31->SetFont(wxFont(16, wxFONTFAMILY_SWISS, wxFONTSTYLE_NORMAL, wxFONTWEIGHT_NORMAL, false, wxT("")));
-    itemBoxSizer29->Add(itemTextCtrl31, 0, wxALIGN_CENTER_VERTICAL|wxALL, 5);
+    m_editCaptureSpeed = new wxTextCtrl( itemPanel13, ID_TEXTCTRL1, wxEmptyString, wxDefaultPosition, wxDefaultSize, 0 );
+    m_editCaptureSpeed->SetFont(wxFont(18, wxFONTFAMILY_SWISS, wxFONTSTYLE_NORMAL, wxFONTWEIGHT_NORMAL, false, wxT("Arial")));
+    itemBoxSizer29->Add(m_editCaptureSpeed, 0, wxALIGN_CENTER_VERTICAL|wxLEFT|wxTOP|wxBOTTOM, 5);
 
-    wxButton* itemButton32 = new wxButton( itemPanel13, ID_BUTTON_CAPTURESPEED, _("Button"), wxDefaultPosition, wxDefaultSize, 0 );
-    itemBoxSizer29->Add(itemButton32, 0, wxALIGN_CENTER_VERTICAL|wxALL, 5);
+    wxButton* itemButton32 = new wxButton( itemPanel13, ID_BUTTON_CAPTURESPEED, _("Keyboard"), wxDefaultPosition, wxSize(32, 32), 0 );
+    itemBoxSizer29->Add(itemButton32, 0, wxALIGN_CENTER_VERTICAL|wxALL, 0);
 
     wxBoxSizer* itemBoxSizer33 = new wxBoxSizer(wxHORIZONTAL);
     itemBoxSizer15->Add(itemBoxSizer33, 0, wxGROW|wxALL, 8);
 
-    wxStaticText* itemStaticText34 = new wxStaticText( itemPanel13, wxID_STATIC, _("Capture Distance"), wxDefaultPosition, wxDefaultSize, 0 );
-    itemStaticText34->SetFont(wxFont(16, wxFONTFAMILY_SWISS, wxFONTSTYLE_NORMAL, wxFONTWEIGHT_BOLD, false, wxT("Arial")));
+    wxStaticText* itemStaticText34 = new wxStaticText( itemPanel13, wxID_STATIC, _("Capture Distance"), wxDefaultPosition, wxSize(220, -1), 0 );
+    itemStaticText34->SetFont(wxFont(18, wxFONTFAMILY_SWISS, wxFONTSTYLE_NORMAL, wxFONTWEIGHT_BOLD, false, wxT("Arial")));
     itemBoxSizer33->Add(itemStaticText34, 0, wxALIGN_CENTER_VERTICAL|wxALL, 5);
 
-    wxTextCtrl* itemTextCtrl35 = new wxTextCtrl( itemPanel13, ID_TEXTCTRL2, wxEmptyString, wxDefaultPosition, wxDefaultSize, 0 );
-    itemTextCtrl35->SetFont(wxFont(16, wxFONTFAMILY_SWISS, wxFONTSTYLE_NORMAL, wxFONTWEIGHT_NORMAL, false, wxT("")));
-    itemBoxSizer33->Add(itemTextCtrl35, 0, wxALIGN_CENTER_VERTICAL|wxALL, 5);
+    m_editCaptureDistance = new wxTextCtrl( itemPanel13, ID_TEXTCTRL2, wxEmptyString, wxDefaultPosition, wxDefaultSize, 0 );
+    m_editCaptureDistance->SetFont(wxFont(18, wxFONTFAMILY_SWISS, wxFONTSTYLE_NORMAL, wxFONTWEIGHT_NORMAL, false, wxT("Arial")));
+    itemBoxSizer33->Add(m_editCaptureDistance, 0, wxALIGN_CENTER_VERTICAL|wxLEFT|wxTOP|wxBOTTOM, 5);
 
-    wxButton* itemButton36 = new wxButton( itemPanel13, ID_BUTTON_CAPTUREDISTANCE, _("Button"), wxDefaultPosition, wxDefaultSize, 0 );
-    itemBoxSizer33->Add(itemButton36, 0, wxALIGN_CENTER_VERTICAL|wxALL, 5);
+    wxButton* itemButton36 = new wxButton( itemPanel13, ID_BUTTON_CAPTUREDISTANCE, _("Keyboard"), wxDefaultPosition, wxSize(32, 32), 0 );
+    itemBoxSizer33->Add(itemButton36, 0, wxALIGN_CENTER_VERTICAL|wxALL, 0);
 
     wxBoxSizer* itemBoxSizer37 = new wxBoxSizer(wxHORIZONTAL);
-    itemBoxSizer15->Add(itemBoxSizer37, 0, wxALIGN_CENTER_HORIZONTAL|wxALL, 0);
+    itemBoxSizer15->Add(itemBoxSizer37, 0, wxALIGN_CENTER_HORIZONTAL|wxALL, 20);
 
     wxButton* itemButton38 = new wxButton( itemPanel13, ID_BUTTON_OK, _("OK"), wxDefaultPosition, wxDefaultSize, 0 );
     itemBoxSizer37->Add(itemButton38, 0, wxALIGN_CENTER_VERTICAL|wxALL, 5);
 
     wxButton* itemButton39 = new wxButton( itemPanel13, ID_BUTTON_CANCEL, _("Cancel"), wxDefaultPosition, wxDefaultSize, 0 );
     itemBoxSizer37->Add(itemButton39, 0, wxALIGN_CENTER_VERTICAL|wxALL, 5);
-
-    wxBoxSizer* itemBoxSizer40 = new wxBoxSizer(wxHORIZONTAL);
-    itemBoxSizer2->Add(itemBoxSizer40, 0, wxALIGN_CENTER_HORIZONTAL|wxALL, 5);
-
-    wxButton* itemButton41 = new wxButton( itemPanel1, ID_BUTTON, _("Button"), wxDefaultPosition, wxDefaultSize, 0 );
-    itemBoxSizer40->Add(itemButton41, 0, wxALIGN_CENTER_VERTICAL|wxALL, 5);
-
-    wxButton* itemButton42 = new wxButton( itemPanel1, ID_BUTTON1, _("Button"), wxDefaultPosition, wxDefaultSize, 0 );
-    itemBoxSizer40->Add(itemButton42, 0, wxALIGN_CENTER_VERTICAL|wxALL, 5);
-
-    wxButton* itemButton43 = new wxButton( itemPanel1, ID_BUTTON2, _("Button"), wxDefaultPosition, wxDefaultSize, 0 );
-    itemBoxSizer40->Add(itemButton43, 0, wxALIGN_CENTER_VERTICAL|wxALL, 5);
-
-    wxButton* itemButton44 = new wxButton( itemPanel1, ID_BUTTON3, _("Button"), wxDefaultPosition, wxDefaultSize, 0 );
-    itemBoxSizer40->Add(itemButton44, 0, wxALIGN_CENTER_VERTICAL|wxALL, 5);
-
-    wxButton* itemButton45 = new wxButton( itemPanel1, ID_BUTTON4, _("Button"), wxDefaultPosition, wxDefaultSize, 0 );
-    itemBoxSizer40->Add(itemButton45, 0, wxALIGN_CENTER_VERTICAL|wxALL, 5);
-
-    wxButton* itemButton46 = new wxButton( itemPanel1, ID_BUTTON5, _("Button"), wxDefaultPosition, wxDefaultSize, 0 );
-    itemBoxSizer40->Add(itemButton46, 0, wxALIGN_CENTER_VERTICAL|wxALL, 5);
-
-    wxButton* itemButton47 = new wxButton( itemPanel1, ID_BUTTON6, _("Button"), wxDefaultPosition, wxDefaultSize, 0 );
-    itemBoxSizer40->Add(itemButton47, 0, wxALIGN_CENTER_VERTICAL|wxALL, 5);
 
 ////@end cEnforcementSetPanel content construction
 }
@@ -320,3 +301,17 @@ wxIcon cEnforcementSetPanel::GetIconResource( const wxString& name )
     return wxNullIcon;
 ////@end cEnforcementSetPanel icon retrieval
 }
+
+
+/*!
+ * wxEVT_COMMAND_CHOICE_SELECTED event handler for ID_CHOICE_UNIT
+ */
+
+void cEnforcementSetPanel::OnChoiceUnitSelected( wxCommandEvent& event )
+{
+////@begin wxEVT_COMMAND_CHOICE_SELECTED event handler for ID_CHOICE_UNIT in cEnforcementSetPanel.
+    // Before editing this code, remove the block markers.
+    event.Skip();
+////@end wxEVT_COMMAND_CHOICE_SELECTED event handler for ID_CHOICE_UNIT in cEnforcementSetPanel. 
+}
+

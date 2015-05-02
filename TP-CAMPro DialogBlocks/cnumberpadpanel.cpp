@@ -47,6 +47,7 @@ IMPLEMENT_DYNAMIC_CLASS( cNumberPadPanel, wxPanel )
 BEGIN_EVENT_TABLE( cNumberPadPanel, wxPanel )
 
 ////@begin cNumberPadPanel event table entries
+    EVT_TEXT( ID_TEXTCTRL, cNumberPadPanel::OnTextctrlTextUpdated )
 ////@end cNumberPadPanel event table entries
 
 END_EVENT_TABLE()
@@ -250,3 +251,17 @@ wxIcon cNumberPadPanel::GetIconResource( const wxString& name )
     return wxNullIcon;
 ////@end cNumberPadPanel icon retrieval
 }
+
+
+/*!
+ * wxEVT_COMMAND_TEXT_UPDATED event handler for ID_TEXTCTRL
+ */
+
+void cNumberPadPanel::OnTextctrlTextUpdated( wxCommandEvent& event )
+{
+////@begin wxEVT_COMMAND_TEXT_UPDATED event handler for ID_TEXTCTRL in cNumberPadPanel.
+    // Before editing this code, remove the block markers.
+    event.Skip();
+////@end wxEVT_COMMAND_TEXT_UPDATED event handler for ID_TEXTCTRL in cNumberPadPanel. 
+}
+

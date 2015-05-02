@@ -48,13 +48,6 @@
 #define ID_BUTTON_CAPTUREDISTANCE 10008
 #define ID_BUTTON_OK 10010
 #define ID_BUTTON_CANCEL 10011
-#define ID_BUTTON 10012
-#define ID_BUTTON1 10013
-#define ID_BUTTON2 10014
-#define ID_BUTTON3 10015
-#define ID_BUTTON4 10016
-#define ID_BUTTON5 10017
-#define ID_BUTTON6 10018
 #define SYMBOL_CENFORCEMENTSETPANEL_STYLE wxTAB_TRAVERSAL
 #define SYMBOL_CENFORCEMENTSETPANEL_TITLE _("cEnforcementSetPanel")
 #define SYMBOL_CENFORCEMENTSETPANEL_IDNAME ID_CENFORCEMENTSETPANEL
@@ -91,6 +84,9 @@ public:
 
 ////@begin cEnforcementSetPanel event handler declarations
 
+    /// wxEVT_COMMAND_CHOICE_SELECTED event handler for ID_CHOICE_UNIT
+    void OnChoiceUnitSelected( wxCommandEvent& event );
+
 ////@end cEnforcementSetPanel event handler declarations
 
 ////@begin cEnforcementSetPanel member function declarations
@@ -106,7 +102,11 @@ public:
     static bool ShowToolTips();
 
 ////@begin cEnforcementSetPanel member variables
+    wxComboBox* m_comboLocation;
+    wxTextCtrl* m_editLimitSpeed;
     wxChoice* m_UnitChoice;
+    wxTextCtrl* m_editCaptureSpeed;
+    wxTextCtrl* m_editCaptureDistance;
 ////@end cEnforcementSetPanel member variables
 };
 

@@ -6,7 +6,7 @@
 class cNumberPadPanel : public wxPanel
 {
 public:
-	cNumberPadPanel(wxWindow *parent);
+	cNumberPadPanel(wxWindow *parent, const int initNumber=0);
 	
 
 	wxTextCtrl *m_textCtrl;
@@ -17,4 +17,5 @@ protected:
 	DECLARE_EVENT_TABLE()
 	void OnButtonNumber(wxCommandEvent&);
 	void OnButtonDelete(wxCommandEvent&);
+	void OnTextctrlTextUpdated(wxCommandEvent& event);
 };

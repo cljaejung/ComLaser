@@ -24,15 +24,17 @@ enum
 
 
 BEGIN_EVENT_TABLE(cNumberPadPanel, wxPanel)
+	EVT_TEXT(ID_TEXTCTRL, cNumberPadPanel::OnTextctrlTextUpdated)
 	EVT_BUTTON(ID_BUTTON_DELETE, cNumberPadPanel::OnButtonDelete)
 	EVT_COMMAND_RANGE(ID_BUTTON1, ID_BUTTON0, wxEVT_COMMAND_BUTTON_CLICKED, cNumberPadPanel::OnButtonNumber)
 END_EVENT_TABLE()
 
 
 
-cNumberPadPanel::cNumberPadPanel(wxWindow *parent)
+cNumberPadPanel::cNumberPadPanel(wxWindow *parent, const int initNumber)
 	: wxPanel(parent)
 {
+	m_number = initNumber;
 	
 
 	cNumberPadPanel* itemPanel1 = this;
@@ -47,7 +49,7 @@ cNumberPadPanel::cNumberPadPanel(wxWindow *parent)
 	wxButton* itemButton4 = new wxButton(itemPanel1, ID_BUTTON_DELETE, _("X"), wxDefaultPosition, wxSize(30,30), 0);
 	itemBoxSizer3->Add(itemButton4, 0, wxALIGN_CENTER_VERTICAL | wxALL, 5);
 
-	m_textCtrl = new wxTextCtrl(itemPanel1, ID_TEXTCTRL, _("0"), wxDefaultPosition, wxDefaultSize, wxTE_RIGHT);
+	m_textCtrl = new wxTextCtrl(itemPanel1, ID_TEXTCTRL, wxString::Format("%d", m_number), wxDefaultPosition, wxDefaultSize, wxTE_RIGHT);
 	m_textCtrl->SetFont(wxFont(16, wxFONTFAMILY_SWISS, wxFONTSTYLE_NORMAL, wxFONTWEIGHT_BOLD, false, wxT("")));
 	itemBoxSizer3->Add(m_textCtrl, 1, wxALIGN_CENTER_VERTICAL | wxALL, 5);
 
@@ -131,7 +133,7 @@ cNumberPadPanel::cNumberPadPanel(wxWindow *parent)
 
 
 	///////////////////////////////////////////////////////////////////////////////////////////////////////////
-	m_number = 0;
+	
 
 }
 
@@ -164,6 +166,13 @@ void cNumberPadPanel::OnButtonNumber(wxCommandEvent&evt)
 void cNumberPadPanel::OnButtonDelete(wxCommandEvent&)
 {
 	m_number = 0;
-	//m_textCtrl->SetLabel("0");
 	m_textCtrl->Replace(0, m_textCtrl->GetLineText(0).size(), _("0"));
+}
+
+
+// 에디트창에 직접 입력할 때, 호출된다.
+void cNumberPadPanel::OnTextctrlTextUpdated(wxCommandEvent& event)
+{
+	// 에디트창에서 값을 가져온다.
+	m_textCtrl->GetValue().ToLong((long*)&m_number);
 }

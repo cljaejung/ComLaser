@@ -52,3 +52,10 @@ enum PANEL_TYPE
 	PANEL_ENFORCEMENTFULL,
 
 };
+
+
+enum UNIT_TYPE
+{
+	UNIT_KMH,
+	UNIT_MPH,
+};

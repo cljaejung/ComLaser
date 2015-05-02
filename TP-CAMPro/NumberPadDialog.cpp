@@ -10,7 +10,7 @@ enum
 };
 
 
-cNumberPadDialog::cNumberPadDialog(wxWindow *parent) :
+cNumberPadDialog::cNumberPadDialog(wxWindow *parent, const int initNumber) :
 	wxDialog(parent, wxID_ANY, "NumberPad", wxDefaultPosition, wxSize(380, 300),
 	wxDEFAULT_DIALOG_STYLE | wxRESIZE_BORDER)
 {
@@ -23,7 +23,7 @@ cNumberPadDialog::cNumberPadDialog(wxWindow *parent) :
 	wxBoxSizer* itemBoxSizer3 = new wxBoxSizer(wxHORIZONTAL);
 	itemBoxSizer2->Add(itemBoxSizer3, 1, wxGROW| wxALL, 0);
 
-	m_NumberPadPanel = new cNumberPadPanel(itemDialog1);
+	m_NumberPadPanel = new cNumberPadPanel(itemDialog1, initNumber);
 	m_NumberPadPanel->SetExtraStyle(wxWS_EX_VALIDATE_RECURSIVELY);
 	itemBoxSizer3->Add(m_NumberPadPanel, 1, wxGROW | wxALL, 0);
 

@@ -55,10 +55,11 @@ cDateDisplay::cDateDisplay(wxWindow *parent, const bool IsSmallSize, const wxCol
 
 
 	// ÆùÆ® ÃÊ±âÈ­.
-	m_font = wxFont(m_isSmallSize? 15: 25, wxFONTFAMILY_DEFAULT,
-		wxFONTSTYLE_NORMAL, wxFONTWEIGHT_BOLD, false, _("±¼¸²"));
-	m_font2 = wxFont(m_isSmallSize? 10 : 12, wxFONTFAMILY_DEFAULT,
-		wxFONTSTYLE_NORMAL, wxFONTWEIGHT_BOLD, false, _("±¼¸²"));
+	m_font = wxFont(m_isSmallSize ? 14 : 24, wxFONTFAMILY_SWISS,
+		wxFONTSTYLE_NORMAL, wxFONTWEIGHT_BOLD, false);
+
+	m_font2 = wxFont(m_isSmallSize ? 10 : 12, wxFONTFAMILY_SWISS,
+		wxFONTSTYLE_NORMAL, wxFONTWEIGHT_BOLD, false);
 
 	itemStaticText4->SetFont(m_font);
 	itemStaticText4->SetForegroundColour(wxColour(150, 150, 255));
@@ -82,6 +83,11 @@ cDateDisplay::cDateDisplay(wxWindow *parent, const bool IsSmallSize, const wxCol
 	itemStaticText7->Connect(wxEVT_LEFT_DOWN, wxMouseEventHandler(cDateDisplay::OnLeftDown), NULL, this);
 
 	UpdateDate();
+}
+
+
+cDateDisplay::~cDateDisplay()
+{
 }
 
 
@@ -146,3 +152,4 @@ void cDateDisplay::OnLeftDown(wxMouseEvent& event)
 	frame->ChangePanel(PANEL_DATESET);
 	frame->m_datePanel->UpdateCurrentTime();
 }
+
