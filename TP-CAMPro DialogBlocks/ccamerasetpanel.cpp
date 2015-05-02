@@ -166,8 +166,8 @@ void cCameraSetPanel::CreateControls()
     itemBoxSizer13->Add(itemBoxSizer14, 0, wxGROW|wxALL, 3);
 
     wxStaticText* itemStaticText15 = new wxStaticText( itemPanel12, wxID_STATIC, _("Weather"), wxDefaultPosition, wxDefaultSize, 0 );
-    itemStaticText15->SetFont(wxFont(18, wxFONTFAMILY_SWISS, wxFONTSTYLE_NORMAL, wxFONTWEIGHT_NORMAL, false, wxT("Arial")));
-    itemBoxSizer14->Add(itemStaticText15, 0, wxALIGN_CENTER_VERTICAL|wxALL, 0);
+    itemStaticText15->SetFont(wxFont(18, wxFONTFAMILY_SWISS, wxFONTSTYLE_NORMAL, wxFONTWEIGHT_BOLD, false, wxT("Arial")));
+    itemBoxSizer14->Add(itemStaticText15, 0, wxALIGN_CENTER_VERTICAL|wxLEFT|wxRIGHT, 5);
 
     wxBoxSizer* itemBoxSizer16 = new wxBoxSizer(wxVERTICAL);
     itemBoxSizer14->Add(itemBoxSizer16, 1, wxGROW|wxALL, 0);
@@ -188,8 +188,8 @@ void cCameraSetPanel::CreateControls()
     itemBoxSizer13->Add(itemBoxSizer18, 0, wxGROW|wxALL, 3);
 
     wxStaticText* itemStaticText19 = new wxStaticText( itemPanel12, wxID_STATIC, _("Gain"), wxDefaultPosition, wxDefaultSize, 0 );
-    itemStaticText19->SetFont(wxFont(18, wxFONTFAMILY_SWISS, wxFONTSTYLE_NORMAL, wxFONTWEIGHT_NORMAL, false, wxT("Arial")));
-    itemBoxSizer18->Add(itemStaticText19, 0, wxALIGN_CENTER_VERTICAL|wxALL, 0);
+    itemStaticText19->SetFont(wxFont(18, wxFONTFAMILY_SWISS, wxFONTSTYLE_NORMAL, wxFONTWEIGHT_BOLD, false, wxT("Arial")));
+    itemBoxSizer18->Add(itemStaticText19, 0, wxALIGN_CENTER_VERTICAL|wxLEFT|wxRIGHT, 5);
 
     wxSlider* itemSlider20 = new wxSlider( itemPanel12, ID_SLIDER_GAIN, 0, 0, 100, wxDefaultPosition, wxDefaultSize, wxSL_LABELS|wxSL_TOP|wxSL_SELRANGE );
     itemSlider20->SetFont(wxFont(18, wxFONTFAMILY_SWISS, wxFONTSTYLE_NORMAL, wxFONTWEIGHT_NORMAL, false, wxT("Arial")));
@@ -198,9 +198,9 @@ void cCameraSetPanel::CreateControls()
     wxBoxSizer* itemBoxSizer21 = new wxBoxSizer(wxHORIZONTAL);
     itemBoxSizer13->Add(itemBoxSizer21, 0, wxGROW|wxALL, 3);
 
-    wxStaticText* itemStaticText22 = new wxStaticText( itemPanel12, wxID_STATIC, _("Shutter Speed"), wxDefaultPosition, wxDefaultSize, 0 );
-    itemStaticText22->SetFont(wxFont(18, wxFONTFAMILY_SWISS, wxFONTSTYLE_NORMAL, wxFONTWEIGHT_NORMAL, false, wxT("Arial")));
-    itemBoxSizer21->Add(itemStaticText22, 0, wxALIGN_CENTER_VERTICAL|wxALL, 0);
+    wxStaticText* itemStaticText22 = new wxStaticText( itemPanel12, wxID_STATIC, _("Shutter Speed "), wxDefaultPosition, wxDefaultSize, 0 );
+    itemStaticText22->SetFont(wxFont(18, wxFONTFAMILY_SWISS, wxFONTSTYLE_NORMAL, wxFONTWEIGHT_BOLD, false, wxT("Arial")));
+    itemBoxSizer21->Add(itemStaticText22, 0, wxALIGN_CENTER_VERTICAL|wxLEFT|wxRIGHT, 5);
 
     wxBoxSizer* itemBoxSizer23 = new wxBoxSizer(wxVERTICAL);
     itemBoxSizer21->Add(itemBoxSizer23, 1, wxALIGN_CENTER_VERTICAL|wxALL, 0);
@@ -210,7 +210,7 @@ void cCameraSetPanel::CreateControls()
     itemChoice24Strings.Add(_("3 ms"));
     itemChoice24Strings.Add(_("4 ms"));
     itemChoice24Strings.Add(_("5 ms"));
-    wxChoice* itemChoice24 = new wxChoice( itemPanel12, ID_CHOICE_SHUTTERSPEED, wxDefaultPosition, wxDefaultSize, itemChoice24Strings, 0 );
+    wxChoice* itemChoice24 = new wxChoice( itemPanel12, ID_CHOICE_SHUTTERSPEED, wxDefaultPosition, wxSize(100, -1), itemChoice24Strings, 0 );
     itemChoice24->SetStringSelection(_("2 ms"));
     itemChoice24->SetFont(wxFont(18, wxFONTFAMILY_SWISS, wxFONTSTYLE_NORMAL, wxFONTWEIGHT_NORMAL, false, wxT("Arial")));
     itemBoxSizer23->Add(itemChoice24, 0, wxALIGN_RIGHT|wxALL, 0);
@@ -219,8 +219,8 @@ void cCameraSetPanel::CreateControls()
     itemBoxSizer13->Add(itemBoxSizer25, 0, wxGROW|wxALL, 3);
 
     wxStaticText* itemStaticText26 = new wxStaticText( itemPanel12, wxID_STATIC, _("S/W Zoom"), wxDefaultPosition, wxDefaultSize, 0 );
-    itemStaticText26->SetFont(wxFont(18, wxFONTFAMILY_SWISS, wxFONTSTYLE_NORMAL, wxFONTWEIGHT_NORMAL, false, wxT("Arial")));
-    itemBoxSizer25->Add(itemStaticText26, 0, wxALIGN_CENTER_VERTICAL|wxALL, 0);
+    itemStaticText26->SetFont(wxFont(18, wxFONTFAMILY_SWISS, wxFONTSTYLE_NORMAL, wxFONTWEIGHT_BOLD, false, wxT("Arial")));
+    itemBoxSizer25->Add(itemStaticText26, 0, wxALIGN_CENTER_VERTICAL|wxLEFT|wxRIGHT, 5);
 
     wxBoxSizer* itemBoxSizer27 = new wxBoxSizer(wxVERTICAL);
     itemBoxSizer25->Add(itemBoxSizer27, 1, wxALIGN_CENTER_VERTICAL|wxALL, 0);
@@ -228,7 +228,7 @@ void cCameraSetPanel::CreateControls()
     wxArrayString itemChoice28Strings;
     itemChoice28Strings.Add(_("On"));
     itemChoice28Strings.Add(_("Off"));
-    wxChoice* itemChoice28 = new wxChoice( itemPanel12, ID_CHOICE_ZOOM, wxDefaultPosition, wxDefaultSize, itemChoice28Strings, 0 );
+    wxChoice* itemChoice28 = new wxChoice( itemPanel12, ID_CHOICE_ZOOM, wxDefaultPosition, wxSize(100, -1), itemChoice28Strings, 0 );
     itemChoice28->SetStringSelection(_("On"));
     itemChoice28->SetFont(wxFont(18, wxFONTFAMILY_SWISS, wxFONTSTYLE_NORMAL, wxFONTWEIGHT_NORMAL, false, wxT("Arial")));
     itemBoxSizer27->Add(itemChoice28, 0, wxALIGN_RIGHT|wxALL, 0);
@@ -237,8 +237,8 @@ void cCameraSetPanel::CreateControls()
     itemBoxSizer13->Add(itemBoxSizer29, 0, wxGROW|wxALL, 3);
 
     wxStaticText* itemStaticText30 = new wxStaticText( itemPanel12, wxID_STATIC, _("Capture Test"), wxDefaultPosition, wxDefaultSize, 0 );
-    itemStaticText30->SetFont(wxFont(18, wxFONTFAMILY_SWISS, wxFONTSTYLE_NORMAL, wxFONTWEIGHT_NORMAL, false, wxT("Arial")));
-    itemBoxSizer29->Add(itemStaticText30, 0, wxALIGN_CENTER_VERTICAL|wxALL, 0);
+    itemStaticText30->SetFont(wxFont(18, wxFONTFAMILY_SWISS, wxFONTSTYLE_NORMAL, wxFONTWEIGHT_BOLD, false, wxT("Arial")));
+    itemBoxSizer29->Add(itemStaticText30, 0, wxALIGN_CENTER_VERTICAL|wxLEFT|wxRIGHT, 5);
 
     wxBoxSizer* itemBoxSizer31 = new wxBoxSizer(wxVERTICAL);
     itemBoxSizer29->Add(itemBoxSizer31, 1, wxALIGN_CENTER_VERTICAL|wxALL, 0);
@@ -246,7 +246,7 @@ void cCameraSetPanel::CreateControls()
     wxArrayString itemChoice32Strings;
     itemChoice32Strings.Add(_("On"));
     itemChoice32Strings.Add(_("Off"));
-    wxChoice* itemChoice32 = new wxChoice( itemPanel12, ID_CHOICE_CAPTURETEST, wxDefaultPosition, wxDefaultSize, itemChoice32Strings, 0 );
+    wxChoice* itemChoice32 = new wxChoice( itemPanel12, ID_CHOICE_CAPTURETEST, wxDefaultPosition, wxSize(100, -1), itemChoice32Strings, 0 );
     itemChoice32->SetStringSelection(_("On"));
     itemChoice32->SetFont(wxFont(18, wxFONTFAMILY_SWISS, wxFONTSTYLE_NORMAL, wxFONTWEIGHT_NORMAL, false, wxT("Arial")));
     itemBoxSizer31->Add(itemChoice32, 0, wxALIGN_RIGHT|wxALL, 0);

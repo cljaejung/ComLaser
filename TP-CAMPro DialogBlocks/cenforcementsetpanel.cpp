@@ -198,7 +198,7 @@ void cEnforcementSetPanel::CreateControls()
     itemBoxSizer16->Add(itemBoxSizer21, 0, wxALIGN_CENTER_VERTICAL|wxLEFT|wxRIGHT, 0);
 
     wxButton* itemButton22 = new wxButton( itemPanel13, ID_BUTTON_LOCKEY, _("Keyboard"), wxDefaultPosition, wxSize(32, 32), 0 );
-    itemBoxSizer21->Add(itemButton22, 0, wxALIGN_CENTER_HORIZONTAL|wxALL, 0);
+    itemBoxSizer21->Add(itemButton22, 0, wxALIGN_CENTER_HORIZONTAL|wxALL, 1);
 
     wxBoxSizer* itemBoxSizer23 = new wxBoxSizer(wxHORIZONTAL);
     itemBoxSizer15->Add(itemBoxSizer23, 0, wxGROW|wxALL, 8);
@@ -212,7 +212,7 @@ void cEnforcementSetPanel::CreateControls()
     itemBoxSizer23->Add(m_editLimitSpeed, 0, wxALIGN_CENTER_VERTICAL|wxLEFT|wxTOP|wxBOTTOM, 5);
 
     wxButton* itemButton26 = new wxButton( itemPanel13, ID_BUTTON_LIMITSPEED, _("Keyboard"), wxDefaultPosition, wxSize(32, 32), 0 );
-    itemBoxSizer23->Add(itemButton26, 0, wxALIGN_CENTER_VERTICAL|wxALL, 0);
+    itemBoxSizer23->Add(itemButton26, 0, wxALIGN_CENTER_VERTICAL|wxALL, 1);
 
     wxStaticText* itemStaticText27 = new wxStaticText( itemPanel13, wxID_STATIC, _("Unit"), wxDefaultPosition, wxDefaultSize, 0 );
     itemStaticText27->SetFont(wxFont(18, wxFONTFAMILY_SWISS, wxFONTSTYLE_NORMAL, wxFONTWEIGHT_BOLD, false, wxT("Arial")));
@@ -238,7 +238,7 @@ void cEnforcementSetPanel::CreateControls()
     itemBoxSizer29->Add(m_editCaptureSpeed, 0, wxALIGN_CENTER_VERTICAL|wxLEFT|wxTOP|wxBOTTOM, 5);
 
     wxButton* itemButton32 = new wxButton( itemPanel13, ID_BUTTON_CAPTURESPEED, _("Keyboard"), wxDefaultPosition, wxSize(32, 32), 0 );
-    itemBoxSizer29->Add(itemButton32, 0, wxALIGN_CENTER_VERTICAL|wxALL, 0);
+    itemBoxSizer29->Add(itemButton32, 0, wxALIGN_CENTER_VERTICAL|wxALL, 1);
 
     wxBoxSizer* itemBoxSizer33 = new wxBoxSizer(wxHORIZONTAL);
     itemBoxSizer15->Add(itemBoxSizer33, 0, wxGROW|wxALL, 8);
@@ -252,7 +252,7 @@ void cEnforcementSetPanel::CreateControls()
     itemBoxSizer33->Add(m_editCaptureDistance, 0, wxALIGN_CENTER_VERTICAL|wxLEFT|wxTOP|wxBOTTOM, 5);
 
     wxButton* itemButton36 = new wxButton( itemPanel13, ID_BUTTON_CAPTUREDISTANCE, _("Keyboard"), wxDefaultPosition, wxSize(32, 32), 0 );
-    itemBoxSizer33->Add(itemButton36, 0, wxALIGN_CENTER_VERTICAL|wxALL, 0);
+    itemBoxSizer33->Add(itemButton36, 0, wxALIGN_CENTER_VERTICAL|wxALL, 1);
 
     wxBoxSizer* itemBoxSizer37 = new wxBoxSizer(wxHORIZONTAL);
     itemBoxSizer15->Add(itemBoxSizer37, 1, wxALIGN_CENTER_HORIZONTAL|wxALL, 5);
