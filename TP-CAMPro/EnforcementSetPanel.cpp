@@ -185,13 +185,13 @@ wxPanel(frame)
 
 
 	wxBoxSizer* itemBoxSizer37 = new wxBoxSizer(wxHORIZONTAL);
-	itemBoxSizer15->Add(itemBoxSizer37, 0, wxALIGN_CENTER_HORIZONTAL | wxALL, 0);
+	itemBoxSizer15->Add(itemBoxSizer37, 1, wxALIGN_CENTER_HORIZONTAL | wxALL, 0);
 
 	cBitmap3Button* itemButton38 = new cBitmap3Button(itemPanel13, ID_BUTTON_OK, _("ref_img/BTN_OK.bmp"), wxDefaultPosition, wxDefaultSize, 0);
-	itemBoxSizer37->Add(itemButton38, 0, wxALIGN_CENTER_VERTICAL | wxALL, 5);
+	itemBoxSizer37->Add(itemButton38, 0, wxALIGN_BOTTOM | wxALL, 5);
 
 	cBitmap3Button* itemButton39 = new cBitmap3Button(itemPanel13, ID_BUTTON_CANCEL, _("ref_img/BTN_CANCEL.bmp"), wxDefaultPosition, wxDefaultSize, 0);
-	itemBoxSizer37->Add(itemButton39, 0, wxALIGN_CENTER_VERTICAL | wxALL, 5);
+	itemBoxSizer37->Add(itemButton39, 0, wxALIGN_BOTTOM | wxALL, 5);
 
 }
 
@@ -235,8 +235,8 @@ void cEnforcementSetPanel::OnButtonLimitSpeed(wxCommandEvent &)
 	long initValue = 0;
 	m_editLimitSpeed->GetValue().ToLong(&initValue);
 	cNumberPadDialog dlg(this, initValue);
-	if (wxID_OK  == dlg.ShowModal())
-		m_editLimitSpeed->SetLabel(wxString::Format("%d", dlg.GetNumber()));
+	if (wxID_OK == dlg.ShowModal())
+		m_editLimitSpeed->SetValue(wxString::Format("%d", dlg.GetNumber()));
 }
 
 
@@ -250,7 +250,7 @@ void cEnforcementSetPanel::OnButtonCaptureSpeed(wxCommandEvent &)
 	m_editCaptureSpeed->GetValue().ToLong(&initValue);
 	cNumberPadDialog dlg(this, initValue);
 	if (wxID_OK == dlg.ShowModal())
-		m_editCaptureSpeed->SetLabel(wxString::Format("%d", dlg.GetNumber()));
+		m_editCaptureSpeed->SetValue(wxString::Format("%d", dlg.GetNumber()));
 }
 
 
@@ -264,7 +264,7 @@ void cEnforcementSetPanel::OnButtonCaptureDistance(wxCommandEvent &)
 	m_editCaptureDistance->GetValue().ToLong(&initValue);
 	cNumberPadDialog dlg(this, initValue);
 	if (wxID_OK == dlg.ShowModal())
-		m_editCaptureDistance->SetLabel(wxString::Format("%d", dlg.GetNumber()));
+		m_editCaptureDistance->SetValue(wxString::Format("%d", dlg.GetNumber()));
 }
 
 

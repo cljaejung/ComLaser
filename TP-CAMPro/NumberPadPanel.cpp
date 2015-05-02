@@ -49,8 +49,9 @@ cNumberPadPanel::cNumberPadPanel(wxWindow *parent, const int initNumber)
 	wxButton* itemButton4 = new wxButton(itemPanel1, ID_BUTTON_DELETE, _("X"), wxDefaultPosition, wxSize(30,30), 0);
 	itemBoxSizer3->Add(itemButton4, 0, wxALIGN_CENTER_VERTICAL | wxALL, 5);
 
-	m_textCtrl = new wxTextCtrl(itemPanel1, ID_TEXTCTRL, wxString::Format("%d", m_number), wxDefaultPosition, wxDefaultSize, wxTE_RIGHT);
+	m_textCtrl = new wxTextCtrl(itemPanel1, ID_TEXTCTRL, wxEmptyString, wxDefaultPosition, wxDefaultSize, wxTE_RIGHT);
 	m_textCtrl->SetFont(wxFont(16, wxFONTFAMILY_SWISS, wxFONTSTYLE_NORMAL, wxFONTWEIGHT_BOLD, false, wxT("")));
+	m_textCtrl->SetValue(wxString::Format("%d", m_number));
 	itemBoxSizer3->Add(m_textCtrl, 1, wxALIGN_CENTER_VERTICAL | wxALL, 5);
 
 	wxBoxSizer* itemBoxSizer6 = new wxBoxSizer(wxHORIZONTAL);

@@ -32,10 +32,16 @@ cMoviePanel::cMoviePanel(wxWindow *parent,
 
 	////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 	m_isPlay = true;
+	m_isActivate = true;
 	m_curImgIndex = 1;
 	m_oldTick = 0;
 	m_GotoNextPanel = PANEL_CAMERAFULL;
 
+}
+
+cMoviePanel::~cMoviePanel()
+{
+	m_isActivate = false;
 }
 
 
@@ -43,6 +49,8 @@ cMoviePanel::cMoviePanel(wxWindow *parent,
 void cMoviePanel::OnIdle(wxIdleEvent& event)
 {
 	if (!this->IsShownOnScreen())
+		return;
+	if (!m_isActivate)
 		return;
 
 	// 1초에 24프레임으로 이미지를 바꾼다.

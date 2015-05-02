@@ -3,6 +3,7 @@
 #include "CameraFullPanel.h"
 #include "CLFrame.h"
 #include "MoviePanel.h"
+#include "Bitmap3Button.h"
 
 
 enum {
@@ -38,18 +39,18 @@ wxPanel(frame)
 	wxStaticText* itemStaticText6 = new wxStaticText(itemPanel1, wxID_STATIC, _(" Capture Distance"), wxDefaultPosition, wxDefaultSize, 0);
 	itemStaticText6->SetForegroundColour(wxColour(255, 255, 255));
 	itemStaticText6->SetBackgroundColour(wxColour(0, 128, 0));
-	itemStaticText6->SetFont(wxFont(16, wxFONTFAMILY_SWISS, wxFONTSTYLE_NORMAL, wxFONTWEIGHT_BOLD, false, wxT("")));
+	itemStaticText6->SetFont(wxFont(18, wxFONTFAMILY_SWISS, wxFONTSTYLE_NORMAL, wxFONTWEIGHT_BOLD, false, wxT("")));
 	itemBoxSizer5->Add(itemStaticText6, 1, wxALIGN_CENTER_VERTICAL | wxALL, 0);
 
 	wxBoxSizer* itemBoxSizer7 = new wxBoxSizer(wxHORIZONTAL);
 	itemBoxSizer4->Add(itemBoxSizer7, 1, wxGROW | wxALL, 0);
 
-	cMoviePanel* itemPanel8 = new cMoviePanel(itemPanel1, ID_PANEL, wxDefaultPosition, wxSize(580, 385), wxRAISED_BORDER | wxTAB_TRAVERSAL);
+	cMoviePanel* itemPanel8 = new cMoviePanel(itemPanel1, ID_PANEL, wxDefaultPosition, wxSize(580, 385), wxTAB_TRAVERSAL);
 	itemPanel8->SetExtraStyle(wxWS_EX_VALIDATE_RECURSIVELY);
 	itemPanel8->m_GotoNextPanel = PANEL_CAMERAFULL;
 	itemBoxSizer7->Add(itemPanel8, 1, wxGROW | wxTOP | wxBOTTOM, 4);
 
-	wxButton* itemButton9 = new wxButton(itemPanel1, ID_BUTTON_CANCEL, _("Cancel"), wxDefaultPosition, wxDefaultSize, 0);
+	cBitmap3Button* itemButton9 = new cBitmap3Button(itemPanel1, ID_BUTTON_CANCEL, _("ref_img/BTN_CANCEL.bmp"), wxDefaultPosition, wxDefaultSize, 0);
 	itemBoxSizer3->Add(itemButton9, 0, wxALIGN_TOP | wxALL, 5);
 
 }

@@ -206,3 +206,5 @@ void cMoviePanel::OnPaint( wxPaintEvent& event )
 ////@end wxEVT_PAINT event handler for ID_CMOVIEPANEL in cMoviePanel. 
 }
 
+
+

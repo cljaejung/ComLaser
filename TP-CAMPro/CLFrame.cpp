@@ -58,6 +58,18 @@ cCLFrame::cCLFrame(const wxString& title)
 
 	SetBackgroundColour(wxColour("Black"));
 
+	m_loginPanel = NULL;
+	m_operatorPanel = NULL;
+	m_datePanel = NULL;
+	m_enforcementSetPanel = NULL;
+	m_cameraPanel = NULL;
+	m_cameraFullPanel = NULL;
+	m_fileMngPanel = NULL;
+	m_fileMngFullPanel = NULL;
+	m_enforcementPanel = NULL;
+	m_enforcementFullPanel = NULL;
+
+
 	cCLFrame* itemPanel1 = this;
 	wxBoxSizer* itemBoxSizer2 = new wxBoxSizer(wxVERTICAL);
 	itemPanel1->SetSizer(itemBoxSizer2);
@@ -130,16 +142,26 @@ void cCLFrame::ChangePanel(const PANEL_TYPE panel)
 		return;
 
 	m_mainPanel->Hide();
-	m_loginPanel->Hide();
-	m_operatorPanel->Hide();
-	m_datePanel->Hide();
-	m_enforcementSetPanel->Hide();
-	m_cameraPanel->Hide();
-	m_cameraFullPanel->Hide();
-	m_fileMngPanel->Hide();
-	m_fileMngFullPanel->Hide();
-	m_enforcementPanel->Hide();
-	m_enforcementFullPanel->Hide();
+	if (m_loginPanel)
+		m_loginPanel->Hide();
+	if (m_operatorPanel)
+		m_operatorPanel->Hide();
+	if (m_datePanel)
+		m_datePanel->Hide();
+	if (m_enforcementSetPanel)
+		m_enforcementSetPanel->Hide();
+	if (m_cameraPanel)
+		m_cameraPanel->Hide();
+	if (m_cameraFullPanel)
+		m_cameraFullPanel->Hide();
+	if (m_fileMngPanel)
+		m_fileMngPanel->Hide();
+	if (m_fileMngFullPanel)
+		m_fileMngFullPanel->Hide();
+	if (m_enforcementPanel)
+		m_enforcementPanel->Hide();
+	if (m_enforcementFullPanel)
+		m_enforcementFullPanel->Hide();
 
 	wxPanel *showPanel = NULL;
 

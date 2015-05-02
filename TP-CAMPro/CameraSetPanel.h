@@ -11,9 +11,6 @@ public:
 protected:
 
 
-public:
-
-
 	// message handling
 protected:
 	DECLARE_EVENT_TABLE()

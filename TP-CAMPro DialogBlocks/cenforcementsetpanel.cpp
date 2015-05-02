@@ -255,13 +255,13 @@ void cEnforcementSetPanel::CreateControls()
     itemBoxSizer33->Add(itemButton36, 0, wxALIGN_CENTER_VERTICAL|wxALL, 0);
 
     wxBoxSizer* itemBoxSizer37 = new wxBoxSizer(wxHORIZONTAL);
-    itemBoxSizer15->Add(itemBoxSizer37, 0, wxALIGN_CENTER_HORIZONTAL|wxALL, 20);
+    itemBoxSizer15->Add(itemBoxSizer37, 1, wxALIGN_CENTER_HORIZONTAL|wxALL, 5);
 
     wxButton* itemButton38 = new wxButton( itemPanel13, ID_BUTTON_OK, _("OK"), wxDefaultPosition, wxDefaultSize, 0 );
-    itemBoxSizer37->Add(itemButton38, 0, wxALIGN_CENTER_VERTICAL|wxALL, 5);
+    itemBoxSizer37->Add(itemButton38, 0, wxALIGN_BOTTOM|wxALL, 5);
 
     wxButton* itemButton39 = new wxButton( itemPanel13, ID_BUTTON_CANCEL, _("Cancel"), wxDefaultPosition, wxDefaultSize, 0 );
-    itemBoxSizer37->Add(itemButton39, 0, wxALIGN_CENTER_VERTICAL|wxALL, 5);
+    itemBoxSizer37->Add(itemButton39, 0, wxALIGN_BOTTOM|wxALL, 5);
 
 ////@end cEnforcementSetPanel content construction
 }
