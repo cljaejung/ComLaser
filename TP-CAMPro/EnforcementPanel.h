@@ -1,6 +1,7 @@
 #pragma once
 
 
+class cMoviePanel;
 class cEnforcementPanel : public wxPanel
 {
 public:
@@ -9,9 +10,13 @@ public:
 
 
 protected:
-
-
-public:
+	wxStaticText *m_textNumber;
+	wxStaticText *m_textTime;
+	wxStaticText *m_textSpeed;
+	wxStaticText *m_captureSpeed;
+	wxStaticText *m_captureDistance;
+	cMoviePanel *m_cameraPanel;
+	cMoviePanel *m_capturePanel;
 
 
 	// message handling

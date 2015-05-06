@@ -208,7 +208,7 @@ void cOperatorSetPanel::CreateControls()
     wxBoxSizer* itemBoxSizer26 = new wxBoxSizer(wxVERTICAL);
     itemBoxSizer23->Add(itemBoxSizer26, 0, wxALIGN_CENTER_VERTICAL|wxALL, 0);
 
-    wxTextCtrl* itemTextCtrl27 = new wxTextCtrl( itemPanel14, ID_TEXTCTRL_PASSWORD, wxEmptyString, wxDefaultPosition, wxSize(200, -1), 0 );
+    wxTextCtrl* itemTextCtrl27 = new wxTextCtrl( itemPanel14, ID_TEXTCTRL_PASSWORD, wxEmptyString, wxDefaultPosition, wxSize(200, -1), wxTE_PASSWORD );
     itemTextCtrl27->SetFont(wxFont(18, wxFONTFAMILY_SWISS, wxFONTSTYLE_NORMAL, wxFONTWEIGHT_NORMAL, false, wxT("Arial")));
     itemBoxSizer26->Add(itemTextCtrl27, 0, wxALIGN_CENTER_HORIZONTAL|wxALL, 0);
 
@@ -231,7 +231,7 @@ void cOperatorSetPanel::CreateControls()
     wxBoxSizer* itemBoxSizer33 = new wxBoxSizer(wxVERTICAL);
     itemBoxSizer30->Add(itemBoxSizer33, 0, wxALIGN_CENTER_VERTICAL|wxALL, 0);
 
-    wxTextCtrl* itemTextCtrl34 = new wxTextCtrl( itemPanel14, ID_TEXTCTRL_NEWPASSWORD, wxEmptyString, wxDefaultPosition, wxSize(200, -1), 0 );
+    wxTextCtrl* itemTextCtrl34 = new wxTextCtrl( itemPanel14, ID_TEXTCTRL_NEWPASSWORD, wxEmptyString, wxDefaultPosition, wxSize(200, -1), wxTE_PASSWORD );
     itemTextCtrl34->SetFont(wxFont(18, wxFONTFAMILY_SWISS, wxFONTSTYLE_NORMAL, wxFONTWEIGHT_NORMAL, false, wxT("Arial")));
     itemBoxSizer33->Add(itemTextCtrl34, 0, wxALIGN_CENTER_HORIZONTAL|wxALL, 0);
 
@@ -254,7 +254,7 @@ void cOperatorSetPanel::CreateControls()
     wxBoxSizer* itemBoxSizer40 = new wxBoxSizer(wxVERTICAL);
     itemBoxSizer37->Add(itemBoxSizer40, 0, wxALIGN_CENTER_VERTICAL|wxALL, 0);
 
-    wxTextCtrl* itemTextCtrl41 = new wxTextCtrl( itemPanel14, ID_TEXTCTRL_CONFIRM, wxEmptyString, wxDefaultPosition, wxSize(200, -1), 0 );
+    wxTextCtrl* itemTextCtrl41 = new wxTextCtrl( itemPanel14, ID_TEXTCTRL_CONFIRM, wxEmptyString, wxDefaultPosition, wxSize(200, -1), wxTE_PASSWORD );
     itemTextCtrl41->SetFont(wxFont(18, wxFONTFAMILY_SWISS, wxFONTSTYLE_NORMAL, wxFONTWEIGHT_NORMAL, false, wxT("Arial")));
     itemBoxSizer40->Add(itemTextCtrl41, 0, wxALIGN_CENTER_HORIZONTAL|wxALL, 0);
 

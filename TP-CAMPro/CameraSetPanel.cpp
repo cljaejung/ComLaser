@@ -26,6 +26,7 @@ enum {
 
 
 BEGIN_EVENT_TABLE(cCameraSetPanel, wxPanel)
+	EVT_BUTTON(ID_BUTTON_OK, cCameraSetPanel::OnButtonOK)
 	EVT_BUTTON(ID_BUTTON_CANCEL, cCameraSetPanel::OnButtonCancel)
 	//EVT_BUTTON(ID_BUTTON_FULL, cCameraSetPanel::OnButtonFull)
 END_EVENT_TABLE()
@@ -206,6 +207,15 @@ wxPanel(frame)
 cCameraSetPanel::~cCameraSetPanel()
 {
 
+}
+
+
+void cCameraSetPanel::OnButtonOK(wxCommandEvent &)
+{
+	cCLFrame* frame = dynamic_cast<cCLFrame*>(wxGetTopLevelParent(this));
+	if (!frame)
+		return;
+	frame->ChangePanel(PANEL_MAIN);
 }
 
 

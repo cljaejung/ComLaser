@@ -172,7 +172,7 @@ void cFileMngFullPanel::CreateControls()
     itemBoxSizer3->Add(itemBoxSizer17, 0, wxGROW|wxALL, 5);
 
     wxButton* itemButton18 = new wxButton( itemPanel1, ID_BUTTON_CANCEL, _("Cancel"), wxDefaultPosition, wxDefaultSize, 0 );
-    itemBoxSizer17->Add(itemButton18, 0, wxALIGN_CENTER_HORIZONTAL|wxALL, 5);
+    itemBoxSizer17->Add(itemButton18, 0, wxALIGN_CENTER_HORIZONTAL|wxALL, 0);
 
 ////@end cFileMngFullPanel content construction
 }

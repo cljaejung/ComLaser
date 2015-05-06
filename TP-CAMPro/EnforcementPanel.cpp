@@ -49,9 +49,8 @@ cEnforcementPanel::cEnforcementPanel(wxFrame*frame) :
 	wxBoxSizer* itemBoxSizer4 = new wxBoxSizer(wxVERTICAL);
 	itemBoxSizer3->Add(itemBoxSizer4, 0, wxALIGN_CENTER_VERTICAL | wxLEFT | wxRIGHT | wxTOP, 5);
 
-	wxImage img(_("ref_img/ENFM_ICON.bmp"), wxBITMAP_TYPE_BMP);
-	wxBitmap bmp = img.Scale(80, 55);
-	wxStaticBitmap* itemStaticBitmap5 = new wxStaticBitmap(itemPanel1, wxID_STATIC, bmp, wxDefaultPosition, wxDefaultSize, 0);
+	wxImage img(_("ref_img/ENFM_ICON_80.bmp"), wxBITMAP_TYPE_BMP);
+	wxStaticBitmap* itemStaticBitmap5 = new wxStaticBitmap(itemPanel1, wxID_STATIC, wxBitmap(img), wxDefaultPosition, wxDefaultSize, 0);
 	itemBoxSizer4->Add(itemStaticBitmap5, 0, wxALIGN_CENTER_HORIZONTAL | wxALL, 5);
 
 	wxBoxSizer* itemBoxSizer6 = new wxBoxSizer(wxVERTICAL);
@@ -59,7 +58,7 @@ cEnforcementPanel::cEnforcementPanel(wxFrame*frame) :
 
 	wxStaticText* itemStaticText7 = new wxStaticText(itemPanel1, wxID_STATIC, _("Enforcement"), wxDefaultPosition, wxDefaultSize, 0);
 	itemStaticText7->SetForegroundColour(wxColour(255, 255, 255));
-	itemStaticText7->SetFont(wxFont(24, wxFONTFAMILY_SWISS, wxFONTSTYLE_NORMAL, wxFONTWEIGHT_BOLD, false, wxT("")));
+	itemStaticText7->SetFont(wxFont(24, wxFONTFAMILY_SWISS, wxFONTSTYLE_NORMAL, wxFONTWEIGHT_NORMAL, false, wxT("")));
 	itemBoxSizer6->Add(itemStaticText7, 0, wxALIGN_CENTER_HORIZONTAL | wxALL, 5);
 
 	wxBoxSizer* itemBoxSizer8 = new wxBoxSizer(wxVERTICAL);
@@ -80,7 +79,7 @@ cEnforcementPanel::cEnforcementPanel(wxFrame*frame) :
 	itemBoxSizer2->Add(itemBoxSizer12, 1, wxGROW | wxLEFT | wxRIGHT | wxBOTTOM, 5);
 
 	wxBoxSizer* itemBoxSizer13 = new wxBoxSizer(wxVERTICAL);
-	itemBoxSizer12->Add(itemBoxSizer13, 0, wxALIGN_CENTER_VERTICAL | wxLEFT | wxRIGHT | wxBOTTOM, 5);
+	itemBoxSizer12->Add(itemBoxSizer13, 1, wxGROW | wxLEFT | wxRIGHT | wxBOTTOM, 5);
 
 	wxBoxSizer* itemBoxSizer14 = new wxBoxSizer(wxHORIZONTAL);
 	itemBoxSizer13->Add(itemBoxSizer14, 1, wxGROW | wxALL, 0);
@@ -88,13 +87,13 @@ cEnforcementPanel::cEnforcementPanel(wxFrame*frame) :
 	wxBoxSizer* itemBoxSizer15 = new wxBoxSizer(wxVERTICAL);
 	itemBoxSizer14->Add(itemBoxSizer15, 1, wxGROW | wxALL, 0);
 
-	cMoviePanel* itemPanel16 = new cMoviePanel(itemPanel1, ID_PANEL, wxDefaultPosition, wxSize(300, 230), wxSUNKEN_BORDER | wxTAB_TRAVERSAL);
+	cMoviePanel* itemPanel16 = new cMoviePanel(itemPanel1, ID_PANEL, wxDefaultPosition, wxDefaultSize, wxSIMPLE_BORDER | wxTAB_TRAVERSAL);
 	itemPanel16->SetExtraStyle(wxWS_EX_VALIDATE_RECURSIVELY);
 	itemPanel16->SetBackgroundColour(wxColour(192, 192, 192));
-	itemPanel16->m_GotoNextPanel = PANEL_NONE;
-	itemPanel16->m_isPlay = false;
-	itemBoxSizer15->Add(itemPanel16, 1, wxALIGN_CENTER_HORIZONTAL | wxALL, 5);
+	itemBoxSizer15->Add(itemPanel16, 1, wxGROW | wxALL, 5);
 
+
+	
 	wxBoxSizer* itemBoxSizer17 = new wxBoxSizer(wxHORIZONTAL);
 	itemBoxSizer13->Add(itemBoxSizer17, 0, wxGROW | wxALL, 0);
 
@@ -112,9 +111,9 @@ cEnforcementPanel::cEnforcementPanel(wxFrame*frame) :
 	wxBoxSizer* itemBoxSizer21 = new wxBoxSizer(wxHORIZONTAL);
 	itemBoxSizer20->Add(itemBoxSizer21, 1, wxALIGN_CENTER_HORIZONTAL | wxALL, 0);
 
-	wxStaticText* itemStaticText22 = new wxStaticText(itemPanel19, wxID_STATIC, _("Static text"), wxDefaultPosition, wxDefaultSize, 0);
+	wxStaticText* itemStaticText22 = new wxStaticText(itemPanel19, wxID_STATIC, _("9991"), wxDefaultPosition, wxDefaultSize, 0);
 	itemStaticText22->SetBackgroundColour(wxColour(192, 192, 192));
-	itemStaticText22->SetFont(wxFont(16, wxFONTFAMILY_SWISS, wxFONTSTYLE_NORMAL, wxFONTWEIGHT_BOLD, false, wxT("")));
+	itemStaticText22->SetFont(wxFont(14, wxFONTFAMILY_SWISS, wxFONTSTYLE_NORMAL, wxFONTWEIGHT_NORMAL, false, wxT("")));
 	itemBoxSizer21->Add(itemStaticText22, 1, wxALIGN_CENTER_VERTICAL | wxALL, 1);
 
 	wxBoxSizer* itemBoxSizer23 = new wxBoxSizer(wxVERTICAL);
@@ -131,9 +130,9 @@ cEnforcementPanel::cEnforcementPanel(wxFrame*frame) :
 	wxBoxSizer* itemBoxSizer26 = new wxBoxSizer(wxHORIZONTAL);
 	itemBoxSizer25->Add(itemBoxSizer26, 1, wxALIGN_CENTER_HORIZONTAL | wxALL, 0);
 
-	wxStaticText* itemStaticText27 = new wxStaticText(itemPanel24, wxID_STATIC, _("Static text"), wxDefaultPosition, wxDefaultSize, 0);
+	wxStaticText* itemStaticText27 = new wxStaticText(itemPanel24, wxID_STATIC, _("17:05:25"), wxDefaultPosition, wxDefaultSize, 0);
 	itemStaticText27->SetBackgroundColour(wxColour(192, 192, 192));
-	itemStaticText27->SetFont(wxFont(16, wxFONTFAMILY_SWISS, wxFONTSTYLE_NORMAL, wxFONTWEIGHT_BOLD, false, wxT("")));
+	itemStaticText27->SetFont(wxFont(14, wxFONTFAMILY_SWISS, wxFONTSTYLE_NORMAL, wxFONTWEIGHT_NORMAL, false, wxT("")));
 	itemBoxSizer26->Add(itemStaticText27, 1, wxALIGN_CENTER_VERTICAL | wxALL, 1);
 
 	wxBoxSizer* itemBoxSizer28 = new wxBoxSizer(wxVERTICAL);
@@ -150,9 +149,9 @@ cEnforcementPanel::cEnforcementPanel(wxFrame*frame) :
 	wxBoxSizer* itemBoxSizer31 = new wxBoxSizer(wxHORIZONTAL);
 	itemBoxSizer30->Add(itemBoxSizer31, 1, wxALIGN_CENTER_HORIZONTAL | wxALL, 0);
 
-	wxStaticText* itemStaticText32 = new wxStaticText(itemPanel29, wxID_STATIC, _("Static text"), wxDefaultPosition, wxDefaultSize, 0);
+	wxStaticText* itemStaticText32 = new wxStaticText(itemPanel29, wxID_STATIC, _("124 km/h"), wxDefaultPosition, wxDefaultSize, 0);
 	itemStaticText32->SetBackgroundColour(wxColour(192, 192, 192));
-	itemStaticText32->SetFont(wxFont(16, wxFONTFAMILY_SWISS, wxFONTSTYLE_NORMAL, wxFONTWEIGHT_BOLD, false, wxT("")));
+	itemStaticText32->SetFont(wxFont(14, wxFONTFAMILY_SWISS, wxFONTSTYLE_NORMAL, wxFONTWEIGHT_NORMAL, false, wxT("")));
 	itemBoxSizer31->Add(itemStaticText32, 1, wxALIGN_CENTER_VERTICAL | wxALL, 1);
 
 	wxBoxSizer* itemBoxSizer33 = new wxBoxSizer(wxHORIZONTAL);
@@ -172,9 +171,9 @@ cEnforcementPanel::cEnforcementPanel(wxFrame*frame) :
 	wxBoxSizer* itemBoxSizer37 = new wxBoxSizer(wxHORIZONTAL);
 	itemBoxSizer36->Add(itemBoxSizer37, 1, wxALIGN_CENTER_HORIZONTAL | wxALL, 0);
 
-	wxStaticText* itemStaticText38 = new wxStaticText(itemPanel35, wxID_STATIC, _("Static text"), wxDefaultPosition, wxDefaultSize, 0);
+	wxStaticText* itemStaticText38 = new wxStaticText(itemPanel35, wxID_STATIC, _("Capture\n Speed"), wxDefaultPosition, wxDefaultSize, 0);
 	itemStaticText38->SetForegroundColour(wxColour(255, 255, 128));
-	itemStaticText38->SetFont(wxFont(16, wxFONTFAMILY_SWISS, wxFONTSTYLE_NORMAL, wxFONTWEIGHT_BOLD, false, wxT("")));
+	itemStaticText38->SetFont(wxFont(14, wxFONTFAMILY_SWISS, wxFONTSTYLE_NORMAL, wxFONTWEIGHT_NORMAL, false, wxT("")));
 	itemBoxSizer37->Add(itemStaticText38, 1, wxALIGN_CENTER_VERTICAL | wxALL, 1);
 
 	wxBoxSizer* itemBoxSizer39 = new wxBoxSizer(wxVERTICAL);
@@ -193,7 +192,7 @@ cEnforcementPanel::cEnforcementPanel(wxFrame*frame) :
 
 	wxStaticText* itemStaticText43 = new wxStaticText(itemPanel40, wxID_STATIC, _("Static text"), wxDefaultPosition, wxDefaultSize, 0);
 	itemStaticText43->SetForegroundColour(wxColour(255, 255, 128));
-	itemStaticText43->SetFont(wxFont(16, wxFONTFAMILY_SWISS, wxFONTSTYLE_NORMAL, wxFONTWEIGHT_BOLD, false, wxT("")));
+	itemStaticText43->SetFont(wxFont(14, wxFONTFAMILY_SWISS, wxFONTSTYLE_NORMAL, wxFONTWEIGHT_NORMAL, false, wxT("")));
 	itemBoxSizer42->Add(itemStaticText43, 1, wxALIGN_CENTER_VERTICAL | wxALL, 1);
 
 	wxBoxSizer* itemBoxSizer44 = new wxBoxSizer(wxHORIZONTAL);
@@ -213,9 +212,9 @@ cEnforcementPanel::cEnforcementPanel(wxFrame*frame) :
 	wxBoxSizer* itemBoxSizer48 = new wxBoxSizer(wxHORIZONTAL);
 	itemBoxSizer47->Add(itemBoxSizer48, 1, wxALIGN_CENTER_HORIZONTAL | wxALL, 0);
 
-	wxStaticText* itemStaticText49 = new wxStaticText(itemPanel46, wxID_STATIC, _("Static text"), wxDefaultPosition, wxDefaultSize, 0);
+	wxStaticText* itemStaticText49 = new wxStaticText(itemPanel46, wxID_STATIC, _("Capture\nDistance"), wxDefaultPosition, wxDefaultSize, 0);
 	itemStaticText49->SetForegroundColour(wxColour(255, 255, 128));
-	itemStaticText49->SetFont(wxFont(16, wxFONTFAMILY_SWISS, wxFONTSTYLE_NORMAL, wxFONTWEIGHT_BOLD, false, wxT("")));
+	itemStaticText49->SetFont(wxFont(14, wxFONTFAMILY_SWISS, wxFONTSTYLE_NORMAL, wxFONTWEIGHT_NORMAL, false, wxT("")));
 	itemBoxSizer48->Add(itemStaticText49, 1, wxALIGN_CENTER_VERTICAL | wxALL, 1);
 
 	wxBoxSizer* itemBoxSizer50 = new wxBoxSizer(wxVERTICAL);
@@ -234,13 +233,13 @@ cEnforcementPanel::cEnforcementPanel(wxFrame*frame) :
 
 	wxStaticText* itemStaticText54 = new wxStaticText(itemPanel51, wxID_STATIC, _("Static text"), wxDefaultPosition, wxDefaultSize, 0);
 	itemStaticText54->SetForegroundColour(wxColour(255, 255, 128));
-	itemStaticText54->SetFont(wxFont(16, wxFONTFAMILY_SWISS, wxFONTSTYLE_NORMAL, wxFONTWEIGHT_BOLD, false, wxT("")));
+	itemStaticText54->SetFont(wxFont(14, wxFONTFAMILY_SWISS, wxFONTSTYLE_NORMAL, wxFONTWEIGHT_NORMAL, false, wxT("")));
 	itemBoxSizer53->Add(itemStaticText54, 1, wxALIGN_CENTER_VERTICAL | wxALL, 1);
 
 	wxBoxSizer* itemBoxSizer55 = new wxBoxSizer(wxHORIZONTAL);
 	itemBoxSizer13->Add(itemBoxSizer55, 0, wxALIGN_CENTER_HORIZONTAL | wxALL, 5);
 
-	wxButton* itemButton56 = new wxButton(itemPanel1, ID_BUTTON_DONE, _("Done"), wxDefaultPosition, wxDefaultSize, 0);
+	cBitmap3Button* itemButton56 = new cBitmap3Button(itemPanel1, ID_BUTTON_DONE, _("ref_img/BTN_DONE.png"), wxDefaultPosition, wxDefaultSize, 0);
 	itemBoxSizer55->Add(itemButton56, 0, wxALIGN_CENTER_VERTICAL | wxALL, 5);
 
 	wxBoxSizer* itemBoxSizer57 = new wxBoxSizer(wxVERTICAL);
@@ -249,14 +248,23 @@ cEnforcementPanel::cEnforcementPanel(wxFrame*frame) :
 	wxBoxSizer* itemBoxSizer58 = new wxBoxSizer(wxHORIZONTAL);
 	itemBoxSizer57->Add(itemBoxSizer58, 1, wxGROW | wxALL, 0);
 
-	cMoviePanel* itemPanel59 = new cMoviePanel(itemPanel1, ID_PANEL1, wxDefaultPosition, wxSize(348, 350), wxSUNKEN_BORDER | wxTAB_TRAVERSAL);
+	cMoviePanel* itemPanel59 = new cMoviePanel(itemPanel1, ID_PANEL1, wxDefaultPosition, wxSize(348, 350), wxSIMPLE_BORDER | wxTAB_TRAVERSAL);
 	itemPanel59->SetExtraStyle(wxWS_EX_VALIDATE_RECURSIVELY);
 	itemPanel59->m_GotoNextPanel = PANEL_ENFORCEMENTFULL;
 	itemPanel59->m_isPlay = false;
 	itemBoxSizer58->Add(itemPanel59, 1, wxGROW | wxALL, 5);
 
-	//wxButton* itemButton60 = new wxButton(itemPanel1, ID_BUTTON_FULL, _("Full"), wxDefaultPosition, wxDefaultSize, 0);
-	//itemBoxSizer57->Add(itemButton60, 0, wxALIGN_CENTER_HORIZONTAL | wxALL, 5);
+
+
+	/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+	m_textNumber = itemStaticText22;
+	m_textTime = itemStaticText27;
+	m_textSpeed = itemStaticText32;
+	m_captureSpeed = itemStaticText43;
+	m_captureDistance = itemStaticText54;
+
+	m_cameraPanel = itemPanel16;
+	m_capturePanel = itemPanel59;
 
 }
 

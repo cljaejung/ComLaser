@@ -48,7 +48,6 @@
 #define ID_PANEL8 10012
 #define ID_BUTTON_DONE 10005
 #define ID_PANEL1 10003
-#define ID_BUTTON_FULL 10004
 #define SYMBOL_CENFORCEMENTPANEL_STYLE wxTAB_TRAVERSAL
 #define SYMBOL_CENFORCEMENTPANEL_TITLE _("cEnforcementPanel")
 #define SYMBOL_CENFORCEMENTPANEL_IDNAME ID_CENFORCEMENTPANEL
@@ -100,6 +99,11 @@ public:
     static bool ShowToolTips();
 
 ////@begin cEnforcementPanel member variables
+    wxStaticText* m_textNumber;
+    wxStaticText* m_textTime;
+    wxStaticText* m_textSpeed;
+    wxStaticText* m_captureSpeed;
+    wxStaticText* m_captureDistance;
 ////@end cEnforcementPanel member variables
 };
 

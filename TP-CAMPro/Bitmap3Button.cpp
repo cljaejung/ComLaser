@@ -23,13 +23,13 @@ cBitmap3Button::cBitmap3Button(wxWindow *parent,
 	int x = 0;
 	wxImage img1 = img.GetSubImage(wxRect(wxPoint(x, 0), wxSize(w, h)));
 	x += w;
-	wxImage img3 = img.GetSubImage(wxRect(wxPoint(x, 0), wxSize(w, h)));
-	x += w;
 	wxImage img2 = img.GetSubImage(wxRect(wxPoint(x, 0), wxSize(w, h)));
+	x += w;
+	wxImage img3 = img.GetSubImage(wxRect(wxPoint(x, 0), wxSize(w, h)));
 
 	m_normalImg = img1;
-	m_hoverImg = img2;
-	m_pressImg = img3;
+	m_hoverImg = img3;
+	m_pressImg = img2;
 
 	wxBitmap bmp(w, h);
 	Create(parent, id, bmp, wxDefaultPosition, wxDefaultSize, style, name);

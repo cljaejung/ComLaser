@@ -7,6 +7,7 @@
 #include "Bitmap3Button.h"
 #include "BatteryDisplay.h"
 #include "DateDisplay.h"
+#include "KeyboardDialog.h"
 
 
 enum {
@@ -31,6 +32,9 @@ BEGIN_EVENT_TABLE(cOperatorSetPanel, wxPanel)
 	EVT_BUTTON(ID_BUTTON_OK, cOperatorSetPanel::OnButtonOK)
 	EVT_BUTTON(ID_BUTTON_CANCEL, cOperatorSetPanel::OnButtonCancel)
 	EVT_BUTTON(ID_BUTTON_USERNAME, cOperatorSetPanel::OnButtonUserName)
+	EVT_BUTTON(ID_BUTTON_PASSWORD, cOperatorSetPanel::OnButtonPassWord)
+	EVT_BUTTON(ID_BUTTON_NEWPASSWORD, cOperatorSetPanel::OnButtonNewPassWord)
+	EVT_BUTTON(ID_BUTTON_CONFIRM, cOperatorSetPanel::OnButtonConfirm)
 END_EVENT_TABLE()
 
 
@@ -132,8 +136,8 @@ cOperatorSetPanel::cOperatorSetPanel(wxFrame*frame) :
 	wxBoxSizer* itemBoxSizer26 = new wxBoxSizer(wxVERTICAL);
 	itemBoxSizer23->Add(itemBoxSizer26, 0, wxALIGN_CENTER_VERTICAL | wxALL, 0);
 
-	wxTextCtrl* itemTextCtrl27 = new wxTextCtrl(itemPanel14, ID_TEXTCTRL_PASSWORD, wxEmptyString, wxDefaultPosition, wxSize(200, -1), 0);
-	itemTextCtrl27->SetFont(wxFont(18, wxFONTFAMILY_SWISS, wxFONTSTYLE_NORMAL, wxFONTWEIGHT_NORMAL, false, wxT("Arial")));
+	wxTextCtrl* itemTextCtrl27 = new wxTextCtrl(itemPanel14, ID_TEXTCTRL_PASSWORD, wxEmptyString, wxDefaultPosition, wxSize(200, -1), wxTE_PASSWORD);
+	itemTextCtrl27->SetFont(wxFont(18, wxFONTFAMILY_SWISS, wxFONTSTYLE_NORMAL, wxFONTWEIGHT_NORMAL, false));// , wxT("Arial")));
 	itemBoxSizer26->Add(itemTextCtrl27, 0, wxALIGN_CENTER_HORIZONTAL | wxALL, 0);
 
 	wxBoxSizer* itemBoxSizer28 = new wxBoxSizer(wxVERTICAL);
@@ -155,8 +159,8 @@ cOperatorSetPanel::cOperatorSetPanel(wxFrame*frame) :
 	wxBoxSizer* itemBoxSizer33 = new wxBoxSizer(wxVERTICAL);
 	itemBoxSizer30->Add(itemBoxSizer33, 0, wxALIGN_CENTER_VERTICAL | wxALL, 0);
 
-	wxTextCtrl* itemTextCtrl34 = new wxTextCtrl(itemPanel14, ID_TEXTCTRL_NEWPASSWORD, wxEmptyString, wxDefaultPosition, wxSize(200, -1), 0);
-	itemTextCtrl34->SetFont(wxFont(18, wxFONTFAMILY_SWISS, wxFONTSTYLE_NORMAL, wxFONTWEIGHT_NORMAL, false, wxT("Arial")));
+	wxTextCtrl* itemTextCtrl34 = new wxTextCtrl(itemPanel14, ID_TEXTCTRL_NEWPASSWORD, wxEmptyString, wxDefaultPosition, wxSize(200, -1), wxTE_PASSWORD);
+	itemTextCtrl34->SetFont(wxFont(18, wxFONTFAMILY_SWISS, wxFONTSTYLE_NORMAL, wxFONTWEIGHT_NORMAL, false));// , wxT("Arial")));
 	itemBoxSizer33->Add(itemTextCtrl34, 0, wxALIGN_CENTER_HORIZONTAL | wxALL, 0);
 
 	wxBoxSizer* itemBoxSizer35 = new wxBoxSizer(wxVERTICAL);
@@ -178,8 +182,8 @@ cOperatorSetPanel::cOperatorSetPanel(wxFrame*frame) :
 	wxBoxSizer* itemBoxSizer40 = new wxBoxSizer(wxVERTICAL);
 	itemBoxSizer37->Add(itemBoxSizer40, 0, wxALIGN_CENTER_VERTICAL | wxALL, 0);
 
-	wxTextCtrl* itemTextCtrl41 = new wxTextCtrl(itemPanel14, ID_TEXTCTRL_CONFIRM, wxEmptyString, wxDefaultPosition, wxSize(200, -1), 0);
-	itemTextCtrl41->SetFont(wxFont(18, wxFONTFAMILY_SWISS, wxFONTSTYLE_NORMAL, wxFONTWEIGHT_NORMAL, false, wxT("Arial")));
+	wxTextCtrl* itemTextCtrl41 = new wxTextCtrl(itemPanel14, ID_TEXTCTRL_CONFIRM, wxEmptyString, wxDefaultPosition, wxSize(200, -1), wxTE_PASSWORD);
+	itemTextCtrl41->SetFont(wxFont(18, wxFONTFAMILY_SWISS, wxFONTSTYLE_NORMAL, wxFONTWEIGHT_NORMAL, false));// , wxT("Arial")));
 	itemBoxSizer40->Add(itemTextCtrl41, 0, wxALIGN_CENTER_HORIZONTAL | wxALL, 0);
 
 	wxBoxSizer* itemBoxSizer42 = new wxBoxSizer(wxVERTICAL);
@@ -191,13 +195,13 @@ cOperatorSetPanel::cOperatorSetPanel(wxFrame*frame) :
 	wxBoxSizer* itemBoxSizer44 = new wxBoxSizer(wxHORIZONTAL);
 	itemBoxSizer15->Add(itemBoxSizer44, 1, wxALIGN_CENTER_HORIZONTAL | wxALL, 5);
 
-	wxButton* itemButton45 = new wxButton(itemPanel14, ID_BUTTON_ADD, _("Add"), wxDefaultPosition, wxDefaultSize, 0);
+	cBitmap3Button* itemButton45 = new cBitmap3Button(itemPanel14, ID_BUTTON_ADD, _("ref_img/BTN_ADD.bmp"), wxDefaultPosition, wxDefaultSize, 0);
 	itemBoxSizer44->Add(itemButton45, 0, wxALIGN_BOTTOM | wxALL, 5);
 
-	wxButton* itemButton46 = new wxButton(itemPanel14, ID_BUTTON_DELETE, _("Delete"), wxDefaultPosition, wxDefaultSize, 0);
+	cBitmap3Button* itemButton46 = new cBitmap3Button(itemPanel14, ID_BUTTON_DELETE, _("ref_img/BTN_DELETE.bmp"), wxDefaultPosition, wxDefaultSize, 0);
 	itemBoxSizer44->Add(itemButton46, 0, wxALIGN_BOTTOM | wxALL, 5);
 
-	wxButton* itemButton47 = new wxButton(itemPanel14, ID_BUTTON_CHANGE2, _("Change"), wxDefaultPosition, wxDefaultSize, 0);
+	cBitmap3Button* itemButton47 = new cBitmap3Button(itemPanel14, ID_BUTTON_CHANGE2, _("ref_img/BTN_CHANGE.bmp"), wxDefaultPosition, wxDefaultSize, 0);
 	itemBoxSizer44->Add(itemButton47, 0, wxALIGN_BOTTOM | wxALL, 5);
 
 
@@ -245,5 +249,40 @@ void cOperatorSetPanel::OnButtonUserName(wxCommandEvent &)
 	cCLFrame* frame = dynamic_cast<cCLFrame*>(wxGetTopLevelParent(this));
 	if (!frame)
 		return;
-	frame->ChangePanel(PANEL_LOGIN);
+	//frame->ChangePanel(PANEL_LOGIN);
+	cKeyboardDialog dlg(this);
+	dlg.ShowModal();
+}
+
+
+void cOperatorSetPanel::OnButtonPassWord(wxCommandEvent &)
+{
+	cCLFrame* frame = dynamic_cast<cCLFrame*>(wxGetTopLevelParent(this));
+	if (!frame)
+		return;
+	//frame->ChangePanel(PANEL_LOGIN);
+	cKeyboardDialog dlg(this);
+	dlg.ShowModal();
+}
+
+
+void cOperatorSetPanel::OnButtonNewPassWord(wxCommandEvent &)
+{
+	cCLFrame* frame = dynamic_cast<cCLFrame*>(wxGetTopLevelParent(this));
+	if (!frame)
+		return;
+	//frame->ChangePanel(PANEL_LOGIN);
+	cKeyboardDialog dlg(this);
+	dlg.ShowModal();
+}
+
+
+void cOperatorSetPanel::OnButtonConfirm(wxCommandEvent &)
+{
+	cCLFrame* frame = dynamic_cast<cCLFrame*>(wxGetTopLevelParent(this));
+	if (!frame)
+		return;
+	//frame->ChangePanel(PANEL_LOGIN);
+	cKeyboardDialog dlg(this);
+	dlg.ShowModal();
 }

@@ -140,7 +140,7 @@ void cFileMngPanel::CreateControls()
 
     wxStaticText* itemStaticText7 = new wxStaticText( itemPanel1, wxID_STATIC, _("File Management"), wxDefaultPosition, wxDefaultSize, 0 );
     itemStaticText7->SetForegroundColour(wxColour(255, 255, 255));
-    itemStaticText7->SetFont(wxFont(24, wxFONTFAMILY_SWISS, wxFONTSTYLE_NORMAL, wxFONTWEIGHT_BOLD, false, wxT("")));
+    itemStaticText7->SetFont(wxFont(24, wxFONTFAMILY_SWISS, wxFONTSTYLE_NORMAL, wxFONTWEIGHT_NORMAL, false, wxT("Arial")));
     itemBoxSizer6->Add(itemStaticText7, 0, wxALIGN_CENTER_HORIZONTAL|wxALL, 5);
 
     wxBoxSizer* itemBoxSizer8 = new wxBoxSizer(wxVERTICAL);
@@ -164,6 +164,7 @@ void cFileMngPanel::CreateControls()
 
     wxPanel* itemPanel14 = new wxPanel( itemPanel1, ID_PANEL1, wxDefaultPosition, wxDefaultSize, wxTAB_TRAVERSAL );
     itemPanel14->SetExtraStyle(wxWS_EX_VALIDATE_RECURSIVELY);
+    itemPanel14->SetBackgroundColour(wxColour(192, 192, 192));
     itemBoxSizer13->Add(itemPanel14, 1, wxGROW|wxALL, 0);
 
     wxBoxSizer* itemBoxSizer15 = new wxBoxSizer(wxVERTICAL);
@@ -172,8 +173,8 @@ void cFileMngPanel::CreateControls()
     wxBoxSizer* itemBoxSizer16 = new wxBoxSizer(wxHORIZONTAL);
     itemBoxSizer15->Add(itemBoxSizer16, 1, wxGROW|wxALL, 5);
 
-    m_FileListCtrl = new wxListCtrl( itemPanel14, ID_LISTCTRL, wxDefaultPosition, wxSize(100, 100), wxLC_REPORT );
-    m_FileListCtrl->SetFont(wxFont(16, wxFONTFAMILY_SWISS, wxFONTSTYLE_NORMAL, wxFONTWEIGHT_NORMAL, false, wxT("")));
+    m_FileListCtrl = new wxListCtrl( itemPanel14, ID_LISTCTRL, wxDefaultPosition, wxSize(100, 100), wxLC_REPORT|wxLC_SINGLE_SEL );
+    m_FileListCtrl->SetFont(wxFont(18, wxFONTFAMILY_SWISS, wxFONTSTYLE_NORMAL, wxFONTWEIGHT_NORMAL, false, wxT("Arial")));
     itemBoxSizer16->Add(m_FileListCtrl, 1, wxGROW|wxALL, 5);
 
     wxBoxSizer* itemBoxSizer18 = new wxBoxSizer(wxHORIZONTAL);
@@ -228,44 +229,68 @@ void cFileMngPanel::CreateControls()
     wxBoxSizer* itemBoxSizer34 = new wxBoxSizer(wxHORIZONTAL);
     itemBoxSizer33->Add(itemBoxSizer34, 1, wxGROW|wxALL, 0);
 
-    wxButton* itemButton35 = new wxButton( itemPanel1, ID_BUTTON_MEMCOPY, _("Memory\nCopy"), wxDefaultPosition, wxSize(70, 40), 0 );
-    itemBoxSizer34->Add(itemButton35, 0, wxALIGN_CENTER_VERTICAL|wxALL, 0);
+    wxBoxSizer* itemBoxSizer35 = new wxBoxSizer(wxVERTICAL);
+    itemBoxSizer34->Add(itemBoxSizer35, 0, wxALIGN_CENTER_VERTICAL|wxALL, 0);
 
-    wxBoxSizer* itemBoxSizer36 = new wxBoxSizer(wxHORIZONTAL);
-    itemBoxSizer33->Add(itemBoxSizer36, 1, wxGROW|wxALL, 0);
+    wxButton* itemButton36 = new wxButton( itemPanel1, ID_BUTTON_MEMCOPY, _("Memory\nCopy"), wxDefaultPosition, wxSize(70, 40), 0 );
+    itemBoxSizer35->Add(itemButton36, 0, wxALIGN_CENTER_HORIZONTAL|wxALL, 0);
 
-    wxButton* itemButton37 = new wxButton( itemPanel1, ID_BUTTON_FILETRANSFER, _("File\nTransfer"), wxDefaultPosition, wxSize(70, 40), 0 );
-    itemBoxSizer36->Add(itemButton37, 0, wxALIGN_CENTER_VERTICAL|wxALL, 0);
+    wxStaticText* itemStaticText37 = new wxStaticText( itemPanel1, wxID_STATIC, _("Memory\n  Copy"), wxDefaultPosition, wxDefaultSize, 0 );
+    itemStaticText37->SetForegroundColour(wxColour(255, 255, 255));
+    itemStaticText37->SetFont(wxFont(10, wxFONTFAMILY_SWISS, wxFONTSTYLE_NORMAL, wxFONTWEIGHT_NORMAL, false, wxT("Arial")));
+    itemBoxSizer35->Add(itemStaticText37, 0, wxALIGN_CENTER_HORIZONTAL|wxALL, 0);
 
     wxBoxSizer* itemBoxSizer38 = new wxBoxSizer(wxHORIZONTAL);
     itemBoxSizer33->Add(itemBoxSizer38, 1, wxGROW|wxALL, 0);
 
-    wxButton* itemButton39 = new wxButton( itemPanel1, ID_BUTTON_MEMCLEAR, _("Memory\nClear"), wxDefaultPosition, wxSize(70, 40), 0 );
-    itemBoxSizer38->Add(itemButton39, 0, wxALIGN_CENTER_VERTICAL|wxALL, 0);
+    wxBoxSizer* itemBoxSizer39 = new wxBoxSizer(wxVERTICAL);
+    itemBoxSizer38->Add(itemBoxSizer39, 0, wxALIGN_CENTER_VERTICAL|wxALL, 0);
 
-    wxBoxSizer* itemBoxSizer40 = new wxBoxSizer(wxHORIZONTAL);
-    itemBoxSizer2->Add(itemBoxSizer40, 0, wxALIGN_CENTER_HORIZONTAL|wxALL, 5);
+    wxButton* itemButton40 = new wxButton( itemPanel1, ID_BUTTON_FILETRANSFER, _("File\nTransfer"), wxDefaultPosition, wxSize(70, 40), 0 );
+    itemBoxSizer39->Add(itemButton40, 0, wxALIGN_CENTER_HORIZONTAL|wxALL, 0);
 
-    wxButton* itemButton41 = new wxButton( itemPanel1, ID_BUTTON, _("Button"), wxDefaultPosition, wxDefaultSize, 0 );
-    itemBoxSizer40->Add(itemButton41, 0, wxALIGN_CENTER_VERTICAL|wxALL, 5);
+    wxStaticText* itemStaticText41 = new wxStaticText( itemPanel1, wxID_STATIC, _("   File\nTransfer"), wxDefaultPosition, wxDefaultSize, 0 );
+    itemStaticText41->SetForegroundColour(wxColour(255, 255, 255));
+    itemStaticText41->SetFont(wxFont(10, wxFONTFAMILY_SWISS, wxFONTSTYLE_NORMAL, wxFONTWEIGHT_NORMAL, false, wxT("")));
+    itemBoxSizer39->Add(itemStaticText41, 0, wxALIGN_CENTER_HORIZONTAL|wxALL, 0);
 
-    wxButton* itemButton42 = new wxButton( itemPanel1, ID_BUTTON1, _("Button"), wxDefaultPosition, wxDefaultSize, 0 );
-    itemBoxSizer40->Add(itemButton42, 0, wxALIGN_CENTER_VERTICAL|wxALL, 5);
+    wxBoxSizer* itemBoxSizer42 = new wxBoxSizer(wxHORIZONTAL);
+    itemBoxSizer33->Add(itemBoxSizer42, 1, wxGROW|wxALL, 0);
 
-    wxButton* itemButton43 = new wxButton( itemPanel1, ID_BUTTON2, _("Button"), wxDefaultPosition, wxDefaultSize, 0 );
-    itemBoxSizer40->Add(itemButton43, 0, wxALIGN_CENTER_VERTICAL|wxALL, 5);
+    wxBoxSizer* itemBoxSizer43 = new wxBoxSizer(wxVERTICAL);
+    itemBoxSizer42->Add(itemBoxSizer43, 0, wxALIGN_CENTER_VERTICAL|wxALL, 0);
 
-    wxButton* itemButton44 = new wxButton( itemPanel1, ID_BUTTON3, _("Button"), wxDefaultPosition, wxDefaultSize, 0 );
-    itemBoxSizer40->Add(itemButton44, 0, wxALIGN_CENTER_VERTICAL|wxALL, 5);
+    wxButton* itemButton44 = new wxButton( itemPanel1, ID_BUTTON_MEMCLEAR, _("Memory\nClear"), wxDefaultPosition, wxSize(70, 40), 0 );
+    itemBoxSizer43->Add(itemButton44, 0, wxALIGN_CENTER_HORIZONTAL|wxALL, 0);
 
-    wxButton* itemButton45 = new wxButton( itemPanel1, ID_BUTTON4, _("Button"), wxDefaultPosition, wxDefaultSize, 0 );
-    itemBoxSizer40->Add(itemButton45, 0, wxALIGN_CENTER_VERTICAL|wxALL, 5);
+    wxStaticText* itemStaticText45 = new wxStaticText( itemPanel1, wxID_STATIC, _("Memory\n  Clear"), wxDefaultPosition, wxDefaultSize, 0 );
+    itemStaticText45->SetForegroundColour(wxColour(255, 255, 255));
+    itemStaticText45->SetFont(wxFont(10, wxFONTFAMILY_SWISS, wxFONTSTYLE_NORMAL, wxFONTWEIGHT_NORMAL, false, wxT("")));
+    itemBoxSizer43->Add(itemStaticText45, 0, wxALIGN_CENTER_HORIZONTAL|wxALL, 0);
 
-    wxButton* itemButton46 = new wxButton( itemPanel1, ID_BUTTON5, _("Button"), wxDefaultPosition, wxDefaultSize, 0 );
-    itemBoxSizer40->Add(itemButton46, 0, wxALIGN_CENTER_VERTICAL|wxALL, 5);
+    wxBoxSizer* itemBoxSizer46 = new wxBoxSizer(wxHORIZONTAL);
+    itemBoxSizer2->Add(itemBoxSizer46, 0, wxALIGN_CENTER_HORIZONTAL|wxALL, 5);
 
-    wxButton* itemButton47 = new wxButton( itemPanel1, ID_BUTTON6, _("Button"), wxDefaultPosition, wxDefaultSize, 0 );
-    itemBoxSizer40->Add(itemButton47, 0, wxALIGN_CENTER_VERTICAL|wxALL, 5);
+    wxButton* itemButton47 = new wxButton( itemPanel1, ID_BUTTON, _("Button"), wxDefaultPosition, wxDefaultSize, 0 );
+    itemBoxSizer46->Add(itemButton47, 0, wxALIGN_CENTER_VERTICAL|wxALL, 5);
+
+    wxButton* itemButton48 = new wxButton( itemPanel1, ID_BUTTON1, _("Button"), wxDefaultPosition, wxDefaultSize, 0 );
+    itemBoxSizer46->Add(itemButton48, 0, wxALIGN_CENTER_VERTICAL|wxALL, 5);
+
+    wxButton* itemButton49 = new wxButton( itemPanel1, ID_BUTTON2, _("Button"), wxDefaultPosition, wxDefaultSize, 0 );
+    itemBoxSizer46->Add(itemButton49, 0, wxALIGN_CENTER_VERTICAL|wxALL, 5);
+
+    wxButton* itemButton50 = new wxButton( itemPanel1, ID_BUTTON3, _("Button"), wxDefaultPosition, wxDefaultSize, 0 );
+    itemBoxSizer46->Add(itemButton50, 0, wxALIGN_CENTER_VERTICAL|wxALL, 5);
+
+    wxButton* itemButton51 = new wxButton( itemPanel1, ID_BUTTON4, _("Button"), wxDefaultPosition, wxDefaultSize, 0 );
+    itemBoxSizer46->Add(itemButton51, 0, wxALIGN_CENTER_VERTICAL|wxALL, 5);
+
+    wxButton* itemButton52 = new wxButton( itemPanel1, ID_BUTTON5, _("Button"), wxDefaultPosition, wxDefaultSize, 0 );
+    itemBoxSizer46->Add(itemButton52, 0, wxALIGN_CENTER_VERTICAL|wxALL, 5);
+
+    wxButton* itemButton53 = new wxButton( itemPanel1, ID_BUTTON6, _("Button"), wxDefaultPosition, wxDefaultSize, 0 );
+    itemBoxSizer46->Add(itemButton53, 0, wxALIGN_CENTER_VERTICAL|wxALL, 5);
 
     // Connect events and objects
     itemPanel14->Connect(ID_PANEL1, wxEVT_LEFT_DCLICK, wxMouseEventHandler(cFileMngPanel::OnLeftDClick), NULL, this);

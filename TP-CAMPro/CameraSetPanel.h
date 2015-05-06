@@ -14,6 +14,7 @@ protected:
 	// message handling
 protected:
 	DECLARE_EVENT_TABLE()
+	void OnButtonOK(wxCommandEvent &);
 	void OnButtonCancel(wxCommandEvent &);
 	void OnButtonFull(wxCommandEvent &);
 };

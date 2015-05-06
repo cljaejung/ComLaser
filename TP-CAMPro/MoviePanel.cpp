@@ -17,17 +17,16 @@ END_EVENT_TABLE()
 
 cMoviePanel::cMoviePanel(wxWindow *parent,
 	wxWindowID winid, const wxPoint& pos, const wxSize& size, long style, const wxString& name)
-	: wxPanel(parent, winid, pos, size, style | wxNO_FULL_REPAINT_ON_RESIZE | wxCLIP_CHILDREN, name)
-	, m_backupBitmap(size.GetWidth(), size.GetHeight())
+	: wxPanel(parent, winid, pos, size, style, name)
 {
 
-	cMoviePanel* itemPanel1 = this;
+	//cMoviePanel* itemPanel1 = this;
 
-	wxBoxSizer* itemBoxSizer2 = new wxBoxSizer(wxVERTICAL);
-	itemPanel1->SetSizer(itemBoxSizer2);
+	//wxBoxSizer* itemBoxSizer2 = new wxBoxSizer(wxVERTICAL);
+	//itemPanel1->SetSizer(itemBoxSizer2);
 
-	wxBoxSizer* itemBoxSizer3 = new wxBoxSizer(wxHORIZONTAL);
-	itemBoxSizer2->Add(itemBoxSizer3, 1, wxGROW | wxALL, 0);
+	//wxBoxSizer* itemBoxSizer3 = new wxBoxSizer(wxHORIZONTAL);
+	//itemBoxSizer2->Add(itemBoxSizer3, 1, wxGROW | wxALL, 0);
 
 
 	////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -35,15 +34,13 @@ cMoviePanel::cMoviePanel(wxWindow *parent,
 	m_isActivate = true;
 	m_curImgIndex = 1;
 	m_oldTick = 0;
-	m_GotoNextPanel = PANEL_CAMERAFULL;
-
+	m_GotoNextPanel = PANEL_NONE;
 }
 
 cMoviePanel::~cMoviePanel()
 {
 	m_isActivate = false;
 }
-
 
 
 void cMoviePanel::OnIdle(wxIdleEvent& event)
@@ -66,13 +63,21 @@ void cMoviePanel::OnIdle(wxIdleEvent& event)
 				m_curImgIndex = 1;
 		}
 
+		// resize background bitmap buffer
+		const wxSize clientSize = GetClientSize();
+		if ((clientSize.GetWidth() != m_backupBitmap.GetWidth()) ||
+			(clientSize.GetHeight() != m_backupBitmap.GetHeight()))
+		{
+			m_backupBitmap = wxBitmap(clientSize.GetWidth(), clientSize.GetHeight());
+		}
+
 		// 이미지 로딩.
 		m_currentBitmap.LoadFile(wxString::Format("movie/bmp%d.bmp", m_curImgIndex), wxBITMAP_TYPE_BMP);
 		if (m_currentBitmap.IsOk())
 			m_currentBitmap.Rescale(m_backupBitmap.GetWidth(), m_backupBitmap.GetHeight());
 
 		m_oldTick = global::GetTickCount();
-		
+
 		Refresh(); // 화면을 갱신시킨다.
 	}	
 }
@@ -81,7 +86,7 @@ void cMoviePanel::OnIdle(wxIdleEvent& event)
 // 백그라운드를 다시 그리는 처리는 하지 않는다.
 void cMoviePanel::OnEraseBackground(wxEraseEvent& event)
 {
-//	event.Skip();
+	//event.Skip();
 }
 
 

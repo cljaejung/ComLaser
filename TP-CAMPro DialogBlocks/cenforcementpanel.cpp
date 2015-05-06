@@ -109,6 +109,11 @@ cEnforcementPanel::~cEnforcementPanel()
 void cEnforcementPanel::Init()
 {
 ////@begin cEnforcementPanel member initialisation
+    m_textNumber = NULL;
+    m_textTime = NULL;
+    m_textSpeed = NULL;
+    m_captureSpeed = NULL;
+    m_captureDistance = NULL;
 ////@end cEnforcementPanel member initialisation
 }
 
@@ -168,7 +173,7 @@ void cEnforcementPanel::CreateControls()
     wxBoxSizer* itemBoxSizer15 = new wxBoxSizer(wxVERTICAL);
     itemBoxSizer14->Add(itemBoxSizer15, 1, wxGROW|wxALL, 0);
 
-    wxPanel* itemPanel16 = new wxPanel( itemPanel1, ID_PANEL, wxDefaultPosition, wxSize(300, 230), wxSUNKEN_BORDER|wxTAB_TRAVERSAL );
+    wxPanel* itemPanel16 = new wxPanel( itemPanel1, ID_PANEL, wxDefaultPosition, wxSize(300, 230), wxSIMPLE_BORDER|wxTAB_TRAVERSAL );
     itemPanel16->SetExtraStyle(wxWS_EX_VALIDATE_RECURSIVELY);
     itemPanel16->SetBackgroundColour(wxColour(192, 192, 192));
     itemBoxSizer15->Add(itemPanel16, 1, wxALIGN_CENTER_HORIZONTAL|wxALL, 5);
@@ -190,10 +195,10 @@ void cEnforcementPanel::CreateControls()
     wxBoxSizer* itemBoxSizer21 = new wxBoxSizer(wxHORIZONTAL);
     itemBoxSizer20->Add(itemBoxSizer21, 1, wxALIGN_CENTER_HORIZONTAL|wxALL, 0);
 
-    wxStaticText* itemStaticText22 = new wxStaticText( itemPanel19, wxID_STATIC, _("Static text"), wxDefaultPosition, wxDefaultSize, 0 );
-    itemStaticText22->SetBackgroundColour(wxColour(192, 192, 192));
-    itemStaticText22->SetFont(wxFont(16, wxFONTFAMILY_SWISS, wxFONTSTYLE_NORMAL, wxFONTWEIGHT_BOLD, false, wxT("")));
-    itemBoxSizer21->Add(itemStaticText22, 1, wxALIGN_CENTER_VERTICAL|wxALL, 1);
+    m_textNumber = new wxStaticText( itemPanel19, wxID_STATIC, _("Static text"), wxDefaultPosition, wxDefaultSize, 0 );
+    m_textNumber->SetBackgroundColour(wxColour(192, 192, 192));
+    m_textNumber->SetFont(wxFont(14, wxFONTFAMILY_SWISS, wxFONTSTYLE_NORMAL, wxFONTWEIGHT_NORMAL, false, wxT("Arial")));
+    itemBoxSizer21->Add(m_textNumber, 1, wxALIGN_CENTER_VERTICAL|wxALL, 1);
 
     wxBoxSizer* itemBoxSizer23 = new wxBoxSizer(wxVERTICAL);
     itemBoxSizer17->Add(itemBoxSizer23, 1, wxGROW|wxALL, 1);
@@ -209,10 +214,10 @@ void cEnforcementPanel::CreateControls()
     wxBoxSizer* itemBoxSizer26 = new wxBoxSizer(wxHORIZONTAL);
     itemBoxSizer25->Add(itemBoxSizer26, 1, wxALIGN_CENTER_HORIZONTAL|wxALL, 0);
 
-    wxStaticText* itemStaticText27 = new wxStaticText( itemPanel24, wxID_STATIC, _("Static text"), wxDefaultPosition, wxDefaultSize, 0 );
-    itemStaticText27->SetBackgroundColour(wxColour(192, 192, 192));
-    itemStaticText27->SetFont(wxFont(16, wxFONTFAMILY_SWISS, wxFONTSTYLE_NORMAL, wxFONTWEIGHT_BOLD, false, wxT("")));
-    itemBoxSizer26->Add(itemStaticText27, 1, wxALIGN_CENTER_VERTICAL|wxALL, 1);
+    m_textTime = new wxStaticText( itemPanel24, wxID_STATIC, _("Static text"), wxDefaultPosition, wxDefaultSize, 0 );
+    m_textTime->SetBackgroundColour(wxColour(192, 192, 192));
+    m_textTime->SetFont(wxFont(14, wxFONTFAMILY_SWISS, wxFONTSTYLE_NORMAL, wxFONTWEIGHT_NORMAL, false, wxT("Arial")));
+    itemBoxSizer26->Add(m_textTime, 1, wxALIGN_CENTER_VERTICAL|wxALL, 1);
 
     wxBoxSizer* itemBoxSizer28 = new wxBoxSizer(wxVERTICAL);
     itemBoxSizer17->Add(itemBoxSizer28, 1, wxGROW|wxALL, 1);
@@ -228,10 +233,10 @@ void cEnforcementPanel::CreateControls()
     wxBoxSizer* itemBoxSizer31 = new wxBoxSizer(wxHORIZONTAL);
     itemBoxSizer30->Add(itemBoxSizer31, 1, wxALIGN_CENTER_HORIZONTAL|wxALL, 0);
 
-    wxStaticText* itemStaticText32 = new wxStaticText( itemPanel29, wxID_STATIC, _("Static text"), wxDefaultPosition, wxDefaultSize, 0 );
-    itemStaticText32->SetBackgroundColour(wxColour(192, 192, 192));
-    itemStaticText32->SetFont(wxFont(16, wxFONTFAMILY_SWISS, wxFONTSTYLE_NORMAL, wxFONTWEIGHT_BOLD, false, wxT("")));
-    itemBoxSizer31->Add(itemStaticText32, 1, wxALIGN_CENTER_VERTICAL|wxALL, 1);
+    m_textSpeed = new wxStaticText( itemPanel29, wxID_STATIC, _("Static text"), wxDefaultPosition, wxDefaultSize, 0 );
+    m_textSpeed->SetBackgroundColour(wxColour(192, 192, 192));
+    m_textSpeed->SetFont(wxFont(14, wxFONTFAMILY_SWISS, wxFONTSTYLE_NORMAL, wxFONTWEIGHT_NORMAL, false, wxT("Arial")));
+    itemBoxSizer31->Add(m_textSpeed, 1, wxALIGN_CENTER_VERTICAL|wxALL, 1);
 
     wxBoxSizer* itemBoxSizer33 = new wxBoxSizer(wxHORIZONTAL);
     itemBoxSizer13->Add(itemBoxSizer33, 0, wxGROW|wxALL, 0);
@@ -250,9 +255,9 @@ void cEnforcementPanel::CreateControls()
     wxBoxSizer* itemBoxSizer37 = new wxBoxSizer(wxHORIZONTAL);
     itemBoxSizer36->Add(itemBoxSizer37, 1, wxALIGN_CENTER_HORIZONTAL|wxALL, 0);
 
-    wxStaticText* itemStaticText38 = new wxStaticText( itemPanel35, wxID_STATIC, _("Static text"), wxDefaultPosition, wxDefaultSize, 0 );
+    wxStaticText* itemStaticText38 = new wxStaticText( itemPanel35, wxID_STATIC, _("Capture\n Speed"), wxDefaultPosition, wxDefaultSize, 0 );
     itemStaticText38->SetForegroundColour(wxColour(255, 255, 128));
-    itemStaticText38->SetFont(wxFont(16, wxFONTFAMILY_SWISS, wxFONTSTYLE_NORMAL, wxFONTWEIGHT_BOLD, false, wxT("")));
+    itemStaticText38->SetFont(wxFont(14, wxFONTFAMILY_SWISS, wxFONTSTYLE_NORMAL, wxFONTWEIGHT_NORMAL, false, wxT("Arial")));
     itemBoxSizer37->Add(itemStaticText38, 1, wxALIGN_CENTER_VERTICAL|wxALL, 1);
 
     wxBoxSizer* itemBoxSizer39 = new wxBoxSizer(wxVERTICAL);
@@ -269,10 +274,10 @@ void cEnforcementPanel::CreateControls()
     wxBoxSizer* itemBoxSizer42 = new wxBoxSizer(wxHORIZONTAL);
     itemBoxSizer41->Add(itemBoxSizer42, 1, wxALIGN_CENTER_HORIZONTAL|wxALL, 0);
 
-    wxStaticText* itemStaticText43 = new wxStaticText( itemPanel40, wxID_STATIC, _("Static text"), wxDefaultPosition, wxDefaultSize, 0 );
-    itemStaticText43->SetForegroundColour(wxColour(255, 255, 128));
-    itemStaticText43->SetFont(wxFont(16, wxFONTFAMILY_SWISS, wxFONTSTYLE_NORMAL, wxFONTWEIGHT_BOLD, false, wxT("")));
-    itemBoxSizer42->Add(itemStaticText43, 1, wxALIGN_CENTER_VERTICAL|wxALL, 1);
+    m_captureSpeed = new wxStaticText( itemPanel40, wxID_STATIC, _("Static text"), wxDefaultPosition, wxDefaultSize, 0 );
+    m_captureSpeed->SetForegroundColour(wxColour(255, 255, 128));
+    m_captureSpeed->SetFont(wxFont(14, wxFONTFAMILY_SWISS, wxFONTSTYLE_NORMAL, wxFONTWEIGHT_BOLD, false, wxT("")));
+    itemBoxSizer42->Add(m_captureSpeed, 1, wxALIGN_CENTER_VERTICAL|wxALL, 1);
 
     wxBoxSizer* itemBoxSizer44 = new wxBoxSizer(wxHORIZONTAL);
     itemBoxSizer13->Add(itemBoxSizer44, 0, wxGROW|wxALL, 0);
@@ -291,9 +296,9 @@ void cEnforcementPanel::CreateControls()
     wxBoxSizer* itemBoxSizer48 = new wxBoxSizer(wxHORIZONTAL);
     itemBoxSizer47->Add(itemBoxSizer48, 1, wxALIGN_CENTER_HORIZONTAL|wxALL, 0);
 
-    wxStaticText* itemStaticText49 = new wxStaticText( itemPanel46, wxID_STATIC, _("Static text"), wxDefaultPosition, wxDefaultSize, 0 );
+    wxStaticText* itemStaticText49 = new wxStaticText( itemPanel46, wxID_STATIC, _("Capture\nDistance"), wxDefaultPosition, wxDefaultSize, 0 );
     itemStaticText49->SetForegroundColour(wxColour(255, 255, 128));
-    itemStaticText49->SetFont(wxFont(16, wxFONTFAMILY_SWISS, wxFONTSTYLE_NORMAL, wxFONTWEIGHT_BOLD, false, wxT("")));
+    itemStaticText49->SetFont(wxFont(14, wxFONTFAMILY_SWISS, wxFONTSTYLE_NORMAL, wxFONTWEIGHT_NORMAL, false, wxT("Arial")));
     itemBoxSizer48->Add(itemStaticText49, 1, wxALIGN_CENTER_VERTICAL|wxALL, 1);
 
     wxBoxSizer* itemBoxSizer50 = new wxBoxSizer(wxVERTICAL);
@@ -310,10 +315,10 @@ void cEnforcementPanel::CreateControls()
     wxBoxSizer* itemBoxSizer53 = new wxBoxSizer(wxHORIZONTAL);
     itemBoxSizer52->Add(itemBoxSizer53, 1, wxALIGN_CENTER_HORIZONTAL|wxALL, 0);
 
-    wxStaticText* itemStaticText54 = new wxStaticText( itemPanel51, wxID_STATIC, _("Static text"), wxDefaultPosition, wxDefaultSize, 0 );
-    itemStaticText54->SetForegroundColour(wxColour(255, 255, 128));
-    itemStaticText54->SetFont(wxFont(16, wxFONTFAMILY_SWISS, wxFONTSTYLE_NORMAL, wxFONTWEIGHT_BOLD, false, wxT("")));
-    itemBoxSizer53->Add(itemStaticText54, 1, wxALIGN_CENTER_VERTICAL|wxALL, 1);
+    m_captureDistance = new wxStaticText( itemPanel51, wxID_STATIC, _("Static text"), wxDefaultPosition, wxDefaultSize, 0 );
+    m_captureDistance->SetForegroundColour(wxColour(255, 255, 128));
+    m_captureDistance->SetFont(wxFont(14, wxFONTFAMILY_SWISS, wxFONTSTYLE_NORMAL, wxFONTWEIGHT_NORMAL, false, wxT("Arial")));
+    itemBoxSizer53->Add(m_captureDistance, 1, wxALIGN_CENTER_VERTICAL|wxALL, 1);
 
     wxBoxSizer* itemBoxSizer55 = new wxBoxSizer(wxHORIZONTAL);
     itemBoxSizer13->Add(itemBoxSizer55, 0, wxALIGN_CENTER_HORIZONTAL|wxALL, 5);
@@ -327,12 +332,9 @@ void cEnforcementPanel::CreateControls()
     wxBoxSizer* itemBoxSizer58 = new wxBoxSizer(wxHORIZONTAL);
     itemBoxSizer57->Add(itemBoxSizer58, 1, wxGROW|wxALL, 0);
 
-    wxPanel* itemPanel59 = new wxPanel( itemPanel1, ID_PANEL1, wxDefaultPosition, wxDefaultSize, wxSUNKEN_BORDER|wxTAB_TRAVERSAL );
+    wxPanel* itemPanel59 = new wxPanel( itemPanel1, ID_PANEL1, wxDefaultPosition, wxDefaultSize, wxSIMPLE_BORDER|wxTAB_TRAVERSAL );
     itemPanel59->SetExtraStyle(wxWS_EX_VALIDATE_RECURSIVELY);
     itemBoxSizer58->Add(itemPanel59, 1, wxGROW|wxALL, 5);
-
-    wxButton* itemButton60 = new wxButton( itemPanel1, ID_BUTTON_FULL, _("Full"), wxDefaultPosition, wxDefaultSize, 0 );
-    itemBoxSizer57->Add(itemButton60, 0, wxALIGN_CENTER_HORIZONTAL|wxALL, 5);
 
 ////@end cEnforcementPanel content construction
 }

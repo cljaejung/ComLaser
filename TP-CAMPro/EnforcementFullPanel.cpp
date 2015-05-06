@@ -35,7 +35,7 @@ wxPanel(frame)
 	wxBoxSizer* itemBoxSizer4 = new wxBoxSizer(wxVERTICAL);
 	itemBoxSizer3->Add(itemBoxSizer4, 1, wxGROW | wxALL, 5);
 
-	cMoviePanel* itemPanel5 = new cMoviePanel(itemPanel1, ID_PANEL, wxDefaultPosition, wxSize(580,430), wxSUNKEN_BORDER | wxTAB_TRAVERSAL);
+	cMoviePanel* itemPanel5 = new cMoviePanel(itemPanel1, ID_PANEL, wxDefaultPosition, wxSize(580, 430), wxSIMPLE_BORDER | wxTAB_TRAVERSAL);
 	itemPanel5->SetExtraStyle(wxWS_EX_VALIDATE_RECURSIVELY);
 	itemPanel5->m_GotoNextPanel = PANEL_ENFORCEMENTFULL;
 	itemPanel5->m_isPlay = false;

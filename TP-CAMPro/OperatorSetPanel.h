@@ -20,4 +20,7 @@ protected:
 	void OnButtonOK(wxCommandEvent &);
 	void OnButtonCancel(wxCommandEvent &);
 	void OnButtonUserName(wxCommandEvent &);
+	void OnButtonPassWord(wxCommandEvent &);
+	void OnButtonNewPassWord(wxCommandEvent &);
+	void OnButtonConfirm(wxCommandEvent &);
 };
