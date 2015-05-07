@@ -1,3 +1,7 @@
+//
+// 밧데리 충전 용량 출력 클래스.
+//
+
 #pragma once
 
 
@@ -21,4 +25,5 @@ protected:
 	wxImage m_batteryLevel2;
 	wxImage m_batteryLevel3;
 	wxImage m_batteryLevel4;
+	wxImage m_batteryLevel5;
 };

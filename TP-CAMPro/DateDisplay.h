@@ -5,7 +5,7 @@
 class cDateDisplay : public wxPanel
 {
 public:
-	cDateDisplay(wxWindow *parent, const bool IsSmallSize=false, const wxColour &bgColor=wxColour(0,0,0));
+	cDateDisplay(wxWindow *parent, const bool IsSmallSize=false, const bool IsClickSetDate=false, const wxColour &bgColor=wxColour(0,0,0));
 	virtual ~cDateDisplay();
 
 	void UpdateDate();
@@ -27,6 +27,7 @@ protected:
 	int m_oldYear;
 	bool m_isAM;
 	bool m_isSmallSize; // true 일때 작은 크기로 시간을 출력한다.
+	bool m_isClickSetDate; // true일 때, 클릭하면 날짜 설정화면으로 이동한다.
 
 	DECLARE_EVENT_TABLE()
 	void OnTimer(wxTimerEvent& event);

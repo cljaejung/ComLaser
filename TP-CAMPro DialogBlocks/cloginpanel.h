@@ -23,7 +23,6 @@
  */
 
 ////@begin includes
-#include "wx/combo.h"
 ////@end includes
 
 /*!
@@ -41,10 +40,10 @@
 #define ID_CLOGINPANEL 10000
 #define ID_PANEL 10007
 #define ID_TEXTCTRL 10002
-#define ID_COMBOCTRL 10003
-#define ID_BUTTON 10008
+#define ID_COMBOBOX 10003
+#define ID_BUTTON_USERNAME 10008
 #define ID_TEXTCTRL1 10004
-#define ID_BUTTON_KEYBOARD 10005
+#define ID_BUTTON_PASSWORD 10005
 #define ID_BUTTON_START 10006
 #define ID_BUTTON_EXIT 10001
 #define ID_PANEL1 10009
@@ -99,6 +98,9 @@ public:
     static bool ShowToolTips();
 
 ////@begin cLoginPanel member variables
+    wxTextCtrl* m_textDeviceID;
+    wxComboBox* m_comboUserName;
+    wxTextCtrl* m_textPassWord;
 ////@end cLoginPanel member variables
 };
 

@@ -13,9 +13,10 @@ END_EVENT_TABLE()
 
 
 
-cDateDisplay::cDateDisplay(wxWindow *parent, const bool IsSmallSize, const wxColour &bgColor ) :
+cDateDisplay::cDateDisplay(wxWindow *parent, const bool IsSmallSize, const bool IsClickSetDate, const wxColour &bgColor) :
 	wxPanel(parent)
 	, m_isSmallSize(IsSmallSize)
+	, m_isClickSetDate(IsClickSetDate)
 {
 	cDateDisplay* itemPanel1 = this;
 
@@ -143,8 +144,9 @@ void cDateDisplay::OnLeftDown(wxMouseEvent& event)
 {
 	event.Skip();
 
-	if (m_isSmallSize)
-		return; // 작은 화면일 때는 시간 설정 창으로 가지 않는다.
+	// 날짜 설정 모드일 때만 처리한다.
+	if (!m_isClickSetDate)
+		return;
 
 	cCLFrame* frame = dynamic_cast<cCLFrame*>(wxGetTopLevelParent(this));
 	if (!frame)

@@ -89,6 +89,8 @@ public:
     static bool ShowToolTips();
 
 ////@begin cEnforcementFullPanel member variables
+    wxStaticText* m_captureNumber;
+    wxStaticText* m_captureSpeed;
 ////@end cEnforcementFullPanel member variables
 };
 

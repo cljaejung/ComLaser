@@ -15,6 +15,7 @@ protected:
 	wxStaticText *m_textSpeed;
 	wxStaticText *m_captureSpeed;
 	wxStaticText *m_captureDistance;
+
 	cMoviePanel *m_cameraPanel;
 	cMoviePanel *m_capturePanel;
 

@@ -123,6 +123,7 @@ void MainPanel::CreateControls()
 ////@begin MainPanel content construction
     MainPanel* itemPanel1 = this;
 
+    this->SetBackgroundColour(wxColour(0, 0, 0));
     wxBoxSizer* itemBoxSizer2 = new wxBoxSizer(wxVERTICAL);
     itemPanel1->SetSizer(itemBoxSizer2);
 
@@ -134,6 +135,7 @@ void MainPanel::CreateControls()
 
     wxStaticText* itemStaticText5 = new wxStaticText( itemPanel1, wxID_STATIC, _("TP-CAM Pro\nVER 1.50A"), wxDefaultPosition, wxDefaultSize, 0 );
     itemStaticText5->SetForegroundColour(wxColour(255, 255, 255));
+    itemStaticText5->SetFont(wxFont(14, wxFONTFAMILY_SWISS, wxFONTSTYLE_NORMAL, wxFONTWEIGHT_NORMAL, false, wxT("")));
     itemBoxSizer4->Add(itemStaticText5, 0, wxALIGN_LEFT|wxALL, 5);
 
     wxBoxSizer* itemBoxSizer6 = new wxBoxSizer(wxVERTICAL);

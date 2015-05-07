@@ -44,7 +44,8 @@ cMainPanel::cMainPanel(wxFrame*frame) :
 	itemBoxSizer3->Add(itemBoxSizer4, 1, wxGROW | wxALL, 5);
 
 	wxStaticText* itemStaticText5 = new wxStaticText(itemPanel1, wxID_STATIC, _("TP-CAM Pro\nVER 1.50A"), wxDefaultPosition, wxDefaultSize, 0);
-	itemStaticText5->SetForegroundColour(wxColour(255, 255, 255));
+	itemStaticText5->SetFont(wxFont(14, wxFONTFAMILY_SWISS, wxFONTSTYLE_NORMAL, wxFONTWEIGHT_NORMAL, false, wxT("Arial")));
+	itemStaticText5->SetForegroundColour(wxColour(255, 128, 0));
 	itemBoxSizer4->Add(itemStaticText5, 0, wxALIGN_LEFT | wxALL, 5);
 
 	wxBoxSizer* itemBoxSizer6 = new wxBoxSizer(wxVERTICAL);

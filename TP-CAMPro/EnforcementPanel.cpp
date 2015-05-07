@@ -28,7 +28,6 @@ enum {
 
 BEGIN_EVENT_TABLE(cEnforcementPanel, wxPanel)
 	EVT_BUTTON(ID_BUTTON_DONE, cEnforcementPanel::OnButtonDone)
-	//EVT_BUTTON(ID_BUTTON_FULL, cEnforcementPanel::OnButtonFull)
 END_EVENT_TABLE()
 
 

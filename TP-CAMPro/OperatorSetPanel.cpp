@@ -246,10 +246,6 @@ void cOperatorSetPanel::OnButtonCancel(wxCommandEvent &)
 
 void cOperatorSetPanel::OnButtonUserName(wxCommandEvent &)
 {
-	cCLFrame* frame = dynamic_cast<cCLFrame*>(wxGetTopLevelParent(this));
-	if (!frame)
-		return;
-	//frame->ChangePanel(PANEL_LOGIN);
 	cKeyboardDialog dlg(this);
 	dlg.ShowModal();
 }
@@ -257,10 +253,6 @@ void cOperatorSetPanel::OnButtonUserName(wxCommandEvent &)
 
 void cOperatorSetPanel::OnButtonPassWord(wxCommandEvent &)
 {
-	cCLFrame* frame = dynamic_cast<cCLFrame*>(wxGetTopLevelParent(this));
-	if (!frame)
-		return;
-	//frame->ChangePanel(PANEL_LOGIN);
 	cKeyboardDialog dlg(this);
 	dlg.ShowModal();
 }
@@ -268,10 +260,6 @@ void cOperatorSetPanel::OnButtonPassWord(wxCommandEvent &)
 
 void cOperatorSetPanel::OnButtonNewPassWord(wxCommandEvent &)
 {
-	cCLFrame* frame = dynamic_cast<cCLFrame*>(wxGetTopLevelParent(this));
-	if (!frame)
-		return;
-	//frame->ChangePanel(PANEL_LOGIN);
 	cKeyboardDialog dlg(this);
 	dlg.ShowModal();
 }
@@ -279,10 +267,6 @@ void cOperatorSetPanel::OnButtonNewPassWord(wxCommandEvent &)
 
 void cOperatorSetPanel::OnButtonConfirm(wxCommandEvent &)
 {
-	cCLFrame* frame = dynamic_cast<cCLFrame*>(wxGetTopLevelParent(this));
-	if (!frame)
-		return;
-	//frame->ChangePanel(PANEL_LOGIN);
 	cKeyboardDialog dlg(this);
 	dlg.ShowModal();
 }

@@ -107,6 +107,8 @@ cEnforcementFullPanel::~cEnforcementFullPanel()
 void cEnforcementFullPanel::Init()
 {
 ////@begin cEnforcementFullPanel member initialisation
+    m_captureNumber = NULL;
+    m_captureSpeed = NULL;
 ////@end cEnforcementFullPanel member initialisation
 }
 
@@ -140,18 +142,18 @@ void cEnforcementFullPanel::CreateControls()
     wxButton* itemButton7 = new wxButton( itemPanel1, ID_BUTTON_CANCEL, _("Cancel"), wxDefaultPosition, wxDefaultSize, 0 );
     itemBoxSizer6->Add(itemButton7, 0, wxALIGN_CENTER_HORIZONTAL|wxALL, 5);
 
-    wxStaticText* itemStaticText8 = new wxStaticText( itemPanel1, wxID_STATIC, _("Static text"), wxDefaultPosition, wxDefaultSize, 0 );
-    itemStaticText8->SetForegroundColour(wxColour(255, 255, 128));
-    itemStaticText8->SetFont(wxFont(16, wxFONTFAMILY_SWISS, wxFONTSTYLE_NORMAL, wxFONTWEIGHT_BOLD, false, wxT("")));
-    itemBoxSizer6->Add(itemStaticText8, 0, wxALIGN_CENTER_HORIZONTAL|wxALL, 5);
+    m_captureNumber = new wxStaticText( itemPanel1, wxID_STATIC, _("Static text"), wxDefaultPosition, wxDefaultSize, 0 );
+    m_captureNumber->SetForegroundColour(wxColour(255, 255, 128));
+    m_captureNumber->SetFont(wxFont(18, wxFONTFAMILY_SWISS, wxFONTSTYLE_NORMAL, wxFONTWEIGHT_NORMAL, false, wxT("Arial")));
+    itemBoxSizer6->Add(m_captureNumber, 0, wxALIGN_CENTER_HORIZONTAL|wxALL, 5);
 
     wxStaticBitmap* itemStaticBitmap9 = new wxStaticBitmap( itemPanel1, wxID_STATIC, wxNullBitmap, wxDefaultPosition, wxDefaultSize, 0 );
     itemBoxSizer6->Add(itemStaticBitmap9, 0, wxALIGN_CENTER_HORIZONTAL|wxALL, 5);
 
-    wxStaticText* itemStaticText10 = new wxStaticText( itemPanel1, wxID_STATIC, _("Static text"), wxDefaultPosition, wxDefaultSize, 0 );
-    itemStaticText10->SetForegroundColour(wxColour(255, 255, 128));
-    itemStaticText10->SetFont(wxFont(16, wxFONTFAMILY_SWISS, wxFONTSTYLE_NORMAL, wxFONTWEIGHT_BOLD, false, wxT("")));
-    itemBoxSizer6->Add(itemStaticText10, 0, wxALIGN_CENTER_HORIZONTAL|wxALL, 5);
+    m_captureSpeed = new wxStaticText( itemPanel1, wxID_STATIC, _("Static text"), wxDefaultPosition, wxDefaultSize, 0 );
+    m_captureSpeed->SetForegroundColour(wxColour(255, 255, 128));
+    m_captureSpeed->SetFont(wxFont(18, wxFONTFAMILY_SWISS, wxFONTSTYLE_NORMAL, wxFONTWEIGHT_NORMAL, false, wxT("Arial")));
+    itemBoxSizer6->Add(m_captureSpeed, 0, wxALIGN_CENTER_HORIZONTAL|wxALL, 5);
 
 ////@end cEnforcementFullPanel content construction
 }

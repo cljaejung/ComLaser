@@ -6,23 +6,23 @@
 #include "wx/combobox.h"
 #include "wx/listctrl.h"
 #include "MoviePanel.h"
+#include "Bitmap3Button.h"
 
 
 enum {
-ID_PANEL,
-ID_BUTTON_CANCEL,
+	ID_PANEL,
+	ID_BUTTON_CANCEL,
 };
 
 
 BEGIN_EVENT_TABLE(cEnforcementFullPanel, wxPanel)
-EVT_BUTTON(ID_BUTTON_CANCEL, cEnforcementFullPanel::OnButtonCancel)
+	EVT_BUTTON(ID_BUTTON_CANCEL, cEnforcementFullPanel::OnButtonCancel)
 END_EVENT_TABLE()
 
 
 cEnforcementFullPanel::cEnforcementFullPanel(wxFrame*frame) :
-wxPanel(frame)
+	wxPanel(frame)
 {
-
 	cEnforcementFullPanel* itemPanel1 = this;
 
 	this->SetBackgroundColour(wxColour(0, 0, 0));
@@ -44,27 +44,31 @@ wxPanel(frame)
 	wxBoxSizer* itemBoxSizer6 = new wxBoxSizer(wxVERTICAL);
 	itemBoxSizer3->Add(itemBoxSizer6, 0, wxALIGN_TOP | wxALL, 5);
 
-	wxButton* itemButton7 = new wxButton(itemPanel1, ID_BUTTON_CANCEL, _("Cancel"), wxDefaultPosition, wxDefaultSize, 0);
+	cBitmap3Button* itemButton7 = new cBitmap3Button(itemPanel1, ID_BUTTON_CANCEL, _("ref_img/BTN_X.png"), wxDefaultPosition, wxDefaultSize, 0);
 	itemBoxSizer6->Add(itemButton7, 0, wxALIGN_CENTER_HORIZONTAL | wxALL, 5);
 
-	wxStaticText* itemStaticText8 = new wxStaticText(itemPanel1, wxID_STATIC, _("Static text"), wxDefaultPosition, wxDefaultSize, 0);
+	wxStaticText* itemStaticText8 = new wxStaticText(itemPanel1, wxID_STATIC, _("Static Text"), wxDefaultPosition, wxDefaultSize, 0);
 	itemStaticText8->SetForegroundColour(wxColour(255, 255, 128));
-	itemStaticText8->SetFont(wxFont(16, wxFONTFAMILY_SWISS, wxFONTSTYLE_NORMAL, wxFONTWEIGHT_BOLD, false, wxT("")));
+	itemStaticText8->SetFont(wxFont(18, wxFONTFAMILY_SWISS, wxFONTSTYLE_NORMAL, wxFONTWEIGHT_NORMAL, false, wxT("")));
 	itemBoxSizer6->Add(itemStaticText8, 0, wxALIGN_CENTER_HORIZONTAL | wxALL, 5);
 
 	wxStaticBitmap* itemStaticBitmap9 = new wxStaticBitmap(itemPanel1, wxID_STATIC, wxNullBitmap, wxDefaultPosition, wxDefaultSize, 0);
 	itemBoxSizer6->Add(itemStaticBitmap9, 0, wxALIGN_CENTER_HORIZONTAL | wxALL, 5);
 
-	wxStaticText* itemStaticText10 = new wxStaticText(itemPanel1, wxID_STATIC, _("Static text"), wxDefaultPosition, wxDefaultSize, 0);
+	wxStaticText* itemStaticText10 = new wxStaticText(itemPanel1, wxID_STATIC, _("Static Text"), wxDefaultPosition, wxDefaultSize, 0);
 	itemStaticText10->SetForegroundColour(wxColour(255, 255, 128));
-	itemStaticText10->SetFont(wxFont(16, wxFONTFAMILY_SWISS, wxFONTSTYLE_NORMAL, wxFONTWEIGHT_BOLD, false, wxT("")));
+	itemStaticText10->SetFont(wxFont(18, wxFONTFAMILY_SWISS, wxFONTSTYLE_NORMAL, wxFONTWEIGHT_NORMAL, false, wxT("")));
 	itemBoxSizer6->Add(itemStaticText10, 0, wxALIGN_CENTER_HORIZONTAL | wxALL, 5);
 
-}
 
-cEnforcementFullPanel::~cEnforcementFullPanel()
-{
 
+	//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+	m_captureNumber = itemStaticText8;
+	m_captureSpeed = itemStaticText10;
+	m_captureImage = itemStaticBitmap9;
+
+
+	UpdatePanel("9991", "124 km/h", "movie/bmp1.bmp");
 }
 
 
@@ -74,4 +78,20 @@ void cEnforcementFullPanel::OnButtonCancel(wxCommandEvent &)
 	if (!frame)
 		return;
 	frame->ChangePanel(PANEL_ENFORCEMENT);
+}
+
+
+// 정보를 업데이트 한다.
+void cEnforcementFullPanel::UpdatePanel(const wxString &captureNumber, const wxString &captureSpeed, const wxString &fileName)
+{
+	m_captureNumber->SetLabel(captureNumber);
+	m_captureSpeed->SetLabel(captureSpeed);
+
+	wxImage img(fileName);
+	wxImage scaleImg = img.Scale(100, 80);
+	m_captureImage->SetBitmap(wxBitmap(scaleImg));
+
+	Refresh();
+	Layout();
+	Fit();
 }

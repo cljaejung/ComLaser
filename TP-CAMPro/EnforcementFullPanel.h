@@ -5,13 +5,14 @@ class cEnforcementFullPanel : public wxPanel
 {
 public:
 	cEnforcementFullPanel(wxFrame*frame);
-	virtual ~cEnforcementFullPanel();
+
+	void UpdatePanel(const wxString &captureNumber, const wxString &captureSpeed, const wxString &fileName);
 
 
 protected:
-
-
-public:
+	wxStaticText *m_captureNumber;
+	wxStaticText *m_captureSpeed;
+	wxStaticBitmap *m_captureImage;
 
 
 	// message handling

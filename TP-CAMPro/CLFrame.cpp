@@ -51,7 +51,7 @@ END_EVENT_TABLE()
 
 // frame constructor
 cCLFrame::cCLFrame(const wxString& title)
-	: wxFrame(NULL, wxID_ANY, title, wxDefaultPosition, wxSize(720,480), 0)
+: wxFrame(NULL, wxID_ANY, title, wxDefaultPosition, wxSize(720, 480), 0)
 {
 	// set the frame icon
 	SetIcon(wxICON(sample));
@@ -100,7 +100,7 @@ cCLFrame::cCLFrame(const wxString& title)
 	itemBoxSizer2->Add(m_enforcementFullPanel, 1, wxEXPAND);
 	//itemBoxSizer2->Add(moviePanel, 1, wxEXPAND); // test panel
 
-	ChangePanel(PANEL_MAIN);
+	ChangePanel(PANEL_LOGIN);
 
 	//m_mainPanel->Hide(); // test panel
 
