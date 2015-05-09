@@ -56,7 +56,7 @@ cCLFrame::cCLFrame(const wxString& title)
 	// set the frame icon
 	SetIcon(wxICON(sample));
 
-	SetBackgroundColour(wxColour("Black"));
+	SetBackgroundColour(wxColour(_("Black")));
 
 	m_loginPanel = NULL;
 	m_operatorPanel = NULL;

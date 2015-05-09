@@ -11,32 +11,20 @@ cBitmap3Button::cBitmap3Button(wxWindow *parent,
 	const wxSize& size,
 	long style,
 	const wxString& name)
-	//: wxStaticBitmap(parent, id, wxNullBitmap, pos, size, style, name)
+	: m_isPressed(false)
+	, m_isEnterWindow(false)
 {
-	m_isPressed = false;
-	m_isEnterWindow = false;
 
 	wxImage img(fileName);
 	const int w = img.GetWidth() / 3;
 	const int h = img.GetHeight();
 
-	int x = 0;
-	wxImage img1 = img.GetSubImage(wxRect(wxPoint(x, 0), wxSize(w, h)));
-	x += w;
-	wxImage img2 = img.GetSubImage(wxRect(wxPoint(x, 0), wxSize(w, h)));
-	x += w;
-	wxImage img3 = img.GetSubImage(wxRect(wxPoint(x, 0), wxSize(w, h)));
-
-	m_normalImg = img1;
-	m_hoverImg = img3;
-	m_pressImg = img2;
-
 	wxBitmap bmp(w, h);
 	Create(parent, id, bmp, wxDefaultPosition, wxDefaultSize, style, name);
-	SetBitmap(img1);
-	Refresh();
-	Layout();
-	Fit();
+
+	// 버튼이미지 업데이트
+	SetButtonBitmap(fileName);
+
 
 	Connect(wxEVT_ERASE_BACKGROUND, wxEraseEventHandler(cBitmap3Button::OnEraseBackground), NULL, this);
 	Connect(wxEVT_LEFT_DOWN, wxMouseEventHandler(cBitmap3Button::OnLeftDown), NULL, this);
@@ -97,5 +85,26 @@ void cBitmap3Button::OnEraseBackground(wxEraseEvent& event)
 {
 	// 깝빡거림 방지.
 	//event.Skip();
+}
+
+
+// 버튼 이미지를 설정한다.
+void cBitmap3Button::SetButtonBitmap(const wxString &fileName)
+{
+	wxImage img(fileName);
+	const int w = img.GetWidth() / 3;
+	const int h = img.GetHeight();
+
+	int x = 0;
+	m_normalImg = img.GetSubImage(wxRect(wxPoint(x, 0), wxSize(w, h)));
+	x += w;
+	m_pressImg = img.GetSubImage(wxRect(wxPoint(x, 0), wxSize(w, h)));
+	x += w;
+	m_hoverImg = img.GetSubImage(wxRect(wxPoint(x, 0), wxSize(w, h)));
+
+	SetBitmap(m_normalImg);
+	Refresh();
+	Layout();
+	Fit();
 }
 

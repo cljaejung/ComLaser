@@ -59,6 +59,7 @@ MINIMAL_OBJECTS =  \
 	MainPanel.o \
 	OperatorSetPanel.o \
 	Bitmap3Button.o \
+	Bitmap2Button.o \
 	CameraFullPanel.o \
 	CameraSetPanel.o \
 	DateSetPanel.o \
@@ -255,6 +256,7 @@ CLFrame.o: $(srcdir)/CLFrame.cpp $(srcdir)/stdafx.h
 MainPanel.o: $(srcdir)/MainPanel.cpp $(srcdir)/CLFrame.h $(srcdir)/Bitmap3Button.h $(srcdir)/BatteryDisplay.h $(srcdir)/DateDisplay.h $(srcdir)/stdafx.h
 OperatorSetPanel.o: $(srcdir)/OperatorSetPanel.cpp $(srcdir)/CLFrame.h $(srcdir)/stdafx.h
 Bitmap3Button.o: $(srcdir)/Bitmap3Button.cpp $(srcdir)/Bitmap3Button.h $(srcdir)/CLFrame.h $(srcdir)/stdafx.h
+Bitmap2Button.o: $(srcdir)/Bitmap2Button.cpp $(srcdir)/Bitmap2Button.h $(srcdir)/CLFrame.h $(srcdir)/stdafx.h
 CameraFullPanel.o: $(srcdir)/CameraFullPanel.cpp $(srcdir)/CameraFullPanel.h $(srcdir)/CLFrame.h $(srcdir)/stdafx.h
 CameraSetPanel.o: $(srcdir)/CameraSetPanel.cpp $(srcdir)/CameraSetPanel.h $(srcdir)/CLFrame.h $(srcdir)/stdafx.h
 DateSetPanel.o: $(srcdir)/DateSetPanel.cpp $(srcdir)/DateSetPanel.h $(srcdir)/CLFrame.h $(srcdir)/stdafx.h

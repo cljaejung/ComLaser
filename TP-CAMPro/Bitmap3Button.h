@@ -1,3 +1,8 @@
+// 비트맵 버튼 클래스
+//
+// 3개의 연속된 버튼이미지를 각각 Normal, Pressed, Hover 상태의 
+// 버튼 이미지로 화면에 출력한다.
+//
 #pragma once
 
 
@@ -11,6 +16,8 @@ public:
 		const wxSize& size = wxDefaultSize,
 		long style = 0,
 		const wxString& name = wxStaticBitmapNameStr);
+
+	void SetButtonBitmap(const wxString &fileName);
 
 
 protected:

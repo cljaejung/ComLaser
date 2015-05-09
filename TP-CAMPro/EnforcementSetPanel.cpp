@@ -236,7 +236,7 @@ void cEnforcementSetPanel::OnButtonLimitSpeed(wxCommandEvent &)
 	m_editLimitSpeed->GetValue().ToLong(&initValue);
 	cNumberPadDialog dlg(this, initValue);
 	if (wxID_OK == dlg.ShowModal())
-		m_editLimitSpeed->SetValue(wxString::Format("%d", dlg.GetNumber()));
+		m_editLimitSpeed->SetValue(wxString::Format(_("%d"), dlg.GetNumber()));
 }
 
 
@@ -250,7 +250,7 @@ void cEnforcementSetPanel::OnButtonCaptureSpeed(wxCommandEvent &)
 	m_editCaptureSpeed->GetValue().ToLong(&initValue);
 	cNumberPadDialog dlg(this, initValue);
 	if (wxID_OK == dlg.ShowModal())
-		m_editCaptureSpeed->SetValue(wxString::Format("%d", dlg.GetNumber()));
+		m_editCaptureSpeed->SetValue(wxString::Format(_("%d"), dlg.GetNumber()));
 }
 
 
@@ -264,7 +264,7 @@ void cEnforcementSetPanel::OnButtonCaptureDistance(wxCommandEvent &)
 	m_editCaptureDistance->GetValue().ToLong(&initValue);
 	cNumberPadDialog dlg(this, initValue);
 	if (wxID_OK == dlg.ShowModal())
-		m_editCaptureDistance->SetValue(wxString::Format("%d", dlg.GetNumber()));
+		m_editCaptureDistance->SetValue(wxString::Format(_("%d"), dlg.GetNumber()));
 }
 
 

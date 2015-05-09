@@ -175,13 +175,19 @@ wxPanel(frame)
 	m_comboUserName = itemComboCtrl23;
 	m_textPassWord = itemTextCtrl29;
 
-	SetDeviceID("M305624");
+	//SetDeviceID("M305624");
+	SetDeviceID( _("¢ª¡¤¡î¡À¢½¢¾¡Ù¡Ú") );
+
 }
 
 
 void cLoginPanel::SetDeviceID(const wxString &deviceID)
 {
-	m_textDeviceID->SetValue(deviceID);
+	wxUSE_UNICODE;
+
+	wxChar aa[] = L"aaa";
+	//m_textDeviceID->SetValue(deviceID);
+	m_textDeviceID->SetValue(aa);
 }
 
 
@@ -205,13 +211,19 @@ void cLoginPanel::OnButtonStart(wxCommandEvent &)
 
 void cLoginPanel::OnButtonUserName(wxCommandEvent &)
 {
-	cKeyboardDialog dlg(this);
-	dlg.ShowModal();
+	cKeyboardDialog dlg(this, m_comboUserName->GetValue());
+	if (wxID_OK == dlg.ShowModal())
+	{
+		m_comboUserName->SetValue(dlg.m_text);
+	}
 }
 
 
 void cLoginPanel::OnButtonPassWord(wxCommandEvent &)
 {
-	cKeyboardDialog dlg(this);
-	dlg.ShowModal();
+	cKeyboardDialog dlg(this, m_textPassWord->GetValue(), true);
+	if (wxID_OK == dlg.ShowModal())
+	{
+		m_textPassWord->SetValue(dlg.m_text);
+	}
 }

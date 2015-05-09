@@ -68,7 +68,7 @@ cEnforcementFullPanel::cEnforcementFullPanel(wxFrame*frame) :
 	m_captureImage = itemStaticBitmap9;
 
 
-	UpdatePanel("9991", "124 km/h", "movie/bmp1.bmp");
+	UpdatePanel(_("9991"), _("124 km/h"), _("movie/bmp1.bmp"));
 }
 
 

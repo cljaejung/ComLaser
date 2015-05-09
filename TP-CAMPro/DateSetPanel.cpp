@@ -95,7 +95,7 @@ wxPanel(frame)
 	wxBoxSizer* itemBoxSizer12 = new wxBoxSizer(wxHORIZONTAL);
 	itemBoxSizer11->Add(itemBoxSizer12, 0, wxALIGN_LEFT | wxALL, 5);
 
-	wxImage image1("ref_img/clock.png");
+	wxImage image1(_("ref_img/clock.png"));
 	wxImage image2 = image1.Scale(30, 30);
 	wxStaticBitmap* itemStaticBitmap13 = new wxStaticBitmap(itemPanel10, wxID_STATIC, wxBitmap(image2), wxDefaultPosition, wxDefaultSize, 0);
 	itemBoxSizer12->Add(itemStaticBitmap13, 0, wxALIGN_CENTER_VERTICAL | wxALL, 5);
@@ -260,11 +260,11 @@ void cDateSetPanel::UpdateCurrentTime(const wxDateTime &dt)
 
 	wxString strMonth = dt.GetMonthName(dt.GetMonth(), wxDateTime::Name_Abbr);
 	m_btnMonth->SetLabel(strMonth);
-	m_btnDay->SetLabel(wxString::Format("%d", dt.GetDay()));
-	m_btnYear->SetLabel(wxString::Format("%d", dt.GetYear()));
+	m_btnDay->SetLabel(wxString::Format(_("%d"), dt.GetDay()));
+	m_btnYear->SetLabel(wxString::Format(_("%d"), dt.GetYear()));
 
-	m_btnHour->SetLabel(wxString::Format("%d", dt.GetHour()));
-	m_btnMinutes->SetLabel(wxString::Format("%d", dt.GetMinute()));
+	m_btnHour->SetLabel(wxString::Format(_("%d"), dt.GetHour()));
+	m_btnMinutes->SetLabel(wxString::Format(_("%d"), dt.GetMinute()));
 	//m_btnTime->SetLabel(_("AM"));
 
 	m_Month = dt.GetMonth();

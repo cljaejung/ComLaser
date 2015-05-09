@@ -9,11 +9,13 @@ enum
 };
 
 
-cKeyboardDialog::cKeyboardDialog(wxWindow *parent) :
-	wxDialog(parent, wxID_ANY, "KeyBoard", wxDefaultPosition, wxSize(710,200), 
-		wxDEFAULT_DIALOG_STYLE | wxRESIZE_BORDER)
+cKeyboardDialog::cKeyboardDialog(wxWindow *parent, const wxString &initialText, 
+	const bool IsPassword, const int maximumChar) 
+	: wxDialog(parent, wxID_ANY, _("KeyBoard"), wxDefaultPosition, wxSize(720,360), 0)
 {
 	cKeyboardDialog* itemDialog1 = this;
+
+	this->SetBackgroundColour(wxColour(0, 0, 0));
 
 	wxBoxSizer* itemBoxSizer2 = new wxBoxSizer(wxVERTICAL);
 	itemDialog1->SetSizer(itemBoxSizer2);
@@ -21,9 +23,27 @@ cKeyboardDialog::cKeyboardDialog(wxWindow *parent) :
 	wxBoxSizer* itemBoxSizer3 = new wxBoxSizer(wxHORIZONTAL);
 	itemBoxSizer2->Add(itemBoxSizer3, 1, wxGROW | wxALL, 0);
 
-	wxPanel* itemPanel4 = new cKeyboardEngPanel(itemDialog1);
+	cKeyboardEngPanel* itemPanel4 = new cKeyboardEngPanel(itemDialog1, initialText, IsPassword, maximumChar);
 	itemPanel4->SetExtraStyle(wxWS_EX_VALIDATE_RECURSIVELY);
 	itemBoxSizer3->Add(itemPanel4, 0, wxGROW | wxALL, 0);
 
-	Center();
+
+
+	///////////////////////////////////////////////////////////////////////////////////////////////////////
+	m_keyboardPanel = itemPanel4;
+
+	//Center();
+	wxPoint parentPos = GetParent()->ClientToScreen(wxPoint(0, 0));
+	Move(wxPoint(0, 118) + parentPos);
+
+}
+
+
+// 키보드 입력이 끝나면 호출된다. 
+// keyboardPanel 에서 호출함.
+void cKeyboardDialog::KeyboardInputFinish()
+{
+	m_text = m_keyboardPanel->m_textCtrl->GetValue();
+
+	EndDialog(wxID_OK);
 }

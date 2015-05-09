@@ -9,6 +9,11 @@
 
 //#include "targetver.h"
 
+#ifndef _UNICODE
+	#define _UNICODE
+#endif
+
+
 #include <stdio.h>
 //#include <tchar.h>
 

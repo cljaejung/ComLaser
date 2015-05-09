@@ -21,6 +21,7 @@ bool cCLApp::OnInit()
 
 	cCLFrame *frame = new cCLFrame(_T("TP-CAM Pro"));
 	frame->Show(true);
+	//frame->Maximize();
 	//frame->ShowFullScreen(true);
 	return true;
 }

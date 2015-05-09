@@ -7,14 +7,14 @@
 struct sCaptureImage
 {
 	int id;
-	string fileName;
+	wxString fileName;
 	float speed;
-	string time;
+	wxString time;
 
 
 
 	sCaptureImage() {}
-	sCaptureImage(int  id0, const string &fileName0, const float speed0, const string &time0) :
+	sCaptureImage(int  id0, const wxString &fileName0, const float speed0, const wxString &time0) :
 		id(id0), fileName(fileName0), speed(speed0), time(time0) {
 	}
 

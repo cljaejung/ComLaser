@@ -80,6 +80,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="BatteryDisplay.h" />
+    <ClInclude Include="Bitmap2Button.h" />
     <ClInclude Include="Bitmap3Button.h" />
     <ClInclude Include="CameraFullPanel.h" />
     <ClInclude Include="CameraSetPanel.h" />
@@ -107,6 +108,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="BatteryDisplay.cpp" />
+    <ClCompile Include="Bitmap2Button.cpp" />
     <ClCompile Include="Bitmap3Button.cpp" />
     <ClCompile Include="CameraFullPanel.cpp" />
     <ClCompile Include="CameraSetPanel.cpp" />

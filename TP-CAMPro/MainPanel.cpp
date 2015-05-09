@@ -109,7 +109,7 @@ cMainPanel::cMainPanel(wxFrame*frame) :
 	itemBoxSizer13->Add(itemButton15, 0, wxALIGN_CENTER_VERTICAL | wxALL, 5);
 	*/
 
-	SetBackgroundColour(wxColour("Black"));
+	SetBackgroundColour(wxColour(_("Black")));
 
 	Connect(wxEVT_ERASE_BACKGROUND, wxEraseEventHandler(cMainPanel::OnEraseBackground), NULL, this);
 }

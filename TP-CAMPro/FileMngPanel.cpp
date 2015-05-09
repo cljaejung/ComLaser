@@ -200,9 +200,9 @@ wxPanel(frame)
 	//////////////////////////////////////////////////////////////////////////
 	m_selectItem = -1;
 
-	m_FileListCtrl->InsertColumn(0, "Num");
-	m_FileListCtrl->InsertColumn(1, "Time");
-	m_FileListCtrl->InsertColumn(2, "Speed");
+	m_FileListCtrl->InsertColumn(0, _("Num"));
+	m_FileListCtrl->InsertColumn(1, _("Time"));
+	m_FileListCtrl->InsertColumn(2, _("Speed"));
 	m_FileListCtrl->SetColumnWidth(0, 65);
 	m_FileListCtrl->SetColumnWidth(1, 100);
 	m_FileListCtrl->SetColumnWidth(2, 105);
@@ -215,9 +215,9 @@ wxPanel(frame)
 	while (it != m_captureImages.end())
 	{
 		const int idx = id;
-		m_FileListCtrl->InsertItem(idx, wxString::Format("%d", id+1));
+		m_FileListCtrl->InsertItem(idx, wxString::Format(_("%d"), id+1));
 		m_FileListCtrl->SetItem(idx, 1, it->time);
-		m_FileListCtrl->SetItem(idx, 2, wxString::Format("%1.0fKm/h", it->speed));
+		m_FileListCtrl->SetItem(idx, 2, wxString::Format(_("%1.0fKm/h"), it->speed));
 		m_FileListCtrl->SetItemData(idx, idx);
 
 		++it;
@@ -239,9 +239,9 @@ cFileMngPanel::~cFileMngPanel()
 bool cFileMngPanel::ReadCaptureFiles()
 {
 	m_captureImages.reserve(128);
-	m_captureImages.push_back(sCaptureImage(0, "capture/Koala.jpg", 124, "17:05:25"));
-	m_captureImages.push_back(sCaptureImage(1, "capture/Lighthouse.jpg", 224, "17:05:25"));
-	m_captureImages.push_back(sCaptureImage(2, "capture/Penguins.jpg", 324, "17:05:25"));
+	m_captureImages.push_back(sCaptureImage(0, _("capture/Koala.jpg"), 124, _("17:05:25")));
+	m_captureImages.push_back(sCaptureImage(1, _("capture/Lighthouse.jpg"), 224, _("17:05:25")));
+	m_captureImages.push_back(sCaptureImage(2, _("capture/Penguins.jpg"), 324, _("17:05:25")));
 
 	return true;
 }
