@@ -11,7 +11,7 @@ enum
 
 cKeyboardDialog::cKeyboardDialog(wxWindow *parent, const wxString &initialText, 
 	const bool IsPassword, const int maximumChar) 
-	: wxDialog(parent, wxID_ANY, _("KeyBoard"), wxDefaultPosition, wxSize(720,360), 0)
+	: wxDialog(parent, wxID_ANY, _("KeyBoard"), wxDefaultPosition, wxSize(720,392), 0)
 {
 	cKeyboardDialog* itemDialog1 = this;
 

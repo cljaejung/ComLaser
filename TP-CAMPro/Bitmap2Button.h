@@ -26,22 +26,21 @@ public:
 
 
 protected:
+	wxString GetFileExt();
+	void OnEraseBackground(wxEraseEvent&);
+	void OnEnterWindow(wxMouseEvent& event);
+	void OnLeaveWindow(wxMouseEvent& event);
+	void OnLeftDown(wxMouseEvent& event);
+	void OnLeftUp(wxMouseEvent& event);
+
+
+protected:
 	wxImage m_normalImg;
 	wxImage m_hoverImg;
 	bool m_isPressed;
 	bool m_isEnterWindow;
 
 	BUTTON2_TYPE::TYPE m_buttonImgType;
-
-
-protected:
-	wxString GetFileExt();
-
-	void OnEraseBackground(wxEraseEvent&);
-	void OnEnterWindow(wxMouseEvent& event);
-	void OnLeaveWindow(wxMouseEvent& event);
-	void OnLeftDown(wxMouseEvent& event);
-	void OnLeftUp(wxMouseEvent& event);
 };
 
 

@@ -108,6 +108,7 @@ void cFileMngFullPanel::Init()
 {
 ////@begin cFileMngFullPanel member initialisation
     m_Image = NULL;
+    m_sliderImage = NULL;
 ////@end cFileMngFullPanel member initialisation
 }
 
@@ -159,8 +160,8 @@ void cFileMngFullPanel::CreateControls()
     wxBoxSizer* itemBoxSizer13 = new wxBoxSizer(wxVERTICAL);
     itemBoxSizer10->Add(itemBoxSizer13, 1, wxGROW|wxALL, 0);
 
-    wxSlider* itemSlider14 = new wxSlider( itemPanel1, ID_SLIDER_AVI, 0, 0, 100, wxDefaultPosition, wxDefaultSize, wxSL_HORIZONTAL );
-    itemBoxSizer13->Add(itemSlider14, 1, wxGROW|wxALL, 0);
+    m_sliderImage = new wxSlider( itemPanel1, ID_SLIDER_IMAGE, 0, 0, 100, wxDefaultPosition, wxDefaultSize, wxSL_HORIZONTAL );
+    itemBoxSizer13->Add(m_sliderImage, 1, wxGROW|wxALL, 0);
 
     wxBoxSizer* itemBoxSizer15 = new wxBoxSizer(wxVERTICAL);
     itemBoxSizer10->Add(itemBoxSizer15, 0, wxALIGN_CENTER_VERTICAL|wxALL, 0);

@@ -113,7 +113,7 @@ wxPanel(frame)
 	itemBoxSizer20->Add(itemBoxSizer22, 1, wxALIGN_CENTER_VERTICAL | wxALL, 0);
 
 	wxArrayString itemComboBox23Strings;
-	wxComboBox* itemComboCtrl23 = new wxComboBox(itemPanel10, ID_COMBOBOX, wxEmptyString, wxDefaultPosition, wxSize(270, 32), itemComboBox23Strings, wxCB_DROPDOWN);
+	wxComboBox* itemComboCtrl23 = new wxComboBox(itemPanel10, ID_COMBOBOX, _("police"), wxDefaultPosition, wxSize(270, 32), itemComboBox23Strings, wxCB_DROPDOWN);
 	itemComboCtrl23->SetFont(wxFont(18, wxFONTFAMILY_SWISS, wxFONTSTYLE_NORMAL, wxFONTWEIGHT_NORMAL, false, wxT("")));
 	itemBoxSizer22->Add(itemComboCtrl23, 1, wxALIGN_RIGHT | wxALL, 0);
 	
@@ -146,7 +146,7 @@ wxPanel(frame)
 	wxBoxSizer* itemBoxSizer32 = new wxBoxSizer(wxVERTICAL);
 	itemBoxSizer12->Add(itemBoxSizer32, 0, wxALIGN_CENTER_HORIZONTAL | wxALL, 5);
 
-	wxImage img(_("ref_img/start_1.png"));
+	wxImage img(_("ref_img/ComLaser_login_logo.bmp"));
 	wxStaticBitmap* itemStaticBitmap33 = new wxStaticBitmap(itemPanel10, wxID_STATIC, 
 		wxBitmap(img), wxDefaultPosition, wxDefaultSize, 0);
 	itemBoxSizer32->Add(itemStaticBitmap33, 0, wxALIGN_CENTER_HORIZONTAL | wxALL, 0);
@@ -156,7 +156,7 @@ wxPanel(frame)
 	wxBoxSizer* itemBoxSizer41 = new wxBoxSizer(wxVERTICAL);
 	itemBoxSizer8->Add(itemBoxSizer41, 0, wxALIGN_BOTTOM  | wxLEFT | wxRIGHT | wxTOP, 5);
 
-	cBitmap2Button* itemButton42 = new cBitmap2Button(itemPanel1, ID_BUTTON_START, _("ref_img/Button 1"), wxDefaultPosition, wxSize(128, 50), 0);
+	cPng2Button* itemButton42 = new cPng2Button(itemPanel1, ID_BUTTON_START, _("ref_img/start"), wxDefaultPosition, wxSize(128, 50), 0);
 	itemBoxSizer41->Add(itemButton42, 0, wxALIGN_CENTER_HORIZONTAL | wxALL, 5);
 
 	cBitmap3Button* itemButton43 = new cBitmap3Button(itemPanel1, ID_BUTTON_EXIT, _("ref_img/EXIT.bmp"), wxDefaultPosition, wxDefaultSize, 0);

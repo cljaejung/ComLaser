@@ -43,7 +43,7 @@ class wxListCtrl;
 #define ID_BUTTON_OK 10002
 #define ID_PANEL 10003
 #define ID_BUTTON_PREV 10017
-#define ID_SLIDER_AVI 10004
+#define ID_SLIDER_IMAGE 10004
 #define ID_BUTTON_NEXT 10018
 #define ID_BUTTON_MEMCOPY 10005
 #define ID_BUTTON_FILETRANSFER 10006
@@ -94,6 +94,9 @@ public:
     /// wxEVT_LEFT_DCLICK event handler for ID_PANEL1
     void OnLeftDClick( wxMouseEvent& event );
 
+    /// wxEVT_SCROLL_CHANGED event handler for ID_SLIDER_IMAGE
+    void OnSliderImageScrollChanged( wxScrollEvent& event );
+
 ////@end cFileMngPanel event handler declarations
 
 ////@begin cFileMngPanel member function declarations
@@ -110,6 +113,7 @@ public:
 
 ////@begin cFileMngPanel member variables
     wxListCtrl* m_FileListCtrl;
+    wxSlider* m_sliderCaptureImage;
 ////@end cFileMngPanel member variables
 };
 

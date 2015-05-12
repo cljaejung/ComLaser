@@ -54,8 +54,30 @@ enum PANEL_TYPE
 };
 
 
-enum UNIT_TYPE
+namespace VELOCITY_UNIT
 {
-	UNIT_KMH,
-	UNIT_MPH,
-};
+	enum TYPE
+	{
+		UNIT_KMH,
+		UNIT_MPH,
+	};
+}
+
+
+namespace WEATHER
+{
+	enum TYPE
+	{
+		AUTO,
+		SUNNY,
+		FINE,
+		CLOUDY,
+		NIGHT,
+		USERSET,
+	};
+}
+
+
+
+#include "Controller.h"
+extern cController g_controller;

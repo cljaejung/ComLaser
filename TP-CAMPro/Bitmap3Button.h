@@ -21,17 +21,17 @@ public:
 
 
 protected:
-	wxImage m_normalImg;
-	wxImage m_hoverImg;
-	wxImage m_pressImg;
-	bool m_isPressed;
-	bool m_isEnterWindow;
-
-
-protected:
 	void OnEraseBackground(wxEraseEvent&);
 	void OnEnterWindow(wxMouseEvent& event);
 	void OnLeaveWindow(wxMouseEvent& event);
 	void OnLeftDown(wxMouseEvent& event);
 	void OnLeftUp(wxMouseEvent& event);
+
+
+protected:
+	wxImage m_normalImg;
+	wxImage m_hoverImg;
+	wxImage m_pressImg;
+	bool m_isPressed;
+	bool m_isEnterWindow;
 };

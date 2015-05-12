@@ -13,7 +13,6 @@ protected:
 	wxTextCtrl* m_editLimitSpeed;
 	wxTextCtrl* m_editCaptureSpeed;
 	wxTextCtrl* m_editCaptureDistance;
-	UNIT_TYPE m_unitType;
 
 
 	// message handling

@@ -8,7 +8,7 @@
 #include "BatteryDisplay.h"
 #include "DateDisplay.h"
 #include "MoviePanel.h"
-
+#include "ImagePanel.h"
 
 
 enum {
@@ -18,7 +18,6 @@ enum {
 	ID_CHOICE_SHUTTERSPEED,
 	ID_CHOICE_ZOOM,
 	ID_CHOICE_CAPTURETEST,
-	//ID_BUTTON_FULL,
 	ID_PANEL,
 	ID_BUTTON_OK,
 	ID_BUTTON_CANCEL,
@@ -26,14 +25,25 @@ enum {
 
 
 BEGIN_EVENT_TABLE(cCameraSetPanel, wxPanel)
-	EVT_BUTTON(ID_BUTTON_OK, cCameraSetPanel::OnButtonOK)
-	EVT_BUTTON(ID_BUTTON_CANCEL, cCameraSetPanel::OnButtonCancel)
-	//EVT_BUTTON(ID_BUTTON_FULL, cCameraSetPanel::OnButtonFull)
+EVT_BUTTON(ID_BUTTON_OK, cCameraSetPanel::OnButtonOK)
+EVT_BUTTON(ID_BUTTON_CANCEL, cCameraSetPanel::OnButtonCancel)
+EVT_COMMAND_SCROLL_CHANGED(ID_SLIDER_GAIN, cCameraSetPanel::OnSliderGainScrollChanged)
+EVT_CHOICE(ID_CHOICE_WEATHER, cCameraSetPanel::OnChoiceWeatherSelected)
+EVT_CHOICE(ID_CHOICE_SHUTTERSPEED, cCameraSetPanel::OnChoiceShutterSpeedSelected)
+EVT_CHOICE(ID_CHOICE_ZOOM, cCameraSetPanel::OnChoiceSWZoomSelected)
+EVT_CHOICE(ID_CHOICE_CAPTURETEST, cCameraSetPanel::OnChoiceCaptureTestSelected)
 END_EVENT_TABLE()
 
 
 cCameraSetPanel::cCameraSetPanel(wxFrame*frame) :
 wxPanel(frame)
+, m_weather(WEATHER::AUTO)
+, m_gain(GAIN_MIN)
+, m_shutterSpeed(2.f)
+, m_isZoom(true)
+, m_isCaptureTest(true)
+, m_choiceShutterSpeed(NULL)
+, m_sliderGain(NULL)
 {
 
     cCameraSetPanel* itemPanel1 = this;
@@ -45,14 +55,8 @@ wxPanel(frame)
     wxBoxSizer* itemBoxSizer3 = new wxBoxSizer(wxHORIZONTAL);
     itemBoxSizer2->Add(itemBoxSizer3, 0, wxGROW|wxLEFT|wxRIGHT|wxTOP, 5);
 
-	wxImage img(_("ref_img/CAM_SET_ICON_70.bmp"), wxBITMAP_TYPE_BMP);
-	wxStaticBitmap* itemStaticBitmap4 = new wxStaticBitmap(itemPanel1, wxID_STATIC, wxBitmap(img), wxDefaultPosition, wxDefaultSize, 0);
+	cImagePanel* itemStaticBitmap4 = new cImagePanel(itemPanel1, _("ref_img/CAM_SET_ICON_70_eng.bmp"));
     itemBoxSizer3->Add(itemStaticBitmap4, 0, wxALIGN_CENTER_VERTICAL|wxLEFT|wxRIGHT|wxTOP, 5);
-
-    wxStaticText* itemStaticText5 = new wxStaticText( itemPanel1, wxID_STATIC, _("Camera Setting"), wxDefaultPosition, wxDefaultSize, 0 );
-    itemStaticText5->SetForegroundColour(wxColour(255, 255, 255));
-	itemStaticText5->SetFont(wxFont(24, wxFONTFAMILY_SWISS, wxFONTSTYLE_NORMAL, wxFONTWEIGHT_NORMAL, false));
-	itemBoxSizer3->Add(itemStaticText5, 0, wxALIGN_BOTTOM | wxLEFT | wxRIGHT | wxTOP, 5);
 
     wxBoxSizer* itemBoxSizer6 = new wxBoxSizer(wxVERTICAL);
     itemBoxSizer3->Add(itemBoxSizer6, 1, wxGROW|wxLEFT|wxTOP, 5);
@@ -112,9 +116,13 @@ wxPanel(frame)
 	itemStaticText19->SetFont(wxFont(18, wxFONTFAMILY_SWISS, wxFONTSTYLE_NORMAL, wxFONTWEIGHT_BOLD, false, wxT("Arial")));
 	itemBoxSizer18->Add(itemStaticText19, 0, wxALIGN_CENTER_VERTICAL | wxLEFT | wxRIGHT, 5);
 
-	wxSlider* itemSlider20 = new wxSlider(itemPanel12, ID_SLIDER_GAIN, 0, 0, 100, wxDefaultPosition, wxDefaultSize, wxSL_LABELS | wxSL_TOP | wxSL_SELRANGE);
-	itemSlider20->SetFont(wxFont(18, wxFONTFAMILY_SWISS, wxFONTSTYLE_NORMAL, wxFONTWEIGHT_NORMAL, false, wxT("Arial")));
-	itemBoxSizer18->Add(itemSlider20, 1, wxGROW | wxALL, 0);
+	m_sliderGain = new wxSlider(itemPanel12, ID_SLIDER_GAIN, 0, 0, 1000, wxDefaultPosition, wxDefaultSize, wxSL_TOP | wxSL_SELRANGE);
+	m_sliderGain->SetFont(wxFont(18, wxFONTFAMILY_SWISS, wxFONTSTYLE_NORMAL, wxFONTWEIGHT_NORMAL, false, wxT("Arial")));
+	itemBoxSizer18->Add(m_sliderGain, 1, wxGROW | wxALL, 0);
+
+	m_textGain = new wxStaticText(itemPanel12, wxID_STATIC, wxString::Format("%.1fdb", GAIN_MIN), wxDefaultPosition, wxSize(80, -1), 0);
+	m_textGain->SetFont(wxFont(18, wxFONTFAMILY_SWISS, wxFONTSTYLE_NORMAL, wxFONTWEIGHT_NORMAL, false, wxT("")));
+	itemBoxSizer18->Add(m_textGain, 0, wxALIGN_CENTER_VERTICAL | wxALL, 0);
 
 	wxBoxSizer* itemBoxSizer21 = new wxBoxSizer(wxHORIZONTAL);
 	itemBoxSizer13->Add(itemBoxSizer21, 0, wxGROW | wxALL, 3);
@@ -127,16 +135,16 @@ wxPanel(frame)
 	itemBoxSizer21->Add(itemBoxSizer23, 1, wxALIGN_CENTER_VERTICAL | wxALL, 0);
 
 	wxArrayString itemChoice24Strings;
-	itemChoice24Strings.Add(_("4 ms"));
-	itemChoice24Strings.Add(_("3 ms"));
-	itemChoice24Strings.Add(_("2 ms"));
+	itemChoice24Strings.Add(_("0.2ms"));
+	itemChoice24Strings.Add(_("0.5ms"));
 	itemChoice24Strings.Add(_("1 ms"));
-	itemChoice24Strings.Add(_("0.5 ms"));
-	itemChoice24Strings.Add(_("0.2 ms"));
-	wxChoice* itemChoice24 = new wxChoice(itemPanel12, ID_CHOICE_SHUTTERSPEED, wxDefaultPosition, wxSize(100, -1), itemChoice24Strings, 0);
-	itemChoice24->SetStringSelection(_("2 ms"));
-	itemChoice24->SetFont(wxFont(18, wxFONTFAMILY_SWISS, wxFONTSTYLE_NORMAL, wxFONTWEIGHT_NORMAL, false, wxT("Arial")));
-	itemBoxSizer23->Add(itemChoice24, 0, wxALIGN_RIGHT | wxALL, 0);
+	itemChoice24Strings.Add(_("2 ms"));
+	itemChoice24Strings.Add(_("3 ms"));
+	itemChoice24Strings.Add(_("4 ms"));
+	m_choiceShutterSpeed = new wxChoice(itemPanel12, ID_CHOICE_SHUTTERSPEED, wxDefaultPosition, wxSize(100, -1), itemChoice24Strings, 0);
+	m_choiceShutterSpeed->SetStringSelection(_("2 ms"));
+	m_choiceShutterSpeed->SetFont(wxFont(18, wxFONTFAMILY_SWISS, wxFONTSTYLE_NORMAL, wxFONTWEIGHT_NORMAL, false, wxT("Arial")));
+	itemBoxSizer23->Add(m_choiceShutterSpeed, 0, wxALIGN_RIGHT | wxALL, 0);
 
 	wxBoxSizer* itemBoxSizer25 = new wxBoxSizer(wxHORIZONTAL);
 	itemBoxSizer13->Add(itemBoxSizer25, 0, wxGROW | wxALL, 3);
@@ -189,11 +197,11 @@ wxPanel(frame)
 	wxBoxSizer* itemBoxSizer37 = new wxBoxSizer(wxHORIZONTAL);
 	itemBoxSizer36->Add(itemBoxSizer37, 0, wxGROW | wxTOP, 5);
 
-	wxStaticText* itemStaticText38 = new wxStaticText(itemPanel1, wxID_STATIC, _("  Capture Distance"), wxDefaultPosition, wxDefaultSize, 0);
-	itemStaticText38->SetForegroundColour(wxColour(255, 255, 255));
-	itemStaticText38->SetBackgroundColour(wxColour(0, 128, 128));
-	itemStaticText38->SetFont(wxFont(18, wxFONTFAMILY_SWISS, wxFONTSTYLE_NORMAL, wxFONTWEIGHT_NORMAL, false, wxT("Arial")));
-	itemBoxSizer37->Add(itemStaticText38, 1, wxALIGN_CENTER_VERTICAL | wxALL, 0);
+	m_textCaptureDistance = new wxStaticText(itemPanel1, wxID_STATIC, _("  Capture Distance"), wxDefaultPosition, wxDefaultSize, 0);
+	m_textCaptureDistance->SetForegroundColour(wxColour(255, 255, 255));
+	m_textCaptureDistance->SetBackgroundColour(wxColour(0, 128, 128));
+	m_textCaptureDistance->SetFont(wxFont(18, wxFONTFAMILY_SWISS, wxFONTSTYLE_NORMAL, wxFONTWEIGHT_NORMAL, false, wxT("Arial")));
+	itemBoxSizer37->Add(m_textCaptureDistance, 1, wxALIGN_CENTER_VERTICAL | wxALL, 0);
 
 	wxBoxSizer* itemBoxSizer39 = new wxBoxSizer(wxHORIZONTAL);
 	itemBoxSizer36->Add(itemBoxSizer39, 1, wxGROW | wxBOTTOM, 5);
@@ -202,6 +210,11 @@ wxPanel(frame)
 	itemPanel40->SetExtraStyle(wxWS_EX_VALIDATE_RECURSIVELY);
 	itemPanel40->m_GotoNextPanel = PANEL_CAMERAFULL;
 	itemBoxSizer39->Add(itemPanel40, 1, wxGROW | wxALL, 0);
+
+
+	/////////////////////////////////////////////////////////////////////////////
+	m_sliderGain->Enable(false);
+	m_choiceShutterSpeed->Enable(false);
 
 
 }
@@ -238,3 +251,73 @@ void cCameraSetPanel::OnButtonFull(wxCommandEvent &)
 	frame->ChangePanel(PANEL_CAMERAFULL);
 }
 
+
+/*!
+* wxEVT_SCROLL_CHANGED event handler for ID_SLIDER_GAIN
+*/
+void cCameraSetPanel::OnSliderGainScrollChanged(wxScrollEvent& event)
+{
+	// 이득 범위 설정
+	// -5.63db ~ 24.0db
+	const float interval = fabs(GAIN_MAX - GAIN_MIN);
+	const float gain = interval * ((float)event.GetSelection() / 1000.f);
+	m_gain = gain + GAIN_MIN;
+
+	m_textGain->SetLabel(wxString::Format("%.1fdb", m_gain));
+	event.Skip();
+}
+
+
+/*!
+* wxEVT_COMMAND_CHOICE_SELECTED event handler for ID_CHOICE_WEATHER
+*/
+void cCameraSetPanel::OnChoiceWeatherSelected(wxCommandEvent& event)
+{
+	event.Skip();
+
+	m_weather = (WEATHER::TYPE) event.GetSelection();
+
+	switch (event.GetSelection())
+	{
+	case WEATHER::AUTO:
+	case WEATHER::SUNNY:
+	case WEATHER::CLOUDY:
+	case WEATHER::FINE:
+	case WEATHER::NIGHT:
+		if (m_sliderGain)
+			m_sliderGain->Enable(false);
+		if (m_choiceShutterSpeed)
+			m_choiceShutterSpeed->Enable(false);
+		break;
+
+	case WEATHER::USERSET:
+		if (m_sliderGain)
+			m_sliderGain->Enable(true);
+		if (m_choiceShutterSpeed)
+			m_choiceShutterSpeed->Enable(true);
+		break;
+
+	default:
+		break;
+	}
+}
+
+
+void cCameraSetPanel::OnChoiceShutterSpeedSelected(wxCommandEvent& event)
+{
+	const float shutterSpeedTable[] = {0.2f, 0.5f, 1, 2, 3, 4,};
+
+	m_shutterSpeed = shutterSpeedTable[event.GetSelection()];
+}
+
+
+void cCameraSetPanel::OnChoiceSWZoomSelected(wxCommandEvent& event)
+{
+	m_isZoom = (event.GetSelection() == 0) ? true : false;
+}
+
+
+void cCameraSetPanel::OnChoiceCaptureTestSelected(wxCommandEvent& event)
+{
+	m_isCaptureTest = (event.GetSelection() == 0) ? true : false;
+}

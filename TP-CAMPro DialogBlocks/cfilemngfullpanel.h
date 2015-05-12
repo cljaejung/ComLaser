@@ -38,7 +38,7 @@
 #define ID_CFILEMNGFULLPANEL 10000
 #define ID_PANEL 10001
 #define ID_BUTTON_PREV 10003
-#define ID_SLIDER_AVI 10004
+#define ID_SLIDER_IMAGE 10004
 #define ID_BUTTON_NEXT 10005
 #define ID_BUTTON_CANCEL 10002
 #define SYMBOL_CFILEMNGFULLPANEL_STYLE wxTAB_TRAVERSAL
@@ -93,6 +93,7 @@ public:
 
 ////@begin cFileMngFullPanel member variables
     wxStaticBitmap* m_Image;
+    wxSlider* m_sliderImage;
 ////@end cFileMngFullPanel member variables
 };
 

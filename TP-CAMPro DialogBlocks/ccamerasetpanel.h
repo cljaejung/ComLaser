@@ -81,6 +81,12 @@ public:
 
 ////@begin cCameraSetPanel event handler declarations
 
+    /// wxEVT_COMMAND_CHOICE_SELECTED event handler for ID_CHOICE_WEATHER
+    void OnChoiceWeatherSelected( wxCommandEvent& event );
+
+    /// wxEVT_SCROLL_CHANGED event handler for ID_SLIDER_GAIN
+    void OnSliderGainScrollChanged( wxScrollEvent& event );
+
 ////@end cCameraSetPanel event handler declarations
 
 ////@begin cCameraSetPanel member function declarations
@@ -96,6 +102,10 @@ public:
     static bool ShowToolTips();
 
 ////@begin cCameraSetPanel member variables
+    wxSlider* m_gainSlider;
+    wxStaticText* m_textGain;
+    wxChoice* m_choiceShutterSpeed;
+    wxStaticText* m_textCaptureDistance;
 ////@end cCameraSetPanel member variables
 };
 

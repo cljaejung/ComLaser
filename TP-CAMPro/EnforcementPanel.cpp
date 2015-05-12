@@ -9,6 +9,8 @@
 #include "DateDisplay.h"
 #include "Bitmap3Button.h"
 #include "MoviePanel.h"
+#include "ImagePanel.h"
+#include "Bitmap2Button.h"
 
 
 enum {
@@ -48,17 +50,17 @@ cEnforcementPanel::cEnforcementPanel(wxFrame*frame) :
 	wxBoxSizer* itemBoxSizer4 = new wxBoxSizer(wxVERTICAL);
 	itemBoxSizer3->Add(itemBoxSizer4, 0, wxALIGN_CENTER_VERTICAL | wxLEFT | wxRIGHT | wxTOP, 5);
 
-	wxImage img(_("ref_img/ENFM_ICON_80.bmp"), wxBITMAP_TYPE_BMP);
-	wxStaticBitmap* itemStaticBitmap5 = new wxStaticBitmap(itemPanel1, wxID_STATIC, wxBitmap(img), wxDefaultPosition, wxDefaultSize, 0);
+	//wxImage img(_("ref_img/ENFM_ICON_80_eng.bmp"), wxBITMAP_TYPE_BMP);
+	cImagePanel* itemStaticBitmap5 = new cImagePanel(itemPanel1, _("ref_img/ENFM_ICON_80_eng.bmp"));// wxID_STATIC, wxBitmap(img), wxDefaultPosition, wxDefaultSize, 0);
 	itemBoxSizer4->Add(itemStaticBitmap5, 0, wxALIGN_CENTER_HORIZONTAL | wxALL, 5);
 
-	wxBoxSizer* itemBoxSizer6 = new wxBoxSizer(wxVERTICAL);
-	itemBoxSizer3->Add(itemBoxSizer6, 0, wxALIGN_BOTTOM | wxLEFT | wxRIGHT | wxTOP, 5);
+	//wxBoxSizer* itemBoxSizer6 = new wxBoxSizer(wxVERTICAL);
+	//itemBoxSizer3->Add(itemBoxSizer6, 0, wxALIGN_BOTTOM | wxLEFT | wxRIGHT | wxTOP, 5);
 
-	wxStaticText* itemStaticText7 = new wxStaticText(itemPanel1, wxID_STATIC, _("Enforcement"), wxDefaultPosition, wxDefaultSize, 0);
-	itemStaticText7->SetForegroundColour(wxColour(255, 255, 255));
-	itemStaticText7->SetFont(wxFont(24, wxFONTFAMILY_SWISS, wxFONTSTYLE_NORMAL, wxFONTWEIGHT_NORMAL, false, wxT("")));
-	itemBoxSizer6->Add(itemStaticText7, 0, wxALIGN_CENTER_HORIZONTAL | wxALL, 5);
+	//wxStaticText* itemStaticText7 = new wxStaticText(itemPanel1, wxID_STATIC, _("Enforcement"), wxDefaultPosition, wxDefaultSize, 0);
+	//itemStaticText7->SetForegroundColour(wxColour(255, 255, 255));
+	//itemStaticText7->SetFont(wxFont(24, wxFONTFAMILY_SWISS, wxFONTSTYLE_NORMAL, wxFONTWEIGHT_NORMAL, false, wxT("")));
+	//itemBoxSizer6->Add(itemStaticText7, 0, wxALIGN_CENTER_HORIZONTAL | wxALL, 5);
 
 	wxBoxSizer* itemBoxSizer8 = new wxBoxSizer(wxVERTICAL);
 	itemBoxSizer3->Add(itemBoxSizer8, 1, wxGROW | wxLEFT| wxTOP, 5);
@@ -238,7 +240,7 @@ cEnforcementPanel::cEnforcementPanel(wxFrame*frame) :
 	wxBoxSizer* itemBoxSizer55 = new wxBoxSizer(wxHORIZONTAL);
 	itemBoxSizer13->Add(itemBoxSizer55, 0, wxALIGN_CENTER_HORIZONTAL | wxALL, 5);
 
-	cBitmap3Button* itemButton56 = new cBitmap3Button(itemPanel1, ID_BUTTON_DONE, _("ref_img/BTN_DONE.png"), wxDefaultPosition, wxDefaultSize, 0);
+	cPng2Button* itemButton56 = new cPng2Button(itemPanel1, ID_BUTTON_DONE, _("ref_img/Done"));// , wxDefaultPosition, wxDefaultSize, 0);
 	itemBoxSizer55->Add(itemButton56, 0, wxALIGN_CENTER_VERTICAL | wxALL, 5);
 
 	wxBoxSizer* itemBoxSizer57 = new wxBoxSizer(wxVERTICAL);

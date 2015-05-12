@@ -48,6 +48,7 @@ IMPLEMENT_DYNAMIC_CLASS( cFileMngPanel, wxPanel )
 BEGIN_EVENT_TABLE( cFileMngPanel, wxPanel )
 
 ////@begin cFileMngPanel event table entries
+    EVT_COMMAND_SCROLL_CHANGED( ID_SLIDER_IMAGE, cFileMngPanel::OnSliderImageScrollChanged )
 ////@end cFileMngPanel event table entries
 
 END_EVENT_TABLE()
@@ -109,6 +110,7 @@ void cFileMngPanel::Init()
 {
 ////@begin cFileMngPanel member initialisation
     m_FileListCtrl = NULL;
+    m_sliderCaptureImage = NULL;
 ////@end cFileMngPanel member initialisation
 }
 
@@ -214,8 +216,8 @@ void cFileMngPanel::CreateControls()
     wxBoxSizer* itemBoxSizer29 = new wxBoxSizer(wxVERTICAL);
     itemBoxSizer26->Add(itemBoxSizer29, 1, wxGROW|wxALL, 0);
 
-    wxSlider* itemSlider30 = new wxSlider( itemPanel1, ID_SLIDER_AVI, 0, 0, 100, wxDefaultPosition, wxDefaultSize, wxSL_HORIZONTAL );
-    itemBoxSizer29->Add(itemSlider30, 1, wxGROW|wxALL, 0);
+    m_sliderCaptureImage = new wxSlider( itemPanel1, ID_SLIDER_IMAGE, 0, 0, 100, wxDefaultPosition, wxDefaultSize, wxSL_HORIZONTAL );
+    itemBoxSizer29->Add(m_sliderCaptureImage, 1, wxGROW|wxALL, 0);
 
     wxBoxSizer* itemBoxSizer31 = new wxBoxSizer(wxVERTICAL);
     itemBoxSizer26->Add(itemBoxSizer31, 0, wxALIGN_CENTER_VERTICAL|wxALL, 0);
@@ -235,62 +237,47 @@ void cFileMngPanel::CreateControls()
     wxButton* itemButton36 = new wxButton( itemPanel1, ID_BUTTON_MEMCOPY, _("Memory\nCopy"), wxDefaultPosition, wxSize(70, 40), 0 );
     itemBoxSizer35->Add(itemButton36, 0, wxALIGN_CENTER_HORIZONTAL|wxALL, 0);
 
-    wxStaticText* itemStaticText37 = new wxStaticText( itemPanel1, wxID_STATIC, _("Memory\n  Copy"), wxDefaultPosition, wxDefaultSize, 0 );
-    itemStaticText37->SetForegroundColour(wxColour(255, 255, 255));
-    itemStaticText37->SetFont(wxFont(10, wxFONTFAMILY_SWISS, wxFONTSTYLE_NORMAL, wxFONTWEIGHT_NORMAL, false, wxT("Arial")));
-    itemBoxSizer35->Add(itemStaticText37, 0, wxALIGN_CENTER_HORIZONTAL|wxALL, 0);
+    wxBoxSizer* itemBoxSizer37 = new wxBoxSizer(wxHORIZONTAL);
+    itemBoxSizer33->Add(itemBoxSizer37, 1, wxGROW|wxALL, 0);
 
-    wxBoxSizer* itemBoxSizer38 = new wxBoxSizer(wxHORIZONTAL);
-    itemBoxSizer33->Add(itemBoxSizer38, 1, wxGROW|wxALL, 0);
+    wxBoxSizer* itemBoxSizer38 = new wxBoxSizer(wxVERTICAL);
+    itemBoxSizer37->Add(itemBoxSizer38, 0, wxALIGN_CENTER_VERTICAL|wxALL, 0);
 
-    wxBoxSizer* itemBoxSizer39 = new wxBoxSizer(wxVERTICAL);
-    itemBoxSizer38->Add(itemBoxSizer39, 0, wxALIGN_CENTER_VERTICAL|wxALL, 0);
+    wxButton* itemButton39 = new wxButton( itemPanel1, ID_BUTTON_FILETRANSFER, _("File\nTransfer"), wxDefaultPosition, wxSize(70, 40), 0 );
+    itemBoxSizer38->Add(itemButton39, 0, wxALIGN_CENTER_HORIZONTAL|wxALL, 0);
 
-    wxButton* itemButton40 = new wxButton( itemPanel1, ID_BUTTON_FILETRANSFER, _("File\nTransfer"), wxDefaultPosition, wxSize(70, 40), 0 );
-    itemBoxSizer39->Add(itemButton40, 0, wxALIGN_CENTER_HORIZONTAL|wxALL, 0);
+    wxBoxSizer* itemBoxSizer40 = new wxBoxSizer(wxHORIZONTAL);
+    itemBoxSizer33->Add(itemBoxSizer40, 1, wxGROW|wxALL, 0);
 
-    wxStaticText* itemStaticText41 = new wxStaticText( itemPanel1, wxID_STATIC, _("   File\nTransfer"), wxDefaultPosition, wxDefaultSize, 0 );
-    itemStaticText41->SetForegroundColour(wxColour(255, 255, 255));
-    itemStaticText41->SetFont(wxFont(10, wxFONTFAMILY_SWISS, wxFONTSTYLE_NORMAL, wxFONTWEIGHT_NORMAL, false, wxT("")));
-    itemBoxSizer39->Add(itemStaticText41, 0, wxALIGN_CENTER_HORIZONTAL|wxALL, 0);
+    wxBoxSizer* itemBoxSizer41 = new wxBoxSizer(wxVERTICAL);
+    itemBoxSizer40->Add(itemBoxSizer41, 0, wxALIGN_CENTER_VERTICAL|wxALL, 0);
 
-    wxBoxSizer* itemBoxSizer42 = new wxBoxSizer(wxHORIZONTAL);
-    itemBoxSizer33->Add(itemBoxSizer42, 1, wxGROW|wxALL, 0);
+    wxButton* itemButton42 = new wxButton( itemPanel1, ID_BUTTON_MEMCLEAR, _("Memory\nClear"), wxDefaultPosition, wxSize(70, 40), 0 );
+    itemBoxSizer41->Add(itemButton42, 0, wxALIGN_CENTER_HORIZONTAL|wxALL, 0);
 
-    wxBoxSizer* itemBoxSizer43 = new wxBoxSizer(wxVERTICAL);
-    itemBoxSizer42->Add(itemBoxSizer43, 0, wxALIGN_CENTER_VERTICAL|wxALL, 0);
+    wxBoxSizer* itemBoxSizer43 = new wxBoxSizer(wxHORIZONTAL);
+    itemBoxSizer2->Add(itemBoxSizer43, 0, wxALIGN_CENTER_HORIZONTAL|wxALL, 5);
 
-    wxButton* itemButton44 = new wxButton( itemPanel1, ID_BUTTON_MEMCLEAR, _("Memory\nClear"), wxDefaultPosition, wxSize(70, 40), 0 );
-    itemBoxSizer43->Add(itemButton44, 0, wxALIGN_CENTER_HORIZONTAL|wxALL, 0);
+    wxButton* itemButton44 = new wxButton( itemPanel1, ID_BUTTON, _("Button"), wxDefaultPosition, wxDefaultSize, 0 );
+    itemBoxSizer43->Add(itemButton44, 0, wxALIGN_CENTER_VERTICAL|wxALL, 5);
 
-    wxStaticText* itemStaticText45 = new wxStaticText( itemPanel1, wxID_STATIC, _("Memory\n  Clear"), wxDefaultPosition, wxDefaultSize, 0 );
-    itemStaticText45->SetForegroundColour(wxColour(255, 255, 255));
-    itemStaticText45->SetFont(wxFont(10, wxFONTFAMILY_SWISS, wxFONTSTYLE_NORMAL, wxFONTWEIGHT_NORMAL, false, wxT("")));
-    itemBoxSizer43->Add(itemStaticText45, 0, wxALIGN_CENTER_HORIZONTAL|wxALL, 0);
+    wxButton* itemButton45 = new wxButton( itemPanel1, ID_BUTTON1, _("Button"), wxDefaultPosition, wxDefaultSize, 0 );
+    itemBoxSizer43->Add(itemButton45, 0, wxALIGN_CENTER_VERTICAL|wxALL, 5);
 
-    wxBoxSizer* itemBoxSizer46 = new wxBoxSizer(wxHORIZONTAL);
-    itemBoxSizer2->Add(itemBoxSizer46, 0, wxALIGN_CENTER_HORIZONTAL|wxALL, 5);
+    wxButton* itemButton46 = new wxButton( itemPanel1, ID_BUTTON2, _("Button"), wxDefaultPosition, wxDefaultSize, 0 );
+    itemBoxSizer43->Add(itemButton46, 0, wxALIGN_CENTER_VERTICAL|wxALL, 5);
 
-    wxButton* itemButton47 = new wxButton( itemPanel1, ID_BUTTON, _("Button"), wxDefaultPosition, wxDefaultSize, 0 );
-    itemBoxSizer46->Add(itemButton47, 0, wxALIGN_CENTER_VERTICAL|wxALL, 5);
+    wxButton* itemButton47 = new wxButton( itemPanel1, ID_BUTTON3, _("Button"), wxDefaultPosition, wxDefaultSize, 0 );
+    itemBoxSizer43->Add(itemButton47, 0, wxALIGN_CENTER_VERTICAL|wxALL, 5);
 
-    wxButton* itemButton48 = new wxButton( itemPanel1, ID_BUTTON1, _("Button"), wxDefaultPosition, wxDefaultSize, 0 );
-    itemBoxSizer46->Add(itemButton48, 0, wxALIGN_CENTER_VERTICAL|wxALL, 5);
+    wxButton* itemButton48 = new wxButton( itemPanel1, ID_BUTTON4, _("Button"), wxDefaultPosition, wxDefaultSize, 0 );
+    itemBoxSizer43->Add(itemButton48, 0, wxALIGN_CENTER_VERTICAL|wxALL, 5);
 
-    wxButton* itemButton49 = new wxButton( itemPanel1, ID_BUTTON2, _("Button"), wxDefaultPosition, wxDefaultSize, 0 );
-    itemBoxSizer46->Add(itemButton49, 0, wxALIGN_CENTER_VERTICAL|wxALL, 5);
+    wxButton* itemButton49 = new wxButton( itemPanel1, ID_BUTTON5, _("Button"), wxDefaultPosition, wxDefaultSize, 0 );
+    itemBoxSizer43->Add(itemButton49, 0, wxALIGN_CENTER_VERTICAL|wxALL, 5);
 
-    wxButton* itemButton50 = new wxButton( itemPanel1, ID_BUTTON3, _("Button"), wxDefaultPosition, wxDefaultSize, 0 );
-    itemBoxSizer46->Add(itemButton50, 0, wxALIGN_CENTER_VERTICAL|wxALL, 5);
-
-    wxButton* itemButton51 = new wxButton( itemPanel1, ID_BUTTON4, _("Button"), wxDefaultPosition, wxDefaultSize, 0 );
-    itemBoxSizer46->Add(itemButton51, 0, wxALIGN_CENTER_VERTICAL|wxALL, 5);
-
-    wxButton* itemButton52 = new wxButton( itemPanel1, ID_BUTTON5, _("Button"), wxDefaultPosition, wxDefaultSize, 0 );
-    itemBoxSizer46->Add(itemButton52, 0, wxALIGN_CENTER_VERTICAL|wxALL, 5);
-
-    wxButton* itemButton53 = new wxButton( itemPanel1, ID_BUTTON6, _("Button"), wxDefaultPosition, wxDefaultSize, 0 );
-    itemBoxSizer46->Add(itemButton53, 0, wxALIGN_CENTER_VERTICAL|wxALL, 5);
+    wxButton* itemButton50 = new wxButton( itemPanel1, ID_BUTTON6, _("Button"), wxDefaultPosition, wxDefaultSize, 0 );
+    itemBoxSizer43->Add(itemButton50, 0, wxALIGN_CENTER_VERTICAL|wxALL, 5);
 
     // Connect events and objects
     itemPanel14->Connect(ID_PANEL1, wxEVT_LEFT_DCLICK, wxMouseEventHandler(cFileMngPanel::OnLeftDClick), NULL, this);
@@ -346,5 +333,18 @@ void cFileMngPanel::OnLeftDClick( wxMouseEvent& event )
     // Before editing this code, remove the block markers.
     event.Skip();
 ////@end wxEVT_LEFT_DCLICK event handler for ID_PANEL1 in cFileMngPanel. 
+}
+
+
+/*!
+ * wxEVT_SCROLL_CHANGED event handler for ID_SLIDER_AVI
+ */
+
+void cFileMngPanel::OnSliderImageScrollChanged( wxScrollEvent& event )
+{
+////@begin wxEVT_SCROLL_CHANGED event handler for ID_SLIDER_AVI in cFileMngPanel.
+    // Before editing this code, remove the block markers.
+    event.Skip();
+////@end wxEVT_SCROLL_CHANGED event handler for ID_SLIDER_AVI in cFileMngPanel. 
 }
 

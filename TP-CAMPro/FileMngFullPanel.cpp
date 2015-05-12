@@ -12,7 +12,7 @@ enum {
 	ID_STATIC_BITMAP,
 	ID_BUTTON_PREV,
 	ID_BUTTON_NEXT,
-	ID_SLIDER_AVI,
+	ID_SLIDER_IMAGE,
 	ID_PANEL,
 	ID_BUTTON_CANCEL,
 };
@@ -20,6 +20,9 @@ enum {
 
 BEGIN_EVENT_TABLE(cFileMngFullPanel, wxPanel)
 EVT_BUTTON(ID_BUTTON_CANCEL, cFileMngFullPanel::OnButtonCancel)
+EVT_BUTTON(ID_BUTTON_PREV, cFileMngFullPanel::OnButtonPrev)
+EVT_BUTTON(ID_BUTTON_NEXT, cFileMngFullPanel::OnButtonNext)
+EVT_COMMAND_SCROLL_CHANGED(ID_SLIDER_IMAGE, cFileMngFullPanel::OnSliderImageScrollChanged)
 END_EVENT_TABLE()
 
 
@@ -67,8 +70,8 @@ wxPanel(frame)
 	wxBoxSizer* itemBoxSizer13 = new wxBoxSizer(wxVERTICAL);
 	itemBoxSizer10->Add(itemBoxSizer13, 1, wxGROW | wxALL, 0);
 
-	wxSlider* itemSlider14 = new wxSlider(itemPanel1, ID_SLIDER_AVI, 0, 0, 100, wxDefaultPosition, wxDefaultSize, wxSL_HORIZONTAL);
-	itemBoxSizer13->Add(itemSlider14, 1, wxGROW | wxALL, 0);
+	m_sliderImage = new wxSlider(itemPanel1, ID_SLIDER_IMAGE, 0, 0, 100, wxDefaultPosition, wxDefaultSize, wxSL_HORIZONTAL);
+	itemBoxSizer13->Add(m_sliderImage, 1, wxGROW | wxALL, 0);
 
 	wxBoxSizer* itemBoxSizer15 = new wxBoxSizer(wxVERTICAL);
 	itemBoxSizer10->Add(itemBoxSizer15, 0, wxALIGN_CENTER_VERTICAL | wxALL, 0);
@@ -81,13 +84,32 @@ wxPanel(frame)
 
 	cBitmap3Button* itemButton18 = new cBitmap3Button(itemPanel1, ID_BUTTON_CANCEL, _("ref_img/BTN_CANCEL.bmp"), wxDefaultPosition, wxDefaultSize, 0);
 	itemBoxSizer17->Add(itemButton18, 0, wxALIGN_CENTER_HORIZONTAL | wxALL, 0);
-
-
 }
 
-cFileMngFullPanel::~cFileMngFullPanel()
-{
 
+// 파일 관리 화면 초기화.
+bool cFileMngFullPanel::Init(const int imageIndex)
+{
+	// 파일매니저 풀화면을 다시 갱신한다.
+	Layout();
+
+	m_sliderImage->SetRange(0, g_controller.m_captureImages.size() - 1);
+
+	// 현재 이미지 인덱스를 파일 관리 전체 화면 객체에 저장한다.
+	//m_imageIndex = imageIndex;
+
+	SelectImage(imageIndex);
+
+	// 이미지를 로딩해서, 전체 화면 크기에 맞게 크기를 조절한다.
+	////wxImage image;
+	////image.LoadFile(g_controller.m_captureImages[imageIndex].fileName);
+	////wxRect rect = m_Image->GetParent()->GetClientRect();
+	////wxImage scaleImage = image.Scale(rect.width, rect.height); // 이미지 크기 변환
+	////m_Image->SetBitmap(wxBitmap(scaleImage));
+	////m_Image->GetParent()->Refresh();
+
+
+	return true;
 }
 
 
@@ -99,3 +121,51 @@ void cFileMngFullPanel::OnButtonCancel(wxCommandEvent &)
 	frame->ChangePanel(PANEL_FILEMNG);
 }
 
+
+void cFileMngFullPanel::OnButtonPrev(wxCommandEvent &)
+{
+	SelectImage(m_imageIndex - 1);
+}
+
+void cFileMngFullPanel::OnButtonNext(wxCommandEvent &)
+{
+	SelectImage(m_imageIndex + 1);
+}
+
+void cFileMngFullPanel::OnSliderImageScrollChanged(wxScrollEvent& event)
+{
+	const int pos = event.GetPosition();
+	if ((int)g_controller.m_captureImages.size() <= pos)
+		return;
+
+	SelectImage(pos);
+}
+
+
+// 이미지를 리스트 컨트롤에서 선택하고, 화면에 출력한다.
+void cFileMngFullPanel::SelectImage(const int imageIndex)
+{
+	const int curItem = m_imageIndex;
+	m_imageIndex = imageIndex;
+
+	if (m_imageIndex >= (int)g_controller.m_captureImages.size())
+		m_imageIndex = g_controller.m_captureImages.size() - 1;
+	if (m_imageIndex < 0)
+		m_imageIndex = 0;
+
+	if (g_controller.m_captureImages.size() >(u_int)m_imageIndex)
+	{
+		// 이미지 로딩.
+		const wxString fileName = g_controller.m_captureImages[m_imageIndex].fileName;
+
+		wxImage image;
+		image.LoadFile(fileName);
+		wxRect rect = m_Image->GetParent()->GetClientRect();
+		wxImage scaleImage = image.Scale(rect.width, rect.height); // 이미지 크기 변환
+
+		m_Image->SetBitmap(wxBitmap(scaleImage));
+		m_Image->GetParent()->Refresh();
+	}
+
+	m_sliderImage->SetValue(m_imageIndex);
+}

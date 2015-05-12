@@ -76,7 +76,8 @@ MINIMAL_OBJECTS =  \
 	MoviePanel.o \
 	Global.o \
 	NumberPadDialog.o \
-	NumberPadPanel.o
+	NumberPadPanel.o \
+	Controller.o
 
 
 SRCS = $(MINIMAL_OBJECTS:.o=.cpp)
@@ -274,6 +275,7 @@ MoviePanel.o: $(srcdir)/MoviePanel.cpp $(srcdir)/MoviePanel.h $(srcdir)/CLFrame.
 Global.o: $(srcdir)/Global.cpp $(srcdir)/Global.h $(srcdir)/stdafx.h
 NumberPadDialog.o: $(srcdir)/NumberPadDialog.cpp $(srcdir)/NumberPadDialog.h $(srcdir)/CLFrame.h $(srcdir)/stdafx.h
 NumberPadPanel.o: $(srcdir)/NumberPadPanel.cpp $(srcdir)/NumberPadPanel.h $(srcdir)/CLFrame.h $(srcdir)/stdafx.h
+Controller.o: $(srcdir)/Controller.cpp $(srcdir)/Controller.h $(srcdir)/stdafx.h
 
 
 

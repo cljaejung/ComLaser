@@ -10,6 +10,9 @@
 #include "Bitmap3Button.h"
 #include "FileMngFullPanel.h"
 #include "wx/url.h"
+#include "ImagePanel.h"
+#include "Bitmap2Button.h"
+
 
 enum {
 	ID_PANEL1,
@@ -18,7 +21,7 @@ enum {
 	ID_LISTCTRL,
 	ID_BUTTON_OK,
 	ID_PANEL,
-	ID_SLIDER_AVI,
+	ID_SLIDER_IMAGE,
 	ID_BUTTON_FULL,
 	ID_BUTTON_MEMCOPY,
 	ID_BUTTON_FILETRANSFER,
@@ -31,7 +34,13 @@ BEGIN_EVENT_TABLE(cFileMngPanel, wxPanel)
 	EVT_BUTTON(ID_BUTTON_OK, cFileMngPanel::OnButtonOK)
 	EVT_BUTTON(ID_BUTTON_PREV, cFileMngPanel::OnButtonPrev)
 	EVT_BUTTON(ID_BUTTON_NEXT, cFileMngPanel::OnButtonNext)
+
+	EVT_BUTTON(ID_BUTTON_MEMCOPY, cFileMngPanel::OnButtonMemCopy)
+	EVT_BUTTON(ID_BUTTON_FILETRANSFER, cFileMngPanel::OnButtonFileTransfer)
+	EVT_BUTTON(ID_BUTTON_MEMCLEAR, cFileMngPanel::OnButtonMemClear)
+
 	EVT_LIST_ITEM_SELECTED(ID_LISTCTRL, cFileMngPanel::OnListctrlSelected)
+	EVT_COMMAND_SCROLL_CHANGED(ID_SLIDER_IMAGE, cFileMngPanel::OnSliderImageScrollChanged)
 END_EVENT_TABLE()
 
 
@@ -50,17 +59,18 @@ wxPanel(frame)
 	wxBoxSizer* itemBoxSizer4 = new wxBoxSizer(wxVERTICAL);
 	itemBoxSizer3->Add(itemBoxSizer4, 0, wxALIGN_CENTER_VERTICAL | wxALL, 5);
 
-	wxImage img(_("ref_img/FILE_MGMT_ICON_70.bmp"), wxBITMAP_TYPE_BMP);
-	wxStaticBitmap* itemStaticBitmap5 = new wxStaticBitmap(itemPanel1, wxID_STATIC, wxBitmap(img), wxDefaultPosition, wxDefaultSize, 0);
+	//wxImage img(_("ref_img/FILE_MGMT_ICON_70_eng.bmp"), wxBITMAP_TYPE_BMP);
+	cImagePanel* itemStaticBitmap5 = new cImagePanel(itemPanel1, _("ref_img/FILE_MGMT_ICON_70_eng.bmp"));
+		//wxBitmap(img), wxDefaultPosition, wxDefaultSize, 0);
 	itemBoxSizer4->Add(itemStaticBitmap5, 0, wxALIGN_CENTER_HORIZONTAL | wxALL, 5);
 
-	wxBoxSizer* itemBoxSizer6 = new wxBoxSizer(wxVERTICAL);
-	itemBoxSizer3->Add(itemBoxSizer6, 0, wxALIGN_BOTTOM | wxLEFT | wxRIGHT | wxTOP, 5);
+	//wxBoxSizer* itemBoxSizer6 = new wxBoxSizer(wxVERTICAL);
+	//itemBoxSizer3->Add(itemBoxSizer6, 0, wxALIGN_BOTTOM | wxLEFT | wxRIGHT | wxTOP, 5);
 
-	wxStaticText* itemStaticText7 = new wxStaticText(itemPanel1, wxID_STATIC, _("File Management"), wxDefaultPosition, wxDefaultSize, 0);
-	itemStaticText7->SetForegroundColour(wxColour(255, 255, 255));
-	itemStaticText7->SetFont(wxFont(24, wxFONTFAMILY_SWISS, wxFONTSTYLE_NORMAL, wxFONTWEIGHT_NORMAL, false, wxT("")));
-	itemBoxSizer6->Add(itemStaticText7, 0, wxALIGN_CENTER_HORIZONTAL | wxALL, 5);
+	//wxStaticText* itemStaticText7 = new wxStaticText(itemPanel1, wxID_STATIC, _("File Management"), wxDefaultPosition, wxDefaultSize, 0);
+	//itemStaticText7->SetForegroundColour(wxColour(255, 255, 255));
+	//itemStaticText7->SetFont(wxFont(24, wxFONTFAMILY_SWISS, wxFONTSTYLE_NORMAL, wxFONTWEIGHT_NORMAL, false, wxT("")));
+	//itemBoxSizer6->Add(itemStaticText7, 0, wxALIGN_CENTER_HORIZONTAL | wxALL, 5);
 
 	wxBoxSizer* itemBoxSizer8 = new wxBoxSizer(wxVERTICAL);
 	itemBoxSizer3->Add(itemBoxSizer8, 1, wxGROW | wxLEFT | wxTOP | wxBOTTOM, 5);
@@ -121,9 +131,9 @@ wxPanel(frame)
 	wxBoxSizer* itemBoxSizer124 = new wxBoxSizer(wxHORIZONTAL);
 	itemBoxSizer123->Add(itemBoxSizer124, 1, wxGROW | wxALL, 0);
 
-	m_StaticBitmap = new wxStaticBitmap(itemPanel22, ID_STATIC_BITMAP, 
+	m_CaptureImage = new wxStaticBitmap(itemPanel22, ID_STATIC_BITMAP, 
 		wxNullBitmap, wxDefaultPosition, wxDefaultSize, 0);
-	itemBoxSizer124->Add(m_StaticBitmap, 1, wxGROW | wxALL, 1);
+	itemBoxSizer124->Add(m_CaptureImage, 1, wxGROW | wxALL, 1);
 
 
 
@@ -141,8 +151,8 @@ wxPanel(frame)
 	wxBoxSizer* itemBoxSizer26 = new wxBoxSizer(wxVERTICAL);
 	itemBoxSizer23->Add(itemBoxSizer26, 1, wxGROW | wxALL, 0);
 
-	wxSlider* itemSlider27 = new wxSlider(itemPanel1, ID_SLIDER_AVI, 0, 0, 100, wxDefaultPosition, wxDefaultSize, wxSL_HORIZONTAL);
-	itemBoxSizer26->Add(itemSlider27, 1, wxGROW | wxALL, 0);
+	m_sliderCaptureImage = new wxSlider(itemPanel1, ID_SLIDER_IMAGE, 0, 0, 100, wxDefaultPosition, wxDefaultSize, wxSL_HORIZONTAL);
+	itemBoxSizer26->Add(m_sliderCaptureImage, 1, wxGROW | wxALL, 0);
 
 	wxBoxSizer* itemBoxSizer28 = new wxBoxSizer(wxVERTICAL);
 	itemBoxSizer23->Add(itemBoxSizer28, 0, wxALIGN_CENTER_VERTICAL | wxALL, 0);
@@ -160,13 +170,8 @@ wxPanel(frame)
 	wxBoxSizer* itemBoxSizer35 = new wxBoxSizer(wxVERTICAL);
 	itemBoxSizer34->Add(itemBoxSizer35, 0, wxALIGN_CENTER_VERTICAL | wxALL, 0);
 
-	cBitmap3Button* itemButton36 = new cBitmap3Button(itemPanel1, ID_BUTTON_MEMCOPY, _("ref_img/BTN_USB.png"), wxDefaultPosition, wxSize(70, 40), 0);
+	cPng2Button* itemButton36 = new cPng2Button(itemPanel1, ID_BUTTON_MEMCOPY, _("ref_img/MemoryCopy"), wxDefaultPosition, wxSize(70, 40), 0);
 	itemBoxSizer35->Add(itemButton36, 0, wxALIGN_CENTER_HORIZONTAL | wxALL, 0);
-
-	wxStaticText* itemStaticText37 = new wxStaticText(itemPanel1, wxID_STATIC, _("Memory\n  Copy"), wxDefaultPosition, wxDefaultSize, 0);
-	itemStaticText37->SetForegroundColour(wxColour(255, 255, 255));
-	itemStaticText37->SetFont(wxFont(10, wxFONTFAMILY_SWISS, wxFONTSTYLE_NORMAL, wxFONTWEIGHT_NORMAL, false, wxT("Arial")));
-	itemBoxSizer35->Add(itemStaticText37, 0, wxALIGN_CENTER_HORIZONTAL | wxALL, 0);
 
 	wxBoxSizer* itemBoxSizer38 = new wxBoxSizer(wxHORIZONTAL);
 	itemBoxSizer33->Add(itemBoxSizer38, 1, wxGROW | wxALL, 0);
@@ -174,13 +179,8 @@ wxPanel(frame)
 	wxBoxSizer* itemBoxSizer39 = new wxBoxSizer(wxVERTICAL);
 	itemBoxSizer38->Add(itemBoxSizer39, 0, wxALIGN_CENTER_VERTICAL | wxALL, 0);
 
-	cBitmap3Button* itemButton40 = new cBitmap3Button(itemPanel1, ID_BUTTON_FILETRANSFER, _("ref_img/BTN_FILE_COPY_32.png"), wxDefaultPosition, wxSize(70, 40), 0);
+	cBitmap3Button* itemButton40 = new cBitmap3Button(itemPanel1, ID_BUTTON_FILETRANSFER, _("ref_img/FileTransfer.bmp"));// , wxDefaultPosition, wxSize(70, 40), 0);
 	itemBoxSizer39->Add(itemButton40, 0, wxALIGN_CENTER_HORIZONTAL | wxALL, 0);
-
-	wxStaticText* itemStaticText41 = new wxStaticText(itemPanel1, wxID_STATIC, _("   File\nTransfer"), wxDefaultPosition, wxDefaultSize, 0);
-	itemStaticText41->SetForegroundColour(wxColour(255, 255, 255));
-	itemStaticText41->SetFont(wxFont(10, wxFONTFAMILY_SWISS, wxFONTSTYLE_NORMAL, wxFONTWEIGHT_NORMAL, false, wxT("")));
-	itemBoxSizer39->Add(itemStaticText41, 0, wxALIGN_CENTER_HORIZONTAL | wxALL, 0);
 
 	wxBoxSizer* itemBoxSizer42 = new wxBoxSizer(wxHORIZONTAL);
 	itemBoxSizer33->Add(itemBoxSizer42, 1, wxGROW | wxALL, 0);
@@ -188,13 +188,8 @@ wxPanel(frame)
 	wxBoxSizer* itemBoxSizer43 = new wxBoxSizer(wxVERTICAL);
 	itemBoxSizer42->Add(itemBoxSizer43, 0, wxALIGN_CENTER_VERTICAL | wxALL, 0);
 
-	cBitmap3Button* itemButton44 = new cBitmap3Button(itemPanel1, ID_BUTTON_MEMCLEAR, _("ref_img/BTN_TRASH.png"), wxDefaultPosition, wxSize(70, 40), 0);
+	cPng2Button* itemButton44 = new cPng2Button(itemPanel1, ID_BUTTON_MEMCLEAR, _("ref_img/MemoryClear"));// , wxDefaultPosition, wxSize(70, 40), 0);
 	itemBoxSizer43->Add(itemButton44, 0, wxALIGN_CENTER_HORIZONTAL | wxALL, 0);
-
-	wxStaticText* itemStaticText45 = new wxStaticText(itemPanel1, wxID_STATIC, _("Memory\n  Clear"), wxDefaultPosition, wxDefaultSize, 0);
-	itemStaticText45->SetForegroundColour(wxColour(255, 255, 255));
-	itemStaticText45->SetFont(wxFont(10, wxFONTFAMILY_SWISS, wxFONTSTYLE_NORMAL, wxFONTWEIGHT_NORMAL, false, wxT("")));
-	itemBoxSizer43->Add(itemStaticText45, 0, wxALIGN_CENTER_HORIZONTAL | wxALL, 0);
 
 
 
@@ -210,11 +205,14 @@ wxPanel(frame)
 	m_FileListCtrl->SetColumnWidth(2, 105);
 
 
-	ReadCaptureFiles();
+	g_controller.ReadCaptureFiles();
+
+	m_sliderCaptureImage->SetRange(0, g_controller.m_captureImages.size() - 1);
+
 
 	int id = 0;
-	vector<sCaptureImage>::iterator it = m_captureImages.begin();
-	while (it != m_captureImages.end())
+	vector<sCaptureImage>::iterator it = g_controller.m_captureImages.begin();
+	while (it != g_controller.m_captureImages.end())
 	{
 		const int idx = id;
 		m_FileListCtrl->InsertItem(idx, wxString::Format("%d", id+1));
@@ -227,25 +225,13 @@ wxPanel(frame)
 	}
 
 	// 이미지 더블클릭시 풀화면 전환 이벤트
-	m_StaticBitmap->Connect(ID_STATIC_BITMAP, wxEVT_LEFT_DCLICK,
+	m_CaptureImage->Connect(ID_STATIC_BITMAP, wxEVT_LEFT_DCLICK,
 		wxMouseEventHandler(cFileMngPanel::OnLeftDClick), NULL, this);
 }
 
 cFileMngPanel::~cFileMngPanel()
 {
 
-}
-
-
-// 캡쳐된 파일을 읽는다.
-bool cFileMngPanel::ReadCaptureFiles()
-{
-	m_captureImages.reserve(128);
-	m_captureImages.push_back(sCaptureImage(0, _("capture/Koala.jpg"), 124, _("17:05:25")));
-	m_captureImages.push_back(sCaptureImage(1, _("capture/Lighthouse.jpg"), 224, _("17:05:25")));
-	m_captureImages.push_back(sCaptureImage(2, _("capture/Penguins.jpg"), 324, _("17:05:25")));
-
-	return true;
 }
 
 
@@ -265,10 +251,7 @@ void cFileMngPanel::OnListctrlSelected(wxListEvent& event)
 	if (idx < 0)
 		return;
 
-	m_selectItem = idx;
-
-	// 이미지 로딩.
-	ShowImage(m_captureImages[idx].fileName);
+	SelectImage(idx, true);
 
 	event.Skip();
 }
@@ -284,21 +267,9 @@ void cFileMngPanel::OnLeftDClick(wxMouseEvent& event)
 		return;
 	frame->ChangePanel(PANEL_FILEMNGFULL); // 씬 전환
 
-	if ((m_selectItem >= 0) && ((int)m_captureImages.size() > m_selectItem))
+	if ((m_selectItem >= 0) && ((int)g_controller.m_captureImages.size() > m_selectItem))
 	{
-		// 파일매니저 풀화면을 다시 갱신한다.
-		frame->m_fileMngFullPanel->Layout();
-
-		// 파일 매니져 전체화면에서의 비트맵 객체를 가져온다.
-		wxStaticBitmap *fullBmp = frame->m_fileMngFullPanel->m_Image;
-
-		// 이미지를 로딩해서, 전체 화면 크기에 맞게 크기를 조절한다.
-		wxImage image;
-		image.LoadFile(m_captureImages[m_selectItem].fileName);
-		wxRect rect = fullBmp->GetParent()->GetClientRect();
-		wxImage scaleImage = image.Scale(rect.width, rect.height); // 이미지 크기 변환
-		fullBmp->SetBitmap(wxBitmap(scaleImage));
-		fullBmp->GetParent()->Refresh();
+		frame->m_fileMngFullPanel->Init(m_selectItem);
 	}
 }
 
@@ -306,44 +277,81 @@ void cFileMngPanel::OnLeftDClick(wxMouseEvent& event)
 // 전 파일 버튼 클릭
 void cFileMngPanel::OnButtonPrev(wxCommandEvent &)
 {
-	const int curItem = m_selectItem;
-
-	--m_selectItem;
-	if (m_selectItem < 0)
-		m_selectItem = 0;
-
-	if (m_captureImages.size() > (u_int)m_selectItem)
-	{
-		ShowImage(m_captureImages[ m_selectItem].fileName);
-	
-		// Deselect item (wxLIST_STATE_FOCUSED - dotted border)
-		m_FileListCtrl->SetItemState(curItem, 0, wxLIST_STATE_SELECTED | wxLIST_STATE_FOCUSED);
-
-		// Select item
-		m_FileListCtrl->SetItemState(m_selectItem, wxLIST_STATE_SELECTED, wxLIST_STATE_SELECTED);
-	}
+	SelectImage(m_selectItem - 1);
 }
 
 
 // 다음 파일 버튼 클릭
 void cFileMngPanel::OnButtonNext(wxCommandEvent &)
 {
+	SelectImage(m_selectItem + 1);
+}
+
+
+// 메모리 복사 버튼 눌렀을 때, 호출됨
+void cFileMngPanel::OnButtonMemCopy(wxCommandEvent &)
+{
+
+}
+
+
+// 파일 이동 버튼 눌렀을 때, 호출됨.
+void cFileMngPanel::OnButtonFileTransfer(wxCommandEvent &)
+{
+
+}
+
+
+// 메모리 제거 버튼 눌렀을 때, 호출됨
+void cFileMngPanel::OnButtonMemClear(wxCommandEvent &)
+{
+
+}
+
+
+/*!
+* wxEVT_SCROLL_CHANGED event handler for ID_SLIDER_IMAGE
+*/
+void cFileMngPanel::OnSliderImageScrollChanged(wxScrollEvent& event)
+{
+	const int pos = event.GetPosition();
+	if ((int)g_controller.m_captureImages.size() <= pos)
+		return;
+
+	SelectImage(pos);
+	
+	event.Skip();
+}
+
+
+// 이미지를 리스트 컨트롤에서 선택하고, 화면에 출력한다.
+// fromListCtrl : 리스트 컨트롤에서 이벤트를 발생 했을 때 true 가 된다.
+void cFileMngPanel::SelectImage(const int imageIndex, const bool fromListCtrl)
+{
 	const int curItem = m_selectItem;
+	m_selectItem = imageIndex;
 
-	++m_selectItem;
-	if ((u_int)m_selectItem >= m_captureImages.size())
-		m_selectItem = m_captureImages.size()-1;
+	if (m_selectItem >= (int)g_controller.m_captureImages.size())
+		m_selectItem = g_controller.m_captureImages.size() - 1;
+	if (m_selectItem < 0)
+		m_selectItem = 0;
 
-	if (m_captureImages.size() > (u_int)m_selectItem)
+	if (g_controller.m_captureImages.size() >(u_int)m_selectItem)
 	{
-		ShowImage(m_captureImages[m_selectItem].fileName);
+		ShowImage(g_controller.m_captureImages[m_selectItem].fileName);
 
-		// Deselect item (wxLIST_STATE_FOCUSED - dotted border)
-		m_FileListCtrl->SetItemState(curItem, 0, wxLIST_STATE_SELECTED | wxLIST_STATE_FOCUSED);
+		if (!fromListCtrl)
+		{
+			// Deselect item (wxLIST_STATE_FOCUSED - dotted border)
+			m_FileListCtrl->SetItemState(curItem, 0, wxLIST_STATE_SELECTED | wxLIST_STATE_FOCUSED);
 
-		// Select item
-		m_FileListCtrl->SetItemState(m_selectItem, wxLIST_STATE_SELECTED, wxLIST_STATE_SELECTED);
+			// Select item
+			m_FileListCtrl->SetItemState(m_selectItem, wxLIST_STATE_SELECTED, wxLIST_STATE_SELECTED);
+		}
 	}
+
+	m_sliderCaptureImage->SetValue(m_selectItem);
+	m_FileListCtrl->SetFocus();
 }
 
 
@@ -352,9 +360,9 @@ void cFileMngPanel::ShowImage(const wxString &fileName)
 	// 이미지 로딩.
 	wxImage image;
 	image.LoadFile(fileName);
-	wxRect rect = m_StaticBitmap->GetParent()->GetClientRect();
+	wxRect rect = m_CaptureImage->GetParent()->GetClientRect();
 	wxImage scaleImage = image.Scale(rect.width, rect.height); // 이미지 크기 변환
 
-	m_StaticBitmap->SetBitmap(wxBitmap(scaleImage));
-	m_StaticBitmap->GetParent()->Refresh();
+	m_CaptureImage->SetBitmap(wxBitmap(scaleImage));
+	m_CaptureImage->GetParent()->Refresh();
 }

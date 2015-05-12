@@ -8,6 +8,7 @@
 #include "Bitmap3Button.h"
 #include "KeyboardDialog.h"
 #include "NumberPadDialog.h"
+#include "ImagePanel.h"
 
 
 
@@ -57,18 +58,19 @@ wxPanel(frame)
 	wxBoxSizer* itemBoxSizer4 = new wxBoxSizer(wxVERTICAL);
 	itemBoxSizer3->Add(itemBoxSizer4, 0, wxALIGN_CENTER_VERTICAL | wxALL, 5);
 
-	wxImage img(_("ref_img/ENFM_SET_ICON_70.bmp"), wxBITMAP_TYPE_BMP);
-	wxStaticBitmap* itemStaticBitmap5 = new wxStaticBitmap(itemPanel1, wxID_STATIC, 
-		wxBitmap(img), wxDefaultPosition, wxDefaultSize, 0);
+	//wxImage img(_("ref_img/ENFM_SET_ICON_70_eng.jpg"));
+	//wxStaticBitmap* itemStaticBitmap5 = new wxStaticBitmap(itemPanel1, wxID_STATIC, 
+	//	wxBitmap(img), wxDefaultPosition, wxSize(400,100), 0);
+	cImagePanel *itemStaticBitmap5 = new cImagePanel(itemPanel1, _("ref_img/ENFM_SET_ICON_70_eng.bmp"));
 	itemBoxSizer4->Add(itemStaticBitmap5, 0, wxALIGN_CENTER_HORIZONTAL | wxALL, 5);
 
-	wxBoxSizer* itemBoxSizer6 = new wxBoxSizer(wxVERTICAL);
-	itemBoxSizer3->Add(itemBoxSizer6, 0, wxALIGN_BOTTOM | wxALL, 5);
+	//wxBoxSizer* itemBoxSizer6 = new wxBoxSizer(wxVERTICAL);
+	//itemBoxSizer3->Add(itemBoxSizer6, 0, wxALIGN_BOTTOM | wxALL, 5);
 
-	wxStaticText* itemStaticText7 = new wxStaticText(itemPanel1, wxID_STATIC, _("Enforcement Setting"), wxDefaultPosition, wxDefaultSize, 0);
-	itemStaticText7->SetFont(wxFont(24, wxFONTFAMILY_SWISS, wxFONTSTYLE_NORMAL, wxFONTWEIGHT_NORMAL, false));
-	itemStaticText7->SetForegroundColour(wxColour(255, 255, 255));
-	itemBoxSizer6->Add(itemStaticText7, 0, wxALIGN_CENTER_HORIZONTAL | wxALL, 5);
+	//wxStaticText* itemStaticText7 = new wxStaticText(itemPanel1, wxID_STATIC, _("Enforcement Setting"), wxDefaultPosition, wxDefaultSize, 0);
+	//itemStaticText7->SetFont(wxFont(24, wxFONTFAMILY_SWISS, wxFONTSTYLE_NORMAL, wxFONTWEIGHT_NORMAL, false));
+	//itemStaticText7->SetForegroundColour(wxColour(255, 255, 255));
+	//itemBoxSizer6->Add(itemStaticText7, 0, wxALIGN_CENTER_HORIZONTAL | wxALL, 5);
 
 	wxBoxSizer* itemBoxSizer8 = new wxBoxSizer(wxVERTICAL);
 	itemBoxSizer3->Add(itemBoxSizer8, 1, wxGROW | wxLEFT | wxTOP | wxBOTTOM, 5);
@@ -133,7 +135,7 @@ wxPanel(frame)
 	itemStaticText24->SetFont(wxFont(18, wxFONTFAMILY_SWISS, wxFONTSTYLE_NORMAL, wxFONTWEIGHT_BOLD, false, wxT("Arial")));
 	itemBoxSizer23->Add(itemStaticText24, 0, wxALIGN_CENTER_VERTICAL | wxALL, 5);
 
-	m_editLimitSpeed = new wxTextCtrl(itemPanel13, ID_TEXTCTRL, _("0"), wxDefaultPosition, wxDefaultSize, 0);
+	m_editLimitSpeed = new wxTextCtrl(itemPanel13, ID_TEXTCTRL, _("60"), wxDefaultPosition, wxDefaultSize, 0);
 	m_editLimitSpeed->SetFont(wxFont(18, wxFONTFAMILY_SWISS, wxFONTSTYLE_NORMAL, wxFONTWEIGHT_NORMAL, false, wxT("Arial")));
 	itemBoxSizer23->Add(m_editLimitSpeed, 0, wxALIGN_CENTER_VERTICAL | wxLEFT | wxTOP | wxBOTTOM, 5);
 
@@ -159,7 +161,7 @@ wxPanel(frame)
 	itemStaticText30->SetFont(wxFont(18, wxFONTFAMILY_SWISS, wxFONTSTYLE_NORMAL, wxFONTWEIGHT_BOLD, false, wxT("Arial")));
 	itemBoxSizer29->Add(itemStaticText30, 0, wxALIGN_CENTER_VERTICAL | wxALL, 5);
 
-	m_editCaptureSpeed = new wxTextCtrl(itemPanel13, ID_TEXTCTRL1, _("0"), wxDefaultPosition, wxDefaultSize, 0);
+	m_editCaptureSpeed = new wxTextCtrl(itemPanel13, ID_TEXTCTRL1, _("30"), wxDefaultPosition, wxDefaultSize, 0);
 	m_editCaptureSpeed->SetFont(wxFont(18, wxFONTFAMILY_SWISS, wxFONTSTYLE_NORMAL, wxFONTWEIGHT_NORMAL, false, wxT("Arial")));
 	itemBoxSizer29->Add(m_editCaptureSpeed, 0, wxALIGN_CENTER_VERTICAL | wxLEFT | wxTOP | wxBOTTOM, 5);
 
@@ -173,7 +175,7 @@ wxPanel(frame)
 	itemStaticText34->SetFont(wxFont(18, wxFONTFAMILY_SWISS, wxFONTSTYLE_NORMAL, wxFONTWEIGHT_BOLD, false, wxT("Arial")));
 	itemBoxSizer33->Add(itemStaticText34, 0, wxALIGN_CENTER_VERTICAL | wxALL, 5);
 
-	m_editCaptureDistance = new wxTextCtrl(itemPanel13, ID_TEXTCTRL2, _("0"), wxDefaultPosition, wxDefaultSize, 0);
+	m_editCaptureDistance = new wxTextCtrl(itemPanel13, ID_TEXTCTRL2, _("120"), wxDefaultPosition, wxDefaultSize, 0);
 	m_editCaptureDistance->SetFont(wxFont(18, wxFONTFAMILY_SWISS, wxFONTSTYLE_NORMAL, wxFONTWEIGHT_NORMAL, false, wxT("Arial")));
 	itemBoxSizer33->Add(m_editCaptureDistance, 0, wxALIGN_CENTER_VERTICAL | wxLEFT | wxTOP | wxBOTTOM, 5);
 
@@ -193,26 +195,9 @@ wxPanel(frame)
 	cBitmap3Button* itemButton39 = new cBitmap3Button(itemPanel13, ID_BUTTON_CANCEL, _("ref_img/BTN_CANCEL.bmp"), wxDefaultPosition, wxDefaultSize, 0);
 	itemBoxSizer37->Add(itemButton39, 0, wxALIGN_BOTTOM | wxALL, 5);
 
-}
 
 
-
-void cEnforcementSetPanel::OnButtonOK(wxCommandEvent &)
-{
-	cCLFrame* frame = dynamic_cast<cCLFrame*>(wxGetTopLevelParent(this));
-	if (!frame)
-		return;
-	frame->ChangePanel(PANEL_MAIN);
-}
-
-
-
-void cEnforcementSetPanel::OnButtonCancel(wxCommandEvent &)
-{
-	cCLFrame* frame = dynamic_cast<cCLFrame*>(wxGetTopLevelParent(this));
-	if (!frame)
-		return;
-	frame->ChangePanel(PANEL_MAIN);
+	itemStaticBitmap5->Refresh();
 }
 
 
@@ -275,5 +260,32 @@ void cEnforcementSetPanel::OnButtonCaptureDistance(wxCommandEvent &)
 // 단위 선택 컨트롤이 선택되면 호출된다.
 void cEnforcementSetPanel::OnChoiceUnitSelected(wxCommandEvent& event)
 {
-	m_unitType = (UNIT_TYPE)event.GetSelection();
+	VELOCITY_UNIT::TYPE unitType = (VELOCITY_UNIT::TYPE)event.GetSelection();
+}
+
+
+void cEnforcementSetPanel::OnButtonOK(wxCommandEvent &)
+{
+	const wxString str = m_comboLocation->GetValue();
+
+	// 콤보박스에 없는 문자열 일 때만, 추가한다.
+	if (const int idx = m_comboLocation->FindString(str) < 0)
+	{
+		m_comboLocation->Insert(str, 0);
+	}
+
+	cCLFrame* frame = dynamic_cast<cCLFrame*>(wxGetTopLevelParent(this));
+	if (!frame)
+		return;
+	frame->ChangePanel(PANEL_MAIN);
+}
+
+
+
+void cEnforcementSetPanel::OnButtonCancel(wxCommandEvent &)
+{
+	cCLFrame* frame = dynamic_cast<cCLFrame*>(wxGetTopLevelParent(this));
+	if (!frame)
+		return;
+	frame->ChangePanel(PANEL_MAIN);
 }
