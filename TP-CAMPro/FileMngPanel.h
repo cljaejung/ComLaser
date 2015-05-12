@@ -16,6 +16,10 @@ public:
 
 
 protected:
+	void ShowImage(const wxString &fileName);
+
+
+protected:
 	wxListCtrl *m_FileListCtrl;
 	wxPanel *m_ImagePanel;
 	wxStaticBitmap *m_StaticBitmap;
@@ -27,6 +31,8 @@ protected:
 protected:
 	DECLARE_EVENT_TABLE()
 	void OnButtonOK(wxCommandEvent &);
+	void OnButtonPrev(wxCommandEvent &);
+	void OnButtonNext(wxCommandEvent &);
 	void OnListctrlSelected(wxListEvent& event);
 	void OnLeftDClick(wxMouseEvent& event);
 };

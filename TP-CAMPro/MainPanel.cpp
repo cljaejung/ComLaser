@@ -52,7 +52,7 @@ cMainPanel::cMainPanel(wxFrame*frame) :
 	itemBoxSizer3->Add(itemBoxSizer6, 1, wxALIGN_CENTER_VERTICAL | wxALL, 5);
 
 	//wxButton* itemButton7 = new wxButton(itemPanel1, ID_BUTTON_DATESET, _("Date Setting"), wxDefaultPosition, wxDefaultSize, 0);
-	cDateDisplay * itemButton7 = new cDateDisplay(itemPanel1);
+	cDateDisplay * itemButton7 = new cDateDisplay(itemPanel1, false, true);
 	itemBoxSizer6->Add(itemButton7, 0, wxALIGN_CENTER_HORIZONTAL | wxALL, 5);
 
 	wxBoxSizer* itemBoxSizer8 = new wxBoxSizer(wxVERTICAL);

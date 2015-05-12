@@ -1,6 +1,7 @@
 
 #include "stdafx.h"
 #include "NumberPadPanel.h"
+#include "Bitmap2Button.h"
 
 
 enum
@@ -58,66 +59,66 @@ cNumberPadPanel::cNumberPadPanel(wxWindow *parent, const int initNumber)
 	itemBoxSizer2->Add(itemBoxSizer6, 1, wxGROW | wxALL, 0);
 
 	wxBoxSizer* itemBoxSizer7 = new wxBoxSizer(wxVERTICAL);
-	itemBoxSizer6->Add(itemBoxSizer7, 1, wxGROW | wxALL, 0);
+	itemBoxSizer6->Add(itemBoxSizer7, 0, wxGROW | wxALL, 0);
 
-	wxButton* itemButton8 = new wxButton(itemPanel1, ID_BUTTON1, _("1"), wxDefaultPosition, wxSize(30,30), 0);
+	cBitmap2Button* itemButton8 = new cBitmap2Button(itemPanel1, ID_BUTTON1, _("ref_img/Keyboard/1"), wxDefaultPosition, wxDefaultSize, 0);
 	itemBoxSizer7->Add(itemButton8, 1, wxGROW | wxALL, 0);
 
 	wxBoxSizer* itemBoxSizer9 = new wxBoxSizer(wxVERTICAL);
 	itemBoxSizer6->Add(itemBoxSizer9, 1, wxGROW | wxALL, 0);
 
-	wxButton* itemButton10 = new wxButton(itemPanel1, ID_BUTTON2, _("2"), wxDefaultPosition, wxSize(30, 30), 0);
+	cBitmap2Button* itemButton10 = new cBitmap2Button(itemPanel1, ID_BUTTON2, _("ref_img/Keyboard/2"), wxDefaultPosition, wxSize(30, 30), 0);
 	itemBoxSizer9->Add(itemButton10, 1, wxGROW | wxALL, 0);
 
 	wxBoxSizer* itemBoxSizer11 = new wxBoxSizer(wxVERTICAL);
 	itemBoxSizer6->Add(itemBoxSizer11, 1, wxGROW | wxALL, 0);
 
-	wxButton* itemButton12 = new wxButton(itemPanel1, ID_BUTTON3, _("3"), wxDefaultPosition, wxSize(30, 30), 0);
+	cBitmap2Button* itemButton12 = new cBitmap2Button(itemPanel1, ID_BUTTON3, _("ref_img/Keyboard/3"), wxDefaultPosition, wxSize(30, 30), 0);
 	itemBoxSizer11->Add(itemButton12, 1, wxGROW | wxALL, 0);
 
 	wxBoxSizer* itemBoxSizer13 = new wxBoxSizer(wxVERTICAL);
 	itemBoxSizer6->Add(itemBoxSizer13, 1, wxGROW | wxALL, 0);
 
-	wxButton* itemButton14 = new wxButton(itemPanel1, ID_BUTTON4, _("4"), wxDefaultPosition, wxSize(30, 30), 0);
+	cBitmap2Button* itemButton14 = new cBitmap2Button(itemPanel1, ID_BUTTON4, _("ref_img/Keyboard/4"), wxDefaultPosition, wxSize(30, 30), 0);
 	itemBoxSizer13->Add(itemButton14, 1, wxGROW | wxALL, 0);
 
 	wxBoxSizer* itemBoxSizer15 = new wxBoxSizer(wxVERTICAL);
 	itemBoxSizer6->Add(itemBoxSizer15, 1, wxGROW | wxALL, 0);
 
-	wxButton* itemButton16 = new wxButton(itemPanel1, ID_BUTTON5, _("5"), wxDefaultPosition, wxSize(30, 30), 0);
+	cBitmap2Button* itemButton16 = new cBitmap2Button(itemPanel1, ID_BUTTON5, _("ref_img/Keyboard/5"), wxDefaultPosition, wxSize(30, 30), 0);
 	itemBoxSizer15->Add(itemButton16, 1, wxGROW | wxALL, 0);
 
 	wxBoxSizer* itemBoxSizer17 = new wxBoxSizer(wxHORIZONTAL);
-	itemBoxSizer2->Add(itemBoxSizer17, 1, wxGROW | wxALL, 0);
+	itemBoxSizer2->Add(itemBoxSizer17, 0, wxGROW | wxALL, 0);
 
 	wxBoxSizer* itemBoxSizer18 = new wxBoxSizer(wxVERTICAL);
 	itemBoxSizer17->Add(itemBoxSizer18, 1, wxGROW | wxALL, 0);
 
-	wxButton* itemButton19 = new wxButton(itemPanel1, ID_BUTTON6, _("6"), wxDefaultPosition, wxSize(30, 30), 0);
+	cBitmap2Button* itemButton19 = new cBitmap2Button(itemPanel1, ID_BUTTON6, _("ref_img/Keyboard/6"), wxDefaultPosition, wxSize(30, 30), 0);
 	itemBoxSizer18->Add(itemButton19, 1, wxGROW | wxALL, 0);
 
 	wxBoxSizer* itemBoxSizer20 = new wxBoxSizer(wxVERTICAL);
 	itemBoxSizer17->Add(itemBoxSizer20, 1, wxGROW | wxALL, 0);
 
-	wxButton* itemButton21 = new wxButton(itemPanel1, ID_BUTTON7, _("7"), wxDefaultPosition, wxSize(30, 30), 0);
+	cBitmap2Button* itemButton21 = new cBitmap2Button(itemPanel1, ID_BUTTON7, _("ref_img/Keyboard/7"), wxDefaultPosition, wxSize(30, 30), 0);
 	itemBoxSizer20->Add(itemButton21, 1, wxGROW | wxALL, 0);
 
 	wxBoxSizer* itemBoxSizer22 = new wxBoxSizer(wxVERTICAL);
 	itemBoxSizer17->Add(itemBoxSizer22, 1, wxGROW | wxALL, 0);
 
-	wxButton* itemButton23 = new wxButton(itemPanel1, ID_BUTTON8, _("8"), wxDefaultPosition, wxSize(30, 30), 0);
+	cBitmap2Button* itemButton23 = new cBitmap2Button(itemPanel1, ID_BUTTON8, _("ref_img/Keyboard/8"), wxDefaultPosition, wxSize(30, 30), 0);
 	itemBoxSizer22->Add(itemButton23, 1, wxGROW | wxALL, 0);
 
 	wxBoxSizer* itemBoxSizer24 = new wxBoxSizer(wxVERTICAL);
 	itemBoxSizer17->Add(itemBoxSizer24, 1, wxGROW | wxALL, 0);
 
-	wxButton* itemButton25 = new wxButton(itemPanel1, ID_BUTTON9, _("9"), wxDefaultPosition, wxSize(30, 30), 0);
+	cBitmap2Button* itemButton25 = new cBitmap2Button(itemPanel1, ID_BUTTON9, _("ref_img/Keyboard/9"), wxDefaultPosition, wxSize(30, 30), 0);
 	itemBoxSizer24->Add(itemButton25, 1, wxGROW | wxALL, 0);
 
 	wxBoxSizer* itemBoxSizer26 = new wxBoxSizer(wxVERTICAL);
 	itemBoxSizer17->Add(itemBoxSizer26, 1, wxGROW | wxALL, 0);
 
-	wxButton* itemButton27 = new wxButton(itemPanel1, ID_BUTTON0, _("0"), wxDefaultPosition, wxSize(30, 30), 0);
+	cBitmap2Button* itemButton27 = new cBitmap2Button(itemPanel1, ID_BUTTON0, _("ref_img/Keyboard/0"), wxDefaultPosition, wxSize(30, 30), 0);
 	itemBoxSizer26->Add(itemButton27, 1, wxGROW | wxALL, 0);
 
 	wxStdDialogButtonSizer* itemStdDialogButtonSizer28 = new wxStdDialogButtonSizer;

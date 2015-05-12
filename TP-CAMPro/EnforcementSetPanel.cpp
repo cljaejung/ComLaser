@@ -145,10 +145,10 @@ wxPanel(frame)
 	itemBoxSizer23->Add(itemStaticText27, 0, wxALIGN_CENTER_VERTICAL | wxALL, 5);
 
 	wxArrayString m_UnitChoiceStrings;
-	m_UnitChoiceStrings.Add(_("KMH (km/h)"));
-	m_UnitChoiceStrings.Add(_("MPH (mph)"));
+	m_UnitChoiceStrings.Add(_("m : km/h"));
+	m_UnitChoiceStrings.Add(_("ft : mph"));
 	m_UnitChoice = new wxChoice(itemPanel13, ID_CHOICE_UNIT, wxDefaultPosition, wxDefaultSize, m_UnitChoiceStrings, 0);
-	m_UnitChoice->SetStringSelection(_("KMH (km/h)"));
+	m_UnitChoice->SetStringSelection(_("m : km/h"));
 	m_UnitChoice->SetFont(wxFont(18, wxFONTFAMILY_SWISS, wxFONTSTYLE_NORMAL, wxFONTWEIGHT_BOLD, false, wxT("Arial")));
 	itemBoxSizer23->Add(m_UnitChoice, 0, wxALIGN_CENTER_VERTICAL | wxALL, 5);
 
@@ -221,8 +221,12 @@ void cEnforcementSetPanel::OnButtonLocation(wxCommandEvent &)
 	cCLFrame* frame = dynamic_cast<cCLFrame*>(wxGetTopLevelParent(this));
 	if (!frame)
 		return;
-	cKeyboardDialog dlg(this);
-	dlg.ShowModal();
+
+	cKeyboardDialog dlg(this, m_comboLocation->GetValue());
+	if (wxID_OK == dlg.ShowModal())
+	{
+		m_comboLocation->SetValue(dlg.m_text);
+	}
 }
 
 
@@ -236,7 +240,7 @@ void cEnforcementSetPanel::OnButtonLimitSpeed(wxCommandEvent &)
 	m_editLimitSpeed->GetValue().ToLong(&initValue);
 	cNumberPadDialog dlg(this, initValue);
 	if (wxID_OK == dlg.ShowModal())
-		m_editLimitSpeed->SetValue(wxString::Format(_("%d"), dlg.GetNumber()));
+		m_editLimitSpeed->SetValue(wxString::Format("%d", dlg.GetNumber()));
 }
 
 
@@ -250,7 +254,7 @@ void cEnforcementSetPanel::OnButtonCaptureSpeed(wxCommandEvent &)
 	m_editCaptureSpeed->GetValue().ToLong(&initValue);
 	cNumberPadDialog dlg(this, initValue);
 	if (wxID_OK == dlg.ShowModal())
-		m_editCaptureSpeed->SetValue(wxString::Format(_("%d"), dlg.GetNumber()));
+		m_editCaptureSpeed->SetValue(wxString::Format("%d", dlg.GetNumber()));
 }
 
 
@@ -264,7 +268,7 @@ void cEnforcementSetPanel::OnButtonCaptureDistance(wxCommandEvent &)
 	m_editCaptureDistance->GetValue().ToLong(&initValue);
 	cNumberPadDialog dlg(this, initValue);
 	if (wxID_OK == dlg.ShowModal())
-		m_editCaptureDistance->SetValue(wxString::Format(_("%d"), dlg.GetNumber()));
+		m_editCaptureDistance->SetValue(wxString::Format("%d", dlg.GetNumber()));
 }
 
 

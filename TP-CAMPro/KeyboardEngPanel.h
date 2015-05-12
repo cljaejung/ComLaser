@@ -10,7 +10,8 @@ namespace INPUT_MODE
 		ALPHA_UPPER, // 알파벳 대문자
 		ALPHA_UPPER_STAY, // 대문자 입력모드 유지 상태
 		NUMBER,
-		SPECIAL,
+		//SPECIAL,
+		MAX_TYPE
 	};
 }
 
@@ -20,7 +21,7 @@ class cBitmap2Button;
 class cKeyboardEngPanel : public wxPanel
 {
 public:
-	cKeyboardEngPanel(wxWindow *parent, const wxString &initialText = "", 
+	cKeyboardEngPanel(wxWindow *parent, const wxString &initialText = _(""), 
 		const bool IsPassword=false, const int maximumChar=20);
 
 	void SetInputMode(const INPUT_MODE::TYPE mode);
@@ -41,4 +42,5 @@ public:
 protected:
 	DECLARE_EVENT_TABLE()
 	void OnButtonKeyboard(wxCommandEvent&);
+	void OnButtonX(wxCommandEvent&);
 };

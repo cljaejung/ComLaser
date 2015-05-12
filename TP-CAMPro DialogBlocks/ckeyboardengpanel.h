@@ -36,6 +36,7 @@
 
 ////@begin control identifiers
 #define ID_CKEYBOARDENGPANEL 10000
+#define ID_BUTTON 10012
 #define ID_TEXTCTRL 10001
 #define ID_BUTTON0 10003
 #define ID_BUTTON1 10004

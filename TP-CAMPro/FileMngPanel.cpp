@@ -29,6 +29,8 @@ enum {
 
 BEGIN_EVENT_TABLE(cFileMngPanel, wxPanel)
 	EVT_BUTTON(ID_BUTTON_OK, cFileMngPanel::OnButtonOK)
+	EVT_BUTTON(ID_BUTTON_PREV, cFileMngPanel::OnButtonPrev)
+	EVT_BUTTON(ID_BUTTON_NEXT, cFileMngPanel::OnButtonNext)
 	EVT_LIST_ITEM_SELECTED(ID_LISTCTRL, cFileMngPanel::OnListctrlSelected)
 END_EVENT_TABLE()
 
@@ -215,9 +217,9 @@ wxPanel(frame)
 	while (it != m_captureImages.end())
 	{
 		const int idx = id;
-		m_FileListCtrl->InsertItem(idx, wxString::Format(_("%d"), id+1));
+		m_FileListCtrl->InsertItem(idx, wxString::Format("%d", id+1));
 		m_FileListCtrl->SetItem(idx, 1, it->time);
-		m_FileListCtrl->SetItem(idx, 2, wxString::Format(_("%1.0fKm/h"), it->speed));
+		m_FileListCtrl->SetItem(idx, 2, wxString::Format("%1.0fKm/h", it->speed));
 		m_FileListCtrl->SetItemData(idx, idx);
 
 		++it;
@@ -266,13 +268,7 @@ void cFileMngPanel::OnListctrlSelected(wxListEvent& event)
 	m_selectItem = idx;
 
 	// 이미지 로딩.
-	wxImage image;
-	image.LoadFile(m_captureImages[idx].fileName);
-	wxRect rect = m_StaticBitmap->GetParent()->GetClientRect();
-	wxImage scaleImage = image.Scale(rect.width, rect.height); // 이미지 크기 변환
-
-	m_StaticBitmap->SetBitmap(wxBitmap(scaleImage));
-	m_StaticBitmap->GetParent()->Refresh();
+	ShowImage(m_captureImages[idx].fileName);
 
 	event.Skip();
 }
@@ -306,3 +302,59 @@ void cFileMngPanel::OnLeftDClick(wxMouseEvent& event)
 	}
 }
 
+
+// 전 파일 버튼 클릭
+void cFileMngPanel::OnButtonPrev(wxCommandEvent &)
+{
+	const int curItem = m_selectItem;
+
+	--m_selectItem;
+	if (m_selectItem < 0)
+		m_selectItem = 0;
+
+	if (m_captureImages.size() > (u_int)m_selectItem)
+	{
+		ShowImage(m_captureImages[ m_selectItem].fileName);
+	
+		// Deselect item (wxLIST_STATE_FOCUSED - dotted border)
+		m_FileListCtrl->SetItemState(curItem, 0, wxLIST_STATE_SELECTED | wxLIST_STATE_FOCUSED);
+
+		// Select item
+		m_FileListCtrl->SetItemState(m_selectItem, wxLIST_STATE_SELECTED, wxLIST_STATE_SELECTED);
+	}
+}
+
+
+// 다음 파일 버튼 클릭
+void cFileMngPanel::OnButtonNext(wxCommandEvent &)
+{
+	const int curItem = m_selectItem;
+
+	++m_selectItem;
+	if ((u_int)m_selectItem >= m_captureImages.size())
+		m_selectItem = m_captureImages.size()-1;
+
+	if (m_captureImages.size() > (u_int)m_selectItem)
+	{
+		ShowImage(m_captureImages[m_selectItem].fileName);
+
+		// Deselect item (wxLIST_STATE_FOCUSED - dotted border)
+		m_FileListCtrl->SetItemState(curItem, 0, wxLIST_STATE_SELECTED | wxLIST_STATE_FOCUSED);
+
+		// Select item
+		m_FileListCtrl->SetItemState(m_selectItem, wxLIST_STATE_SELECTED, wxLIST_STATE_SELECTED);
+	}
+}
+
+
+void cFileMngPanel::ShowImage(const wxString &fileName)
+{
+	// 이미지 로딩.
+	wxImage image;
+	image.LoadFile(fileName);
+	wxRect rect = m_StaticBitmap->GetParent()->GetClientRect();
+	wxImage scaleImage = image.Scale(rect.width, rect.height); // 이미지 크기 변환
+
+	m_StaticBitmap->SetBitmap(wxBitmap(scaleImage));
+	m_StaticBitmap->GetParent()->Refresh();
+}

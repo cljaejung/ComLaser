@@ -14,6 +14,7 @@ public:
 		const bool IsPassword = false, const int maximumChar = 20);
 
 	void KeyboardInputFinish();
+	void KeyboardInputCancel();
 
 	wxString m_text;
 

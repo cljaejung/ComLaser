@@ -100,7 +100,7 @@ void cDateDisplay::UpdateDate()
 		// hour:minuite:second
 		if (m_oldH != dt.GetHour() || m_oldM != dt.GetMinute() || m_oldS != dt.GetSecond())
 		{
-			m_hms->SetLabel(wxString::Format(_("%02d:%02d:%02d"), dt.GetHour(), dt.GetMinute(), dt.GetSecond()));
+			m_hms->SetLabel(wxString::Format("%02d:%02d:%02d", dt.GetHour(), dt.GetMinute(), dt.GetSecond()));
 			m_oldH = dt.GetHour();
 			m_oldM = dt.GetMinute();
 			m_oldS = dt.GetSecond();
@@ -110,7 +110,7 @@ void cDateDisplay::UpdateDate()
 		if (m_oldDay != dt.GetDay() || m_oldMonth != dt.GetMonth() || m_oldYear != dt.GetYear())
 		{
 			wxString strMonth = dt.GetMonthName(dt.GetMonth(), wxDateTime::Name_Abbr);
-			m_mdy->SetLabel(wxString::Format(_("%s %d %d"), strMonth.c_str(), dt.GetDay(), dt.GetYear()));
+			m_mdy->SetLabel(wxString::Format("%s %d %d", strMonth.c_str(), dt.GetDay(), dt.GetYear()));
 			m_oldDay = dt.GetDay();
 			m_oldMonth = dt.GetMonth();
 			m_oldYear = dt.GetYear();
@@ -121,7 +121,7 @@ void cDateDisplay::UpdateDate()
 		bool am = dt.GetHour() < 12;
 		if (m_isAM != am)
 		{
-			m_amPm->SetLabel(wxString::Format(_("%s"), am ? _("AM") : _("PM")));
+			m_amPm->SetLabel(wxString::Format("%s", am ? _("AM") : _("PM")));
 			m_isAM = am;
 		}
 

@@ -127,10 +127,12 @@ wxPanel(frame)
 	itemBoxSizer21->Add(itemBoxSizer23, 1, wxALIGN_CENTER_VERTICAL | wxALL, 0);
 
 	wxArrayString itemChoice24Strings;
-	itemChoice24Strings.Add(_("2 ms"));
-	itemChoice24Strings.Add(_("3 ms"));
 	itemChoice24Strings.Add(_("4 ms"));
-	itemChoice24Strings.Add(_("5 ms"));
+	itemChoice24Strings.Add(_("3 ms"));
+	itemChoice24Strings.Add(_("2 ms"));
+	itemChoice24Strings.Add(_("1 ms"));
+	itemChoice24Strings.Add(_("0.5 ms"));
+	itemChoice24Strings.Add(_("0.2 ms"));
 	wxChoice* itemChoice24 = new wxChoice(itemPanel12, ID_CHOICE_SHUTTERSPEED, wxDefaultPosition, wxSize(100, -1), itemChoice24Strings, 0);
 	itemChoice24->SetStringSelection(_("2 ms"));
 	itemChoice24->SetFont(wxFont(18, wxFONTFAMILY_SWISS, wxFONTSTYLE_NORMAL, wxFONTWEIGHT_NORMAL, false, wxT("Arial")));

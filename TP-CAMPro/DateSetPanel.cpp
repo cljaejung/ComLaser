@@ -260,11 +260,12 @@ void cDateSetPanel::UpdateCurrentTime(const wxDateTime &dt)
 
 	wxString strMonth = dt.GetMonthName(dt.GetMonth(), wxDateTime::Name_Abbr);
 	m_btnMonth->SetLabel(strMonth);
-	m_btnDay->SetLabel(wxString::Format(_("%d"), dt.GetDay()));
-	m_btnYear->SetLabel(wxString::Format(_("%d"), dt.GetYear()));
+	m_btnDay->SetLabel(wxString::Format("%d", dt.GetDay()) );
+	m_btnYear->SetLabel(wxString::Format("%d", dt.GetYear()));
 
-	m_btnHour->SetLabel(wxString::Format(_("%d"), dt.GetHour()));
-	m_btnMinutes->SetLabel(wxString::Format(_("%d"), dt.GetMinute()));
+	m_btnHour->SetLabel(wxString::Format("%d", dt.GetHour()));
+	m_btnMinutes->SetLabel(wxString::Format("%d", dt.GetMinute()));
+
 	//m_btnTime->SetLabel(_("AM"));
 
 	m_Month = dt.GetMonth();

@@ -47,9 +47,11 @@ enum {
 	ID_BUTTON31, // space
 	ID_BUTTON32, // .
 	ID_BUTTON33, // Enter
+
+	ID_BUTTON_X,
 };
 
-wxString g_keyTable[5][ID_BUTTON33 + 1] =
+wxString g_keyTable[ INPUT_MODE::MAX_TYPE][ID_BUTTON33 + 1] =
 {
 	// Alphabet Lower
 	{
@@ -84,17 +86,16 @@ wxString g_keyTable[5][ID_BUTTON33 + 1] =
 	},
 
 	// Special Character
-	{
-		_("~"), _("`"), _("˚"), _("|"), _("·"), _("√ "), _("÷"), _("×"), _("{"), _("}"),
-		_("♡"), _("♥"), _("☆"), _("★"), _("□"), _("■"), _("_"), _("="), _("["), _("]"),
-		_("Alt"), _("™"), _("®"), _("ⓒ"), _("^"), _("＼"), _("<"), _(">"), _("Backspace"),
-		_("ABC"), _("$"), _(" "), _("."), _("Enter")
-	},
-
+	//{
+	//	_("~"), _("`"), _("˚"), _("|"), _("·"), _("√ "), _("÷"), _("×"), _("{"), _("}"),
+	//	_("♡"), _("♥"), _("☆"), _("★"), _("□"), _("■"), _("_"), _("="), _("["), _("]"),
+	//	_("Alt"), _("™"), _("®"), _("ⓒ"), _("^"), _("＼"), _("<"), _(">"), _("Backspace"),
+	//	_("ABC"), _("$"), _(" "), _("."), _("Enter")
+	//},
 };
 
 
-wxString g_keyImgTable[5][ID_BUTTON33 + 1] = {
+wxString g_keyImgTable[ INPUT_MODE::MAX_TYPE][ID_BUTTON33 + 1] = {
 	// Alphabet Lower
 	{
 		_("ref_img/Keyboard/qq"),
@@ -263,45 +264,45 @@ wxString g_keyImgTable[5][ID_BUTTON33 + 1] = {
 
 
 	// Special
-	{
-		_("ref_img/Keyboard/Equiv"),
-		_("ref_img/Keyboard/Quate"),
-		_("ref_img/Keyboard/Degree"),
-		_("ref_img/Keyboard/Or"),
-		_("ref_img/Keyboard/DotProduct"),
-		_("ref_img/Keyboard/Root"),
-		_("ref_img/Keyboard/Divide"),
-		_("ref_img/Keyboard/Multi"),
-		_("ref_img/Keyboard/LBrace"),
-		_("ref_img/Keyboard/RBrace"),
+	//{
+	//	_("ref_img/Keyboard/Equiv"),
+	//	_("ref_img/Keyboard/Quate"),
+	//	_("ref_img/Keyboard/Degree"),
+	//	_("ref_img/Keyboard/Or"),
+	//	_("ref_img/Keyboard/DotProduct"),
+	//	_("ref_img/Keyboard/Root"),
+	//	_("ref_img/Keyboard/Divide"),
+	//	_("ref_img/Keyboard/Multi"),
+	//	_("ref_img/Keyboard/LBrace"),
+	//	_("ref_img/Keyboard/RBrace"),
 
-		_("ref_img/Keyboard/HeartW"),
-		_("ref_img/Keyboard/HeartB"),
-		_("ref_img/Keyboard/StarW"),
-		_("ref_img/Keyboard/StarB"),
-		_("ref_img/Keyboard/RectW"),
-		_("ref_img/Keyboard/RectB"),
-		_("ref_img/Keyboard/Underbar"),
-		_("ref_img/Keyboard/Equal"),
-		_("ref_img/Keyboard/LBracket"),
-		_("ref_img/Keyboard/RBracket"),
+	//	_("ref_img/Keyboard/HeartW"),
+	//	_("ref_img/Keyboard/HeartB"),
+	//	_("ref_img/Keyboard/StarW"),
+	//	_("ref_img/Keyboard/StarB"),
+	//	_("ref_img/Keyboard/RectW"),
+	//	_("ref_img/Keyboard/RectB"),
+	//	_("ref_img/Keyboard/Underbar"),
+	//	_("ref_img/Keyboard/Equal"),
+	//	_("ref_img/Keyboard/LBracket"),
+	//	_("ref_img/Keyboard/RBracket"),
 
-		_("ref_img/Keyboard/ALT"),
-		_("ref_img/Keyboard/TM"),
-		_("ref_img/Keyboard/CircleR"),
-		_("ref_img/Keyboard/CircleC"),
-		_("ref_img/Keyboard/Caret"),
-		_("ref_img/Keyboard/Backslash"),
-		_("ref_img/Keyboard/Lessthan"),
-		_("ref_img/Keyboard/Greatethan"),
-		_("ref_img/Keyboard/Back"),
+	//	_("ref_img/Keyboard/ALT"),
+	//	_("ref_img/Keyboard/TM"),
+	//	_("ref_img/Keyboard/CircleR"),
+	//	_("ref_img/Keyboard/CircleC"),
+	//	_("ref_img/Keyboard/Caret"),
+	//	_("ref_img/Keyboard/Backslash"),
+	//	_("ref_img/Keyboard/Lessthan"),
+	//	_("ref_img/Keyboard/Greatethan"),
+	//	_("ref_img/Keyboard/Back"),
 
-		_("ref_img/Keyboard/ABC"),
-		_("ref_img/Keyboard/Dollar"),
-		_("ref_img/Keyboard/Space"),
-		_("ref_img/Keyboard/Dot"),
-		_("ref_img/Keyboard/Enter"),
-	},
+	//	_("ref_img/Keyboard/ABC"),
+	//	_("ref_img/Keyboard/Dollar"),
+	//	_("ref_img/Keyboard/Space"),
+	//	_("ref_img/Keyboard/Dot"),
+	//	_("ref_img/Keyboard/Enter"),
+	//},
 };
 
 
@@ -309,6 +310,7 @@ wxString g_keyImgTable[5][ID_BUTTON33 + 1] = {
 
 BEGIN_EVENT_TABLE(cKeyboardEngPanel, wxPanel)
 	EVT_COMMAND_RANGE(ID_BUTTON0, ID_BUTTON33, wxEVT_COMMAND_BUTTON_CLICKED, cKeyboardEngPanel::OnButtonKeyboard)
+	EVT_BUTTON(ID_BUTTON_X, cKeyboardEngPanel::OnButtonX)
 END_EVENT_TABLE()
 
 
@@ -326,10 +328,19 @@ cKeyboardEngPanel::cKeyboardEngPanel(wxWindow *parent, const wxString &initialTe
 	wxBoxSizer* itemBoxSizer2 = new wxBoxSizer(wxVERTICAL);
 	itemPanel1->SetSizer(itemBoxSizer2);
 
+
+	wxBoxSizer* itemBoxSizer33 = new wxBoxSizer(wxHORIZONTAL);
+	itemBoxSizer2->Add(itemBoxSizer33, 0, wxALIGN_RIGHT | wxALL, 0);
+
+	cBitmap3Button* itemButton44 = new cBitmap3Button(itemPanel1, ID_BUTTON_X, _("ref_img/BTN_X_32.png"), wxDefaultPosition, wxDefaultSize, 0);
+	itemBoxSizer33->Add(itemButton44, 0, wxALIGN_BOTTOM | wxALL, 0);
+
+
+
 	wxBoxSizer* itemBoxSizer3 = new wxBoxSizer(wxHORIZONTAL);
 	itemBoxSizer2->Add(itemBoxSizer3, 1, wxGROW | wxALL, 0);
 
-	m_textCtrl = new wxTextCtrl(itemPanel1, ID_TEXTCTRL, initialText, wxDefaultPosition, wxDefaultSize, IsPassword ? wxTE_PASSWORD : 0);
+	m_textCtrl = new wxTextCtrl(itemPanel1, ID_TEXTCTRL, initialText, wxDefaultPosition, wxSize(720,-1), IsPassword ? wxTE_PASSWORD : 0);
 	m_textCtrl->SetFont(wxFont(18, wxFONTFAMILY_SWISS, wxFONTSTYLE_NORMAL, wxFONTWEIGHT_NORMAL, false, wxT("")));
 	m_textCtrl->SetMaxLength(maximumChar);
 	itemBoxSizer3->Add(m_textCtrl, 1, wxGROW | wxALL, 2);
@@ -452,9 +463,10 @@ cKeyboardEngPanel::cKeyboardEngPanel(wxWindow *parent, const wxString &initialTe
 
 	//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 	// 문자가 전체 선택된 상태를 해제하고, carret을 가장 끝으로 이동시킨다. (약간의 꽁수코드가 있음)
-	itemButton41->SetFocus();
+	//itemButton41->SetFocus();
 	m_textCtrl->SetFocus();
-	m_textCtrl->SetInsertionPointEnd();
+	m_textCtrl->SelectAll();
+	//m_textCtrl->SetInsertionPointEnd();
 
 
 	// 키보드 버튼 객체를 모두 m_keyboardMap에 저장한다.
@@ -530,8 +542,8 @@ void cKeyboardEngPanel::OnButtonKeyboard(wxCommandEvent &evt)
 		case INPUT_MODE::ALPHA_LOWER:  nextMode = INPUT_MODE::ALPHA_UPPER;  break;
 		case INPUT_MODE::ALPHA_UPPER: nextMode = INPUT_MODE::ALPHA_UPPER_STAY; break;
 		case INPUT_MODE::ALPHA_UPPER_STAY: nextMode = INPUT_MODE::ALPHA_LOWER; break;
-		case INPUT_MODE::NUMBER: nextMode = INPUT_MODE::SPECIAL; break;
-		case INPUT_MODE::SPECIAL: nextMode = INPUT_MODE::NUMBER; break;
+		case INPUT_MODE::NUMBER: break;// nextMode = INPUT_MODE::SPECIAL; break;
+		//case INPUT_MODE::SPECIAL: nextMode = INPUT_MODE::NUMBER; break;
 		}
 
 		SetInputMode(nextMode);
@@ -543,7 +555,7 @@ void cKeyboardEngPanel::OnButtonKeyboard(wxCommandEvent &evt)
 		long insertionPoint = m_textCtrl->GetInsertionPoint();
 		if (insertionPoint > 0)
 		{
-			m_textCtrl->Replace(insertionPoint-1, insertionPoint, "");
+			m_textCtrl->Replace(insertionPoint-1, insertionPoint, _(""));
 			m_textCtrl->SetInsertionPoint(insertionPoint-1);
 		}
 		m_textCtrl->SetFocus();
@@ -566,8 +578,8 @@ void cKeyboardEngPanel::OnButtonKeyboard(wxCommandEvent &evt)
 	else
 	{
 		str = m_currentKeyTable[evt.GetId()];// [0];
-		if (str == "&&") // 예외 처리.
-			str = "&";
+		if (str == _("&&")) // 예외 처리.
+			str = _("&");
 
 		if (INPUT_MODE::ALPHA_UPPER == m_mode) // 대문자 하나를 입력하면, 소문자 모드로 이동한다.
 			SetInputMode(INPUT_MODE::ALPHA_LOWER);
@@ -603,7 +615,8 @@ void cKeyboardEngPanel::SetInputMode(const INPUT_MODE::TYPE mode)
 		m_keyboardButton[i]->SetButtonBitmap(g_keyImgTable[mode][id]);
 	}
 
-	if ((INPUT_MODE::NUMBER == mode) || (INPUT_MODE::SPECIAL == mode))
+	if ((INPUT_MODE::NUMBER == mode))
+		//|| (INPUT_MODE::SPECIAL == mode))
 	{
 		m_keyboardButton[ID_BUTTON19]->Show();
 	}
@@ -611,4 +624,14 @@ void cKeyboardEngPanel::SetInputMode(const INPUT_MODE::TYPE mode)
 	m_currentKeyTable = g_keyTable[mode];
 
 	Layout();
+}
+
+
+// Close 버튼을 누를 때, 호출된다.
+void cKeyboardEngPanel::OnButtonX(wxCommandEvent&)
+{
+	//str = "\n"; // 개행 문자를 넣는다.
+	cKeyboardDialog *parent = dynamic_cast<cKeyboardDialog*>(GetParent());
+	if (parent)
+		parent->KeyboardInputCancel();
 }

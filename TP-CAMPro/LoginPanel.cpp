@@ -8,6 +8,7 @@
 #include "DateDisplay.h"
 #include "Bitmap3Button.h"
 #include "KeyboardDialog.h"
+#include "Bitmap2Button.h"
 
 
 enum {
@@ -145,9 +146,9 @@ wxPanel(frame)
 	wxBoxSizer* itemBoxSizer32 = new wxBoxSizer(wxVERTICAL);
 	itemBoxSizer12->Add(itemBoxSizer32, 0, wxALIGN_CENTER_HORIZONTAL | wxALL, 5);
 
-	
+	wxImage img(_("ref_img/start_1.png"));
 	wxStaticBitmap* itemStaticBitmap33 = new wxStaticBitmap(itemPanel10, wxID_STATIC, 
-		wxBitmap("ref_img/ComLASER_Logo.bmp", wxBITMAP_TYPE_BMP), wxDefaultPosition, wxDefaultSize, 0);
+		wxBitmap(img), wxDefaultPosition, wxDefaultSize, 0);
 	itemBoxSizer32->Add(itemStaticBitmap33, 0, wxALIGN_CENTER_HORIZONTAL | wxALL, 0);
 
 
@@ -155,7 +156,7 @@ wxPanel(frame)
 	wxBoxSizer* itemBoxSizer41 = new wxBoxSizer(wxVERTICAL);
 	itemBoxSizer8->Add(itemBoxSizer41, 0, wxALIGN_BOTTOM  | wxLEFT | wxRIGHT | wxTOP, 5);
 
-	cBitmap3Button* itemButton42 = new cBitmap3Button(itemPanel1, ID_BUTTON_START, _("ref_img/BTN_START.bmp"), wxDefaultPosition, wxDefaultSize, 0);
+	cBitmap2Button* itemButton42 = new cBitmap2Button(itemPanel1, ID_BUTTON_START, _("ref_img/Button 1"), wxDefaultPosition, wxSize(128, 50), 0);
 	itemBoxSizer41->Add(itemButton42, 0, wxALIGN_CENTER_HORIZONTAL | wxALL, 5);
 
 	cBitmap3Button* itemButton43 = new cBitmap3Button(itemPanel1, ID_BUTTON_EXIT, _("ref_img/EXIT.bmp"), wxDefaultPosition, wxDefaultSize, 0);
@@ -175,19 +176,18 @@ wxPanel(frame)
 	m_comboUserName = itemComboCtrl23;
 	m_textPassWord = itemTextCtrl29;
 
-	//SetDeviceID("M305624");
-	SetDeviceID( _("¢ª¡¤¡î¡À¢½¢¾¡Ù¡Ú") );
+	SetDeviceID( _("M305624"));
+	//SetDeviceID( _("¢ª¡¤¡î¡À¢½¢¾¡Ù¡Ú") );
 
 }
 
 
 void cLoginPanel::SetDeviceID(const wxString &deviceID)
 {
-	wxUSE_UNICODE;
-
-	wxChar aa[] = L"aaa";
-	//m_textDeviceID->SetValue(deviceID);
-	m_textDeviceID->SetValue(aa);
+	//wxUSE_UNICODE;
+	//wxChar aa[] = _("aaa");
+	m_textDeviceID->SetValue(deviceID);
+	//m_textDeviceID->SetValue(aa);
 }
 
 

@@ -9,16 +9,19 @@ cBitmap2Button::cBitmap2Button(wxWindow *parent,
 	const wxPoint& pos,
 	const wxSize& size,
 	long style,
-	const wxString& name)
+	const wxString& name,
+	BUTTON2_TYPE::TYPE buttonImageType
+	)
 	: m_isPressed(false)
 	, m_isEnterWindow(false)
+	, m_buttonImgType(buttonImageType)
 {
 
 	int w = size.GetWidth();
 	int h = size.GetHeight();
 	if (!fileName.IsEmpty())
-	{ 
-		wxImage img(fileName + _("_0.bmp"));
+	{
+		wxImage img(fileName + _("_0") + GetFileExt());
 		w = img.GetWidth();
 		h = img.GetHeight();
 	}
@@ -109,8 +112,10 @@ void cBitmap2Button::SetButtonBitmap(const wxString &fileName)
 {
 	if (fileName.IsEmpty())
 		return;
-	m_normalImg.LoadFile(fileName + _("_0.bmp"));
-	m_hoverImg.LoadFile(fileName + _("_1.bmp"));
+
+	const wxString ext = GetFileExt();
+	m_normalImg.LoadFile(fileName + _("_0") + ext);
+	m_hoverImg.LoadFile(fileName + _("_1") + ext);
 
 	SetBitmap(m_normalImg);
 	Refresh();
@@ -118,3 +123,17 @@ void cBitmap2Button::SetButtonBitmap(const wxString &fileName)
 	Fit();
 }
 
+
+// 버튼 이미지 확장자를 리턴한다.
+wxString cBitmap2Button::GetFileExt()
+{
+	wxString ext;
+	if (BUTTON2_TYPE::BMP == m_buttonImgType)
+		ext = _(".bmp");
+	else if (BUTTON2_TYPE::PNG == m_buttonImgType)
+		ext = _(".png");
+	else
+		ext = _(".bmp");
+
+	return ext;
+}

@@ -137,7 +137,7 @@ void cNumberPadPanel::CreateControls()
     itemBoxSizer3->Add(m_textCtrl, 1, wxALIGN_CENTER_VERTICAL|wxALL, 5);
 
     wxBoxSizer* itemBoxSizer6 = new wxBoxSizer(wxHORIZONTAL);
-    itemBoxSizer2->Add(itemBoxSizer6, 1, wxGROW|wxALL, 0);
+    itemBoxSizer2->Add(itemBoxSizer6, 0, wxGROW|wxALL, 0);
 
     wxBoxSizer* itemBoxSizer7 = new wxBoxSizer(wxVERTICAL);
     itemBoxSizer6->Add(itemBoxSizer7, 1, wxGROW|wxALL, 0);
@@ -170,7 +170,7 @@ void cNumberPadPanel::CreateControls()
     itemBoxSizer15->Add(itemButton16, 1, wxGROW|wxALL, 0);
 
     wxBoxSizer* itemBoxSizer17 = new wxBoxSizer(wxHORIZONTAL);
-    itemBoxSizer2->Add(itemBoxSizer17, 1, wxGROW|wxALL, 0);
+    itemBoxSizer2->Add(itemBoxSizer17, 0, wxGROW|wxALL, 0);
 
     wxBoxSizer* itemBoxSizer18 = new wxBoxSizer(wxVERTICAL);
     itemBoxSizer17->Add(itemBoxSizer18, 1, wxGROW|wxALL, 0);

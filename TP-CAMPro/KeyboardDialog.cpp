@@ -47,3 +47,11 @@ void cKeyboardDialog::KeyboardInputFinish()
 
 	EndDialog(wxID_OK);
 }
+
+
+// 키보드 입력을 취소할 때, 호출된다.
+// keyboardPanel 에서 호출함.
+void cKeyboardDialog::KeyboardInputCancel()
+{
+	EndDialog(wxID_CANCEL);
+}
