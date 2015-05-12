@@ -2,7 +2,6 @@
 // 키보드 다이얼로그
 // 환경설정에 맞게,  해당 언어에 맞는 키보드를 출력한다.
 //
-
 #pragma once
 
 
@@ -11,6 +10,9 @@ class cKeyboardDialog : public wxDialog
 {
 public:
 	cKeyboardDialog(wxWindow *parent, const wxString &initialText = wxEmptyString, 
+		const bool IsPassword = false, const int maximumChar = 20);
+
+	void ShowModaless(const wxString &initialText = wxEmptyString,
 		const bool IsPassword = false, const int maximumChar = 20);
 
 	void KeyboardInputFinish();
@@ -22,3 +24,9 @@ public:
 protected:
 	cKeyboardEngPanel *m_keyboardPanel;
 };
+
+
+void ShowKeyboardDialog(const wxString &initialText = wxEmptyString,
+	const bool IsPassword = false, const int maximumChar = 20);
+
+extern cKeyboardDialog *g_keyboardDlg;

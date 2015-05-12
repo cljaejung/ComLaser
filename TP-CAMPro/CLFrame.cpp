@@ -13,6 +13,7 @@
 #include "EnforcementPanel.h"
 #include "EnforcementFullPanel.h"
 #include "MoviePanel.h"
+#include "KeyboardDialog.h"
 
 
 // ----------------------------------------------------------------------------
@@ -86,6 +87,8 @@ cCLFrame::cCLFrame(const wxString& title)
 	m_enforcementPanel = new cEnforcementPanel(this);
 	m_enforcementFullPanel = new cEnforcementFullPanel(this);
 	//cMoviePanel *moviePanel = new cMoviePanel(this);
+	g_keyboardDlg = new cKeyboardDialog(this);
+
 
 	itemBoxSizer2->Add(m_mainPanel, 1, wxEXPAND);
 	itemBoxSizer2->Add(m_loginPanel, 1, wxEXPAND);
@@ -107,6 +110,14 @@ cCLFrame::cCLFrame(const wxString& title)
 	
 	Center(); // 윈도우를 가운데로 옮긴다.
 	Layout(); // UI 위치 재조정.
+}
+
+
+cCLFrame::~cCLFrame()
+{
+	g_keyboardDlg->Destroy();
+	delete g_keyboardDlg;
+
 }
 
 

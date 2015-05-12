@@ -16,6 +16,7 @@ class cCLFrame : public wxFrame
 public:
 	// ctor(s)
 	cCLFrame(const wxString& title);
+	virtual ~cCLFrame();
 
 	cMainPanel *m_mainPanel;
 	cLoginPanel *m_loginPanel;

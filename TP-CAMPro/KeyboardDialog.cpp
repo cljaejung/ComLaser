@@ -3,6 +3,10 @@
 #include "KeyboardDialog.h"
 #include "KeyboardEngPanel.h"
 
+
+cKeyboardDialog *g_keyboardDlg = NULL;
+
+
 enum
 {
 	ID_PANEL,
@@ -34,7 +38,7 @@ cKeyboardDialog::cKeyboardDialog(wxWindow *parent, const wxString &initialText,
 
 	//Center();
 	wxPoint parentPos = GetParent()->ClientToScreen(wxPoint(0, 0));
-	Move(wxPoint(0, 118) + parentPos);
+	Move(wxPoint(0, 86) + parentPos);
 
 }
 
@@ -54,4 +58,23 @@ void cKeyboardDialog::KeyboardInputFinish()
 void cKeyboardDialog::KeyboardInputCancel()
 {
 	EndDialog(wxID_CANCEL);
+}
+
+
+// 모달리스 다이얼로그로 띄운다.
+void cKeyboardDialog::ShowModaless(const wxString &initialText, const bool IsPassword, const int maximumChar)
+{
+	m_keyboardPanel->m_textCtrl->SetValue(initialText);
+	m_keyboardPanel->m_textCtrl->SetMaxLength(maximumChar);
+	Show(true);
+
+	wxPoint parentPos = GetParent()->ClientToScreen(wxPoint(0, 0));
+	Move(wxPoint(0, 86) + parentPos);
+}
+
+
+// 키보드 다이얼로그를 띄운다.
+void ShowKeyboardDialog(const wxString &initialText, const bool IsPassword , const int maximumChar)
+{
+	g_keyboardDlg->ShowModaless(initialText, IsPassword, maximumChar);
 }

@@ -230,9 +230,10 @@ cOperatorSetPanel::cOperatorSetPanel(wxFrame*frame) :
 
 void cOperatorSetPanel::OnButtonUserName(wxCommandEvent &)
 {
-	cKeyboardDialog dlg(this, m_comboUserName->GetValue());
-	if (wxID_OK == dlg.ShowModal())
-		m_comboUserName->SetValue(dlg.m_text);
+	ShowKeyboardDialog(m_comboUserName->GetValue());
+	//cKeyboardDialog dlg(this, m_comboUserName->GetValue());
+	//if (wxID_OK == dlg.ShowModal())
+	//	m_comboUserName->SetValue(dlg.m_text);
 }
 
 
