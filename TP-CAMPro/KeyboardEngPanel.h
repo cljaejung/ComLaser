@@ -17,7 +17,7 @@ namespace INPUT_MODE
 
 
 
-class cBitmap2Button;
+class cBitmap2ButtonEx;
 class cKeyboardEngPanel : public wxPanel
 {
 public:
@@ -33,7 +33,7 @@ protected:
 
 public:
 	wxTextCtrl *m_textCtrl;
-	vector<cBitmap2Button*> m_keyboardButton;
+	vector<cBitmap2ButtonEx*> m_keyboardButton;
 
 	wxString *m_currentKeyTable;
 	INPUT_MODE::TYPE m_mode;

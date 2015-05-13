@@ -6,10 +6,10 @@
 #include "wx/combobox.h"
 #include "BatteryDisplay.h"
 #include "DateDisplay.h"
-#include "Bitmap3Button.h"
+#include "Bitmap3ButtonEx.h"
 #include "KeyboardDialog.h"
-#include "Bitmap2Button.h"
-
+#include "Bitmap2ButtonEx.h"
+#include "NumberPadDialog.h"
 
 enum {
 	ID_BUTTON_EXIT,
@@ -113,14 +113,14 @@ wxPanel(frame)
 	itemBoxSizer20->Add(itemBoxSizer22, 1, wxALIGN_CENTER_VERTICAL | wxALL, 0);
 
 	wxArrayString itemComboBox23Strings;
-	wxComboBox* itemComboCtrl23 = new wxComboBox(itemPanel10, ID_COMBOBOX, _("police"), wxDefaultPosition, wxSize(270, 32), itemComboBox23Strings, wxCB_DROPDOWN);
+	wxComboBox* itemComboCtrl23 = new wxComboBox(itemPanel10, ID_COMBOBOX, _("police"), wxDefaultPosition, wxSize(270, -1), itemComboBox23Strings, wxCB_DROPDOWN);
 	itemComboCtrl23->SetFont(wxFont(18, wxFONTFAMILY_SWISS, wxFONTSTYLE_NORMAL, wxFONTWEIGHT_NORMAL, false, wxT("")));
 	itemBoxSizer22->Add(itemComboCtrl23, 1, wxALIGN_RIGHT | wxALL, 0);
 	
 	wxBoxSizer* itemBoxSizer24 = new wxBoxSizer(wxVERTICAL);
 	itemBoxSizer20->Add(itemBoxSizer24, 0, wxALIGN_CENTER_VERTICAL | wxALL, 0);
 
-	cBitmap3Button* itemButton25 = new cBitmap3Button(itemPanel10, ID_BUTTON_USERNAME, _("ref_img/BTN_KEYBOARD.png"), wxDefaultPosition, wxSize(32, 32), 0);
+	cBitmap3ButtonEx* itemButton25 = new cBitmap3ButtonEx(itemPanel10, ID_BUTTON_USERNAME, _("ref_img/BTN_KEYBOARD.png"), wxDefaultPosition, wxSize(32, 32), 0);
 	itemBoxSizer24->Add(itemButton25, 0, wxALIGN_CENTER_HORIZONTAL | wxALL, 1);
 
 	wxBoxSizer* itemBoxSizer26 = new wxBoxSizer(wxHORIZONTAL);
@@ -140,7 +140,7 @@ wxPanel(frame)
 	wxBoxSizer* itemBoxSizer30 = new wxBoxSizer(wxVERTICAL);
 	itemBoxSizer26->Add(itemBoxSizer30, 0, wxALIGN_CENTER_VERTICAL | wxALL, 0);
 
-	cBitmap3Button* itemButton31 = new cBitmap3Button(itemPanel10, ID_BUTTON_PASSWORD, _("ref_img/BTN_KEYBOARD.png"), wxDefaultPosition, wxSize(32, 32), 0);
+	cBitmap3ButtonEx* itemButton31 = new cBitmap3ButtonEx(itemPanel10, ID_BUTTON_PASSWORD, _("ref_img/BTN_KEYBOARD.png"), wxDefaultPosition, wxSize(32, 32), 0);
 	itemBoxSizer30->Add(itemButton31, 0, wxALIGN_CENTER_HORIZONTAL | wxALL, 1);
 
 	wxBoxSizer* itemBoxSizer32 = new wxBoxSizer(wxVERTICAL);
@@ -156,11 +156,11 @@ wxPanel(frame)
 	wxBoxSizer* itemBoxSizer41 = new wxBoxSizer(wxVERTICAL);
 	itemBoxSizer8->Add(itemBoxSizer41, 0, wxALIGN_BOTTOM  | wxLEFT | wxRIGHT | wxTOP, 5);
 
-	cPng2Button* itemButton42 = new cPng2Button(itemPanel1, ID_BUTTON_START, _("ref_img/start"), wxDefaultPosition, wxSize(128, 50), 0);
-	itemBoxSizer41->Add(itemButton42, 0, wxALIGN_CENTER_HORIZONTAL | wxALL, 5);
+	cBitmap3ButtonEx* itemButton42 = new cBitmap3ButtonEx(itemPanel1, ID_BUTTON_START, _("ref_img/Start.bmp"), wxDefaultPosition, wxDefaultSize, 0);
+	itemBoxSizer41->Add(itemButton42, 0, wxALIGN_CENTER_HORIZONTAL | wxALL, 0);
 
-	cBitmap3Button* itemButton43 = new cBitmap3Button(itemPanel1, ID_BUTTON_EXIT, _("ref_img/EXIT.bmp"), wxDefaultPosition, wxDefaultSize, 0);
-	itemBoxSizer41->Add(itemButton43, 0, wxALIGN_CENTER_HORIZONTAL | wxLEFT | wxRIGHT | wxTOP, 5);
+	cBitmap3ButtonEx* itemButton43 = new cBitmap3ButtonEx(itemPanel1, ID_BUTTON_EXIT, _("ref_img/EXIT.bmp"), wxDefaultPosition, wxDefaultSize, 0);
+	itemBoxSizer41->Add(itemButton43, 0, wxALIGN_CENTER_HORIZONTAL | wxLEFT | wxRIGHT | wxTOP, 0);
 
 	wxBoxSizer* itemBoxSizer44 = new wxBoxSizer(wxHORIZONTAL);
 	itemBoxSizer2->Add(itemBoxSizer44, 0, wxALIGN_CENTER_HORIZONTAL | wxALL, 0);
@@ -184,10 +184,7 @@ wxPanel(frame)
 
 void cLoginPanel::SetDeviceID(const wxString &deviceID)
 {
-	//wxUSE_UNICODE;
-	//wxChar aa[] = _("aaa");
 	m_textDeviceID->SetValue(deviceID);
-	//m_textDeviceID->SetValue(aa);
 }
 
 

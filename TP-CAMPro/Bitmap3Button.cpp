@@ -10,7 +10,7 @@ cBitmap3Button::cBitmap3Button(wxWindow *parent,
 	const wxPoint& pos,
 	const wxSize& size,
 	long style,
-	const wxString& name)
+	const wxString& name) 
 	: m_isPressed(false)
 	, m_isEnterWindow(false)
 {
@@ -20,7 +20,8 @@ cBitmap3Button::cBitmap3Button(wxWindow *parent,
 	const int h = img.GetHeight();
 
 	wxBitmap bmp(w, h);
-	Create(parent, id, bmp, wxDefaultPosition, wxDefaultSize, style, name);
+	Create(parent, id, bmp, pos, size, style, name);
+	
 
 	// 버튼이미지 업데이트
 	SetButtonBitmap(fileName);

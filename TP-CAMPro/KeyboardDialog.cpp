@@ -4,9 +4,6 @@
 #include "KeyboardEngPanel.h"
 
 
-cKeyboardDialog *g_keyboardDlg = NULL;
-
-
 enum
 {
 	ID_PANEL,
@@ -70,11 +67,4 @@ void cKeyboardDialog::ShowModaless(const wxString &initialText, const bool IsPas
 
 	wxPoint parentPos = GetParent()->ClientToScreen(wxPoint(0, 0));
 	Move(wxPoint(0, 86) + parentPos);
-}
-
-
-// 키보드 다이얼로그를 띄운다.
-void ShowKeyboardDialog(const wxString &initialText, const bool IsPassword , const int maximumChar)
-{
-	g_keyboardDlg->ShowModaless(initialText, IsPassword, maximumChar);
 }

@@ -4,12 +4,12 @@
 #include "CLFrame.h"
 #include "wx/combo.h"
 #include "wx/combobox.h"
-#include "Bitmap3Button.h"
+#include "Bitmap3ButtonEx.h"
 #include "BatteryDisplay.h"
 #include "DateDisplay.h"
 #include "KeyboardDialog.h"
 #include "ImagePanel.h"
-#include "Bitmap2Button.h"
+#include "Bitmap2ButtonEx.h"
 
 
 enum {
@@ -125,7 +125,7 @@ cOperatorSetPanel::cOperatorSetPanel(wxFrame*frame) :
 	wxBoxSizer* itemBoxSizer21 = new wxBoxSizer(wxVERTICAL);
 	itemBoxSizer16->Add(itemBoxSizer21, 0, wxALIGN_CENTER_VERTICAL | wxALL, 0);
 
-	cBitmap3Button* itemButton22 = new cBitmap3Button(itemPanel14, ID_BUTTON_USERNAME, _("ref_img/BTN_KEYBOARD.png"), wxDefaultPosition, wxSize(32, 32), 0);
+	cBitmap3ButtonEx* itemButton22 = new cBitmap3ButtonEx(itemPanel14, ID_BUTTON_USERNAME, _("ref_img/BTN_KEYBOARD.png"), wxDefaultPosition, wxSize(32, 32), 0);
 	itemBoxSizer21->Add(itemButton22, 0, wxALIGN_CENTER_HORIZONTAL | wxALL, 1);
 
 	wxBoxSizer* itemBoxSizer23 = new wxBoxSizer(wxHORIZONTAL);
@@ -148,7 +148,7 @@ cOperatorSetPanel::cOperatorSetPanel(wxFrame*frame) :
 	wxBoxSizer* itemBoxSizer28 = new wxBoxSizer(wxVERTICAL);
 	itemBoxSizer23->Add(itemBoxSizer28, 0, wxALIGN_CENTER_VERTICAL | wxALL, 0);
 
-	cBitmap3Button* itemButton29 = new cBitmap3Button(itemPanel14, ID_BUTTON_PASSWORD, _("ref_img/BTN_KEYBOARD.png"), wxDefaultPosition, wxSize(32, 32), 0);
+	cBitmap3ButtonEx* itemButton29 = new cBitmap3ButtonEx(itemPanel14, ID_BUTTON_PASSWORD, _("ref_img/BTN_KEYBOARD.png"), wxDefaultPosition, wxSize(32, 32), 0);
 	itemBoxSizer28->Add(itemButton29, 0, wxALIGN_CENTER_HORIZONTAL | wxALL, 1);
 
 	wxBoxSizer* itemBoxSizer30 = new wxBoxSizer(wxHORIZONTAL);
@@ -171,7 +171,7 @@ cOperatorSetPanel::cOperatorSetPanel(wxFrame*frame) :
 	wxBoxSizer* itemBoxSizer35 = new wxBoxSizer(wxVERTICAL);
 	itemBoxSizer30->Add(itemBoxSizer35, 0, wxALIGN_CENTER_VERTICAL | wxALL, 0);
 
-	cBitmap3Button* itemButton36 = new cBitmap3Button(itemPanel14, ID_BUTTON_NEWPASSWORD, _("ref_img/BTN_KEYBOARD.png"), wxDefaultPosition, wxSize(32, 32), 0);
+	cBitmap3ButtonEx* itemButton36 = new cBitmap3ButtonEx(itemPanel14, ID_BUTTON_NEWPASSWORD, _("ref_img/BTN_KEYBOARD.png"), wxDefaultPosition, wxSize(32, 32), 0);
 	itemBoxSizer35->Add(itemButton36, 0, wxALIGN_CENTER_HORIZONTAL | wxALL, 1);
 
 	wxBoxSizer* itemBoxSizer37 = new wxBoxSizer(wxHORIZONTAL);
@@ -194,29 +194,29 @@ cOperatorSetPanel::cOperatorSetPanel(wxFrame*frame) :
 	wxBoxSizer* itemBoxSizer42 = new wxBoxSizer(wxVERTICAL);
 	itemBoxSizer37->Add(itemBoxSizer42, 0, wxALIGN_CENTER_VERTICAL | wxALL, 0);
 
-	cBitmap3Button* itemButton43 = new cBitmap3Button(itemPanel14, ID_BUTTON_CONFIRM, _("ref_img/BTN_KEYBOARD.png"), wxDefaultPosition, wxSize(32, 32), 0);
+	cBitmap3ButtonEx* itemButton43 = new cBitmap3ButtonEx(itemPanel14, ID_BUTTON_CONFIRM, _("ref_img/BTN_KEYBOARD.png"), wxDefaultPosition, wxSize(32, 32), 0);
 	itemBoxSizer42->Add(itemButton43, 0, wxALIGN_CENTER_HORIZONTAL | wxALL, 1);
 
 	wxBoxSizer* itemBoxSizer44 = new wxBoxSizer(wxHORIZONTAL);
 	itemBoxSizer15->Add(itemBoxSizer44, 1, wxALIGN_CENTER_HORIZONTAL | wxALL, 5);
 
-	cPng2Button* itemButton45 = new cPng2Button(itemPanel14, ID_BUTTON_ADD, _("ref_img/Add"));// , wxDefaultPosition, wxDefaultSize, 0);
+	cPng2ButtonEx* itemButton45 = new cPng2ButtonEx(itemPanel14, ID_BUTTON_ADD, _("ref_img/Add"));// , wxDefaultPosition, wxDefaultSize, 0);
 	itemBoxSizer44->Add(itemButton45, 0, wxALIGN_BOTTOM | wxALL, 5);
 
-	cPng2Button* itemButton46 = new cPng2Button(itemPanel14, ID_BUTTON_DELETE, _("ref_img/Delete"));// , wxDefaultPosition, wxDefaultSize, 0);
+	cPng2ButtonEx* itemButton46 = new cPng2ButtonEx(itemPanel14, ID_BUTTON_DELETE, _("ref_img/Delete"));// , wxDefaultPosition, wxDefaultSize, 0);
 	itemBoxSizer44->Add(itemButton46, 0, wxALIGN_BOTTOM | wxALL, 5);
 
-	cPng2Button* itemButton47 = new cPng2Button(itemPanel14, ID_BUTTON_CHANGE2, _("ref_img/Change"));//, wxDefaultPosition, wxDefaultSize, 0);
+	cPng2ButtonEx* itemButton47 = new cPng2ButtonEx(itemPanel14, ID_BUTTON_CHANGE2, _("ref_img/Change"));//, wxDefaultPosition, wxDefaultSize, 0);
 	itemBoxSizer44->Add(itemButton47, 0, wxALIGN_BOTTOM | wxALL, 5);
 
 
 	wxBoxSizer* itemBoxSizer48 = new wxBoxSizer(wxVERTICAL);
 	itemBoxSizer12->Add(itemBoxSizer48, 0, wxALIGN_CENTER_VERTICAL | wxALL, 5);
 
-	cBitmap3Button* itemButton49 = new cBitmap3Button(itemPanel1, ID_BUTTON_OK, _("ref_img/BTN_OK.bmp"), wxDefaultPosition, wxDefaultSize, 0);
+	cBitmap3ButtonEx* itemButton49 = new cBitmap3ButtonEx(itemPanel1, ID_BUTTON_OK, _("ref_img/BTN_OK.bmp"), wxDefaultPosition, wxDefaultSize, 0);
 	itemBoxSizer48->Add(itemButton49, 0, wxALIGN_CENTER_HORIZONTAL | wxALL, 5);
 
-	cBitmap3Button* itemButton50 = new cBitmap3Button(itemPanel1, ID_BUTTON_CANCEL, _("ref_img/BTN_CANCEL.bmp"), wxDefaultPosition, wxDefaultSize, 0);
+	cBitmap3ButtonEx* itemButton50 = new cBitmap3ButtonEx(itemPanel1, ID_BUTTON_CANCEL, _("ref_img/BTN_CANCEL.bmp"), wxDefaultPosition, wxDefaultSize, 0);
 	itemBoxSizer48->Add(itemButton50, 0, wxALIGN_CENTER_HORIZONTAL | wxALL, 5);
 
 
@@ -230,10 +230,9 @@ cOperatorSetPanel::cOperatorSetPanel(wxFrame*frame) :
 
 void cOperatorSetPanel::OnButtonUserName(wxCommandEvent &)
 {
-	ShowKeyboardDialog(m_comboUserName->GetValue());
-	//cKeyboardDialog dlg(this, m_comboUserName->GetValue());
-	//if (wxID_OK == dlg.ShowModal())
-	//	m_comboUserName->SetValue(dlg.m_text);
+	cKeyboardDialog dlg(this, m_comboUserName->GetValue());
+	if (wxID_OK == dlg.ShowModal())
+		m_comboUserName->SetValue(dlg.m_text);
 }
 
 

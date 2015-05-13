@@ -9,49 +9,47 @@
 
 prefix = /usr/local
 exec_prefix = ${prefix}
-datarootdir = @datarootdir@
+datarootdir = ${prefix}/share
 INSTALL = /usr/bin/install -c
 EXEEXT = 
 WINDRES = 
-REZ = 
 SETFILE = 
 NM = nm
-BK_DEPS = /home/odroid/work/wxX11-2.8.12/bk-deps
+BK_DEPS = /home/odroid/work/wxWidgets-3.0.2/buildr/bk-deps
 srcdir = .
-top_srcdir = ../../wxX11-2.8.12
+top_srcdir = ../../wxWidgets-3.0.2
 LIBS = -lz -ldl -lm
 LDFLAGS_GUI = 
 CXX = g++
-CXXFLAGS = -DWX_PRECOMP -pthread -Wall -Wundef -Wno-ctor-dtor-privacy -O2 -fno-strict-aliasing
-CPPFLAGS = -D_FILE_OFFSET_BITS=64 -D_LARGE_FILES -I${wx_top_builddir}/lib/wx/include/x11univ-ansi-release-2.8 -I${top_srcdir}/include
-LDFLAGS = -pthread  
+CXXFLAGS = -DWX_PRECOMP -pthread -O2 -fno-strict-aliasing -pthread -I/usr/include/gdk-pixbuf-2.0 -I/usr/include/glib-2.0 -I/usr/lib/arm-linux-gnueabihf/glib-2.0/include -I/usr/include/libpng12 -pthread -I/usr/local/include/pango-1.0 -I/usr/include/gtk-unix-print-2.0 -I/usr/include/gtk-2.0 -I/usr/include/atk-1.0 -I/usr/include/cairo -I/usr/include/gdk-pixbuf-2.0 -I/usr/lib/arm-linux-gnueabihf/gtk-2.0/include -I/usr/include/gio-unix-2.0/ -I/usr/include/freetype2 -I/usr/include/glib-2.0 -I/usr/lib/arm-linux-gnueabihf/glib-2.0/include -I/usr/include/pixman-1 -I/usr/include/libpng12 -I/usr/include/harfbuzz -fvisibility=hidden -fvisibility-inlines-hidden
+CPPFLAGS = -D_FILE_OFFSET_BITS=64 -I${wx_top_builddir}/lib/wx/include/gtk2-unicode-3.0 -I${top_srcdir}/include -pthread -I/usr/local/include/pango-1.0 -I/usr/include/gtk-2.0 -I/usr/lib/arm-linux-gnueabihf/gtk-2.0/include -I/usr/include/atk-1.0 -I/usr/include/cairo -I/usr/include/gdk-pixbuf-2.0 -I/usr/include/gio-unix-2.0/ -I/usr/include/freetype2 -I/usr/include/glib-2.0 -I/usr/lib/arm-linux-gnueabihf/glib-2.0/include -I/usr/include/pixman-1 -I/usr/include/libpng12 -I/usr/include/harfbuzz -pthread -I/usr/include/gstreamer-0.10 -I/usr/include/glib-2.0 -I/usr/lib/arm-linux-gnueabihf/glib-2.0/include -I/usr/include/libxml2
+LDFLAGS = -pthread   
 WX_LIB_FLAVOUR = 
-TOOLKIT = X11
-TOOLKIT_LOWERCASE = x11
-TOOLKIT_VERSION = 
-TOOLCHAIN_FULLNAME = x11univ-ansi-release-2.8
-EXTRALIBS = -pthread  -Wl,--version-script,$(wx_top_builddir)/version-script -lz -ldl -lm 
+TOOLKIT = GTK
+TOOLKIT_LOWERCASE = gtk
+TOOLKIT_VERSION = 2
+TOOLCHAIN_FULLNAME = gtk2-unicode-3.0
+EXTRALIBS = -pthread   -Wl,--version-script,$(wx_top_builddir)/version-script -lz -ldl -lm 
 EXTRALIBS_XML =  -lexpat
-EXTRALIBS_HTML = 
-EXTRALIBS_GUI = -lX11 -lXext -lpng -lz -ljpeg -ltiff
-EXTRALIBS_SDL = 
+EXTRALIBS_GUI = -pthread -L/usr/local/lib -lgtk-x11-2.0 -lgdk-x11-2.0 -latk-1.0 -lgio-2.0 -lpangoft2-1.0 -lpangocairo-1.0 -lgdk_pixbuf-2.0 -lcairo -lpango-1.0 -lfontconfig -lgobject-2.0 -lfreetype -lgthread-2.0 -lglib-2.0 -lX11 -lXxf86vm -lSM -L/usr/local/lib -lgtk-x11-2.0 -lgdk-x11-2.0 -latk-1.0 -lgio-2.0 -lpangoft2-1.0 -lpangocairo-1.0 -lgdk_pixbuf-2.0 -lcairo -lpango-1.0 -lfontconfig -lgobject-2.0 -lglib-2.0 -lfreetype -lnotify -lgdk_pixbuf-2.0 -lgio-2.0 -lgobject-2.0 -lglib-2.0 -lpng -lz -ljpeg -ltiff
+CXXWARNINGS = -Wall -Wundef -Wunused-parameter -Wno-ctor-dtor-privacy -Woverloaded-virtual
 HOST_SUFFIX = 
 SAMPLES_RPATH_FLAG = -Wl,-rpath,$(wx_top_builddir)/lib
-SAMPLES_RPATH_POSTLINK = 
-wx_top_builddir = /home/odroid/work/wxX11-2.8.12
+wx_top_builddir = /home/odroid/work/wxWidgets-3.0.2/buildr
 
 ### Variables: ###
 
 DESTDIR = 
-WX_RELEASE = 2.8
-WX_VERSION = $(WX_RELEASE).12
+WX_RELEASE = 3.0
+WX_VERSION = $(WX_RELEASE).2
 LIBDIRNAME = $(wx_top_builddir)/lib
-MINIMAL_CXXFLAGS = -D__WX$(TOOLKIT)__ $(__WXUNIV_DEFINE_p) \
+MINIMAL_CXXFLAGS = -D__WX$(TOOLKIT)__ $(__WXUNIV_DEFINE_p) $(__DEBUG_DEFINE_p) \
 	$(__EXCEPTIONS_DEFINE_p) $(__RTTI_DEFINE_p) $(__THREAD_DEFINE_p) \
-	-I$(srcdir) $(__DLLFLAG_p) -I$(srcdir)/../../samples $(CPPFLAGS) $(CXXFLAGS)
+	-I$(srcdir) $(__DLLFLAG_p) -I$(srcdir)/../../samples $(CXXWARNINGS) \
+	$(CPPFLAGS) $(CXXFLAGS)
 MINIMAL_OBJECTS =  \
-	$(__minimal___win32rc) \
-	$(__minimal_os2_lib_res) \
+	$(__font___win32rc) \
+	$(__font_os2_lib_res) \
 	TP-CAMPro.o \
 	stdafx.o \
 	CLApp.o \
@@ -59,7 +57,9 @@ MINIMAL_OBJECTS =  \
 	MainPanel.o \
 	OperatorSetPanel.o \
 	Bitmap3Button.o \
+	Bitmap3ButtonEx.o \
 	Bitmap2Button.o \
+	Bitmap2ButtonEx.o \
 	CameraFullPanel.o \
 	CameraSetPanel.o \
 	DateSetPanel.o \
@@ -86,72 +86,65 @@ SRCS = $(MINIMAL_OBJECTS:.o=.cpp)
 
 #CXXC = $(CXX)
 CXXC = $(BK_DEPS) $(CXX)
-PLUGIN_ADV_EXTRALIBS = $(EXTRALIBS_SDL)
 #PORTNAME = base
 PORTNAME = $(TOOLKIT_LOWERCASE)$(TOOLKIT_VERSION)
 #WXBASEPORT = _carbon
 #WXDEBUGFLAG = d
-#WXDEBUGFLAG = d
-#WXUNICODEFLAG = u
-WXUNIVNAME = univ
+WXUNICODEFLAG = u
+#WXUNIVNAME = univ
 EXTRALIBS_FOR_BASE = $(EXTRALIBS)
-#EXTRALIBS_FOR_BASE = $(EXTRALIBS) $(EXTRALIBS_GUI)
+#EXTRALIBS_FOR_BASE = $(EXTRALIBS) \
+#	$(EXTRALIBS_XML) $(EXTRALIBS_GUI)
 EXTRALIBS_FOR_GUI = $(EXTRALIBS_GUI)
 #EXTRALIBS_FOR_GUI = 
-__minimal___mac_setfilecmd = @true
-#__minimal___mac_setfilecmd = \
-#	$(SETFILE) -a C minimal$(EXEEXT)
-#__minimal___mac_rezcmd = $(__MACOSX_RESOURCES_p_1)
-__WXUNIV_DEFINE_p = -D__WXUNIVERSAL__
-__WXUNIV_DEFINE_p_1 = -d __WXUNIVERSAL__
-__WXUNIV_DEFINE_p_2 = --define __WXUNIVERSAL__
+__font___mac_setfilecmd = @true
+#__font___mac_setfilecmd = \
+#	$(SETFILE) -t APPL font$(EXEEXT)
+#__WXUNIV_DEFINE_p = -D__WXUNIVERSAL__
+#__WXUNIV_DEFINE_p_2 = --define __WXUNIVERSAL__
+#__DEBUG_DEFINE_p = -DwxDEBUG_LEVEL=0
+#__DEBUG_DEFINE_p_2 = --define wxDEBUG_LEVEL=0
 #__EXCEPTIONS_DEFINE_p = -DwxNO_EXCEPTIONS
-#__EXCEPTIONS_DEFINE_p_1 = -d wxNO_EXCEPTIONS
 #__EXCEPTIONS_DEFINE_p_2 = --define wxNO_EXCEPTIONS
 #__RTTI_DEFINE_p = -DwxNO_RTTI
-#__RTTI_DEFINE_p_1 = -d wxNO_RTTI
 #__RTTI_DEFINE_p_2 = --define wxNO_RTTI
 #__THREAD_DEFINE_p = -DwxNO_THREADS
-#__THREAD_DEFINE_p_1 = -d wxNO_THREADS
 #__THREAD_DEFINE_p_2 = --define wxNO_THREADS
 __DLLFLAG_p = -DWXUSINGDLL
-__DLLFLAG_p_1 = -d WXUSINGDLL
 __DLLFLAG_p_2 = --define WXUSINGDLL
-COND_PLATFORM_OS2_1___minimal___os2_emxbindcmd = $(NM) TP-CAMPro$(EXEEXT) | if \
-	grep -q pmwin.763 ; then emxbind -ep TP-CAMPro$(EXEEXT) ; fi
-#__minimal___os2_emxbindcmd = $(COND_PLATFORM_OS2_1___minimal___os2_emxbindcmd)
-#__RCDEFDIR_p = -i \
-#	$(LIBDIRNAME)/wx/include/$(TOOLCHAIN_FULLNAME)
+COND_PLATFORM_OS2_1___font___os2_emxbindcmd = $(NM) TP-CAMPro$(EXEEXT) | if grep -q \
+	pmwin.763 ; then emxbind -ep TP-CAMPro$(EXEEXT) ; fi
+#__font___os2_emxbindcmd = $(COND_PLATFORM_OS2_1___font___os2_emxbindcmd)
 #__RCDEFDIR_p_1 = --include-dir \
 #	$(LIBDIRNAME)/wx/include/$(TOOLCHAIN_FULLNAME)
-#__minimal___win32rc = minimal_sample_rc.o
-#__minimal_os2_lib_res = \
+#__font___win32rc = font_sample_rc.o
+#__font_os2_lib_res = \
 #	$(top_srcdir)/include/wx/os2/wx.res
-#__minimal_app_Contents_PkgInfo___depname \
-#	= minimal.app/Contents/PkgInfo
-#__minimal_bundle___depname = minimal_bundle
-#____minimal_BUNDLE_TGT_REF_DEP = \
-#	$(__minimal_app_Contents_PkgInfo___depname)
-#____minimal_BUNDLE_TGT_REF_DEP = \
-#	$(__minimal_app_Contents_PkgInfo___depname)
+#__font_app_Contents_PkgInfo___depname \
+#	= font.app/Contents/PkgInfo
+#__font_bundle___depname = font_bundle
+#____font_BUNDLE_TGT_REF_DEP = \
+#	$(__font_app_Contents_PkgInfo___depname)
+#____font_BUNDLE_TGT_REF_DEP \
+#	= $(__font_app_Contents_PkgInfo___depname)
+#____font_BUNDLE_TGT_REF_DEP \
+#	= $(__font_app_Contents_PkgInfo___depname)
+#____font_BUNDLE_TGT_REF_DEP \
+#	= $(__font_app_Contents_PkgInfo___depname)
+#____font_BUNDLE_TGT_REF_DEP = \
+#	$(__font_app_Contents_PkgInfo___depname)
 COND_MONOLITHIC_0___WXLIB_CORE_p = \
 	-lwx_$(PORTNAME)$(WXUNIVNAME)$(WXUNICODEFLAG)$(WXDEBUGFLAG)$(WX_LIB_FLAVOUR)_core-$(WX_RELEASE)$(HOST_SUFFIX)
 __WXLIB_CORE_p = $(COND_MONOLITHIC_0___WXLIB_CORE_p)
-COND_MONOLITHIC_0___WXLIB_HTML_p = \
-	-lwx_$(PORTNAME)$(WXUNIVNAME)$(WXUNICODEFLAG)$(WXDEBUGFLAG)$(WX_LIB_FLAVOUR)_html-$(WX_RELEASE)$(HOST_SUFFIX)
-__WXLIB_HTML_p = $(COND_MONOLITHIC_0___WXLIB_HTML_p)
-COND_MONOLITHIC_0___WXLIB_ADV_p = \
-	-lwx_$(PORTNAME)$(WXUNIVNAME)$(WXUNICODEFLAG)$(WXDEBUGFLAG)$(WX_LIB_FLAVOUR)_adv-$(WX_RELEASE)$(HOST_SUFFIX)
-__WXLIB_ADV_p = $(COND_MONOLITHIC_0___WXLIB_ADV_p)
-COND_MONOLITHIC_0___WXLIB_XML_p = \
-	-lwx_base$(WXBASEPORT)$(WXUNICODEFLAG)$(WXDEBUGFLAG)$(WX_LIB_FLAVOUR)_xml-$(WX_RELEASE)$(HOST_SUFFIX)
-__WXLIB_XML_p = $(COND_MONOLITHIC_0___WXLIB_XML_p)
 COND_MONOLITHIC_0___WXLIB_BASE_p = \
 	-lwx_base$(WXBASEPORT)$(WXUNICODEFLAG)$(WXDEBUGFLAG)$(WX_LIB_FLAVOUR)-$(WX_RELEASE)$(HOST_SUFFIX)
 __WXLIB_BASE_p = $(COND_MONOLITHIC_0___WXLIB_BASE_p)
 COND_MONOLITHIC_1___WXLIB_MONO_p = \
 	-lwx_$(PORTNAME)$(WXUNIVNAME)$(WXUNICODEFLAG)$(WXDEBUGFLAG)$(WX_LIB_FLAVOUR)-$(WX_RELEASE)$(HOST_SUFFIX)
 #__WXLIB_MONO_p = $(COND_MONOLITHIC_1___WXLIB_MONO_p)
+#__LIB_SCINTILLA_IF_MONO_p \
+#	= \
+#	-lwxscintilla$(WXDEBUGFLAG)$(WX_LIB_FLAVOUR)-$(WX_RELEASE)$(HOST_SUFFIX)
 #__LIB_TIFF_p \
 #	= \
 #	-lwxtiff$(WXDEBUGFLAG)$(WX_LIB_FLAVOUR)-$(WX_RELEASE)$(HOST_SUFFIX)
@@ -163,23 +156,15 @@ COND_MONOLITHIC_1___WXLIB_MONO_p = \
 #	-lwxpng$(WXDEBUGFLAG)$(WX_LIB_FLAVOUR)-$(WX_RELEASE)$(HOST_SUFFIX)
 #__LIB_ZLIB_p = \
 #	-lwxzlib$(WXDEBUGFLAG)$(WX_LIB_FLAVOUR)-$(WX_RELEASE)$(HOST_SUFFIX)
-#__LIB_ODBC_p = \
-#	-lwxodbc$(WXDEBUGFLAG)$(WX_LIB_FLAVOUR)-$(WX_RELEASE)$(HOST_SUFFIX)
 COND_wxUSE_REGEX_builtin___LIB_REGEX_p = \
 	-lwxregex$(WXUNICODEFLAG)$(WXDEBUGFLAG)$(WX_LIB_FLAVOUR)-$(WX_RELEASE)$(HOST_SUFFIX)
-#__LIB_REGEX_p = $(COND_wxUSE_REGEX_builtin___LIB_REGEX_p)
+__LIB_REGEX_p = $(COND_wxUSE_REGEX_builtin___LIB_REGEX_p)
 #__LIB_EXPAT_p = \
 #	-lwxexpat$(WXDEBUGFLAG)$(WX_LIB_FLAVOUR)-$(WX_RELEASE)$(HOST_SUFFIX)
-COND_TOOLKIT_MAC___MACOSX_RESOURCES_p_1 = $(REZ) -d __DARWIN__ -t APPL -d \
-	__WX$(TOOLKIT)__ $(__WXUNIV_DEFINE_p_1) $(__EXCEPTIONS_DEFINE_p_1) \
-	$(__RTTI_DEFINE_p_1) $(__THREAD_DEFINE_p_1) -i $(srcdir) $(__DLLFLAG_p_1) -i \
-	$(srcdir)/../../samples $(__RCDEFDIR_p) -i $(top_srcdir)/include -o \
-	TP-CAMPro$(EXEEXT) Carbon.r sample.r
-#__MACOSX_RESOURCES_p_1 = $(COND_TOOLKIT_MAC___MACOSX_RESOURCES_p_1)
 
 ### Targets: ###
 
-all: TP-CAMPro$(EXEEXT) $(__minimal_bundle___depname)
+all: TP-CAMPro$(EXEEXT) $(__font_bundle___depname)
 
 install: 
 
@@ -191,64 +176,44 @@ clean:
 	rm -rf ./.deps ./.pch
 	rm -f ./*.o
 	rm -f TP-CAMPro$(EXEEXT)
-	rm -rf minimal.app
+	rm -rf font.app
 
 distclean: clean
 	rm -f config.cache config.log config.status bk-deps bk-make-pch shared-ld-sh Makefile
 
-TP-CAMPro$(EXEEXT): $(MINIMAL_OBJECTS) $(__minimal___win32rc)
-	$(CXX) -o $@ $(MINIMAL_OBJECTS)    -L$(LIBDIRNAME) $(LDFLAGS_GUI) $(SAMPLES_RPATH_FLAG) $(LDFLAGS)  $(__WXLIB_CORE_p)  $(__WXLIB_HTML_p) $(EXTRALIBS_HTML) $(__WXLIB_ADV_p) $(PLUGIN_ADV_EXTRALIBS)  $(__WXLIB_XML_p) $(EXTRALIBS_XML) $(__WXLIB_BASE_p)  $(__WXLIB_MONO_p) $(__LIB_TIFF_p) $(__LIB_JPEG_p) $(__LIB_PNG_p) $(EXTRALIBS_FOR_GUI) $(__LIB_ZLIB_p) $(__LIB_ODBC_p) $(__LIB_REGEX_p) $(__LIB_EXPAT_p) $(EXTRALIBS_FOR_BASE) $(LIBS)
-	$(__minimal___mac_rezcmd)
-	$(__minimal___mac_setfilecmd)
-	$(__minimal___os2_emxbindcmd)
-	$(SAMPLES_RPATH_POSTLINK)
+TP-CAMPro$(EXEEXT): $(MINIMAL_OBJECTS) $(__font___win32rc)
+	$(CXX) -o $@ $(MINIMAL_OBJECTS)    -L$(LIBDIRNAME) $(LDFLAGS_GUI) $(SAMPLES_RPATH_FLAG) $(LDFLAGS)  $(__WXLIB_CORE_p)  $(__WXLIB_BASE_p)  $(__WXLIB_MONO_p) $(__LIB_SCINTILLA_IF_MONO_p) $(__LIB_TIFF_p) $(__LIB_JPEG_p) $(__LIB_PNG_p)  $(EXTRALIBS_FOR_GUI) $(__LIB_ZLIB_p) $(__LIB_REGEX_p) $(__LIB_EXPAT_p) $(EXTRALIBS_FOR_BASE) $(LIBS)
+	
+	$(__font___mac_setfilecmd)
+	$(__font___os2_emxbindcmd)
 
-#minimal.app/Contents/PkgInfo: minimal$(EXEEXT) $(top_srcdir)/src/mac/carbon/Info.plist.in $(top_srcdir)/src/mac/carbon/wxmac.icns
-#	mkdir -p minimal.app/Contents
-#	mkdir -p minimal.app/Contents/MacOS
-#	mkdir -p minimal.app/Contents/Resources
+#font.app/Contents/PkgInfo: font$(EXEEXT) $(top_srcdir)/src/osx/carbon/Info.plist.in $(top_srcdir)/src/osx/carbon/wxmac.icns
+#	mkdir -p font.app/Contents
+#	mkdir -p font.app/Contents/MacOS
+#	mkdir -p font.app/Contents/Resources
 #	
 #	
 #	sed -e "s/IDENTIFIER/`echo $(srcdir) | sed -e 's,\.\./,,g' | sed -e 's,/,.,g'`/" \
-#	-e "s/EXECUTABLE/minimal/" \
+#	-e "s/EXECUTABLE/font/" \
 #	-e "s/VERSION/$(WX_VERSION)/" \
-#	$(top_srcdir)/src/mac/carbon/Info.plist.in >minimal.app/Contents/Info.plist
+#	$(top_srcdir)/src/osx/carbon/Info.plist.in >font.app/Contents/Info.plist
 #	
 #	
-#	echo -n "APPL????" >minimal.app/Contents/PkgInfo
+#	/bin/echo "APPL????" >font.app/Contents/PkgInfo
 #	
 #	
-#	ln -f minimal$(EXEEXT) minimal.app/Contents/MacOS/minimal
+#	ln -f font$(EXEEXT) font.app/Contents/MacOS/font
 #	
 #	
-#	cp -f $(top_srcdir)/src/mac/carbon/wxmac.icns minimal.app/Contents/Resources/wxmac.icns
+#	cp -f $(top_srcdir)/src/osx/carbon/wxmac.icns font.app/Contents/Resources/wxmac.icns
 
-#minimal_bundle: $(____minimal_BUNDLE_TGT_REF_DEP)
+#font_bundle: $(____font_BUNDLE_TGT_REF_DEP)
 
-minimal_sample_rc.o: $(srcdir)/../../samples/sample.rc
-	$(WINDRES) -i$< -o$@    --define __WX$(TOOLKIT)__ $(__WXUNIV_DEFINE_p_2)   $(__EXCEPTIONS_DEFINE_p_2) $(__RTTI_DEFINE_p_2) $(__THREAD_DEFINE_p_2)   --include-dir $(srcdir) $(__DLLFLAG_p_2) --include-dir $(srcdir)/../../samples $(__RCDEFDIR_p_1) --include-dir $(top_srcdir)/include
-
-#TP-CAMPro.o: $(srcdir)/TP-CAMPro.cpp
-#	$(CXXC) -c -o $@ $(MINIMAL_CXXFLAGS) $(srcdir)/TP-CAMPro.cpp
-#stdafx.o: $(srcdir)/stdafx.cpp
-#	$(CXXC) -c -o $@ $(MINIMAL_CXXFLAGS) $(srcdir)/stdafx.cpp
-
-#CLApp.o: $(srcdir)/CLApp.h
-#	$(CXXC) -c -o $@ $(MINIMAL_CXXFLAGS) $(srcdir)/CLApp.cpp
-
-#MainPanel.o: $(srcdir)/MainPanel.cpp $(srcdir)/MainPanel.h
-#	$(CXXC) -c -o $@ $(MINIMAL_CXXFLAGS) $(srcdir)/MainPanel.cpp
-
-#CLFrame.o: $(srcdir)/CLFrame.cpp
-#	$(CXXC) -c -o $@ $(MINIMAL_CXXFLAGS) $(srcdir)/CLFrame.cpp
-
-
-#OperatorPanel.o: $(srcdir)/OperatorPanel.cpp $(srcdir)/OperatorPanel.h $(srcdir)/CLApp.h $(srcdir)/stdafx.h
-#	$(CXXC) -c -o $@ $(MINIMAL_CXXFLAGS) $(srcdir)/OperatorPanel.cpp
+font_sample_rc.o: $(srcdir)/../../samples/sample.rc
+	$(WINDRES) -i$< -o$@    --define __WX$(TOOLKIT)__ $(__WXUNIV_DEFINE_p_2) $(__DEBUG_DEFINE_p_2)  $(__EXCEPTIONS_DEFINE_p_2) $(__RTTI_DEFINE_p_2) $(__THREAD_DEFINE_p_2)   --include-dir $(srcdir) $(__DLLFLAG_p_2) --include-dir $(srcdir)/../../samples $(__RCDEFDIR_p_1) --include-dir $(top_srcdir)/include
 
 .cpp.o:
 	$(CXXC) $(MINIMAL_CXXFLAGS) -g -c $<
-
 
 TP-CAMPro.o: $(srcdir)/TP-CAMPro.cpp $(srcdir)/CLApp.h $(srcdir)/CLFrame.h $(srcdir)/stdafx.h
 stdafx.o: $(srcdir)/stdafx.cpp $(srcdir)/stdafx.h
@@ -257,7 +222,9 @@ CLFrame.o: $(srcdir)/CLFrame.cpp $(srcdir)/stdafx.h
 MainPanel.o: $(srcdir)/MainPanel.cpp $(srcdir)/CLFrame.h $(srcdir)/Bitmap3Button.h $(srcdir)/BatteryDisplay.h $(srcdir)/DateDisplay.h $(srcdir)/stdafx.h
 OperatorSetPanel.o: $(srcdir)/OperatorSetPanel.cpp $(srcdir)/CLFrame.h $(srcdir)/stdafx.h
 Bitmap3Button.o: $(srcdir)/Bitmap3Button.cpp $(srcdir)/Bitmap3Button.h $(srcdir)/CLFrame.h $(srcdir)/stdafx.h
+Bitmap3ButtonEx.o: $(srcdir)/Bitmap3ButtonEx.cpp $(srcdir)/Bitmap3ButtonEx.h $(srcdir)/CLFrame.h $(srcdir)/stdafx.h
 Bitmap2Button.o: $(srcdir)/Bitmap2Button.cpp $(srcdir)/Bitmap2Button.h $(srcdir)/CLFrame.h $(srcdir)/stdafx.h
+Bitmap2ButtonEx.o: $(srcdir)/Bitmap2ButtonEx.cpp $(srcdir)/Bitmap2ButtonEx.h $(srcdir)/CLFrame.h $(srcdir)/stdafx.h
 CameraFullPanel.o: $(srcdir)/CameraFullPanel.cpp $(srcdir)/CameraFullPanel.h $(srcdir)/CLFrame.h $(srcdir)/stdafx.h
 CameraSetPanel.o: $(srcdir)/CameraSetPanel.cpp $(srcdir)/CameraSetPanel.h $(srcdir)/CLFrame.h $(srcdir)/stdafx.h
 DateSetPanel.o: $(srcdir)/DateSetPanel.cpp $(srcdir)/DateSetPanel.h $(srcdir)/CLFrame.h $(srcdir)/stdafx.h
@@ -278,14 +245,7 @@ NumberPadPanel.o: $(srcdir)/NumberPadPanel.cpp $(srcdir)/NumberPadPanel.h $(srcd
 Controller.o: $(srcdir)/Controller.cpp $(srcdir)/Controller.h $(srcdir)/stdafx.h
 
 
-
-
 # Include dependency info, if present:
 -include ./.deps/*.d
 
-.PHONY: all install uninstall clean distclean minimal_bundle
-
-
-dep:
-	gccmakedep $(SRCS)
-# DO NOT DELETE
+.PHONY: all install uninstall clean distclean font_bundle

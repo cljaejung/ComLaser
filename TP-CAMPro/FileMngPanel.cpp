@@ -7,11 +7,11 @@
 #include "wx/listctrl.h"
 #include "BatteryDisplay.h"
 #include "DateDisplay.h"
-#include "Bitmap3Button.h"
+#include "Bitmap3ButtonEx.h"
 #include "FileMngFullPanel.h"
 #include "wx/url.h"
 #include "ImagePanel.h"
-#include "Bitmap2Button.h"
+#include "Bitmap2ButtonEx.h"
 
 
 enum {
@@ -110,7 +110,7 @@ wxPanel(frame)
 	wxBoxSizer* itemBoxSizer18 = new wxBoxSizer(wxHORIZONTAL);
 	itemBoxSizer15->Add(itemBoxSizer18, 0, wxALIGN_CENTER_HORIZONTAL | wxALL, 0);
 
-	cBitmap3Button* itemButton19 = new cBitmap3Button(itemPanel14, ID_BUTTON_OK, _("ref_img/BTN_OK.bmp"), wxDefaultPosition, wxDefaultSize, 0);
+	cBitmap3ButtonEx* itemButton19 = new cBitmap3ButtonEx(itemPanel14, ID_BUTTON_OK, _("ref_img/BTN_OK.bmp"), wxDefaultPosition, wxDefaultSize, 0);
 	itemBoxSizer18->Add(itemButton19, 0, wxALIGN_CENTER_VERTICAL | wxALL, 5);
 
 	wxBoxSizer* itemBoxSizer20 = new wxBoxSizer(wxVERTICAL);
@@ -145,7 +145,7 @@ wxPanel(frame)
 	itemBoxSizer23->Add(itemBoxSizer24, 0, wxALIGN_CENTER_VERTICAL | wxALL, 0);
 
 
-	cBitmap3Button* itemButton25 = new cBitmap3Button(itemPanel1, ID_BUTTON_PREV, _("ref_img/LEFT_ARROW.png"), wxDefaultPosition, wxSize(30, -1), 0);
+	cBitmap3ButtonEx* itemButton25 = new cBitmap3ButtonEx(itemPanel1, ID_BUTTON_PREV, _("ref_img/LEFT_ARROW.png"), wxDefaultPosition, wxSize(30, -1), 0);
 	itemBoxSizer24->Add(itemButton25, 0, wxALIGN_CENTER_HORIZONTAL | wxALL, 0);
 
 	wxBoxSizer* itemBoxSizer26 = new wxBoxSizer(wxVERTICAL);
@@ -157,7 +157,7 @@ wxPanel(frame)
 	wxBoxSizer* itemBoxSizer28 = new wxBoxSizer(wxVERTICAL);
 	itemBoxSizer23->Add(itemBoxSizer28, 0, wxALIGN_CENTER_VERTICAL | wxALL, 0);
 
-	cBitmap3Button* itemButton29 = new cBitmap3Button(itemPanel1, ID_BUTTON_NEXT, _("ref_img/RIGHT_ARROW.png"), wxDefaultPosition, wxSize(30, -1), 0);
+	cBitmap3ButtonEx* itemButton29 = new cBitmap3ButtonEx(itemPanel1, ID_BUTTON_NEXT, _("ref_img/RIGHT_ARROW.png"), wxDefaultPosition, wxSize(30, -1), 0);
 	itemBoxSizer28->Add(itemButton29, 0, wxALIGN_CENTER_HORIZONTAL | wxALL, 0);
 
 
@@ -170,7 +170,7 @@ wxPanel(frame)
 	wxBoxSizer* itemBoxSizer35 = new wxBoxSizer(wxVERTICAL);
 	itemBoxSizer34->Add(itemBoxSizer35, 0, wxALIGN_CENTER_VERTICAL | wxALL, 0);
 
-	cPng2Button* itemButton36 = new cPng2Button(itemPanel1, ID_BUTTON_MEMCOPY, _("ref_img/MemoryCopy"), wxDefaultPosition, wxSize(70, 40), 0);
+	cPng2ButtonEx* itemButton36 = new cPng2ButtonEx(itemPanel1, ID_BUTTON_MEMCOPY, _("ref_img/MemoryCopy"), wxDefaultPosition, wxSize(70, 40), 0);
 	itemBoxSizer35->Add(itemButton36, 0, wxALIGN_CENTER_HORIZONTAL | wxALL, 0);
 
 	wxBoxSizer* itemBoxSizer38 = new wxBoxSizer(wxHORIZONTAL);
@@ -179,7 +179,7 @@ wxPanel(frame)
 	wxBoxSizer* itemBoxSizer39 = new wxBoxSizer(wxVERTICAL);
 	itemBoxSizer38->Add(itemBoxSizer39, 0, wxALIGN_CENTER_VERTICAL | wxALL, 0);
 
-	cBitmap3Button* itemButton40 = new cBitmap3Button(itemPanel1, ID_BUTTON_FILETRANSFER, _("ref_img/FileTransfer.bmp"));// , wxDefaultPosition, wxSize(70, 40), 0);
+	cBitmap3ButtonEx* itemButton40 = new cBitmap3ButtonEx(itemPanel1, ID_BUTTON_FILETRANSFER, _("ref_img/FileTransfer.bmp"));// , wxDefaultPosition, wxSize(70, 40), 0);
 	itemBoxSizer39->Add(itemButton40, 0, wxALIGN_CENTER_HORIZONTAL | wxALL, 0);
 
 	wxBoxSizer* itemBoxSizer42 = new wxBoxSizer(wxHORIZONTAL);
@@ -188,7 +188,7 @@ wxPanel(frame)
 	wxBoxSizer* itemBoxSizer43 = new wxBoxSizer(wxVERTICAL);
 	itemBoxSizer42->Add(itemBoxSizer43, 0, wxALIGN_CENTER_VERTICAL | wxALL, 0);
 
-	cPng2Button* itemButton44 = new cPng2Button(itemPanel1, ID_BUTTON_MEMCLEAR, _("ref_img/MemoryClear"));// , wxDefaultPosition, wxSize(70, 40), 0);
+	cPng2ButtonEx* itemButton44 = new cPng2ButtonEx(itemPanel1, ID_BUTTON_MEMCLEAR, _("ref_img/MemoryClear"));// , wxDefaultPosition, wxSize(70, 40), 0);
 	itemBoxSizer43->Add(itemButton44, 0, wxALIGN_CENTER_HORIZONTAL | wxALL, 0);
 
 

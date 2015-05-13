@@ -81,19 +81,19 @@ public:
     /// wxEVT_PAINT event handler for ID_TESTPANEL
     void OnPaint( wxPaintEvent& event );
 
-    /// wxEVT_ERASE_BACKGROUND event handler for ID_PANEL
+    /// wxEVT_ERASE_BACKGROUND event handler for ID_TESTPANEL
     void OnEraseBackground( wxEraseEvent& event );
 
-    /// wxEVT_LEFT_DOWN event handler for ID_PANEL
+    /// wxEVT_LEFT_DOWN event handler for ID_TESTPANEL
     void OnLeftDown( wxMouseEvent& event );
 
-    /// wxEVT_LEFT_UP event handler for ID_PANEL
+    /// wxEVT_LEFT_UP event handler for ID_TESTPANEL
     void OnLeftUp( wxMouseEvent& event );
 
-    /// wxEVT_ENTER_WINDOW event handler for ID_PANEL
+    /// wxEVT_ENTER_WINDOW event handler for ID_TESTPANEL
     void OnEnterWindow( wxMouseEvent& event );
 
-    /// wxEVT_LEAVE_WINDOW event handler for ID_PANEL
+    /// wxEVT_LEAVE_WINDOW event handler for ID_TESTPANEL
     void OnLeaveWindow( wxMouseEvent& event );
 
 ////@end TestPanel event handler declarations

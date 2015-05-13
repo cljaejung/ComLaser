@@ -5,7 +5,7 @@
 #include "wx/combobox.h"
 #include "BatteryDisplay.h"
 #include "DateDisplay.h"
-#include "Bitmap3Button.h"
+#include "Bitmap3ButtonEx.h"
 #include "KeyboardDialog.h"
 #include "NumberPadDialog.h"
 #include "ImagePanel.h"
@@ -125,7 +125,7 @@ wxPanel(frame)
 	wxBoxSizer* itemBoxSizer21 = new wxBoxSizer(wxVERTICAL);
 	itemBoxSizer16->Add(itemBoxSizer21, 0, wxALIGN_CENTER_VERTICAL | wxLEFT | wxRIGHT, 0);
 
-	cBitmap3Button* itemButton22 = new cBitmap3Button(itemPanel13, ID_BUTTON_LOCKEY, _("ref_img/BTN_KEYBOARD.png"), wxDefaultPosition, wxSize(32, 32), 0);
+	cBitmap3ButtonEx* itemButton22 = new cBitmap3ButtonEx(itemPanel13, ID_BUTTON_LOCKEY, _("ref_img/BTN_KEYBOARD.png"), wxDefaultPosition, wxSize(32, 32), 0);
 	itemBoxSizer21->Add(itemButton22, 0, wxALIGN_CENTER_HORIZONTAL | wxALL, 1);
 
 	wxBoxSizer* itemBoxSizer23 = new wxBoxSizer(wxHORIZONTAL);
@@ -139,7 +139,7 @@ wxPanel(frame)
 	m_editLimitSpeed->SetFont(wxFont(18, wxFONTFAMILY_SWISS, wxFONTSTYLE_NORMAL, wxFONTWEIGHT_NORMAL, false, wxT("Arial")));
 	itemBoxSizer23->Add(m_editLimitSpeed, 0, wxALIGN_CENTER_VERTICAL | wxLEFT | wxTOP | wxBOTTOM, 5);
 
-	cBitmap3Button* itemButton26 = new cBitmap3Button(itemPanel13, ID_BUTTON_LIMITSPEED, _("ref_img/BTN_KEYBOARD.png"), wxDefaultPosition, wxSize(32, 32), 0);
+	cBitmap3ButtonEx* itemButton26 = new cBitmap3ButtonEx(itemPanel13, ID_BUTTON_LIMITSPEED, _("ref_img/BTN_KEYBOARD.png"), wxDefaultPosition, wxSize(32, 32), 0);
 	itemBoxSizer23->Add(itemButton26, 0, wxALIGN_CENTER_VERTICAL | wxALL, 1);
 
 	wxStaticText* itemStaticText27 = new wxStaticText(itemPanel13, wxID_STATIC, _("Unit"), wxDefaultPosition, wxDefaultSize, 0);
@@ -165,7 +165,7 @@ wxPanel(frame)
 	m_editCaptureSpeed->SetFont(wxFont(18, wxFONTFAMILY_SWISS, wxFONTSTYLE_NORMAL, wxFONTWEIGHT_NORMAL, false, wxT("Arial")));
 	itemBoxSizer29->Add(m_editCaptureSpeed, 0, wxALIGN_CENTER_VERTICAL | wxLEFT | wxTOP | wxBOTTOM, 5);
 
-	cBitmap3Button* itemButton32 = new cBitmap3Button(itemPanel13, ID_BUTTON_CAPTURESPEED, _("ref_img/BTN_KEYBOARD.png"), wxDefaultPosition, wxSize(32, 32), 0);
+	cBitmap3ButtonEx* itemButton32 = new cBitmap3ButtonEx(itemPanel13, ID_BUTTON_CAPTURESPEED, _("ref_img/BTN_KEYBOARD.png"), wxDefaultPosition, wxSize(32, 32), 0);
 	itemBoxSizer29->Add(itemButton32, 0, wxALIGN_CENTER_VERTICAL | wxALL, 1);
 
 	wxBoxSizer* itemBoxSizer33 = new wxBoxSizer(wxHORIZONTAL);
@@ -179,7 +179,7 @@ wxPanel(frame)
 	m_editCaptureDistance->SetFont(wxFont(18, wxFONTFAMILY_SWISS, wxFONTSTYLE_NORMAL, wxFONTWEIGHT_NORMAL, false, wxT("Arial")));
 	itemBoxSizer33->Add(m_editCaptureDistance, 0, wxALIGN_CENTER_VERTICAL | wxLEFT | wxTOP | wxBOTTOM, 5);
 
-	cBitmap3Button* itemButton36 = new cBitmap3Button(itemPanel13, ID_BUTTON_CAPTUREDISTANCE, _("ref_img/BTN_KEYBOARD.png"), wxDefaultPosition, wxSize(32, 32), 0);
+	cBitmap3ButtonEx* itemButton36 = new cBitmap3ButtonEx(itemPanel13, ID_BUTTON_CAPTUREDISTANCE, _("ref_img/BTN_KEYBOARD.png"), wxDefaultPosition, wxSize(32, 32), 0);
 	itemBoxSizer33->Add(itemButton36, 0, wxALIGN_CENTER_VERTICAL | wxALL, 1);
 
 
@@ -189,10 +189,10 @@ wxPanel(frame)
 	wxBoxSizer* itemBoxSizer37 = new wxBoxSizer(wxHORIZONTAL);
 	itemBoxSizer15->Add(itemBoxSizer37, 1, wxALIGN_CENTER_HORIZONTAL | wxALL, 0);
 
-	cBitmap3Button* itemButton38 = new cBitmap3Button(itemPanel13, ID_BUTTON_OK, _("ref_img/BTN_OK.bmp"), wxDefaultPosition, wxDefaultSize, 0);
+	cBitmap3ButtonEx* itemButton38 = new cBitmap3ButtonEx(itemPanel13, ID_BUTTON_OK, _("ref_img/BTN_OK.bmp"), wxDefaultPosition, wxDefaultSize, 0);
 	itemBoxSizer37->Add(itemButton38, 0, wxALIGN_BOTTOM | wxALL, 5);
 
-	cBitmap3Button* itemButton39 = new cBitmap3Button(itemPanel13, ID_BUTTON_CANCEL, _("ref_img/BTN_CANCEL.bmp"), wxDefaultPosition, wxDefaultSize, 0);
+	cBitmap3ButtonEx* itemButton39 = new cBitmap3ButtonEx(itemPanel13, ID_BUTTON_CANCEL, _("ref_img/BTN_CANCEL.bmp"), wxDefaultPosition, wxDefaultSize, 0);
 	itemBoxSizer37->Add(itemButton39, 0, wxALIGN_BOTTOM | wxALL, 5);
 
 

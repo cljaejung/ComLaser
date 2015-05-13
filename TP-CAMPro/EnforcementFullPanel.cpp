@@ -6,7 +6,7 @@
 #include "wx/combobox.h"
 #include "wx/listctrl.h"
 #include "MoviePanel.h"
-#include "Bitmap3Button.h"
+#include "Bitmap3ButtonEx.h"
 
 
 enum {
@@ -44,7 +44,7 @@ cEnforcementFullPanel::cEnforcementFullPanel(wxFrame*frame) :
 	wxBoxSizer* itemBoxSizer6 = new wxBoxSizer(wxVERTICAL);
 	itemBoxSizer3->Add(itemBoxSizer6, 0, wxALIGN_TOP | wxALL, 5);
 
-	cBitmap3Button* itemButton7 = new cBitmap3Button(itemPanel1, ID_BUTTON_CANCEL, _("ref_img/BTN_X.png"), wxDefaultPosition, wxDefaultSize, 0);
+	cBitmap3ButtonEx* itemButton7 = new cBitmap3ButtonEx(itemPanel1, ID_BUTTON_CANCEL, _("ref_img/BTN_X.png"), wxDefaultPosition, wxDefaultSize, 0);
 	itemBoxSizer6->Add(itemButton7, 0, wxALIGN_CENTER_HORIZONTAL | wxALL, 5);
 
 	wxStaticText* itemStaticText8 = new wxStaticText(itemPanel1, wxID_STATIC, _("Static Text"), wxDefaultPosition, wxDefaultSize, 0);

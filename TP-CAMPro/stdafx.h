@@ -79,5 +79,28 @@ namespace WEATHER
 
 
 
+// Button State
+namespace BTN3_STATE {
+	enum  TYPE
+	{
+		NORMAL = 0,
+		PRESSED,
+		HOVER,
+		MAX
+	};
+}
+
+
+// Button Image Type
+namespace BUTTON2_TYPE {
+	enum TYPE {
+		BMP,
+		PNG,
+	};
+}
+
+
+
+
 #include "Controller.h"
 extern cController g_controller;

@@ -13,7 +13,6 @@
 #include "EnforcementPanel.h"
 #include "EnforcementFullPanel.h"
 #include "MoviePanel.h"
-#include "KeyboardDialog.h"
 
 
 // ----------------------------------------------------------------------------
@@ -52,7 +51,7 @@ END_EVENT_TABLE()
 
 // frame constructor
 cCLFrame::cCLFrame(const wxString& title)
-: wxFrame(NULL, wxID_ANY, title, wxDefaultPosition, wxSize(720, 480), 0)
+: wxFrame(NULL, wxID_ANY, title, wxDefaultPosition, wxSize(720,480+32))
 {
 	// set the frame icon
 	SetIcon(wxICON(sample));
@@ -87,7 +86,6 @@ cCLFrame::cCLFrame(const wxString& title)
 	m_enforcementPanel = new cEnforcementPanel(this);
 	m_enforcementFullPanel = new cEnforcementFullPanel(this);
 	//cMoviePanel *moviePanel = new cMoviePanel(this);
-	g_keyboardDlg = new cKeyboardDialog(this);
 
 
 	itemBoxSizer2->Add(m_mainPanel, 1, wxEXPAND);
@@ -115,9 +113,6 @@ cCLFrame::cCLFrame(const wxString& title)
 
 cCLFrame::~cCLFrame()
 {
-	g_keyboardDlg->Destroy();
-	delete g_keyboardDlg;
-
 }
 
 

@@ -30,6 +30,7 @@
 #include "testpanel.h"
 
 ////@begin XPM images
+#include "copy.xpm"
 ////@end XPM images
 
 
@@ -48,6 +49,11 @@ BEGIN_EVENT_TABLE( TestPanel, wxPanel )
 
 ////@begin TestPanel event table entries
     EVT_PAINT( TestPanel::OnPaint )
+    EVT_ERASE_BACKGROUND( TestPanel::OnEraseBackground )
+    EVT_LEFT_DOWN( TestPanel::OnLeftDown )
+    EVT_LEFT_UP( TestPanel::OnLeftUp )
+    EVT_ENTER_WINDOW( TestPanel::OnEnterWindow )
+    EVT_LEAVE_WINDOW( TestPanel::OnLeaveWindow )
 ////@end TestPanel event table entries
 
 END_EVENT_TABLE()
@@ -149,7 +155,9 @@ void TestPanel::CreateControls()
     wxBoxSizer* itemBoxSizer10 = new wxBoxSizer(wxHORIZONTAL);
     itemBoxSizer4->Add(itemBoxSizer10, 0, wxALIGN_RIGHT|wxALL, 5);
 
-    wxBitmapButton* itemBitmapButton11 = new wxBitmapButton( itemPanel3, ID_BITMAPBUTTON, wxNullBitmap, wxDefaultPosition, wxDefaultSize, wxBU_AUTODRAW );
+    wxBitmapButton* itemBitmapButton11 = new wxBitmapButton( itemPanel3, ID_BITMAPBUTTON, wxNullBitmap, wxDefaultPosition, wxDefaultSize, wxBU_AUTODRAW|wxNO_BORDER );
+    wxBitmap itemBitmapButton11BitmapSel(itemPanel1->GetBitmapResource(wxT("copy.xpm")));
+    itemBitmapButton11->SetBitmapSelected(itemBitmapButton11BitmapSel);
     itemBoxSizer10->Add(itemBitmapButton11, 0, wxALIGN_CENTER_VERTICAL|wxALL, 5);
 
     // Connect events and objects
@@ -180,6 +188,11 @@ wxBitmap TestPanel::GetBitmapResource( const wxString& name )
     // Bitmap retrieval
 ////@begin TestPanel bitmap retrieval
     wxUnusedVar(name);
+    if (name == wxT("copy.xpm"))
+    {
+        wxBitmap bitmap(copy_xpm);
+        return bitmap;
+    }
     return wxNullBitmap;
 ////@end TestPanel bitmap retrieval
 }

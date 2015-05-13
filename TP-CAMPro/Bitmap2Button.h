@@ -1,14 +1,6 @@
 #pragma once
 
 
-// Button Image Type
-namespace BUTTON2_TYPE {
-	enum TYPE {
-		BMP,
-		PNG,
-	};
-}
-
 
 class cBitmap2Button : public wxStaticBitmap
 {

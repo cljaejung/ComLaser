@@ -7,10 +7,10 @@
 #include "wx/listctrl.h"
 #include "BatteryDisplay.h"
 #include "DateDisplay.h"
-#include "Bitmap3Button.h"
+#include "Bitmap3ButtonEx.h"
 #include "MoviePanel.h"
 #include "ImagePanel.h"
-#include "Bitmap2Button.h"
+#include "Bitmap2ButtonEx.h"
 
 
 enum {
@@ -240,7 +240,7 @@ cEnforcementPanel::cEnforcementPanel(wxFrame*frame) :
 	wxBoxSizer* itemBoxSizer55 = new wxBoxSizer(wxHORIZONTAL);
 	itemBoxSizer13->Add(itemBoxSizer55, 0, wxALIGN_CENTER_HORIZONTAL | wxALL, 5);
 
-	cPng2Button* itemButton56 = new cPng2Button(itemPanel1, ID_BUTTON_DONE, _("ref_img/Done"));// , wxDefaultPosition, wxDefaultSize, 0);
+	cPng2ButtonEx* itemButton56 = new cPng2ButtonEx(itemPanel1, ID_BUTTON_DONE, _("ref_img/Done"));// , wxDefaultPosition, wxDefaultSize, 0);
 	itemBoxSizer55->Add(itemButton56, 0, wxALIGN_CENTER_VERTICAL | wxALL, 5);
 
 	wxBoxSizer* itemBoxSizer57 = new wxBoxSizer(wxVERTICAL);

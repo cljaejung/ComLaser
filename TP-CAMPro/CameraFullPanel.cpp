@@ -3,7 +3,7 @@
 #include "CameraFullPanel.h"
 #include "CLFrame.h"
 #include "MoviePanel.h"
-#include "Bitmap3Button.h"
+#include "Bitmap3ButtonEx.h"
 
 
 enum {
@@ -50,7 +50,7 @@ wxPanel(frame)
 	itemPanel8->m_GotoNextPanel = PANEL_CAMERAFULL;
 	itemBoxSizer7->Add(itemPanel8, 1, wxGROW | wxTOP | wxBOTTOM, 4);
 
-	cBitmap3Button* itemButton9 = new cBitmap3Button(itemPanel1, ID_BUTTON_CANCEL, _("ref_img/BTN_CANCEL.bmp"), wxDefaultPosition, wxDefaultSize, 0);
+	cBitmap3ButtonEx* itemButton9 = new cBitmap3ButtonEx(itemPanel1, ID_BUTTON_CANCEL, _("ref_img/BTN_CANCEL.bmp"), wxDefaultPosition, wxDefaultSize, 0);
 	itemBoxSizer3->Add(itemButton9, 0, wxALIGN_TOP | wxALL, 5);
 
 }

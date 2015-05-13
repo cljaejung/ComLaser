@@ -24,9 +24,3 @@ public:
 protected:
 	cKeyboardEngPanel *m_keyboardPanel;
 };
-
-
-void ShowKeyboardDialog(const wxString &initialText = wxEmptyString,
-	const bool IsPassword = false, const int maximumChar = 20);
-
-extern cKeyboardDialog *g_keyboardDlg;

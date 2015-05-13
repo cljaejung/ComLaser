@@ -4,7 +4,7 @@
 #include "wx/choice.h"
 #include "wx/combo.h"
 #include "wx/combobox.h"
-#include "Bitmap3Button.h"
+#include "Bitmap3ButtonEx.h"
 #include "BatteryDisplay.h"
 #include "DateDisplay.h"
 #include "MoviePanel.h"
@@ -185,10 +185,10 @@ wxPanel(frame)
 	wxBoxSizer* itemBoxSizer33 = new wxBoxSizer(wxHORIZONTAL);
 	itemBoxSizer13->Add(itemBoxSizer33, 1, wxALIGN_CENTER_HORIZONTAL | wxTOP, 10);
 
-	cBitmap3Button* itemButton34 = new cBitmap3Button(itemPanel12, ID_BUTTON_OK, _("ref_img/BTN_OK.bmp"), wxDefaultPosition, wxDefaultSize, 0);
+	cBitmap3ButtonEx* itemButton34 = new cBitmap3ButtonEx(itemPanel12, ID_BUTTON_OK, _("ref_img/BTN_OK.bmp"), wxDefaultPosition, wxDefaultSize, 0);
 	itemBoxSizer33->Add(itemButton34, 0, wxALIGN_BOTTOM | wxALL, 5);
 
-	cBitmap3Button* itemButton35 = new cBitmap3Button(itemPanel12, ID_BUTTON_CANCEL, _("ref_img/BTN_CANCEL.bmp"), wxDefaultPosition, wxDefaultSize, 0);
+	cBitmap3ButtonEx* itemButton35 = new cBitmap3ButtonEx(itemPanel12, ID_BUTTON_CANCEL, _("ref_img/BTN_CANCEL.bmp"), wxDefaultPosition, wxDefaultSize, 0);
 	itemBoxSizer33->Add(itemButton35, 0, wxALIGN_BOTTOM | wxALL, 5);
 
 	wxBoxSizer* itemBoxSizer36 = new wxBoxSizer(wxVERTICAL);

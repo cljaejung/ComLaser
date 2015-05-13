@@ -65,8 +65,14 @@ void cMoviePanel::OnIdle(wxIdleEvent& event)
 
 		// resize background bitmap buffer
 		const wxSize clientSize = GetClientSize();
-		if ((clientSize.GetWidth() != m_backupBitmap.GetWidth()) ||
-			(clientSize.GetHeight() != m_backupBitmap.GetHeight()))
+		if (clientSize.GetWidth() < 0 || clientSize.GetHeight() < 0)
+			return;
+
+		const bool isLoadBitmap = !m_backupBitmap.IsOk() ||
+			((clientSize.GetWidth() != m_backupBitmap.GetWidth()) ||
+			(clientSize.GetHeight() != m_backupBitmap.GetHeight()));
+
+		if (isLoadBitmap)
 		{
 			m_backupBitmap = wxBitmap(clientSize.GetWidth(), clientSize.GetHeight());
 		}

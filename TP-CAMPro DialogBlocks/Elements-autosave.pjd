@@ -36910,6 +36910,11 @@ Distance"</string>
           <string name="app-kind">"Standard"</string>
           <long name="base-id">10000</long>
           <string name="event-handler-0">"wxEVT_PAINT|OnPaint|NONE||"</string>
+          <string name="event-handler-1">"wxEVT_ERASE_BACKGROUND|OnEraseBackground|NONE||"</string>
+          <string name="event-handler-2">"wxEVT_LEFT_DOWN|OnLeftDown|NONE||"</string>
+          <string name="event-handler-3">"wxEVT_LEFT_UP|OnLeftUp|NONE||"</string>
+          <string name="event-handler-4">"wxEVT_ENTER_WINDOW|OnEnterWindow|NONE||"</string>
+          <string name="event-handler-5">"wxEVT_LEAVE_WINDOW|OnLeaveWindow|NONE||"</string>
           <string name="filename">""</string>
           <string name="icon-name">"dialog"</string>
           <string name="id-prefix">""</string>
@@ -37478,7 +37483,7 @@ Distance"</string>
                     <bool name="proxy-wxFIXED_MINSIZE">0</bool>
                     <bool name="proxy-wxFULL_REPAINT_ON_RESIZE">0</bool>
                     <bool name="proxy-wxLEFT">1</bool>
-                    <bool name="proxy-wxNO_BORDER">0</bool>
+                    <bool name="proxy-wxNO_BORDER">1</bool>
                     <bool name="proxy-wxNO_FULL_REPAINT_ON_RESIZE">0</bool>
                     <bool name="proxy-wxRESERVE_SPACE_EVEN_IF_HIDDEN">0</bool>
                     <bool name="proxy-wxRIGHT">1</bool>

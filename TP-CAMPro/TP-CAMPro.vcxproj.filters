@@ -24,9 +24,6 @@
     <ClInclude Include="targetver.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Bitmap3Button.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="CameraFullPanel.h">
       <Filter>Header Files</Filter>
     </ClInclude>
@@ -93,13 +90,16 @@
     <ClInclude Include="NumberPadDialog.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Bitmap2Button.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="ImagePanel.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Controller.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Bitmap3ButtonEx.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Bitmap2ButtonEx.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
@@ -108,9 +108,6 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="TP-CAMPro.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Bitmap3Button.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="CameraFullPanel.cpp">
@@ -176,10 +173,13 @@
     <ClCompile Include="NumberPadDialog.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Bitmap2Button.cpp">
+    <ClCompile Include="Controller.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Controller.cpp">
+    <ClCompile Include="Bitmap3ButtonEx.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Bitmap2ButtonEx.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

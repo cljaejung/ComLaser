@@ -2,7 +2,7 @@
 #include "stdafx.h"
 #include "MainPanel.h"
 #include "CLFrame.h"
-#include "Bitmap3Button.h"
+#include "Bitmap3ButtonEx.h"
 #include "DateDisplay.h"
 #include "BatteryDisplay.h"
 
@@ -66,19 +66,19 @@ cMainPanel::cMainPanel(wxFrame*frame) :
 	wxBoxSizer* itemBoxSizer7 = new wxBoxSizer(wxHORIZONTAL);
 	itemBoxSizer2->Add(itemBoxSizer7, 1, wxALIGN_CENTER_HORIZONTAL | wxALL, 5);
 
-	cBitmap3Button* itemButton8 = new cBitmap3Button(itemPanel1, ID_BUTTON_ENFORCEMENTSET, _("ref_img/Enfm_Set.bmp"), wxDefaultPosition, wxDefaultSize, 0);
+	cBitmap3ButtonEx* itemButton8 = new cBitmap3ButtonEx(itemPanel1, ID_BUTTON_ENFORCEMENTSET, _("ref_img/Enfm_Set.bmp"), wxDefaultPosition, wxDefaultSize, 0);
 	itemBoxSizer7->Add(itemButton8, 0, wxALIGN_CENTER_VERTICAL | wxALL, 5);
 
-	cBitmap3Button* itemButton9 = new cBitmap3Button(itemPanel1, ID_BUTTON_CAMERASET, _("ref_img/Cam_Set.bmp"), wxDefaultPosition, wxDefaultSize, 0);
+	cBitmap3ButtonEx* itemButton9 = new cBitmap3ButtonEx(itemPanel1, ID_BUTTON_CAMERASET, _("ref_img/Cam_Set.bmp"), wxDefaultPosition, wxDefaultSize, 0);
 	itemBoxSizer7->Add(itemButton9, 0, wxALIGN_CENTER_VERTICAL | wxALL, 5);
 
-	cBitmap3Button* itemButton10 = new cBitmap3Button(itemPanel1, ID_BUTTON_OPERATORSET, _("ref_img/User_Set.bmp"), wxDefaultPosition, wxDefaultSize, 0);
+	cBitmap3ButtonEx* itemButton10 = new cBitmap3ButtonEx(itemPanel1, ID_BUTTON_OPERATORSET, _("ref_img/User_Set.bmp"), wxDefaultPosition, wxDefaultSize, 0);
 	itemBoxSizer7->Add(itemButton10, 0, wxALIGN_CENTER_VERTICAL | wxALL, 5);
 
-	cBitmap3Button* itemButton11 = new cBitmap3Button(itemPanel1, ID_BUTTON_FILEMNG, _("ref_img/File_Mgmt.bmp"), wxDefaultPosition, wxDefaultSize, 0);
+	cBitmap3ButtonEx* itemButton11 = new cBitmap3ButtonEx(itemPanel1, ID_BUTTON_FILEMNG, _("ref_img/File_Mgmt.bmp"), wxDefaultPosition, wxDefaultSize, 0);
 	itemBoxSizer7->Add(itemButton11, 0, wxALIGN_CENTER_VERTICAL | wxALL, 5);
 
-	cBitmap3Button* itemButton12 = new cBitmap3Button(itemPanel1, ID_BUTTON_ENFORCEMENT, _("ref_img/Enfm.bmp"), wxDefaultPosition, wxDefaultSize, 0);
+	cBitmap3ButtonEx* itemButton12 = new cBitmap3ButtonEx(itemPanel1, ID_BUTTON_ENFORCEMENT, _("ref_img/Enfm.bmp"), wxDefaultPosition, wxDefaultSize, 0);
 	itemBoxSizer7->Add(itemButton12, 0, wxALIGN_CENTER_VERTICAL | wxALL, 5);
 
 
@@ -95,7 +95,7 @@ cMainPanel::cMainPanel(wxFrame*frame) :
 	wxBoxSizer* itemBoxSizer19 = new wxBoxSizer(wxVERTICAL);
 	itemBoxSizer16->Add(itemBoxSizer19, 0, wxALIGN_CENTER_VERTICAL | wxALL, 5);
 
-	cBitmap3Button* itemButton20 = new cBitmap3Button(itemPanel1, ID_BUTTON_EXIT, _("ref_img/EXIT.bmp"), wxDefaultPosition, wxDefaultSize, 0);
+	cBitmap3ButtonEx* itemButton20 = new cBitmap3ButtonEx(itemPanel1, ID_BUTTON_EXIT, _("ref_img/EXIT.bmp"), wxDefaultPosition, wxDefaultSize, 0);
 	itemBoxSizer19->Add(itemButton20, 0, wxALIGN_CENTER_HORIZONTAL, 5);
 
 	/*
@@ -120,7 +120,7 @@ cMainPanel::~cMainPanel()
 }
 
 
-void cMainPanel::OnButtonOperatorSet(wxCommandEvent &evt)
+void cMainPanel::OnButtonOperatorSet(wxCommandEvent &)
 {
 	cCLFrame* frame = dynamic_cast<cCLFrame*>(wxGetTopLevelParent(this));
 	if (!frame)
@@ -129,7 +129,7 @@ void cMainPanel::OnButtonOperatorSet(wxCommandEvent &evt)
 }
 
 
-void cMainPanel::OnButtonDateSet(wxCommandEvent &evt)
+void cMainPanel::OnButtonDateSet(wxCommandEvent &)
 {
 	cCLFrame* frame = dynamic_cast<cCLFrame*>(wxGetTopLevelParent(this));
 	if (!frame)
@@ -138,7 +138,7 @@ void cMainPanel::OnButtonDateSet(wxCommandEvent &evt)
 }
 
 
-void cMainPanel::OnButtonEnforcementSet(wxCommandEvent &evt)
+void cMainPanel::OnButtonEnforcementSet(wxCommandEvent &)
 {
 	cCLFrame* frame = dynamic_cast<cCLFrame*>(wxGetTopLevelParent(this));
 	if (!frame)
@@ -147,7 +147,7 @@ void cMainPanel::OnButtonEnforcementSet(wxCommandEvent &evt)
 }
 
 
-void cMainPanel::OnButtonCameraSet(wxCommandEvent &evt)
+void cMainPanel::OnButtonCameraSet(wxCommandEvent &)
 {
 	cCLFrame* frame = dynamic_cast<cCLFrame*>(wxGetTopLevelParent(this));
 	if (!frame)
@@ -156,7 +156,7 @@ void cMainPanel::OnButtonCameraSet(wxCommandEvent &evt)
 }
 
 
-void cMainPanel::OnButtonFileMng(wxCommandEvent &evt)
+void cMainPanel::OnButtonFileMng(wxCommandEvent &)
 {
 	cCLFrame* frame = dynamic_cast<cCLFrame*>(wxGetTopLevelParent(this));
 	if (!frame)
@@ -165,7 +165,7 @@ void cMainPanel::OnButtonFileMng(wxCommandEvent &evt)
 }
 
 
-void cMainPanel::OnButtonEnforcement(wxCommandEvent &evt)
+void cMainPanel::OnButtonEnforcement(wxCommandEvent &)
 {
 	cCLFrame* frame = dynamic_cast<cCLFrame*>(wxGetTopLevelParent(this));
 	if (!frame)
