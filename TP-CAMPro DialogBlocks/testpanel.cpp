@@ -54,6 +54,7 @@ BEGIN_EVENT_TABLE( TestPanel, wxPanel )
     EVT_LEFT_UP( TestPanel::OnLeftUp )
     EVT_ENTER_WINDOW( TestPanel::OnEnterWindow )
     EVT_LEAVE_WINDOW( TestPanel::OnLeaveWindow )
+    EVT_KEY_DOWN( TestPanel::OnKeyDown )
 ////@end TestPanel event table entries
 
 END_EVENT_TABLE()
@@ -286,5 +287,18 @@ void TestPanel::OnPaint( wxPaintEvent& event )
     // Before editing this code, remove the block markers.
     wxPaintDC dc(this);
 ////@end wxEVT_PAINT event handler for ID_TESTPANEL in TestPanel. 
+}
+
+
+/*!
+ * wxEVT_KEY_DOWN event handler for ID_TESTPANEL
+ */
+
+void TestPanel::OnKeyDown( wxKeyEvent& event )
+{
+////@begin wxEVT_KEY_DOWN event handler for ID_TESTPANEL in TestPanel.
+    // Before editing this code, remove the block markers.
+    event.Skip();
+////@end wxEVT_KEY_DOWN event handler for ID_TESTPANEL in TestPanel. 
 }
 

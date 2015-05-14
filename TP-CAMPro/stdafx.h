@@ -34,6 +34,7 @@ using std::vector;
 using std::list;
 using std::map;
 using std::string;
+using std::wstring;
 
 
 enum PANEL_TYPE
@@ -99,6 +100,20 @@ namespace BUTTON2_TYPE {
 	};
 }
 
+
+// 키보드 입력 모드
+namespace INPUT_MODE
+{
+	enum TYPE
+	{
+		ALPHA_LOWER, // 알파벳 소문자
+		ALPHA_UPPER, // 알파벳 대문자
+		ALPHA_UPPER_STAY, // 대문자 입력모드 유지 상태
+		NUMBER,
+		SPECIAL,
+		MAX_TYPE
+	};
+}
 
 
 

@@ -66,19 +66,24 @@ cMainPanel::cMainPanel(wxFrame*frame) :
 	wxBoxSizer* itemBoxSizer7 = new wxBoxSizer(wxHORIZONTAL);
 	itemBoxSizer2->Add(itemBoxSizer7, 1, wxALIGN_CENTER_HORIZONTAL | wxALL, 5);
 
-	cBitmap3ButtonEx* itemButton8 = new cBitmap3ButtonEx(itemPanel1, ID_BUTTON_ENFORCEMENTSET, _("ref_img/Enfm_Set.bmp"), wxDefaultPosition, wxDefaultSize, 0);
+	cBitmap3ButtonEx* itemButton8 = new cBitmap3ButtonEx(itemPanel1, ID_BUTTON_ENFORCEMENTSET, 
+		g_controller.m_ResoucePath["enfm_set_button"], wxDefaultPosition, wxDefaultSize, 0);
 	itemBoxSizer7->Add(itemButton8, 0, wxALIGN_CENTER_VERTICAL | wxALL, 5);
 
-	cBitmap3ButtonEx* itemButton9 = new cBitmap3ButtonEx(itemPanel1, ID_BUTTON_CAMERASET, _("ref_img/Cam_Set.bmp"), wxDefaultPosition, wxDefaultSize, 0);
+	cBitmap3ButtonEx* itemButton9 = new cBitmap3ButtonEx(itemPanel1, ID_BUTTON_CAMERASET, 
+		g_controller.m_ResoucePath["cam_set_button"], wxDefaultPosition, wxDefaultSize, 0);
 	itemBoxSizer7->Add(itemButton9, 0, wxALIGN_CENTER_VERTICAL | wxALL, 5);
 
-	cBitmap3ButtonEx* itemButton10 = new cBitmap3ButtonEx(itemPanel1, ID_BUTTON_OPERATORSET, _("ref_img/User_Set.bmp"), wxDefaultPosition, wxDefaultSize, 0);
+	cBitmap3ButtonEx* itemButton10 = new cBitmap3ButtonEx(itemPanel1, ID_BUTTON_OPERATORSET, 
+		g_controller.m_ResoucePath["user_set_button"], wxDefaultPosition, wxDefaultSize, 0);
 	itemBoxSizer7->Add(itemButton10, 0, wxALIGN_CENTER_VERTICAL | wxALL, 5);
 
-	cBitmap3ButtonEx* itemButton11 = new cBitmap3ButtonEx(itemPanel1, ID_BUTTON_FILEMNG, _("ref_img/File_Mgmt.bmp"), wxDefaultPosition, wxDefaultSize, 0);
+	cBitmap3ButtonEx* itemButton11 = new cBitmap3ButtonEx(itemPanel1, ID_BUTTON_FILEMNG, 
+		g_controller.m_ResoucePath["file_mgmt_button"], wxDefaultPosition, wxDefaultSize, 0);
 	itemBoxSizer7->Add(itemButton11, 0, wxALIGN_CENTER_VERTICAL | wxALL, 5);
 
-	cBitmap3ButtonEx* itemButton12 = new cBitmap3ButtonEx(itemPanel1, ID_BUTTON_ENFORCEMENT, _("ref_img/Enfm.bmp"), wxDefaultPosition, wxDefaultSize, 0);
+	cBitmap3ButtonEx* itemButton12 = new cBitmap3ButtonEx(itemPanel1, ID_BUTTON_ENFORCEMENT, 
+		g_controller.m_ResoucePath["enfm_button"], wxDefaultPosition, wxDefaultSize, 0);
 	itemBoxSizer7->Add(itemButton12, 0, wxALIGN_CENTER_VERTICAL | wxALL, 5);
 
 
@@ -89,13 +94,14 @@ cMainPanel::cMainPanel(wxFrame*frame) :
 	itemBoxSizer16->Add(itemBoxSizer17, 1, wxALIGN_CENTER_VERTICAL | wxALL, 5);
 
 	wxStaticBitmap* itemStaticBitmap18 = new wxStaticBitmap(itemPanel1, wxID_STATIC, 
-		wxBitmap(_("ref_img/ComLASER_Logo.bmp"), wxBITMAP_TYPE_BMP), wxDefaultPosition, wxDefaultSize, 0);
+		wxBitmap(g_controller.m_ResoucePath["comlaser_logo"], wxBITMAP_TYPE_BMP), wxDefaultPosition, wxDefaultSize, 0);
 	itemBoxSizer17->Add(itemStaticBitmap18, 0, wxALIGN_CENTER_HORIZONTAL | wxALL, 5);
 
 	wxBoxSizer* itemBoxSizer19 = new wxBoxSizer(wxVERTICAL);
 	itemBoxSizer16->Add(itemBoxSizer19, 0, wxALIGN_CENTER_VERTICAL | wxALL, 5);
 
-	cBitmap3ButtonEx* itemButton20 = new cBitmap3ButtonEx(itemPanel1, ID_BUTTON_EXIT, _("ref_img/EXIT.bmp"), wxDefaultPosition, wxDefaultSize, 0);
+	cBitmap3ButtonEx* itemButton20 = new cBitmap3ButtonEx(itemPanel1, ID_BUTTON_EXIT, 
+		g_controller.m_ResoucePath["exit_button"], wxDefaultPosition, wxDefaultSize, 0);
 	itemBoxSizer19->Add(itemButton20, 0, wxALIGN_CENTER_HORIZONTAL, 5);
 
 	/*

@@ -64,7 +64,8 @@ wxPanel(frame)
 	wxBoxSizer* itemBoxSizer11 = new wxBoxSizer(wxVERTICAL);
 	itemBoxSizer10->Add(itemBoxSizer11, 0, wxALIGN_CENTER_VERTICAL | wxALL, 0);
 
-	cBitmap3ButtonEx* itemButton12 = new cBitmap3ButtonEx(itemPanel1, ID_BUTTON_PREV, _("ref_img/LEFT_ARROW.png"), wxDefaultPosition, wxSize(30, -1), 0);
+	cBitmap3ButtonEx* itemButton12 = new cBitmap3ButtonEx(itemPanel1, ID_BUTTON_PREV, 
+		g_controller.m_ResoucePath[ "left_scroll_button"], wxDefaultPosition, wxSize(30, -1), 0);
 	itemBoxSizer11->Add(itemButton12, 0, wxALIGN_CENTER_HORIZONTAL | wxALL, 0);
 
 	wxBoxSizer* itemBoxSizer13 = new wxBoxSizer(wxVERTICAL);
@@ -76,13 +77,15 @@ wxPanel(frame)
 	wxBoxSizer* itemBoxSizer15 = new wxBoxSizer(wxVERTICAL);
 	itemBoxSizer10->Add(itemBoxSizer15, 0, wxALIGN_CENTER_VERTICAL | wxALL, 0);
 
-	cBitmap3ButtonEx* itemButton16 = new cBitmap3ButtonEx(itemPanel1, ID_BUTTON_NEXT, _("ref_img/RIGHT_ARROW.png"), wxDefaultPosition, wxSize(30, -1), 0);
+	cBitmap3ButtonEx* itemButton16 = new cBitmap3ButtonEx(itemPanel1, ID_BUTTON_NEXT,
+		g_controller.m_ResoucePath[ "right_scroll_button"], wxDefaultPosition, wxSize(30, -1), 0);
 	itemBoxSizer15->Add(itemButton16, 0, wxALIGN_CENTER_HORIZONTAL | wxALL, 0);
 
 	wxBoxSizer* itemBoxSizer17 = new wxBoxSizer(wxVERTICAL);
 	itemBoxSizer3->Add(itemBoxSizer17, 0, wxGROW | wxALL, 5);
 
-	cBitmap3ButtonEx* itemButton18 = new cBitmap3ButtonEx(itemPanel1, ID_BUTTON_CANCEL, _("ref_img/BTN_CANCEL.bmp"), wxDefaultPosition, wxDefaultSize, 0);
+	cBitmap3ButtonEx* itemButton18 = new cBitmap3ButtonEx(itemPanel1, ID_BUTTON_CANCEL, 
+		g_controller.m_ResoucePath[ "fullcancel_button"], wxDefaultPosition, wxDefaultSize, 0);
 	itemBoxSizer17->Add(itemButton18, 0, wxALIGN_CENTER_HORIZONTAL | wxALL, 0);
 }
 

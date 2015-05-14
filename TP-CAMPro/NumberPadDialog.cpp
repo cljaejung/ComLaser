@@ -11,7 +11,7 @@ enum
 
 
 cNumberPadDialog::cNumberPadDialog(wxWindow *parent, const int initNumber) :
-	wxDialog(parent, wxID_ANY, _("NumberPad"), wxDefaultPosition, wxSize(340, 300), 0)
+	wxDialog(parent, wxID_ANY, _("NumberPad"), wxDefaultPosition, wxSize(340, 332), 0)
 {
 
 	cNumberPadDialog* itemDialog1 = this;

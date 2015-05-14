@@ -2,19 +2,6 @@
 //
 #pragma once
 
-namespace INPUT_MODE
-{
-	enum TYPE
-	{
-		ALPHA_LOWER, // 알파벳 소문자
-		ALPHA_UPPER, // 알파벳 대문자
-		ALPHA_UPPER_STAY, // 대문자 입력모드 유지 상태
-		NUMBER,
-		//SPECIAL,
-		MAX_TYPE
-	};
-}
-
 
 
 class cBitmap2ButtonEx;
@@ -43,4 +30,5 @@ protected:
 	DECLARE_EVENT_TABLE()
 	void OnButtonKeyboard(wxCommandEvent&);
 	void OnButtonX(wxCommandEvent&);
+	void OnTextctrlEnter(wxCommandEvent& event);
 };

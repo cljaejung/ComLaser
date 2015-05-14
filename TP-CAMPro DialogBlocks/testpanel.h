@@ -96,6 +96,9 @@ public:
     /// wxEVT_LEAVE_WINDOW event handler for ID_TESTPANEL
     void OnLeaveWindow( wxMouseEvent& event );
 
+    /// wxEVT_KEY_DOWN event handler for ID_TESTPANEL
+    void OnKeyDown( wxKeyEvent& event );
+
 ////@end TestPanel event handler declarations
 
 ////@begin TestPanel member function declarations

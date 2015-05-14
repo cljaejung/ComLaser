@@ -60,7 +60,7 @@ wxPanel(frame)
 	itemBoxSizer3->Add(itemBoxSizer4, 0, wxALIGN_CENTER_VERTICAL | wxALL, 5);
 
 	//wxImage img(_("ref_img/FILE_MGMT_ICON_70_eng.bmp"), wxBITMAP_TYPE_BMP);
-	cImagePanel* itemStaticBitmap5 = new cImagePanel(itemPanel1, _("ref_img/FILE_MGMT_ICON_70_eng.bmp"));
+	cImagePanel* itemStaticBitmap5 = new cImagePanel(itemPanel1, g_controller.m_ResoucePath[ "file_mgmt_icon70"]);
 		//wxBitmap(img), wxDefaultPosition, wxDefaultSize, 0);
 	itemBoxSizer4->Add(itemStaticBitmap5, 0, wxALIGN_CENTER_HORIZONTAL | wxALL, 5);
 
@@ -110,7 +110,8 @@ wxPanel(frame)
 	wxBoxSizer* itemBoxSizer18 = new wxBoxSizer(wxHORIZONTAL);
 	itemBoxSizer15->Add(itemBoxSizer18, 0, wxALIGN_CENTER_HORIZONTAL | wxALL, 0);
 
-	cBitmap3ButtonEx* itemButton19 = new cBitmap3ButtonEx(itemPanel14, ID_BUTTON_OK, _("ref_img/BTN_OK.bmp"), wxDefaultPosition, wxDefaultSize, 0);
+	cBitmap3ButtonEx* itemButton19 = new cBitmap3ButtonEx(itemPanel14, ID_BUTTON_OK, g_controller.m_ResoucePath[ "filemanage_ok_button"]
+		, wxDefaultPosition, wxDefaultSize, 0);
 	itemBoxSizer18->Add(itemButton19, 0, wxALIGN_CENTER_VERTICAL | wxALL, 5);
 
 	wxBoxSizer* itemBoxSizer20 = new wxBoxSizer(wxVERTICAL);
@@ -145,7 +146,8 @@ wxPanel(frame)
 	itemBoxSizer23->Add(itemBoxSizer24, 0, wxALIGN_CENTER_VERTICAL | wxALL, 0);
 
 
-	cBitmap3ButtonEx* itemButton25 = new cBitmap3ButtonEx(itemPanel1, ID_BUTTON_PREV, _("ref_img/LEFT_ARROW.png"), wxDefaultPosition, wxSize(30, -1), 0);
+	cBitmap3ButtonEx* itemButton25 = new cBitmap3ButtonEx(itemPanel1, ID_BUTTON_PREV, 
+		g_controller.m_ResoucePath["left_scroll_button"], wxDefaultPosition, wxSize(30, -1), 0);
 	itemBoxSizer24->Add(itemButton25, 0, wxALIGN_CENTER_HORIZONTAL | wxALL, 0);
 
 	wxBoxSizer* itemBoxSizer26 = new wxBoxSizer(wxVERTICAL);
@@ -157,7 +159,8 @@ wxPanel(frame)
 	wxBoxSizer* itemBoxSizer28 = new wxBoxSizer(wxVERTICAL);
 	itemBoxSizer23->Add(itemBoxSizer28, 0, wxALIGN_CENTER_VERTICAL | wxALL, 0);
 
-	cBitmap3ButtonEx* itemButton29 = new cBitmap3ButtonEx(itemPanel1, ID_BUTTON_NEXT, _("ref_img/RIGHT_ARROW.png"), wxDefaultPosition, wxSize(30, -1), 0);
+	cBitmap3ButtonEx* itemButton29 = new cBitmap3ButtonEx(itemPanel1, ID_BUTTON_NEXT, 
+		g_controller.m_ResoucePath["right_scroll_button"], wxDefaultPosition, wxSize(30, -1), 0);
 	itemBoxSizer28->Add(itemButton29, 0, wxALIGN_CENTER_HORIZONTAL | wxALL, 0);
 
 
@@ -170,7 +173,8 @@ wxPanel(frame)
 	wxBoxSizer* itemBoxSizer35 = new wxBoxSizer(wxVERTICAL);
 	itemBoxSizer34->Add(itemBoxSizer35, 0, wxALIGN_CENTER_VERTICAL | wxALL, 0);
 
-	cPng2ButtonEx* itemButton36 = new cPng2ButtonEx(itemPanel1, ID_BUTTON_MEMCOPY, _("ref_img/MemoryCopy"), wxDefaultPosition, wxSize(70, 40), 0);
+	cBitmap3ButtonEx* itemButton36 = new cBitmap3ButtonEx(itemPanel1, ID_BUTTON_MEMCOPY, 
+		g_controller.m_ResoucePath["memory_copy_button"], wxDefaultPosition, wxSize(70, 40), 0);
 	itemBoxSizer35->Add(itemButton36, 0, wxALIGN_CENTER_HORIZONTAL | wxALL, 0);
 
 	wxBoxSizer* itemBoxSizer38 = new wxBoxSizer(wxHORIZONTAL);
@@ -179,7 +183,8 @@ wxPanel(frame)
 	wxBoxSizer* itemBoxSizer39 = new wxBoxSizer(wxVERTICAL);
 	itemBoxSizer38->Add(itemBoxSizer39, 0, wxALIGN_CENTER_VERTICAL | wxALL, 0);
 
-	cBitmap3ButtonEx* itemButton40 = new cBitmap3ButtonEx(itemPanel1, ID_BUTTON_FILETRANSFER, _("ref_img/FileTransfer.bmp"));// , wxDefaultPosition, wxSize(70, 40), 0);
+	cBitmap3ButtonEx* itemButton40 = new cBitmap3ButtonEx(itemPanel1, ID_BUTTON_FILETRANSFER, 
+		g_controller.m_ResoucePath["file_transfer_button"]);// , wxDefaultPosition, wxSize(70, 40), 0);
 	itemBoxSizer39->Add(itemButton40, 0, wxALIGN_CENTER_HORIZONTAL | wxALL, 0);
 
 	wxBoxSizer* itemBoxSizer42 = new wxBoxSizer(wxHORIZONTAL);
@@ -188,7 +193,8 @@ wxPanel(frame)
 	wxBoxSizer* itemBoxSizer43 = new wxBoxSizer(wxVERTICAL);
 	itemBoxSizer42->Add(itemBoxSizer43, 0, wxALIGN_CENTER_VERTICAL | wxALL, 0);
 
-	cPng2ButtonEx* itemButton44 = new cPng2ButtonEx(itemPanel1, ID_BUTTON_MEMCLEAR, _("ref_img/MemoryClear"));// , wxDefaultPosition, wxSize(70, 40), 0);
+	cBitmap3ButtonEx* itemButton44 = new cBitmap3ButtonEx(itemPanel1, ID_BUTTON_MEMCLEAR, 
+		g_controller.m_ResoucePath["memory_clear_button"]);// , wxDefaultPosition, wxSize(70, 40), 0);
 	itemBoxSizer43->Add(itemButton44, 0, wxALIGN_CENTER_HORIZONTAL | wxALL, 0);
 
 

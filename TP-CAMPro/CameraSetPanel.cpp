@@ -55,7 +55,7 @@ wxPanel(frame)
     wxBoxSizer* itemBoxSizer3 = new wxBoxSizer(wxHORIZONTAL);
     itemBoxSizer2->Add(itemBoxSizer3, 0, wxGROW|wxLEFT|wxRIGHT|wxTOP, 5);
 
-	cImagePanel* itemStaticBitmap4 = new cImagePanel(itemPanel1, _("ref_img/CAM_SET_ICON_70_eng.bmp"));
+	cImagePanel* itemStaticBitmap4 = new cImagePanel(itemPanel1, g_controller.m_ResoucePath[ "cam_set_icon70"]);
     itemBoxSizer3->Add(itemStaticBitmap4, 0, wxALIGN_CENTER_VERTICAL|wxLEFT|wxRIGHT|wxTOP, 5);
 
     wxBoxSizer* itemBoxSizer6 = new wxBoxSizer(wxVERTICAL);
@@ -185,10 +185,12 @@ wxPanel(frame)
 	wxBoxSizer* itemBoxSizer33 = new wxBoxSizer(wxHORIZONTAL);
 	itemBoxSizer13->Add(itemBoxSizer33, 1, wxALIGN_CENTER_HORIZONTAL | wxTOP, 10);
 
-	cBitmap3ButtonEx* itemButton34 = new cBitmap3ButtonEx(itemPanel12, ID_BUTTON_OK, _("ref_img/BTN_OK.bmp"), wxDefaultPosition, wxDefaultSize, 0);
+	cBitmap3ButtonEx* itemButton34 = new cBitmap3ButtonEx(itemPanel12, ID_BUTTON_OK, 
+		g_controller.m_ResoucePath["ok_button"], wxDefaultPosition, wxDefaultSize, 0);
 	itemBoxSizer33->Add(itemButton34, 0, wxALIGN_BOTTOM | wxALL, 5);
 
-	cBitmap3ButtonEx* itemButton35 = new cBitmap3ButtonEx(itemPanel12, ID_BUTTON_CANCEL, _("ref_img/BTN_CANCEL.bmp"), wxDefaultPosition, wxDefaultSize, 0);
+	cBitmap3ButtonEx* itemButton35 = new cBitmap3ButtonEx(itemPanel12, ID_BUTTON_CANCEL, 
+		g_controller.m_ResoucePath["cancel_button"], wxDefaultPosition, wxDefaultSize, 0);
 	itemBoxSizer33->Add(itemButton35, 0, wxALIGN_BOTTOM | wxALL, 5);
 
 	wxBoxSizer* itemBoxSizer36 = new wxBoxSizer(wxVERTICAL);

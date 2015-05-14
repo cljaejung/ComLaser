@@ -28,6 +28,7 @@ enum
 BEGIN_EVENT_TABLE(cNumberPadPanel, wxPanel)
 	EVT_TEXT(ID_TEXTCTRL, cNumberPadPanel::OnTextctrlTextUpdated)
 	EVT_BUTTON(ID_BUTTON_DELETE, cNumberPadPanel::OnButtonDelete)
+	EVT_TEXT_ENTER(ID_TEXTCTRL, cNumberPadPanel::OnTextctrlEnter)
 	EVT_COMMAND_RANGE(ID_BUTTON1, ID_BUTTON0, wxEVT_COMMAND_BUTTON_CLICKED, cNumberPadPanel::OnButtonNumber)
 END_EVENT_TABLE()
 
@@ -49,17 +50,19 @@ cNumberPadPanel::cNumberPadPanel(wxWindow *parent, const int initNumber)
 	wxBoxSizer* itemBoxSizer33 = new wxBoxSizer(wxHORIZONTAL);
 	itemBoxSizer2->Add(itemBoxSizer33, 0, wxALIGN_RIGHT | wxALL, 0);
 
-	cBitmap3ButtonEx* itemButton44 = new cBitmap3ButtonEx(itemPanel1, wxID_CANCEL, _("ref_img/BTN_X_32.png"), wxDefaultPosition, wxDefaultSize, 0);
+	cBitmap3ButtonEx* itemButton44 = new cBitmap3ButtonEx(itemPanel1, wxID_CANCEL, 
+		g_controller.m_ResoucePath[ "numberpad_close_button"], wxDefaultPosition, wxDefaultSize, 0);
 	itemBoxSizer33->Add(itemButton44, 0, wxALIGN_BOTTOM | wxALL, 0);
 
 
 	wxBoxSizer* itemBoxSizer3 = new wxBoxSizer(wxHORIZONTAL);
 	itemBoxSizer2->Add(itemBoxSizer3, 0, wxGROW | wxALL, 5);
 
-	wxButton* itemButton4 = new wxButton(itemPanel1, ID_BUTTON_DELETE, _("X"), wxDefaultPosition, wxSize(30,30), 0);
+	cBitmap3ButtonEx* itemButton4 = new cBitmap3ButtonEx(itemPanel1, ID_BUTTON_DELETE, 
+		g_controller.m_ResoucePath["numberpad_remove_button"], wxDefaultPosition, wxSize(36, 36), 0);
 	itemBoxSizer3->Add(itemButton4, 0, wxALIGN_CENTER_VERTICAL | wxALL, 5);
 
-	m_textCtrl = new wxTextCtrl(itemPanel1, ID_TEXTCTRL, wxEmptyString, wxDefaultPosition, wxDefaultSize, wxTE_RIGHT);
+	m_textCtrl = new wxTextCtrl(itemPanel1, ID_TEXTCTRL, wxEmptyString, wxDefaultPosition, wxDefaultSize, wxTE_RIGHT | wxTE_PROCESS_ENTER);
 	m_textCtrl->SetFont(wxFont(18, wxFONTFAMILY_SWISS, wxFONTSTYLE_NORMAL, wxFONTWEIGHT_NORMAL, false, wxT("")));
 	m_textCtrl->SetValue(wxString::Format("%d", m_number));
 	itemBoxSizer3->Add(m_textCtrl, 1, wxALIGN_CENTER_VERTICAL | wxALL, 5);
@@ -133,16 +136,19 @@ cNumberPadPanel::cNumberPadPanel(wxWindow *parent, const int initNumber)
 	wxStdDialogButtonSizer* itemStdDialogButtonSizer28 = new wxStdDialogButtonSizer;
 
 	itemBoxSizer2->Add(itemStdDialogButtonSizer28, 1, wxALIGN_CENTER_HORIZONTAL | wxALL, 5);
-	cBitmap3ButtonEx* itemButton29 = new cBitmap3ButtonEx(itemPanel1, wxID_OK, _("ref_img/BTN_OK.bmp"), wxDefaultPosition, wxDefaultSize, 0);
+	cBitmap3ButtonEx* itemButton29 = new cBitmap3ButtonEx(itemPanel1, wxID_OK, 
+		g_controller.m_ResoucePath["numberpad_done_button"], wxDefaultPosition, wxDefaultSize, 0);
 	itemStdDialogButtonSizer28->AddButton((wxButton*)itemButton29);
 
-	cBitmap3ButtonEx* itemButton30 = new cBitmap3ButtonEx(itemPanel1, wxID_CANCEL, _("ref_img/BTN_CANCEL.bmp"), wxDefaultPosition, wxDefaultSize, 0);
+	cBitmap3ButtonEx* itemButton30 = new cBitmap3ButtonEx(itemPanel1, wxID_CANCEL, 
+		g_controller.m_ResoucePath["numberpad_cancel_button"], wxDefaultPosition, wxDefaultSize, 0);
 	itemStdDialogButtonSizer28->AddButton((wxButton*)itemButton30);
 
 	itemStdDialogButtonSizer28->Realize();
 
 
 	///////////////////////////////////////////////////////////////////////////////////////////////////////////
+	m_textCtrl->SetFocus();
 
 }
 
@@ -184,4 +190,13 @@ void cNumberPadPanel::OnTextctrlTextUpdated(wxCommandEvent& event)
 {
 	// 에디트창에서 값을 가져온다.
 	m_textCtrl->GetValue().ToLong((long*)&m_number);
+}
+
+
+// 에디트창에 엔터키를 입력하면 호출된다.
+void cNumberPadPanel::OnTextctrlEnter(wxCommandEvent& event)
+{
+	// OK 버튼 클릭 메시지를 보낸다.
+	wxCommandEvent evt(wxEVT_COMMAND_BUTTON_CLICKED, wxID_OK);
+	ProcessEvent(evt);
 }

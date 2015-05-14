@@ -107,6 +107,9 @@ public:
 
 ////@begin cKeyboardEngPanel event handler declarations
 
+    /// wxEVT_COMMAND_TEXT_ENTER event handler for ID_TEXTCTRL
+    void OnTextctrlEnter( wxCommandEvent& event );
+
 ////@end cKeyboardEngPanel event handler declarations
 
 ////@begin cKeyboardEngPanel member function declarations

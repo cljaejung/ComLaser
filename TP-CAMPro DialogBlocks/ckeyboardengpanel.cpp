@@ -47,6 +47,7 @@ IMPLEMENT_DYNAMIC_CLASS( cKeyboardEngPanel, wxPanel )
 BEGIN_EVENT_TABLE( cKeyboardEngPanel, wxPanel )
 
 ////@begin cKeyboardEngPanel event table entries
+    EVT_TEXT_ENTER( ID_TEXTCTRL, cKeyboardEngPanel::OnTextctrlEnter )
 ////@end cKeyboardEngPanel event table entries
 
 END_EVENT_TABLE()
@@ -287,3 +288,17 @@ wxIcon cKeyboardEngPanel::GetIconResource( const wxString& name )
     return wxNullIcon;
 ////@end cKeyboardEngPanel icon retrieval
 }
+
+
+/*!
+ * wxEVT_COMMAND_TEXT_ENTER event handler for ID_TEXTCTRL
+ */
+
+void cKeyboardEngPanel::OnTextctrlEnter( wxCommandEvent& event )
+{
+////@begin wxEVT_COMMAND_TEXT_ENTER event handler for ID_TEXTCTRL in cKeyboardEngPanel.
+    // Before editing this code, remove the block markers.
+    event.Skip();
+////@end wxEVT_COMMAND_TEXT_ENTER event handler for ID_TEXTCTRL in cKeyboardEngPanel. 
+}
+

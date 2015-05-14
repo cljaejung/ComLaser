@@ -12,7 +12,7 @@ enum
 
 cKeyboardDialog::cKeyboardDialog(wxWindow *parent, const wxString &initialText, 
 	const bool IsPassword, const int maximumChar) 
-	: wxDialog(parent, wxID_ANY, _("KeyBoard"), wxDefaultPosition, wxSize(720,392), 0)
+	: wxDialog(parent, wxID_ANY, _("KeyBoard"), wxDefaultPosition, wxSize(710,392), 0)
 {
 	cKeyboardDialog* itemDialog1 = this;
 
@@ -55,16 +55,4 @@ void cKeyboardDialog::KeyboardInputFinish()
 void cKeyboardDialog::KeyboardInputCancel()
 {
 	EndDialog(wxID_CANCEL);
-}
-
-
-// 모달리스 다이얼로그로 띄운다.
-void cKeyboardDialog::ShowModaless(const wxString &initialText, const bool IsPassword, const int maximumChar)
-{
-	m_keyboardPanel->m_textCtrl->SetValue(initialText);
-	m_keyboardPanel->m_textCtrl->SetMaxLength(maximumChar);
-	Show(true);
-
-	wxPoint parentPos = GetParent()->ClientToScreen(wxPoint(0, 0));
-	Move(wxPoint(0, 86) + parentPos);
 }

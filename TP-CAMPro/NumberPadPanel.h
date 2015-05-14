@@ -18,4 +18,5 @@ protected:
 	void OnButtonNumber(wxCommandEvent&);
 	void OnButtonDelete(wxCommandEvent&);
 	void OnTextctrlTextUpdated(wxCommandEvent& event);
+	void OnTextctrlEnter(wxCommandEvent& event);
 };

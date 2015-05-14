@@ -51,7 +51,7 @@ END_EVENT_TABLE()
 
 // frame constructor
 cCLFrame::cCLFrame(const wxString& title)
-: wxFrame(NULL, wxID_ANY, title, wxDefaultPosition, wxSize(720,480+32))
+: wxFrame(NULL, wxID_ANY, title, wxDefaultPosition, wxSize(720,480+32), 0)
 {
 	// set the frame icon
 	SetIcon(wxICON(sample));

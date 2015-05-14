@@ -50,8 +50,7 @@ cEnforcementPanel::cEnforcementPanel(wxFrame*frame) :
 	wxBoxSizer* itemBoxSizer4 = new wxBoxSizer(wxVERTICAL);
 	itemBoxSizer3->Add(itemBoxSizer4, 0, wxALIGN_CENTER_VERTICAL | wxLEFT | wxRIGHT | wxTOP, 5);
 
-	//wxImage img(_("ref_img/ENFM_ICON_80_eng.bmp"), wxBITMAP_TYPE_BMP);
-	cImagePanel* itemStaticBitmap5 = new cImagePanel(itemPanel1, _("ref_img/ENFM_ICON_80_eng.bmp"));// wxID_STATIC, wxBitmap(img), wxDefaultPosition, wxDefaultSize, 0);
+	cImagePanel* itemStaticBitmap5 = new cImagePanel(itemPanel1, g_controller.m_ResoucePath["enfm_icon80"]);
 	itemBoxSizer4->Add(itemStaticBitmap5, 0, wxALIGN_CENTER_HORIZONTAL | wxALL, 5);
 
 	//wxBoxSizer* itemBoxSizer6 = new wxBoxSizer(wxVERTICAL);
@@ -240,7 +239,8 @@ cEnforcementPanel::cEnforcementPanel(wxFrame*frame) :
 	wxBoxSizer* itemBoxSizer55 = new wxBoxSizer(wxHORIZONTAL);
 	itemBoxSizer13->Add(itemBoxSizer55, 0, wxALIGN_CENTER_HORIZONTAL | wxALL, 5);
 
-	cPng2ButtonEx* itemButton56 = new cPng2ButtonEx(itemPanel1, ID_BUTTON_DONE, _("ref_img/Done"));// , wxDefaultPosition, wxDefaultSize, 0);
+	cBitmap3ButtonEx* itemButton56 = new cBitmap3ButtonEx(itemPanel1, ID_BUTTON_DONE,
+		g_controller.m_ResoucePath[ "done_button"]);
 	itemBoxSizer55->Add(itemButton56, 0, wxALIGN_CENTER_VERTICAL | wxALL, 5);
 
 	wxBoxSizer* itemBoxSizer57 = new wxBoxSizer(wxVERTICAL);
@@ -267,6 +267,9 @@ cEnforcementPanel::cEnforcementPanel(wxFrame*frame) :
 	m_cameraPanel = itemPanel16;
 	m_capturePanel = itemPanel59;
 
+
+	m_captureSpeed->SetLabel("124 Km/h");
+	m_captureDistance->SetLabel("120 m");
 }
 
 cEnforcementPanel::~cEnforcementPanel()

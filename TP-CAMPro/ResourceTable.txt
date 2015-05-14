@@ -1,0 +1,36 @@
+keyboard_button ref_img/BTN_KEYBOARD.png
+numpad_button ref_img/BTN_KEYBOARD.png
+start_button ref_img/Login_Start1.bmp
+exit_button ref_img/Login_Exit1.bmp
+comlaser_login_logo ref_img/ComLaser_login_logo.bmp
+comlaser_logo ref_img/ComLASER_Logo.bmp
+enfm_set_button ref_img/Enfm_Set.bmp
+cam_set_button ref_img/Cam_Set.bmp
+user_set_button ref_img/User_Set.bmp
+file_mgmt_button ref_img/File_Mgmt.bmp
+enfm_button ref_img/Enfm.bmp
+enfm_set_icon70 ref_img/ENFM_SET_ICON_70_eng.bmp
+ok_button ref_img/BTN_OK.bmp
+cancel_button ref_img/BTN_CANCEL.bmp
+cam_set_icon70 ref_img/CAM_SET_ICON_70_eng.bmp
+fullcancel_button ref_img/FullCancel.bmp
+user_set_icon70 ref_img/USER_SET_ICON_70_eng.bmp
+add_button ref_img/Operatorset_Add.bmp
+delete_button ref_img/Operatorset_Delete.bmp
+change_button ref_img/Operatorset_Change.bmp
+file_mgmt_icon70 ref_img/FILE_MGMT_ICON_70_eng.bmp
+filemanage_ok_button ref_img/Filemanage_OK.bmp
+left_scroll_button ref_img/Filemanage_Left.bmp
+right_scroll_button ref_img/Filemanage_Right.bmp
+memory_copy_button ref_img/Filemanage_Memorycopy1.bmp
+file_transfer_button ref_img/Filemanage_Filetransfer1.bmp
+memory_clear_button ref_img/Filemanage_Memoryclear.bmp
+enfm_icon80 ref_img/ENFM_ICON_80_eng.bmp
+done_button ref_img/Enforcement_Done.bmp
+keyboard_close_button ref_img/Keyboard_X.bmp
+numberpad_close_button ref_img/Keyboard_X.bmp
+numberpad_remove_button ref_img/Numpad_X.bmp
+numberpad_done_button ref_img/Numpad_Done.bmp
+numberpad_cancel_button ref_img/Numpad_Cancel.bmp
+
+

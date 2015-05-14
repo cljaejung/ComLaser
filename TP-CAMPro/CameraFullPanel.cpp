@@ -50,7 +50,8 @@ wxPanel(frame)
 	itemPanel8->m_GotoNextPanel = PANEL_CAMERAFULL;
 	itemBoxSizer7->Add(itemPanel8, 1, wxGROW | wxTOP | wxBOTTOM, 4);
 
-	cBitmap3ButtonEx* itemButton9 = new cBitmap3ButtonEx(itemPanel1, ID_BUTTON_CANCEL, _("ref_img/BTN_CANCEL.bmp"), wxDefaultPosition, wxDefaultSize, 0);
+	cBitmap3ButtonEx* itemButton9 = new cBitmap3ButtonEx(itemPanel1, ID_BUTTON_CANCEL, 
+		g_controller.m_ResoucePath[ "fullcancel_button"], wxDefaultPosition, wxDefaultSize, 0);
 	itemBoxSizer3->Add(itemButton9, 0, wxALIGN_TOP | wxALL, 5);
 
 }

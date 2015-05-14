@@ -12,6 +12,7 @@ enum
 BEGIN_EVENT_TABLE(cBitmap3ButtonEx, wxPanel)
 EVT_PAINT(cBitmap3ButtonEx::OnPaint)
 EVT_LEFT_DOWN(cBitmap3ButtonEx::OnLeftDown)
+EVT_LEFT_DCLICK(cBitmap3ButtonEx::OnLeftDown)
 EVT_LEFT_UP(cBitmap3ButtonEx::OnLeftUp)
 EVT_ENTER_WINDOW(cBitmap3ButtonEx::OnEnterWindow)
 EVT_LEAVE_WINDOW(cBitmap3ButtonEx::OnLeaveWindow)

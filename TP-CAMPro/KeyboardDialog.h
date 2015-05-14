@@ -12,9 +12,6 @@ public:
 	cKeyboardDialog(wxWindow *parent, const wxString &initialText = wxEmptyString, 
 		const bool IsPassword = false, const int maximumChar = 20);
 
-	void ShowModaless(const wxString &initialText = wxEmptyString,
-		const bool IsPassword = false, const int maximumChar = 20);
-
 	void KeyboardInputFinish();
 	void KeyboardInputCancel();
 
