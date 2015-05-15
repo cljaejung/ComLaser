@@ -101,14 +101,16 @@ cOperatorSetPanel::cOperatorSetPanel(wxFrame*frame) :
 	wxBoxSizer* itemBoxSizer15 = new wxBoxSizer(wxVERTICAL);
 	itemPanel14->SetSizer(itemBoxSizer15);
 
+	const int HEIGHT_GAP = 4;
+
 	wxBoxSizer* itemBoxSizer16 = new wxBoxSizer(wxHORIZONTAL);
-	itemBoxSizer15->Add(itemBoxSizer16, 0, wxGROW | wxALL, 10);
+	itemBoxSizer15->Add(itemBoxSizer16, 0, wxGROW | wxALL, HEIGHT_GAP);
 
 	wxBoxSizer* itemBoxSizer17 = new wxBoxSizer(wxVERTICAL);
 	itemBoxSizer16->Add(itemBoxSizer17, 0, wxALIGN_CENTER_VERTICAL | wxALL, 0);
 
 	wxStaticText* itemStaticText18 = new wxStaticText(itemPanel14, wxID_STATIC, _("User Name"), wxDefaultPosition, wxSize(200, -1), 0);
-	itemStaticText18->SetFont(wxFont(18, wxFONTFAMILY_SWISS, wxFONTSTYLE_NORMAL, wxFONTWEIGHT_BOLD, false));// , wxT("Arial")));
+	itemStaticText18->SetFont(wxFont(26, wxFONTFAMILY_SWISS, wxFONTSTYLE_NORMAL, wxFONTWEIGHT_BOLD, false));// , wxT("Arial")));
 	itemBoxSizer17->Add(itemStaticText18, 0, wxALIGN_CENTER_HORIZONTAL | wxALL, 5);
 
 	wxBoxSizer* itemBoxSizer19 = new wxBoxSizer(wxVERTICAL);
@@ -119,7 +121,7 @@ cOperatorSetPanel::cOperatorSetPanel(wxFrame*frame) :
 	itemComboBox20Strings.Add(_("ComLaser2"));
 	wxComboBox* itemComboBox20 = new wxComboBox(itemPanel14, ID_COMBOBOX_USERNAME, _("ComLaser1"), wxDefaultPosition, wxSize(200, -1), itemComboBox20Strings, wxCB_DROPDOWN);
 	itemComboBox20->SetStringSelection(_("ComLaser1"));
-	itemComboBox20->SetFont(wxFont(18, wxFONTFAMILY_SWISS, wxFONTSTYLE_NORMAL, wxFONTWEIGHT_NORMAL, false, wxT("Arial")));
+	itemComboBox20->SetFont(wxFont(26, wxFONTFAMILY_SWISS, wxFONTSTYLE_NORMAL, wxFONTWEIGHT_NORMAL, false, wxT("Arial")));
 	itemBoxSizer19->Add(itemComboBox20, 1, wxALIGN_CENTER_HORIZONTAL | wxALL, 0);
 
 	wxBoxSizer* itemBoxSizer21 = new wxBoxSizer(wxVERTICAL);
@@ -129,21 +131,23 @@ cOperatorSetPanel::cOperatorSetPanel(wxFrame*frame) :
 		g_controller.m_ResoucePath["keyboard_button"], wxDefaultPosition, wxSize(32, 32), 0);
 	itemBoxSizer21->Add(itemButton22, 0, wxALIGN_CENTER_HORIZONTAL | wxALL, 1);
 
+
+
 	wxBoxSizer* itemBoxSizer23 = new wxBoxSizer(wxHORIZONTAL);
-	itemBoxSizer15->Add(itemBoxSizer23, 0, wxGROW | wxALL, 10);
+	itemBoxSizer15->Add(itemBoxSizer23, 0, wxGROW | wxALL, HEIGHT_GAP);
 
 	wxBoxSizer* itemBoxSizer24 = new wxBoxSizer(wxVERTICAL);
 	itemBoxSizer23->Add(itemBoxSizer24, 0, wxALIGN_CENTER_VERTICAL | wxALL, 0);
 
 	wxStaticText* itemStaticText25 = new wxStaticText(itemPanel14, wxID_STATIC, _("Password"), wxDefaultPosition, wxSize(200, -1), 0);
-	itemStaticText25->SetFont(wxFont(18, wxFONTFAMILY_SWISS, wxFONTSTYLE_NORMAL, wxFONTWEIGHT_BOLD, false));//, wxT("Arial")));
+	itemStaticText25->SetFont(wxFont(26, wxFONTFAMILY_SWISS, wxFONTSTYLE_NORMAL, wxFONTWEIGHT_BOLD, false));//, wxT("Arial")));
 	itemBoxSizer24->Add(itemStaticText25, 0, wxALIGN_CENTER_HORIZONTAL | wxALL, 5);
 
 	wxBoxSizer* itemBoxSizer26 = new wxBoxSizer(wxVERTICAL);
 	itemBoxSizer23->Add(itemBoxSizer26, 0, wxALIGN_CENTER_VERTICAL | wxALL, 0);
 
 	wxTextCtrl* itemTextCtrl27 = new wxTextCtrl(itemPanel14, ID_TEXTCTRL_PASSWORD, wxEmptyString, wxDefaultPosition, wxSize(200, -1), wxTE_PASSWORD);
-	itemTextCtrl27->SetFont(wxFont(18, wxFONTFAMILY_SWISS, wxFONTSTYLE_NORMAL, wxFONTWEIGHT_NORMAL, false));// , wxT("Arial")));
+	itemTextCtrl27->SetFont(wxFont(26, wxFONTFAMILY_SWISS, wxFONTSTYLE_NORMAL, wxFONTWEIGHT_NORMAL, false));// , wxT("Arial")));
 	itemBoxSizer26->Add(itemTextCtrl27, 0, wxALIGN_CENTER_HORIZONTAL | wxALL, 0);
 
 	wxBoxSizer* itemBoxSizer28 = new wxBoxSizer(wxVERTICAL);
@@ -153,21 +157,23 @@ cOperatorSetPanel::cOperatorSetPanel(wxFrame*frame) :
 		g_controller.m_ResoucePath["keyboard_button"], wxDefaultPosition, wxSize(32, 32), 0);
 	itemBoxSizer28->Add(itemButton29, 0, wxALIGN_CENTER_HORIZONTAL | wxALL, 1);
 
+
+
 	wxBoxSizer* itemBoxSizer30 = new wxBoxSizer(wxHORIZONTAL);
-	itemBoxSizer15->Add(itemBoxSizer30, 0, wxGROW | wxALL, 10);
+	itemBoxSizer15->Add(itemBoxSizer30, 0, wxGROW | wxALL, HEIGHT_GAP);
 
 	wxBoxSizer* itemBoxSizer31 = new wxBoxSizer(wxVERTICAL);
 	itemBoxSizer30->Add(itemBoxSizer31, 0, wxALIGN_CENTER_VERTICAL | wxALL, 0);
 
 	wxStaticText* itemStaticText32 = new wxStaticText(itemPanel14, wxID_STATIC, _("New Password"), wxDefaultPosition, wxSize(200, -1), 0);
-	itemStaticText32->SetFont(wxFont(18, wxFONTFAMILY_SWISS, wxFONTSTYLE_NORMAL, wxFONTWEIGHT_BOLD, false));// , wxT("Arial")));
+	itemStaticText32->SetFont(wxFont(26, wxFONTFAMILY_SWISS, wxFONTSTYLE_NORMAL, wxFONTWEIGHT_BOLD, false));// , wxT("Arial")));
 	itemBoxSizer31->Add(itemStaticText32, 0, wxALIGN_CENTER_HORIZONTAL | wxALL, 5);
 
 	wxBoxSizer* itemBoxSizer33 = new wxBoxSizer(wxVERTICAL);
 	itemBoxSizer30->Add(itemBoxSizer33, 0, wxALIGN_CENTER_VERTICAL | wxALL, 0);
 
 	wxTextCtrl* itemTextCtrl34 = new wxTextCtrl(itemPanel14, ID_TEXTCTRL_NEWPASSWORD, wxEmptyString, wxDefaultPosition, wxSize(200, -1), wxTE_PASSWORD);
-	itemTextCtrl34->SetFont(wxFont(18, wxFONTFAMILY_SWISS, wxFONTSTYLE_NORMAL, wxFONTWEIGHT_NORMAL, false));// , wxT("Arial")));
+	itemTextCtrl34->SetFont(wxFont(26, wxFONTFAMILY_SWISS, wxFONTSTYLE_NORMAL, wxFONTWEIGHT_NORMAL, false));// , wxT("Arial")));
 	itemBoxSizer33->Add(itemTextCtrl34, 0, wxALIGN_CENTER_HORIZONTAL | wxALL, 0);
 
 	wxBoxSizer* itemBoxSizer35 = new wxBoxSizer(wxVERTICAL);
@@ -177,21 +183,23 @@ cOperatorSetPanel::cOperatorSetPanel(wxFrame*frame) :
 		g_controller.m_ResoucePath["keyboard_button"], wxDefaultPosition, wxSize(32, 32), 0);
 	itemBoxSizer35->Add(itemButton36, 0, wxALIGN_CENTER_HORIZONTAL | wxALL, 1);
 
+
+
 	wxBoxSizer* itemBoxSizer37 = new wxBoxSizer(wxHORIZONTAL);
-	itemBoxSizer15->Add(itemBoxSizer37, 0, wxGROW | wxALL, 10);
+	itemBoxSizer15->Add(itemBoxSizer37, 0, wxGROW | wxALL, HEIGHT_GAP);
 
 	wxBoxSizer* itemBoxSizer38 = new wxBoxSizer(wxVERTICAL);
 	itemBoxSizer37->Add(itemBoxSizer38, 0, wxALIGN_CENTER_VERTICAL | wxALL, 0);
 
 	wxStaticText* itemStaticText39 = new wxStaticText(itemPanel14, wxID_STATIC, _("Confirm"), wxDefaultPosition, wxSize(200, -1), 0);
-	itemStaticText39->SetFont(wxFont(18, wxFONTFAMILY_SWISS, wxFONTSTYLE_NORMAL, wxFONTWEIGHT_BOLD, false));// , wxT("Arial")));
+	itemStaticText39->SetFont(wxFont(26, wxFONTFAMILY_SWISS, wxFONTSTYLE_NORMAL, wxFONTWEIGHT_BOLD, false));// , wxT("Arial")));
 	itemBoxSizer38->Add(itemStaticText39, 0, wxALIGN_CENTER_HORIZONTAL | wxALL, 5);
 
 	wxBoxSizer* itemBoxSizer40 = new wxBoxSizer(wxVERTICAL);
 	itemBoxSizer37->Add(itemBoxSizer40, 0, wxALIGN_CENTER_VERTICAL | wxALL, 0);
 
 	wxTextCtrl* itemTextCtrl41 = new wxTextCtrl(itemPanel14, ID_TEXTCTRL_CONFIRM, wxEmptyString, wxDefaultPosition, wxSize(200, -1), wxTE_PASSWORD);
-	itemTextCtrl41->SetFont(wxFont(18, wxFONTFAMILY_SWISS, wxFONTSTYLE_NORMAL, wxFONTWEIGHT_NORMAL, false));// , wxT("Arial")));
+	itemTextCtrl41->SetFont(wxFont(26, wxFONTFAMILY_SWISS, wxFONTSTYLE_NORMAL, wxFONTWEIGHT_NORMAL, false));// , wxT("Arial")));
 	itemBoxSizer40->Add(itemTextCtrl41, 0, wxALIGN_CENTER_HORIZONTAL | wxALL, 0);
 
 	wxBoxSizer* itemBoxSizer42 = new wxBoxSizer(wxVERTICAL);
@@ -200,6 +208,7 @@ cOperatorSetPanel::cOperatorSetPanel(wxFrame*frame) :
 	cBitmap3ButtonEx* itemButton43 = new cBitmap3ButtonEx(itemPanel14, ID_BUTTON_CONFIRM, 
 		g_controller.m_ResoucePath["keyboard_button"], wxDefaultPosition, wxSize(32, 32), 0);
 	itemBoxSizer42->Add(itemButton43, 0, wxALIGN_CENTER_HORIZONTAL | wxALL, 1);
+
 
 	wxBoxSizer* itemBoxSizer44 = new wxBoxSizer(wxHORIZONTAL);
 	itemBoxSizer15->Add(itemBoxSizer44, 1, wxALIGN_CENTER_HORIZONTAL | wxALL, 5);

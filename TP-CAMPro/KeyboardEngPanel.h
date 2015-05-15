@@ -9,7 +9,7 @@ class cKeyboardEngPanel : public wxPanel
 {
 public:
 	cKeyboardEngPanel(wxWindow *parent, const wxString &initialText = _(""), 
-		const bool IsPassword=false, const int maximumChar=20);
+		const bool IsPassword=false, const int maximumChar=40);
 
 	void SetInputMode(const INPUT_MODE::TYPE mode);
 

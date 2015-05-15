@@ -102,25 +102,26 @@ wxPanel(frame)
 	wxBoxSizer* itemBoxSizer15 = new wxBoxSizer(wxVERTICAL);
 	itemBoxSizer14->Add(itemBoxSizer15, 1, wxGROW, 5);
 
+	const int HEIGHT_GAP = 3;
 	wxBoxSizer* itemBoxSizer16 = new wxBoxSizer(wxHORIZONTAL);
-	itemBoxSizer15->Add(itemBoxSizer16, 0, wxGROW | wxALL, 8);
+	itemBoxSizer15->Add(itemBoxSizer16, 0, wxGROW | wxALL, HEIGHT_GAP);
 
 	wxBoxSizer* itemBoxSizer17 = new wxBoxSizer(wxVERTICAL);
 	itemBoxSizer16->Add(itemBoxSizer17, 0, wxALIGN_CENTER_VERTICAL | wxLEFT | wxRIGHT, 0);
 
 	wxStaticText* itemStaticText18 = new wxStaticText(itemPanel13, wxID_STATIC, _("Location"), wxDefaultPosition, wxSize(220, -1), 0);
-	itemStaticText18->SetFont(wxFont(18, wxFONTFAMILY_SWISS, wxFONTSTYLE_NORMAL, wxFONTWEIGHT_BOLD, false, wxT("Arial")));
-	itemBoxSizer17->Add(itemStaticText18, 0, wxALIGN_LEFT | wxALL, 5);
+	itemStaticText18->SetFont(wxFont(26, wxFONTFAMILY_SWISS, wxFONTSTYLE_NORMAL, wxFONTWEIGHT_BOLD, false, wxT("Arial")));
+	itemBoxSizer17->Add(itemStaticText18, 0, wxALIGN_LEFT | wxALL, 1);
 
 	wxBoxSizer* itemBoxSizer19 = new wxBoxSizer(wxVERTICAL);
 	itemBoxSizer16->Add(itemBoxSizer19, 0, wxALIGN_CENTER_VERTICAL | wxLEFT | wxRIGHT, 0);
 
 	wxArrayString itemComboBox20Strings;
 	itemComboBox20Strings.Add(_("19. Ojeongeop-gil, Uiwang-si"));
-	m_comboLocation = new wxComboBox(itemPanel13, ID_COMBOBOX_LOCATION, _("19. Ojeongeop-gil, Uiwang-si"), wxDefaultPosition, wxSize(355, 34), itemComboBox20Strings, wxCB_DROPDOWN);
+	m_comboLocation = new wxComboBox(itemPanel13, ID_COMBOBOX_LOCATION, _("19. Ojeongeop-gil, Uiwang-si"), wxDefaultPosition, wxSize(355, -1), itemComboBox20Strings, wxCB_DROPDOWN);
 	m_comboLocation->SetStringSelection(_("19. Ojeongeop-gil, Uiwang-si"));
-	m_comboLocation->SetFont(wxFont(18, wxFONTFAMILY_SWISS, wxFONTSTYLE_NORMAL, wxFONTWEIGHT_NORMAL, false, wxT("Arial")));
-	itemBoxSizer19->Add(m_comboLocation, 0, wxALIGN_CENTER_HORIZONTAL | wxLEFT | wxTOP | wxBOTTOM, 5);
+	m_comboLocation->SetFont(wxFont(26, wxFONTFAMILY_SWISS, wxFONTSTYLE_NORMAL, wxFONTWEIGHT_NORMAL, false, wxT("Arial")));
+	itemBoxSizer19->Add(m_comboLocation, 0, wxALIGN_CENTER_HORIZONTAL | wxLEFT | wxTOP | wxBOTTOM, 1);
 
 	wxBoxSizer* itemBoxSizer21 = new wxBoxSizer(wxVERTICAL);
 	itemBoxSizer16->Add(itemBoxSizer21, 0, wxALIGN_CENTER_VERTICAL | wxLEFT | wxRIGHT, 0);
@@ -129,58 +130,63 @@ wxPanel(frame)
 		g_controller.m_ResoucePath["keyboard_button"], wxDefaultPosition, wxSize(32, 32), 0);
 	itemBoxSizer21->Add(itemButton22, 0, wxALIGN_CENTER_HORIZONTAL | wxALL, 1);
 
+
 	wxBoxSizer* itemBoxSizer23 = new wxBoxSizer(wxHORIZONTAL);
-	itemBoxSizer15->Add(itemBoxSizer23, 0, wxGROW | wxALL, 4);
+	itemBoxSizer15->Add(itemBoxSizer23, 0, wxGROW | wxALL, HEIGHT_GAP);
 
 	wxStaticText* itemStaticText24 = new wxStaticText(itemPanel13, wxID_STATIC, _("Limit Speed"), wxDefaultPosition, wxSize(220, -1), 0);
-	itemStaticText24->SetFont(wxFont(18, wxFONTFAMILY_SWISS, wxFONTSTYLE_NORMAL, wxFONTWEIGHT_BOLD, false, wxT("Arial")));
-	itemBoxSizer23->Add(itemStaticText24, 0, wxALIGN_CENTER_VERTICAL | wxALL, 5);
+	itemStaticText24->SetFont(wxFont(26, wxFONTFAMILY_SWISS, wxFONTSTYLE_NORMAL, wxFONTWEIGHT_BOLD, false, wxT("Arial")));
+	itemBoxSizer23->Add(itemStaticText24, 0, wxALIGN_CENTER_VERTICAL | wxALL, HEIGHT_GAP);
 
 	m_editLimitSpeed = new wxTextCtrl(itemPanel13, ID_TEXTCTRL, _("60"), wxDefaultPosition, wxDefaultSize, 0);
-	m_editLimitSpeed->SetFont(wxFont(18, wxFONTFAMILY_SWISS, wxFONTSTYLE_NORMAL, wxFONTWEIGHT_NORMAL, false, wxT("Arial")));
-	itemBoxSizer23->Add(m_editLimitSpeed, 0, wxALIGN_CENTER_VERTICAL | wxLEFT | wxTOP | wxBOTTOM, 5);
+	m_editLimitSpeed->SetFont(wxFont(26, wxFONTFAMILY_SWISS, wxFONTSTYLE_NORMAL, wxFONTWEIGHT_NORMAL, false, wxT("Arial")));
+	itemBoxSizer23->Add(m_editLimitSpeed, 0, wxALIGN_CENTER_VERTICAL | wxLEFT | wxTOP | wxBOTTOM, HEIGHT_GAP);
 
 	cBitmap3ButtonEx* itemButton26 = new cBitmap3ButtonEx(itemPanel13, ID_BUTTON_LIMITSPEED, 
 		g_controller.m_ResoucePath["numpad_button"], wxDefaultPosition, wxSize(32, 32), 0);
 	itemBoxSizer23->Add(itemButton26, 0, wxALIGN_CENTER_VERTICAL | wxALL, 1);
 
 	wxStaticText* itemStaticText27 = new wxStaticText(itemPanel13, wxID_STATIC, _("Unit"), wxDefaultPosition, wxDefaultSize, 0);
-	itemStaticText27->SetFont(wxFont(18, wxFONTFAMILY_SWISS, wxFONTSTYLE_NORMAL, wxFONTWEIGHT_BOLD, false, wxT("Arial")));
-	itemBoxSizer23->Add(itemStaticText27, 0, wxALIGN_CENTER_VERTICAL | wxALL, 5);
+	itemStaticText27->SetFont(wxFont(26, wxFONTFAMILY_SWISS, wxFONTSTYLE_NORMAL, wxFONTWEIGHT_BOLD, false, wxT("Arial")));
+	itemBoxSizer23->Add(itemStaticText27, 0, wxALIGN_CENTER_VERTICAL | wxALL, 1);
 
 	wxArrayString m_UnitChoiceStrings;
 	m_UnitChoiceStrings.Add(_("m : km/h"));
 	m_UnitChoiceStrings.Add(_("ft : mph"));
 	m_UnitChoice = new wxChoice(itemPanel13, ID_CHOICE_UNIT, wxDefaultPosition, wxDefaultSize, m_UnitChoiceStrings, 0);
 	m_UnitChoice->SetStringSelection(_("m : km/h"));
-	m_UnitChoice->SetFont(wxFont(18, wxFONTFAMILY_SWISS, wxFONTSTYLE_NORMAL, wxFONTWEIGHT_BOLD, false, wxT("Arial")));
-	itemBoxSizer23->Add(m_UnitChoice, 0, wxALIGN_CENTER_VERTICAL | wxALL, 5);
+	m_UnitChoice->SetFont(wxFont(26, wxFONTFAMILY_SWISS, wxFONTSTYLE_NORMAL, wxFONTWEIGHT_BOLD, false, wxT("Arial")));
+	itemBoxSizer23->Add(m_UnitChoice, 0, wxALIGN_CENTER_VERTICAL | wxALL, 1);
+
+
 
 	wxBoxSizer* itemBoxSizer29 = new wxBoxSizer(wxHORIZONTAL);
-	itemBoxSizer15->Add(itemBoxSizer29, 0, wxGROW | wxALL, 4);
+	itemBoxSizer15->Add(itemBoxSizer29, 0, wxGROW | wxALL, HEIGHT_GAP);
 
-	wxStaticText* itemStaticText30 = new wxStaticText(itemPanel13, wxID_STATIC, _("Capture Speed"), wxDefaultPosition, wxSize(220, -1), 0);
-	itemStaticText30->SetFont(wxFont(18, wxFONTFAMILY_SWISS, wxFONTSTYLE_NORMAL, wxFONTWEIGHT_BOLD, false, wxT("Arial")));
-	itemBoxSizer29->Add(itemStaticText30, 0, wxALIGN_CENTER_VERTICAL | wxALL, 5);
+	wxStaticText* itemStaticText30 = new wxStaticText(itemPanel13, wxID_STATIC, _("Capture Speed"), wxDefaultPosition, wxSize(280, -1), 0);
+	itemStaticText30->SetFont(wxFont(26, wxFONTFAMILY_SWISS, wxFONTSTYLE_NORMAL, wxFONTWEIGHT_BOLD, false, wxT("Arial")));
+	itemBoxSizer29->Add(itemStaticText30, 0, wxALIGN_CENTER_VERTICAL | wxALL, 1);
 
 	m_editCaptureSpeed = new wxTextCtrl(itemPanel13, ID_TEXTCTRL1, _("30"), wxDefaultPosition, wxDefaultSize, 0);
-	m_editCaptureSpeed->SetFont(wxFont(18, wxFONTFAMILY_SWISS, wxFONTSTYLE_NORMAL, wxFONTWEIGHT_NORMAL, false, wxT("Arial")));
-	itemBoxSizer29->Add(m_editCaptureSpeed, 0, wxALIGN_CENTER_VERTICAL | wxLEFT | wxTOP | wxBOTTOM, 5);
+	m_editCaptureSpeed->SetFont(wxFont(26, wxFONTFAMILY_SWISS, wxFONTSTYLE_NORMAL, wxFONTWEIGHT_NORMAL, false, wxT("Arial")));
+	itemBoxSizer29->Add(m_editCaptureSpeed, 0, wxALIGN_CENTER_VERTICAL | wxLEFT | wxTOP | wxBOTTOM, 1);
 
 	cBitmap3ButtonEx* itemButton32 = new cBitmap3ButtonEx(itemPanel13, ID_BUTTON_CAPTURESPEED, 
 		g_controller.m_ResoucePath["numpad_button"], wxDefaultPosition, wxSize(32, 32), 0);
 	itemBoxSizer29->Add(itemButton32, 0, wxALIGN_CENTER_VERTICAL | wxALL, 1);
 
-	wxBoxSizer* itemBoxSizer33 = new wxBoxSizer(wxHORIZONTAL);
-	itemBoxSizer15->Add(itemBoxSizer33, 0, wxGROW | wxALL, 4);
 
-	wxStaticText* itemStaticText34 = new wxStaticText(itemPanel13, wxID_STATIC, _("Capture Distance"), wxDefaultPosition, wxSize(220, -1), 0);
-	itemStaticText34->SetFont(wxFont(18, wxFONTFAMILY_SWISS, wxFONTSTYLE_NORMAL, wxFONTWEIGHT_BOLD, false, wxT("Arial")));
-	itemBoxSizer33->Add(itemStaticText34, 0, wxALIGN_CENTER_VERTICAL | wxALL, 5);
+
+	wxBoxSizer* itemBoxSizer33 = new wxBoxSizer(wxHORIZONTAL);
+	itemBoxSizer15->Add(itemBoxSizer33, 0, wxGROW | wxALL, HEIGHT_GAP);
+
+	wxStaticText* itemStaticText34 = new wxStaticText(itemPanel13, wxID_STATIC, _("Capture Distance"), wxDefaultPosition, wxSize(280, -1), 0);
+	itemStaticText34->SetFont(wxFont(26, wxFONTFAMILY_SWISS, wxFONTSTYLE_NORMAL, wxFONTWEIGHT_BOLD, false, wxT("Arial")));
+	itemBoxSizer33->Add(itemStaticText34, 0, wxALIGN_CENTER_VERTICAL | wxALL, 1);
 
 	m_editCaptureDistance = new wxTextCtrl(itemPanel13, ID_TEXTCTRL2, _("120"), wxDefaultPosition, wxDefaultSize, 0);
-	m_editCaptureDistance->SetFont(wxFont(18, wxFONTFAMILY_SWISS, wxFONTSTYLE_NORMAL, wxFONTWEIGHT_NORMAL, false, wxT("Arial")));
-	itemBoxSizer33->Add(m_editCaptureDistance, 0, wxALIGN_CENTER_VERTICAL | wxLEFT | wxTOP | wxBOTTOM, 5);
+	m_editCaptureDistance->SetFont(wxFont(26, wxFONTFAMILY_SWISS, wxFONTSTYLE_NORMAL, wxFONTWEIGHT_NORMAL, false, wxT("Arial")));
+	itemBoxSizer33->Add(m_editCaptureDistance, 0, wxALIGN_CENTER_VERTICAL | wxLEFT | wxTOP | wxBOTTOM, 1);
 
 	cBitmap3ButtonEx* itemButton36 = new cBitmap3ButtonEx(itemPanel13, ID_BUTTON_CAPTUREDISTANCE, 
 		g_controller.m_ResoucePath["numpad_button"], wxDefaultPosition, wxSize(32, 32), 0);

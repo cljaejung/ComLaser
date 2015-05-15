@@ -52,49 +52,6 @@ enum {
 	ID_BUTTON_X,
 };
 
-wxString g_keyTable[ INPUT_MODE::MAX_TYPE][ID_BUTTON33 + 1] =
-{
-	// Alphabet Lower
-	{
-		_("q"), _("w"), _("e"), _("r"), _("t"), _("y"), _("u"), _("i"), _("o"), _("p"),
-		_("a"), _("s"), _("d"), _("f"), _("g"), _("h"), _("j"), _("k"), _("l"), _(" "),
-		_("Shift"), _("z"), _("x"), _("c"), _("v"), _("b"), _("n"), _("m"), _("Backspace"),
-		_("?123"), _(","), _(" "), _("."), _("Enter")
-	},
-
-	// Alphabet Upper
-	{
-		_("Q"), _("W"), _("E"), _("R"), _("T"), _("Y"), _("U"), _("I"), _("O"), _("P"),
-		_("A"), _("S"), _("D"), _("F"), _("G"), _("H"), _("J"), _("K"), _("L"), _(" "),
-		_("Shift"), _("Z"), _("X"), _("C"), _("V"), _("B"), _("N"), _("M"), _("Backspace"),
-		_("?123"), _(","), _(" "), _("."), _("Enter")
-	},
-	
-	// Alphabet Upper Stay
-	{
-		_("Q"), _("W"), _("E"), _("R"), _("T"), _("Y"), _("U"), _("I"), _("O"), _("P"),
-		_("A"), _("S"), _("D"), _("F"), _("G"), _("H"), _("J"), _("K"), _("L"), _(" "),
-		_("Shift"), _("Z"), _("X"), _("C"), _("V"), _("B"), _("N"), _("M"), _("Backspace"),
-		_("?123"), _(","), _(" "), _("."), _("Enter")
-	},
-
-	// Number
-	{
-		_("1"), _("2"), _("3"), _("4"), _("5"), _("6"), _("7"), _("8"), _("9"), _("0"),
-		_("@"), _("!"), _("#"), _("%"), _("&&"), _("*"), _("-"), _("+"), _("("), _(")"),
-		_("Alt"), _(","), _("\""), _("'"), _(":"), _(";"), _("/"), _("?"), _("Backspace"),
-		_("ABC"), _("$"), _(" "), _("."), _("Enter")
-	},
-
-	// Special Character
-	{
-		_("~"), _("`"), _("˚"), _("|"), _("·"), _("√ "), _("÷"), _("×"), _("{"), _("}"),
-		_("♡"), _("♥"), _("☆"), _("★"), _("□"), _("■"), _("_"), _("="), _("["), _("]"),
-		_("Alt"), _("™"), _("®"), _("ⓒ"), _("^"), _("＼"), _("<"), _(">"), _("Backspace"),
-		_("ABC"), _("$"), _(" "), _("."), _("Enter")
-	},
-};
-
 
 wxString g_keyImgTable[ INPUT_MODE::MAX_TYPE][ID_BUTTON33 + 1] = {
 	// Alphabet Lower
@@ -332,11 +289,11 @@ cKeyboardEngPanel::cKeyboardEngPanel(wxWindow *parent, const wxString &initialTe
 
 
 	wxBoxSizer* itemBoxSizer33 = new wxBoxSizer(wxHORIZONTAL);
-	itemBoxSizer2->Add(itemBoxSizer33, 0, wxALIGN_RIGHT | wxALL, 0);
+	itemBoxSizer2->Add(itemBoxSizer33, 1, wxALIGN_RIGHT | wxALL, 0);
 
 	cBitmap3ButtonEx* itemButton44 = new cBitmap3ButtonEx(itemPanel1, ID_BUTTON_X, 
 		g_controller.m_ResoucePath[ "keyboard_close_button"], wxDefaultPosition, wxDefaultSize, 0);
-	itemBoxSizer33->Add(itemButton44, 0, wxALIGN_BOTTOM | wxALL, 0);
+	itemBoxSizer33->Add(itemButton44, 1, wxALIGN_BOTTOM | wxALL, 0);
 
 
 
@@ -345,7 +302,7 @@ cKeyboardEngPanel::cKeyboardEngPanel(wxWindow *parent, const wxString &initialTe
 
 	m_textCtrl = new wxTextCtrl(itemPanel1, ID_TEXTCTRL, initialText, wxDefaultPosition, wxSize(720, -1), 
 		wxTE_PROCESS_ENTER | ((IsPassword)? wxTE_PASSWORD : 0));
-	m_textCtrl->SetFont(wxFont(18, wxFONTFAMILY_SWISS, wxFONTSTYLE_NORMAL, wxFONTWEIGHT_NORMAL, false, wxT("")));
+	m_textCtrl->SetFont(wxFont(26, wxFONTFAMILY_SWISS, wxFONTSTYLE_NORMAL, wxFONTWEIGHT_NORMAL, false, wxT("")));
 	m_textCtrl->SetMaxLength(maximumChar);
 	itemBoxSizer3->Add(m_textCtrl, 1, wxGROW | wxALL, 2);
 	
@@ -485,9 +442,7 @@ cKeyboardEngPanel::cKeyboardEngPanel(wxWindow *parent, const wxString &initialTe
 
 	UpdateButtonSize();
 	SetInputMode(INPUT_MODE::ALPHA_LOWER);
-
 }
-
 
 
 // 버튼 크기를 재 조종한다.
@@ -564,9 +519,8 @@ void cKeyboardEngPanel::OnButtonKeyboard(wxCommandEvent &evt)
 		long insertionPoint = m_textCtrl->GetInsertionPoint();
 		if (insertionPoint > 0)
 		{
-			m_textCtrl->Replace(insertionPoint-1, insertionPoint, _(""));
-
-			m_textCtrl->SetInsertionPoint(insertionPoint-1);
+			m_textCtrl->Replace(insertionPoint - 1, insertionPoint, _(""));
+			m_textCtrl->SetInsertionPoint(insertionPoint - 1);
 		}
 
 		return; // End
@@ -622,7 +576,6 @@ void cKeyboardEngPanel::SetInputMode(const INPUT_MODE::TYPE mode)
 	for (u_int i = 0; i < m_keyboardButton.size(); ++i)
 	{
 		const int id = m_keyboardButton[i]->GetId();
-		//m_keyboardButton[i]->SetLabel(g_keyTable_Lower[ mode][id]);
 		m_keyboardButton[i]->SetButton2Bitmap(g_keyImgTable[mode][id]);
 	}
 
@@ -633,7 +586,7 @@ void cKeyboardEngPanel::SetInputMode(const INPUT_MODE::TYPE mode)
 			m_keyboardButton[ID_BUTTON19]->Show();
 	}
 
-	m_currentKeyTable = g_keyTable[mode];
+	m_currentKeyTable = g_controller.m_keyTable[mode];
 
 	Layout();
 }

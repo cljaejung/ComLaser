@@ -91,30 +91,32 @@ wxPanel(frame)
 	
 
 	wxStaticText* itemStaticText17 = new wxStaticText(itemPanel10, wxID_STATIC, _("Device ID"), wxDefaultPosition, wxDefaultSize, 0);
-	itemStaticText17->SetFont(wxFont(18, wxFONTFAMILY_SWISS, wxFONTSTYLE_NORMAL, wxFONTWEIGHT_BOLD, false, wxT("Arial")));
+	itemStaticText17->SetFont(wxFont(26, wxFONTFAMILY_SWISS, wxFONTSTYLE_NORMAL, wxFONTWEIGHT_BOLD, false, wxT("Arial")));
 	itemBoxSizer16->Add(itemStaticText17, 0, wxALIGN_CENTER_VERTICAL | wxALL, 5);
 
 	wxBoxSizer* itemBoxSizer18 = new wxBoxSizer(wxVERTICAL);
 	itemBoxSizer16->Add(itemBoxSizer18, 1, wxALIGN_CENTER_VERTICAL | wxALL, 0);
 
-	wxTextCtrl* itemTextCtrl19 = new wxTextCtrl(itemPanel10, ID_TEXTCTRL, wxEmptyString, wxDefaultPosition, wxSize(300, -1), wxTE_READONLY);
-	itemTextCtrl19->SetFont(wxFont(18, wxFONTFAMILY_SWISS, wxFONTSTYLE_NORMAL, wxFONTWEIGHT_NORMAL, false, wxT("Arial")));
-	itemTextCtrl19->Enable(false);
-	itemBoxSizer18->Add(itemTextCtrl19, 0, wxALIGN_RIGHT | wxALL, 5);
+	wxTextCtrl* itemTextCtrl19 = new wxTextCtrl(itemPanel10, ID_TEXTCTRL, wxEmptyString, wxDefaultPosition, wxSize(320, -1), wxTE_READONLY);
+	itemTextCtrl19->SetFont(wxFont(26, wxFONTFAMILY_SWISS, wxFONTSTYLE_NORMAL, wxFONTWEIGHT_NORMAL, false, wxT("Arial")));
+	//itemTextCtrl19->Enable(false);
+	itemBoxSizer18->Add(itemTextCtrl19, 0, wxALIGN_RIGHT | wxALL, 0);
 
 	wxBoxSizer* itemBoxSizer20 = new wxBoxSizer(wxHORIZONTAL);
 	itemBoxSizer13->Add(itemBoxSizer20, 0, wxGROW | wxALL, 5);
 
 	wxStaticText* itemStaticText21 = new wxStaticText(itemPanel10, wxID_STATIC, _("User Name"), wxDefaultPosition, wxDefaultSize, 0);
-	itemStaticText21->SetFont(wxFont(18, wxFONTFAMILY_SWISS, wxFONTSTYLE_NORMAL, wxFONTWEIGHT_BOLD, false, wxT("Arial")));
+	itemStaticText21->SetFont(wxFont(26, wxFONTFAMILY_SWISS, wxFONTSTYLE_NORMAL, wxFONTWEIGHT_BOLD, false, wxT("Arial")));
 	itemBoxSizer20->Add(itemStaticText21, 0, wxALIGN_CENTER_VERTICAL | wxALL, 5);
 
 	wxBoxSizer* itemBoxSizer22 = new wxBoxSizer(wxVERTICAL);
 	itemBoxSizer20->Add(itemBoxSizer22, 1, wxALIGN_CENTER_VERTICAL | wxALL, 0);
 
 	wxArrayString itemComboBox23Strings;
+	itemComboBox23Strings.Add(_("police"));
 	wxComboBox* itemComboCtrl23 = new wxComboBox(itemPanel10, ID_COMBOBOX, _("police"), wxDefaultPosition, wxSize(270, -1), itemComboBox23Strings, wxCB_DROPDOWN);
-	itemComboCtrl23->SetFont(wxFont(18, wxFONTFAMILY_SWISS, wxFONTSTYLE_NORMAL, wxFONTWEIGHT_NORMAL, false, wxT("")));
+	
+	itemComboCtrl23->SetFont(wxFont(26, wxFONTFAMILY_SWISS, wxFONTSTYLE_NORMAL, wxFONTWEIGHT_NORMAL, false, wxT("")));
 	itemBoxSizer22->Add(itemComboCtrl23, 1, wxALIGN_RIGHT | wxALL, 0);
 	
 	wxBoxSizer* itemBoxSizer24 = new wxBoxSizer(wxVERTICAL);
@@ -128,14 +130,14 @@ wxPanel(frame)
 	itemBoxSizer13->Add(itemBoxSizer26, 0, wxGROW | wxALL, 5);
 
 	wxStaticText* itemStaticText27 = new wxStaticText(itemPanel10, wxID_STATIC, _("Password"), wxDefaultPosition, wxDefaultSize, 0);
-	itemStaticText27->SetFont(wxFont(18, wxFONTFAMILY_SWISS, wxFONTSTYLE_NORMAL, wxFONTWEIGHT_BOLD, false, wxT("Arial")));
+	itemStaticText27->SetFont(wxFont(26, wxFONTFAMILY_SWISS, wxFONTSTYLE_NORMAL, wxFONTWEIGHT_BOLD, false, wxT("Arial")));
 	itemBoxSizer26->Add(itemStaticText27, 0, wxALIGN_CENTER_VERTICAL | wxALL, 5);
 
 	wxBoxSizer* itemBoxSizer28 = new wxBoxSizer(wxVERTICAL);
 	itemBoxSizer26->Add(itemBoxSizer28, 1, wxALIGN_CENTER_VERTICAL | wxALL, 0);
 
 	wxTextCtrl* itemTextCtrl29 = new wxTextCtrl(itemPanel10, ID_TEXTCTRL1, wxEmptyString, wxDefaultPosition, wxSize(270, -1), wxTE_PASSWORD);
-	itemTextCtrl29->SetFont(wxFont(18, wxFONTFAMILY_SWISS, wxFONTSTYLE_NORMAL, wxFONTWEIGHT_NORMAL, false, wxT("")));
+	itemTextCtrl29->SetFont(wxFont(26, wxFONTFAMILY_SWISS, wxFONTSTYLE_NORMAL, wxFONTWEIGHT_NORMAL, false, wxT("")));
 	itemBoxSizer28->Add(itemTextCtrl29, 1, wxALIGN_RIGHT | wxALL, 0);
 
 	wxBoxSizer* itemBoxSizer30 = new wxBoxSizer(wxVERTICAL);
@@ -155,22 +157,50 @@ wxPanel(frame)
 
 
 
-	wxBoxSizer* itemBoxSizer41 = new wxBoxSizer(wxVERTICAL);
-	itemBoxSizer8->Add(itemBoxSizer41, 0, wxALIGN_BOTTOM  | wxLEFT | wxRIGHT | wxTOP, 5);
+	//wxBoxSizer* itemBoxSizer41 = new wxBoxSizer(wxVERTICAL);
+	//itemBoxSizer8->Add(itemBoxSizer41, 0, wxALIGN_BOTTOM  | wxLEFT | wxRIGHT | wxTOP, 5);
 
-	cBitmap3ButtonEx* itemButton42 = new cBitmap3ButtonEx(itemPanel1, ID_BUTTON_START, g_controller.m_ResoucePath["start_button"], wxDefaultPosition, wxDefaultSize, 0);
-	itemBoxSizer41->Add(itemButton42, 0, wxALIGN_CENTER_HORIZONTAL | wxALL, 0);
+	//cBitmap3ButtonEx* itemButton42 = new cBitmap3ButtonEx(itemPanel1, ID_BUTTON_START, g_controller.m_ResoucePath["start_button"], wxDefaultPosition, wxDefaultSize, 0);
+	//itemBoxSizer41->Add(itemButton42, 0, wxALIGN_CENTER_HORIZONTAL | wxALL, 0);
 
-	cBitmap3ButtonEx* itemButton43 = new cBitmap3ButtonEx(itemPanel1, ID_BUTTON_EXIT, g_controller.m_ResoucePath["exit_button"], wxDefaultPosition, wxDefaultSize, 0);
-	itemBoxSizer41->Add(itemButton43, 0, wxALIGN_CENTER_HORIZONTAL | wxLEFT | wxRIGHT | wxTOP, 0);
+	//cBitmap3ButtonEx* itemButton43 = new cBitmap3ButtonEx(itemPanel1, ID_BUTTON_EXIT, g_controller.m_ResoucePath["exit_button"], wxDefaultPosition, wxDefaultSize, 0);
+	//itemBoxSizer41->Add(itemButton43, 0, wxALIGN_CENTER_HORIZONTAL | wxLEFT | wxRIGHT | wxTOP, 0);
 
-	wxBoxSizer* itemBoxSizer44 = new wxBoxSizer(wxHORIZONTAL);
-	itemBoxSizer2->Add(itemBoxSizer44, 0, wxALIGN_CENTER_HORIZONTAL | wxALL, 0);
+	//wxBoxSizer* itemBoxSizer44 = new wxBoxSizer(wxHORIZONTAL);
+	//itemBoxSizer2->Add(itemBoxSizer44, 0, wxALIGN_CENTER_HORIZONTAL | wxALL, 0);
 
-	wxPanel* itemPanel45 = new wxPanel(itemPanel1, ID_PANEL1, wxDefaultPosition, wxSize(-1, 20), wxTAB_TRAVERSAL);
-	itemPanel45->SetExtraStyle(wxWS_EX_VALIDATE_RECURSIVELY);
-	itemPanel45->SetBackgroundColour(wxColour(0, 0, 0));
-	itemBoxSizer44->Add(itemPanel45, 0, wxALIGN_CENTER_VERTICAL | wxALL, 0);
+
+	wxBoxSizer* itemBoxSizer34 = new wxBoxSizer(wxVERTICAL);
+	itemBoxSizer8->Add(itemBoxSizer34, 0, wxGROW | wxLEFT | wxRIGHT | wxTOP, 5);
+
+	wxBoxSizer* itemBoxSizer35 = new wxBoxSizer(wxHORIZONTAL);
+	itemBoxSizer34->Add(itemBoxSizer35, 1, wxALIGN_CENTER_HORIZONTAL | wxALL, 0);
+
+	cBitmap3ButtonEx* itemButton36 = new cBitmap3ButtonEx(itemPanel1, ID_BUTTON_START, 
+		g_controller.m_ResoucePath["start_button"], wxDefaultPosition, wxDefaultSize, 0);
+	itemBoxSizer35->Add(itemButton36, 0, wxALIGN_TOP | wxUP, 50);
+
+	wxBoxSizer* itemBoxSizer37 = new wxBoxSizer(wxHORIZONTAL);
+	itemBoxSizer34->Add(itemBoxSizer37, 1, wxALIGN_CENTER_HORIZONTAL | wxALL, 0);
+
+	cBitmap3ButtonEx* itemButton38 = new cBitmap3ButtonEx(itemPanel1, ID_BUTTON_EXIT, 
+		g_controller.m_ResoucePath["exit_button"], wxDefaultPosition, wxDefaultSize, 0);
+	itemBoxSizer37->Add(itemButton38, 0, wxALIGN_BOTTOM | wxBOTTOM, 5);
+
+
+	wxBoxSizer* itemBoxSizer39 = new wxBoxSizer(wxHORIZONTAL);
+	itemBoxSizer2->Add(itemBoxSizer39, 0, wxALIGN_CENTER_HORIZONTAL | wxALL, 0);
+
+	wxPanel* itemPanel40 = new wxPanel(itemPanel1, ID_PANEL1, wxDefaultPosition, wxSize(-1, 20), wxTAB_TRAVERSAL);
+	itemPanel40->SetExtraStyle(wxWS_EX_VALIDATE_RECURSIVELY);
+	itemPanel40->SetBackgroundColour(wxColour(0, 0, 0));
+	itemBoxSizer39->Add(itemPanel40, 0, wxALIGN_CENTER_VERTICAL | wxALL, 0);
+
+
+	//wxPanel* itemPanel45 = new wxPanel(itemPanel1, ID_PANEL1, wxDefaultPosition, wxSize(-1, 20), wxTAB_TRAVERSAL);
+	//itemPanel45->SetExtraStyle(wxWS_EX_VALIDATE_RECURSIVELY);
+	//itemPanel45->SetBackgroundColour(wxColour(0, 0, 0));
+	//itemBoxSizer44->Add(itemPanel45, 0, wxALIGN_CENTER_VERTICAL | wxALL, 0);
 
 	/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 

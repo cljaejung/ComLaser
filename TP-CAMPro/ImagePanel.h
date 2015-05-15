@@ -6,7 +6,7 @@ class cImagePanel : public wxPanel
 {
 public:
 	cImagePanel(wxWindow *parent, const wxString &fileName, const wxSize &size = wxDefaultSize,
-		const wxColour &bgColor = wxColour(255, 255, 255)) :
+		const wxColour &bgColor = wxColour(0, 0, 0)) :
 		wxPanel(parent) {
 
 		cImagePanel* itemPanel1 = this;

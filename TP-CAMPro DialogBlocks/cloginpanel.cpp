@@ -176,21 +176,21 @@ void cLoginPanel::CreateControls()
     itemBoxSizer13->Add(itemBoxSizer16, 0, wxGROW|wxALL, 5);
 
     wxStaticText* itemStaticText17 = new wxStaticText( itemPanel10, wxID_STATIC, _("Device ID"), wxDefaultPosition, wxDefaultSize, 0 );
-    itemStaticText17->SetFont(wxFont(18, wxFONTFAMILY_SWISS, wxFONTSTYLE_NORMAL, wxFONTWEIGHT_BOLD, false, wxT("Arial")));
+    itemStaticText17->SetFont(wxFont(26, wxFONTFAMILY_SWISS, wxFONTSTYLE_NORMAL, wxFONTWEIGHT_NORMAL, false, wxT("Arial")));
     itemBoxSizer16->Add(itemStaticText17, 0, wxALIGN_CENTER_VERTICAL|wxALL, 5);
 
     wxBoxSizer* itemBoxSizer18 = new wxBoxSizer(wxVERTICAL);
     itemBoxSizer16->Add(itemBoxSizer18, 1, wxALIGN_CENTER_VERTICAL|wxALL, 0);
 
     m_textDeviceID = new wxTextCtrl( itemPanel10, ID_TEXTCTRL, wxEmptyString, wxDefaultPosition, wxSize(300, -1), wxTE_READONLY );
-    m_textDeviceID->SetFont(wxFont(18, wxFONTFAMILY_SWISS, wxFONTSTYLE_NORMAL, wxFONTWEIGHT_NORMAL, false, wxT("Arial")));
+    m_textDeviceID->SetFont(wxFont(26, wxFONTFAMILY_SWISS, wxFONTSTYLE_NORMAL, wxFONTWEIGHT_NORMAL, false, wxT("Arial")));
     itemBoxSizer18->Add(m_textDeviceID, 0, wxALIGN_RIGHT|wxALL, 5);
 
     wxBoxSizer* itemBoxSizer20 = new wxBoxSizer(wxHORIZONTAL);
     itemBoxSizer13->Add(itemBoxSizer20, 0, wxGROW|wxALL, 5);
 
     wxStaticText* itemStaticText21 = new wxStaticText( itemPanel10, wxID_STATIC, _("User Name"), wxDefaultPosition, wxDefaultSize, 0 );
-    itemStaticText21->SetFont(wxFont(18, wxFONTFAMILY_SWISS, wxFONTSTYLE_NORMAL, wxFONTWEIGHT_BOLD, false, wxT("Arial")));
+    itemStaticText21->SetFont(wxFont(26, wxFONTFAMILY_SWISS, wxFONTSTYLE_NORMAL, wxFONTWEIGHT_NORMAL, false, wxT("Arial")));
     itemBoxSizer20->Add(itemStaticText21, 0, wxALIGN_CENTER_VERTICAL|wxALL, 5);
 
     wxBoxSizer* itemBoxSizer22 = new wxBoxSizer(wxVERTICAL);
@@ -211,14 +211,14 @@ void cLoginPanel::CreateControls()
     itemBoxSizer13->Add(itemBoxSizer26, 0, wxGROW|wxALL, 5);
 
     wxStaticText* itemStaticText27 = new wxStaticText( itemPanel10, wxID_STATIC, _("Password"), wxDefaultPosition, wxDefaultSize, 0 );
-    itemStaticText27->SetFont(wxFont(18, wxFONTFAMILY_SWISS, wxFONTSTYLE_NORMAL, wxFONTWEIGHT_BOLD, false, wxT("Arial")));
+    itemStaticText27->SetFont(wxFont(26, wxFONTFAMILY_SWISS, wxFONTSTYLE_NORMAL, wxFONTWEIGHT_NORMAL, false, wxT("Arial")));
     itemBoxSizer26->Add(itemStaticText27, 0, wxALIGN_CENTER_VERTICAL|wxALL, 5);
 
     wxBoxSizer* itemBoxSizer28 = new wxBoxSizer(wxVERTICAL);
     itemBoxSizer26->Add(itemBoxSizer28, 1, wxALIGN_CENTER_VERTICAL|wxALL, 0);
 
     m_textPassWord = new wxTextCtrl( itemPanel10, ID_TEXTCTRL1, wxEmptyString, wxDefaultPosition, wxSize(270, -1), 0 );
-    m_textPassWord->SetFont(wxFont(18, wxFONTFAMILY_SWISS, wxFONTSTYLE_NORMAL, wxFONTWEIGHT_NORMAL, false, wxT("")));
+    m_textPassWord->SetFont(wxFont(26, wxFONTFAMILY_SWISS, wxFONTSTYLE_NORMAL, wxFONTWEIGHT_NORMAL, false, wxT("Arial")));
     itemBoxSizer28->Add(m_textPassWord, 1, wxALIGN_RIGHT|wxALL, 0);
 
     wxBoxSizer* itemBoxSizer30 = new wxBoxSizer(wxVERTICAL);
@@ -234,21 +234,27 @@ void cLoginPanel::CreateControls()
     itemBoxSizer32->Add(itemStaticBitmap33, 0, wxALIGN_CENTER_HORIZONTAL|wxALL, 0);
 
     wxBoxSizer* itemBoxSizer34 = new wxBoxSizer(wxVERTICAL);
-    itemBoxSizer8->Add(itemBoxSizer34, 0, wxALIGN_BOTTOM|wxLEFT|wxRIGHT|wxTOP, 5);
+    itemBoxSizer8->Add(itemBoxSizer34, 0, wxGROW|wxLEFT|wxRIGHT|wxTOP, 5);
 
-    wxButton* itemButton35 = new wxButton( itemPanel1, ID_BUTTON_START, _("Start"), wxDefaultPosition, wxDefaultSize, 0 );
-    itemBoxSizer34->Add(itemButton35, 0, wxALIGN_CENTER_HORIZONTAL|wxALL, 5);
+    wxBoxSizer* itemBoxSizer35 = new wxBoxSizer(wxHORIZONTAL);
+    itemBoxSizer34->Add(itemBoxSizer35, 1, wxALIGN_CENTER_HORIZONTAL|wxALL, 0);
 
-    wxButton* itemButton36 = new wxButton( itemPanel1, ID_BUTTON_EXIT, _("Exit"), wxDefaultPosition, wxDefaultSize, 0 );
-    itemBoxSizer34->Add(itemButton36, 0, wxALIGN_CENTER_HORIZONTAL|wxLEFT|wxRIGHT|wxTOP, 5);
+    wxButton* itemButton36 = new wxButton( itemPanel1, ID_BUTTON_START, _("Start"), wxDefaultPosition, wxDefaultSize, 0 );
+    itemBoxSizer35->Add(itemButton36, 0, wxALIGN_TOP|wxALL, 5);
 
     wxBoxSizer* itemBoxSizer37 = new wxBoxSizer(wxHORIZONTAL);
-    itemBoxSizer2->Add(itemBoxSizer37, 0, wxALIGN_CENTER_HORIZONTAL|wxALL, 0);
+    itemBoxSizer34->Add(itemBoxSizer37, 1, wxALIGN_CENTER_HORIZONTAL|wxALL, 0);
 
-    wxPanel* itemPanel38 = new wxPanel( itemPanel1, ID_PANEL1, wxDefaultPosition, wxSize(-1, 20), wxTAB_TRAVERSAL );
-    itemPanel38->SetExtraStyle(wxWS_EX_VALIDATE_RECURSIVELY);
-    itemPanel38->SetBackgroundColour(wxColour(0, 0, 0));
-    itemBoxSizer37->Add(itemPanel38, 0, wxALIGN_CENTER_VERTICAL|wxALL, 0);
+    wxButton* itemButton38 = new wxButton( itemPanel1, ID_BUTTON_EXIT, _("Exit"), wxDefaultPosition, wxDefaultSize, 0 );
+    itemBoxSizer37->Add(itemButton38, 0, wxALIGN_BOTTOM|wxLEFT|wxRIGHT|wxTOP, 5);
+
+    wxBoxSizer* itemBoxSizer39 = new wxBoxSizer(wxHORIZONTAL);
+    itemBoxSizer2->Add(itemBoxSizer39, 0, wxALIGN_CENTER_HORIZONTAL|wxALL, 0);
+
+    wxPanel* itemPanel40 = new wxPanel( itemPanel1, ID_PANEL1, wxDefaultPosition, wxSize(-1, 20), wxTAB_TRAVERSAL );
+    itemPanel40->SetExtraStyle(wxWS_EX_VALIDATE_RECURSIVELY);
+    itemPanel40->SetBackgroundColour(wxColour(0, 0, 0));
+    itemBoxSizer39->Add(itemPanel40, 0, wxALIGN_CENTER_VERTICAL|wxALL, 0);
 
 ////@end cLoginPanel content construction
 }

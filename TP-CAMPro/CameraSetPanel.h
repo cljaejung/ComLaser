@@ -31,6 +31,7 @@ protected:
 	DECLARE_EVENT_TABLE()
 	void OnButtonOK(wxCommandEvent &);
 	void OnButtonCancel(wxCommandEvent &);
+	void OnButtonCaptureTest(wxCommandEvent &);
 	void OnButtonFull(wxCommandEvent &);
 	void OnSliderGainScrollChanged(wxScrollEvent& event);
 	void OnChoiceWeatherSelected(wxCommandEvent& event);

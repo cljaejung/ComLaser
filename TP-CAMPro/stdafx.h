@@ -37,6 +37,7 @@ using std::string;
 using std::wstring;
 
 
+
 enum PANEL_TYPE
 {
 	PANEL_NONE,
@@ -119,3 +120,5 @@ namespace INPUT_MODE
 
 #include "Controller.h"
 extern cController g_controller;
+
+#include "Global.h"

@@ -216,6 +216,7 @@ void cCameraSetPanel::CreateControls()
     itemBoxSizer22->Add(itemBoxSizer24, 1, wxALIGN_CENTER_VERTICAL|wxALL, 0);
 
     wxArrayString m_choiceShutterSpeedStrings;
+    m_choiceShutterSpeedStrings.Add(_("0.1ms"));
     m_choiceShutterSpeedStrings.Add(_("0.2ms"));
     m_choiceShutterSpeedStrings.Add(_("0.5ms"));
     m_choiceShutterSpeedStrings.Add(_("1 ms"));
@@ -246,46 +247,43 @@ void cCameraSetPanel::CreateControls()
     itemBoxSizer28->Add(itemChoice29, 0, wxALIGN_RIGHT|wxALL, 0);
 
     wxBoxSizer* itemBoxSizer30 = new wxBoxSizer(wxHORIZONTAL);
-    itemBoxSizer13->Add(itemBoxSizer30, 0, wxGROW|wxALL, 3);
+    itemBoxSizer13->Add(itemBoxSizer30, 0, wxALIGN_RIGHT|wxALL, 3);
 
-    wxStaticText* itemStaticText31 = new wxStaticText( itemPanel12, wxID_STATIC, _("Capture Test"), wxDefaultPosition, wxDefaultSize, 0 );
-    itemStaticText31->SetFont(wxFont(18, wxFONTFAMILY_SWISS, wxFONTSTYLE_NORMAL, wxFONTWEIGHT_BOLD, false, wxT("Arial")));
-    itemBoxSizer30->Add(itemStaticText31, 0, wxALIGN_CENTER_VERTICAL|wxLEFT|wxRIGHT, 5);
+    wxButton* itemButton31 = new wxButton( itemPanel12, ID_BUTTON_CAPTURETEST, _("CaptureTest"), wxDefaultPosition, wxDefaultSize, 0 );
+    itemButton31->SetFont(wxFont(18, wxFONTFAMILY_SWISS, wxFONTSTYLE_NORMAL, wxFONTWEIGHT_NORMAL, false, wxT("")));
+    itemBoxSizer30->Add(itemButton31, 0, wxALIGN_CENTER_VERTICAL|wxALL, 5);
 
-    wxBoxSizer* itemBoxSizer32 = new wxBoxSizer(wxVERTICAL);
-    itemBoxSizer30->Add(itemBoxSizer32, 1, wxALIGN_CENTER_VERTICAL|wxALL, 0);
+    wxBoxSizer* itemBoxSizer32 = new wxBoxSizer(wxHORIZONTAL);
+    itemBoxSizer13->Add(itemBoxSizer32, 1, wxALIGN_CENTER_HORIZONTAL|wxTOP, 10);
 
-    wxArrayString itemChoice33Strings;
-    itemChoice33Strings.Add(_("On"));
-    itemChoice33Strings.Add(_("Off"));
-    wxChoice* itemChoice33 = new wxChoice( itemPanel12, ID_CHOICE_CAPTURETEST, wxDefaultPosition, wxSize(100, -1), itemChoice33Strings, 0 );
-    itemChoice33->SetStringSelection(_("On"));
-    itemChoice33->SetFont(wxFont(18, wxFONTFAMILY_SWISS, wxFONTSTYLE_NORMAL, wxFONTWEIGHT_NORMAL, false, wxT("Arial")));
-    itemBoxSizer32->Add(itemChoice33, 0, wxALIGN_RIGHT|wxALL, 0);
+    wxButton* itemButton33 = new wxButton( itemPanel12, ID_BUTTON_OK, _("OK"), wxDefaultPosition, wxDefaultSize, 0 );
+    itemBoxSizer32->Add(itemButton33, 0, wxALIGN_BOTTOM|wxALL, 5);
 
-    wxBoxSizer* itemBoxSizer34 = new wxBoxSizer(wxHORIZONTAL);
-    itemBoxSizer13->Add(itemBoxSizer34, 1, wxALIGN_CENTER_HORIZONTAL|wxTOP, 10);
+    wxButton* itemButton34 = new wxButton( itemPanel12, ID_BUTTON_CANCEL, _("Cancel"), wxDefaultPosition, wxDefaultSize, 0 );
+    itemBoxSizer32->Add(itemButton34, 0, wxALIGN_BOTTOM|wxALL, 5);
 
-    wxButton* itemButton35 = new wxButton( itemPanel12, ID_BUTTON_OK, _("OK"), wxDefaultPosition, wxDefaultSize, 0 );
-    itemBoxSizer34->Add(itemButton35, 0, wxALIGN_BOTTOM|wxALL, 5);
+    wxBoxSizer* itemBoxSizer35 = new wxBoxSizer(wxVERTICAL);
+    itemBoxSizer10->Add(itemBoxSizer35, 1, wxGROW|wxALL, 5);
 
-    wxButton* itemButton36 = new wxButton( itemPanel12, ID_BUTTON_CANCEL, _("Cancel"), wxDefaultPosition, wxDefaultSize, 0 );
-    itemBoxSizer34->Add(itemButton36, 0, wxALIGN_BOTTOM|wxALL, 5);
+    wxBoxSizer* itemBoxSizer36 = new wxBoxSizer(wxHORIZONTAL);
+    itemBoxSizer35->Add(itemBoxSizer36, 0, wxGROW|wxTOP, 5);
 
-    wxBoxSizer* itemBoxSizer37 = new wxBoxSizer(wxVERTICAL);
-    itemBoxSizer10->Add(itemBoxSizer37, 1, wxGROW|wxALL, 5);
+    wxPanel* itemPanel37 = new wxPanel( itemPanel1, ID_PANEL2, wxDefaultPosition, wxDefaultSize, wxTAB_TRAVERSAL );
+    itemPanel37->SetExtraStyle(wxWS_EX_VALIDATE_RECURSIVELY);
+    itemPanel37->SetBackgroundColour(wxColour(0, 128, 128));
+    itemBoxSizer36->Add(itemPanel37, 1, wxALIGN_CENTER_VERTICAL|wxALL, 0);
 
-    wxBoxSizer* itemBoxSizer38 = new wxBoxSizer(wxHORIZONTAL);
-    itemBoxSizer37->Add(itemBoxSizer38, 0, wxGROW|wxTOP, 5);
+    wxBoxSizer* itemBoxSizer38 = new wxBoxSizer(wxVERTICAL);
+    itemPanel37->SetSizer(itemBoxSizer38);
 
-    m_textCaptureDistance = new wxStaticText( itemPanel1, wxID_STATIC, _("  Capture Distance"), wxDefaultPosition, wxDefaultSize, 0 );
+    m_textCaptureDistance = new wxStaticText( itemPanel37, wxID_STATIC, _("  Capture Distance"), wxDefaultPosition, wxDefaultSize, 0 );
     m_textCaptureDistance->SetForegroundColour(wxColour(255, 255, 255));
     m_textCaptureDistance->SetBackgroundColour(wxColour(0, 128, 128));
     m_textCaptureDistance->SetFont(wxFont(18, wxFONTFAMILY_SWISS, wxFONTSTYLE_NORMAL, wxFONTWEIGHT_NORMAL, false, wxT("Arial")));
-    itemBoxSizer38->Add(m_textCaptureDistance, 1, wxALIGN_CENTER_VERTICAL|wxALL, 0);
+    itemBoxSizer38->Add(m_textCaptureDistance, 1, wxGROW|wxALL, 0);
 
     wxBoxSizer* itemBoxSizer40 = new wxBoxSizer(wxHORIZONTAL);
-    itemBoxSizer37->Add(itemBoxSizer40, 1, wxGROW|wxBOTTOM, 5);
+    itemBoxSizer35->Add(itemBoxSizer40, 1, wxGROW|wxBOTTOM, 5);
 
     wxPanel* itemPanel41 = new wxPanel( itemPanel1, ID_PANEL, wxDefaultPosition, wxSize(350, 288), wxSUNKEN_BORDER|wxTAB_TRAVERSAL );
     itemPanel41->SetExtraStyle(wxWS_EX_VALIDATE_RECURSIVELY);
