@@ -12,6 +12,8 @@ public:
 	cFileMngPanel(wxFrame*frame);
 	virtual ~cFileMngPanel();
 
+	virtual bool Show(bool show = true) override;
+
 
 protected:
 	void SelectImage(const int imageIndex, const bool fromListCtrl=false);

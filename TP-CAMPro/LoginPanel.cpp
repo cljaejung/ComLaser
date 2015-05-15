@@ -82,7 +82,8 @@ wxPanel(frame)
 	wxBoxSizer* itemBoxSizer14 = new wxBoxSizer(wxHORIZONTAL);
 	itemBoxSizer13->Add(itemBoxSizer14, 0, wxALIGN_CENTER_HORIZONTAL | wxALL, 5);
 
-	cDateDisplay* itemStaticText15 = new cDateDisplay(itemPanel10, false, false, wxColour(192,192,192));
+	cDateDisplay* itemStaticText15 = new cDateDisplay(itemPanel10, false, false, wxColour(192,192,192),
+		wxColour(100, 100, 255), wxColour(250, 120, 10));
 	itemBoxSizer14->Add(itemStaticText15, 0, wxALIGN_CENTER_VERTICAL | wxALL, 5);
 
 	wxBoxSizer* itemBoxSizer16 = new wxBoxSizer(wxHORIZONTAL);

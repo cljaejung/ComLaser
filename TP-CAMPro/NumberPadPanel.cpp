@@ -149,7 +149,7 @@ cNumberPadPanel::cNumberPadPanel(wxWindow *parent, const int initNumber)
 
 	///////////////////////////////////////////////////////////////////////////////////////////////////////////
 	m_textCtrl->SetFocus();
-
+	m_textCtrl->SelectNone();
 }
 
 

@@ -13,7 +13,8 @@ END_EVENT_TABLE()
 
 
 
-cDateDisplay::cDateDisplay(wxWindow *parent, const bool IsSmallSize, const bool IsClickSetDate, const wxColour &bgColor) :
+cDateDisplay::cDateDisplay(wxWindow *parent, const bool IsSmallSize, const bool IsClickSetDate, 
+	const wxColour &bgColor, const wxColour &dayColor, const wxColour &timeColor) :
 	wxPanel(parent)
 	, m_isSmallSize(IsSmallSize)
 	, m_isClickSetDate(IsClickSetDate)
@@ -63,10 +64,10 @@ cDateDisplay::cDateDisplay(wxWindow *parent, const bool IsSmallSize, const bool 
 		wxFONTSTYLE_NORMAL, wxFONTWEIGHT_BOLD, false);
 
 	itemStaticText4->SetFont(m_font);
-	itemStaticText4->SetForegroundColour(wxColour(150, 150, 255));
+	itemStaticText4->SetForegroundColour(dayColor);
 
 	itemStaticText6->SetFont(m_font);
-	itemStaticText6->SetForegroundColour(wxColour(250, 180, 10));
+	itemStaticText6->SetForegroundColour(timeColor);
 
 	itemStaticText7->SetFont(m_font2);
 	itemStaticText7->SetForegroundColour(wxColour(255,255,255));

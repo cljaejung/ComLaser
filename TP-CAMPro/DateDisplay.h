@@ -5,7 +5,10 @@
 class cDateDisplay : public wxPanel
 {
 public:
-	cDateDisplay(wxWindow *parent, const bool IsSmallSize=false, const bool IsClickSetDate=false, const wxColour &bgColor=wxColour(0,0,0));
+	cDateDisplay(wxWindow *parent, const bool IsSmallSize=false, const bool IsClickSetDate=false, 
+		const wxColour &bgColor=wxColour(0,0,0),
+		const wxColour &dayColor=wxColour(150, 150, 255),
+		const wxColour &timeColor=wxColour(250, 180, 10));
 	virtual ~cDateDisplay();
 
 	void UpdateDate();

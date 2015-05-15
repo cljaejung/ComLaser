@@ -425,7 +425,8 @@ cKeyboardEngPanel::cKeyboardEngPanel(wxWindow *parent, const wxString &initialTe
 	//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 	// 문자가 전체 선택된 상태를 해제하고, carret을 가장 끝으로 이동시킨다. (약간의 꽁수코드가 있음)
 	m_textCtrl->SetFocus();
-	m_textCtrl->SelectAll();
+	//m_textCtrl->SelectAll();
+	m_textCtrl->SelectNone();
 
 
 	// 키보드 버튼 객체를 모두 m_keyboardMap에 저장한다.

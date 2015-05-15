@@ -73,7 +73,7 @@ cController::cController()
 // 캡쳐된 파일을 읽는다.
 bool cController::ReadCaptureFiles()
 {
-	printf("ReadCaptureFiles \n");
+	printf("ReadCaptureFiles() \n");
 
 	m_captureImages.reserve(128);
 	m_captureImages.push_back(sCaptureImage(0, _("capture/Koala.jpg"), 124, _("17:05:25")));
@@ -116,7 +116,7 @@ bool cController::ReadKeyboardTable(const string &fileName)
 			m_keyTable[index / 34][index % 34] = wstr;
 
 			//printf("%d, %s \n", id, value); 디버깅용.
-			printf("wstr =  %d %ls\n", id, wstr.c_str());// 디버깅용.
+			//printf("wstr =  %d %ls\n", id, wstr.c_str());// 디버깅용.
 		}
 
 		++index;
@@ -147,7 +147,7 @@ bool cController::ReadResoucePath(const string &fileName)
 		m_ResoucePath[key] = value;
 
 		// 디버깅 용.
-		printf("%s, %s\n", key, value);
+		//printf("%s, %s\n", key, value);
 	}
 
 	return true;

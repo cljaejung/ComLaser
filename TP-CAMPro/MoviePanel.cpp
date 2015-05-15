@@ -7,17 +7,20 @@
 
 
 BEGIN_EVENT_TABLE(cMoviePanel, wxPanel)
-	EVT_IDLE(cMoviePanel::OnIdle)
-	EVT_PAINT(cMoviePanel::OnPaint)
-	EVT_ERASE_BACKGROUND(cMoviePanel::OnEraseBackground)
-	EVT_LEFT_DCLICK(cMoviePanel::OnLeftDClick)
+EVT_IDLE(cMoviePanel::OnIdle)
+EVT_PAINT(cMoviePanel::OnPaint)
+EVT_ERASE_BACKGROUND(cMoviePanel::OnEraseBackground)
+EVT_LEFT_DCLICK(cMoviePanel::OnLeftDClick)
 END_EVENT_TABLE()
 
 
 
 cMoviePanel::cMoviePanel(wxWindow *parent,
-	wxWindowID winid, const wxPoint& pos, const wxSize& size, long style, const wxString& name)
-	: wxPanel(parent, winid, pos, size, style, name)
+wxWindowID winid, const wxPoint& pos, const wxSize& size, long style, const wxString& name)
+: wxPanel(parent, winid, pos, size, style, name)
+, m_bufferSize(0, 0)
+, m_blackBrush(wxColour(0,0,0))
+, m_clearBkgndCount(100)
 {
 
 	//cMoviePanel* itemPanel1 = this;
@@ -27,6 +30,8 @@ cMoviePanel::cMoviePanel(wxWindow *parent,
 
 	//wxBoxSizer* itemBoxSizer3 = new wxBoxSizer(wxHORIZONTAL);
 	//itemBoxSizer2->Add(itemBoxSizer3, 1, wxGROW | wxALL, 0);
+
+	//SetBackgroundColour(wxColour(0, 0, 0));
 
 
 	////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -65,22 +70,34 @@ void cMoviePanel::OnIdle(wxIdleEvent& event)
 
 		// resize background bitmap buffer
 		const wxSize clientSize = GetClientSize();
-		if (clientSize.GetWidth() < 0 || clientSize.GetHeight() < 0)
+		if (clientSize.GetWidth() <= 0 || clientSize.GetHeight() <= 0)
 			return;
 
 		const bool isLoadBitmap = !m_backupBitmap.IsOk() ||
-			((clientSize.GetWidth() != m_backupBitmap.GetWidth()) ||
-			(clientSize.GetHeight() != m_backupBitmap.GetHeight()));
+			((clientSize.GetWidth() != m_bufferSize.GetWidth()) ||
+			(clientSize.GetHeight() != m_bufferSize.GetHeight()));
 
 		if (isLoadBitmap)
 		{
-			m_backupBitmap = wxBitmap(clientSize.GetWidth(), clientSize.GetHeight());
+			// 1024 X 960 해상도
+			// 종횡비 0.9375f
+			// 횡종비 1.06666f
+			m_bufferSize = clientSize;
+			m_bufferScaledSize.x = clientSize.GetHeight() * 1.06666f;
+			m_bufferScaledSize.y = clientSize.GetHeight();
+
+			m_backupBitmap = wxBitmap(m_bufferSize.GetWidth(), m_bufferSize.GetHeight());
 		}
 
 		// 이미지 로딩.
-		m_currentBitmap.LoadFile(wxString::Format("movie/bmp%d.bmp", m_curImgIndex), wxBITMAP_TYPE_BMP);
-		if (m_currentBitmap.IsOk())
-			m_currentBitmap.Rescale(m_backupBitmap.GetWidth(), m_backupBitmap.GetHeight());
+		if (m_backupBitmap.IsOk())
+		{
+			m_currentBitmap.LoadFile(wxString::Format("movie/bmp%d.bmp", m_curImgIndex), wxBITMAP_TYPE_BMP);
+			if (m_currentBitmap.IsOk())
+			{
+				m_currentBitmap.Rescale(m_bufferSize.GetWidth(), m_bufferSize.GetHeight());
+			}
+		}
 
 		m_oldTick = global::GetTickCount();
 
@@ -104,12 +121,21 @@ void cMoviePanel::OnPaint(wxPaintEvent& event)
 
 	wxPaintDC dc(this);
 
+	if (!m_isPlay || (m_clearBkgndCount++ >= 100))
+	{
+		dc.SetBrush(m_blackBrush);
+		dc.DrawRectangle(wxPoint(0, 0), m_bufferSize);
+		m_clearBkgndCount = 0;
+	}
+
 	// 더블버퍼링.
 	wxMemoryDC memDC;
 	memDC.SelectObject(m_backupBitmap);
 	memDC.DrawBitmap(m_currentBitmap, wxPoint(0, 0));
 
-	dc.Blit(wxPoint(0, 0), wxSize(720, 480), &memDC, wxPoint(0, 0));
+	//dc.Blit(wxPoint(0, 0), wxSize(720, 480), &memDC, wxPoint(0, 0));
+	const int offsetX = m_bufferSize.x - m_bufferScaledSize.x;
+	dc.StretchBlit(wxPoint(offsetX/2, 0), m_bufferScaledSize, &memDC, wxPoint(0, 0), m_bufferSize);
 }
 
 
@@ -121,4 +147,3 @@ void cMoviePanel::OnLeftDClick(wxMouseEvent& event)
 		return;
 	frame->ChangePanel(m_GotoNextPanel);
 }
-

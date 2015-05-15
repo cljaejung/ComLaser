@@ -20,9 +20,9 @@ bool cCLApp::OnInit()
 	wxInitAllImageHandlers();
 
 	cCLFrame *frame = new cCLFrame(_T("TP-CAM Pro"));
-	frame->Show(true);
+	//frame->Show(true);
 	//frame->Maximize();
-	//frame->ShowFullScreen(true);
+	frame->ShowFullScreen(true);
 	return true;
 }
 

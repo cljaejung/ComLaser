@@ -28,9 +28,10 @@ memory_clear_button ref_img/Filemanage_Memoryclear.bmp
 enfm_icon80 ref_img/ENFM_ICON_80_eng.bmp
 done_button ref_img/Enforcement_Done.bmp
 keyboard_close_button ref_img/Keyboard_X_50.bmp
-numberpad_close_button ref_img/Keyboard_X.bmp
+numberpad_close_button ref_img/Keyboard_X_50.bmp
 numberpad_remove_button ref_img/Numpad_X.bmp
 numberpad_done_button ref_img/Numpad_Done.bmp
 numberpad_cancel_button ref_img/Numpad_Cancel.bmp
-
+dateset_plus ref_img/dateset_+.bmp
+dateset_minus ref_img/dateset_-.bmp
 

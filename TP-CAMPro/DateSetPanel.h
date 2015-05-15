@@ -8,7 +8,7 @@ public:
 	virtual ~cDateSetPanel();
 
 	void UpdateCurrentTime();
-	void UpdateCurrentTime(const wxDateTime::Month &m, const int day, const int year, const int hour, const int minutes);
+	void UpdateCurrentTime(const wxDateTime::Month &m, const int day, const int year, const int hour, const int minutes, const int seconds);
 	void UpdateCurrentTime(const wxDateTime &dt);
 	void CheckDay(const wxDateTime::Month &m, const int year);
 
@@ -19,13 +19,15 @@ protected:
 	wxButton *m_btnYear;
 	wxButton *m_btnHour;
 	wxButton *m_btnMinutes;
-	wxButton *m_btnTime;
+	wxButton *m_btnSeconds;
 
 	wxDateTime::Month m_Month;
 	int m_Day;
 	int m_Year;
 	int m_Hour;
 	int m_Minutes;
+	int m_Seconds;
+
 
 	// message handling
 protected:
@@ -40,6 +42,8 @@ protected:
 	void OnButtonYearDown(wxCommandEvent &);
 	void OnButtonHourUp(wxCommandEvent &);
 	void OnButtonMinutesUp(wxCommandEvent &);
+	void OnButtonSecondsUp(wxCommandEvent &);
 	void OnButtonHourDown(wxCommandEvent &);
 	void OnButtonMinutesDown(wxCommandEvent &);
+	void OnButtonSecondsDown(wxCommandEvent &);
 };

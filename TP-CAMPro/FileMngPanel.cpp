@@ -134,6 +134,7 @@ wxPanel(frame)
 
 	m_CaptureImage = new wxStaticBitmap(itemPanel22, ID_STATIC_BITMAP, 
 		wxNullBitmap, wxDefaultPosition, wxDefaultSize, 0);
+	m_CaptureImage->SetBackgroundColour(wxColour(0, 0, 0));
 	itemBoxSizer124->Add(m_CaptureImage, 1, wxGROW | wxALL, 1);
 
 
@@ -371,4 +372,17 @@ void cFileMngPanel::ShowImage(const wxString &fileName)
 
 	m_CaptureImage->SetBitmap(wxBitmap(scaleImage));
 	m_CaptureImage->GetParent()->Refresh();
+}
+
+
+bool cFileMngPanel::Show(bool show)
+{
+	const bool reval = wxPanel::Show(show);
+
+	//if (show)
+	//{
+	//	SelectImage(0);
+	//}
+
+	return reval;
 }
